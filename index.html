@@ -1,95 +1,1315 @@
-<section class="section">
-  <div class="tool" style="max-width:700px;margin:auto;">
-    <h2>ضغط الصور</h2>
-    <p>قلل حجم الصورة بسهولة مع الحفاظ على جودة جيدة.</p>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 
-    <input
-      type="file"
-      id="imageInput"
-      accept="image/*"
-      style="margin:15px 0;"
-    >
+<head>
+  <meta charset="UTF-8">
 
-    <label for="quality">جودة الصورة:</label>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <select id="quality" style="padding:10px;margin:10px;">
-      <option value="0.9">عالية</option>
-      <option value="0.7" selected>متوسطة</option>
-      <option value="0.5">منخفضة</option>
-    </select>
+  <meta name="description"
+        content="أدواتي AI - كل أدواتك اليومية في مكان واحد">
 
-    <br>
+  <meta name="theme-color"
+        content="#101a4f">
 
-    <button
-      onclick="compressImage()"
-      style="padding:12px 25px;background:#18245f;color:white;border:0;border-radius:9px;cursor:pointer;"
-    >
-      ضغط الصورة
-    </button>
+  <title>أدواتي AI | كل أدواتك اليومية في مكان واحد</title>
 
-    <p id="result" style="margin-top:15px;"></p>
+  <style>
 
-    <a
-      id="download"
-      style="display:none;background:#ffbd00;color:#111;padding:12px 20px;border-radius:9px;text-decoration:none;font-weight:bold;"
-      download="compressed-image.jpg"
-    >
-      تحميل الصورة المضغوطة
-    </a>
-  </div>
-</section>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<script>
-function compressImage() {
-  const input = document.getElementById("imageInput");
-  const quality = parseFloat(document.getElementById("quality").value);
-  const result = document.getElementById("result");
-  const download = document.getElementById("download");
+    html {
+      scroll-behavior: smooth;
+    }
 
-  if (!input.files.length) {
-    result.textContent = "يرجى اختيار صورة أولاً.";
-    return;
-  }
+    body {
+      font-family: Arial, Tahoma, sans-serif;
+      background: #f5f7fb;
+      color: #172033;
+      line-height: 1.7;
+    }
 
-  const file = input.files[0];
-  const reader = new FileReader();
+    /* =========================
+       HEADER
+    ========================= */
 
-  reader.onload = function(event) {
-    const img = new Image();
+    header {
+      background: #101a4f;
+      color: white;
+      padding: 18px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+    }
 
-    img.onload = function() {
-      const canvas = document.createElement("canvas");
-      const ctx = canvas.getContext("2d");
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-      const maxWidth = 1600;
-      const scale = Math.min(1, maxWidth / img.width);
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+    }
 
-      canvas.width = img.width * scale;
-      canvas.height = img.height * scale;
+    .logo span {
+      color: #ffbd00;
+    }
 
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    nav {
+      display: flex;
+      gap: 20px;
+    }
 
-      canvas.toBlob(function(blob) {
-        const url = URL.createObjectURL(blob);
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: bold;
+    }
 
-        download.href = url;
-        download.style.display = "inline-block";
+    nav a:hover {
+      color: #ffbd00;
+    }
 
-        const originalKB = Math.round(file.size / 1024);
-        const compressedKB = Math.round(blob.size / 1024);
+    /* =========================
+       HERO
+    ========================= */
 
-        result.textContent =
-          "تم ضغط الصورة بنجاح. الحجم الأصلي: " +
-          originalKB +
-          " KB — الحجم الجديد: " +
-          compressedKB +
-          " KB";
-      }, "image/jpeg", quality);
-    };
+    .hero {
+      background:
+        linear-gradient(
+          135deg,
+          #101a4f,
+          #1d2d7a,
+          #18245f
+        );
 
-    img.src = event.target.result;
-  };
+      color: white;
+      padding: 75px 20px 80px;
+      text-align: center;
+    }
 
-  reader.readAsDataURL(file);
-}
-</script>
+    .hero-content {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: #ffbd00;
+    }
+
+    .hero p {
+      font-size: 20px;
+      opacity: 0.95;
+      margin-bottom: 30px;
+    }
+
+    .search-box {
+      max-width: 650px;
+      margin: auto;
+      display: flex;
+      background: white;
+      border-radius: 14px;
+      padding: 6px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 15px;
+      font-size: 16px;
+      direction: rtl;
+    }
+
+    .search-box button {
+      background: #ffbd00;
+      color: #111;
+      border: none;
+      padding: 0 25px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* =========================
+       GENERAL SECTION
+    ========================= */
+
+    .section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 65px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+      color: #101a4f;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #667085;
+    }
+
+    /* =========================
+       CATEGORIES
+    ========================= */
+
+    .categories {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+
+    .category {
+      background: white;
+      border-radius: 16px;
+      padding: 25px 15px;
+      text-align: center;
+      cursor: pointer;
+      border: 1px solid #e8ebf2;
+      transition: 0.3s;
+    }
+
+    .category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(16,26,79,0.12);
+    }
+
+    .category-icon {
+      font-size: 35px;
+      margin-bottom: 8px;
+    }
+
+    .category h3 {
+      font-size: 17px;
+      color: #101a4f;
+    }
+
+    /* =========================
+       TOOL CARDS
+    ========================= */
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .tool-card {
+      background: white;
+      border-radius: 18px;
+      padding: 25px;
+      border: 1px solid #e7eaf0;
+      transition: 0.3s;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(16,26,79,0.12);
+    }
+
+    .tool-icon {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .tool-card h3 {
+      color: #101a4f;
+      margin-bottom: 7px;
+    }
+
+    .tool-card p {
+      color: #667085;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .tool-button {
+      display: inline-block;
+      background: #101a4f;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 9px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .tool-button:hover {
+      background: #18245f;
+    }
+
+    /* =========================
+       IMAGE COMPRESSOR
+    ========================= */
+
+    .compressor-section {
+      background: #eef1f8;
+      padding: 70px 20px;
+    }
+
+    .compressor-box {
+      max-width: 750px;
+      margin: auto;
+      background: white;
+      border-radius: 22px;
+      padding: 35px;
+      box-shadow: 0 12px 35px rgba(16,26,79,0.10);
+      border: 1px solid #e4e7ef;
+    }
+
+    .compressor-box h2 {
+      color: #101a4f;
+      text-align: center;
+      margin-bottom: 8px;
+      font-size: 30px;
+    }
+
+    .compressor-description {
+      text-align: center;
+      color: #667085;
+      margin-bottom: 30px;
+    }
+
+    .file-area {
+      border: 2px dashed #b9c0d0;
+      border-radius: 15px;
+      padding: 30px 20px;
+      text-align: center;
+      background: #fafbfe;
+      margin-bottom: 20px;
+    }
+
+    .file-area-icon {
+      font-size: 45px;
+      margin-bottom: 10px;
+    }
+
+    .file-input {
+      width: 100%;
+      margin-top: 15px;
+      font-size: 15px;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .option-box {
+      background: #f5f7fb;
+      padding: 15px;
+      border-radius: 12px;
+    }
+
+    .option-box label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #101a4f;
+    }
+
+    .option-box select {
+      width: 100%;
+      padding: 11px;
+      border: 1px solid #d7dce6;
+      border-radius: 8px;
+      background: white;
+      font-size: 15px;
+    }
+
+    .compress-button {
+      width: 100%;
+      padding: 15px;
+      background: #101a4f;
+      color: white;
+      border: none;
+      border-radius: 11px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .compress-button:hover {
+      background: #18245f;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f5f7fb;
+      border-radius: 10px;
+      text-align: center;
+      display: none;
+    }
+
+    .download-button {
+      display: none;
+      margin-top: 15px;
+      width: 100%;
+      text-align: center;
+      background: #ffbd00;
+      color: #111;
+      padding: 13px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* =========================
+       SERVICE CTA
+    ========================= */
+
+    .service {
+      background:
+        linear-gradient(
+          135deg,
+          #101a4f,
+          #1e2e79
+        );
+
+      color: white;
+      margin-top: 20px;
+      border-radius: 25px;
+      padding: 55px 25px;
+      text-align: center;
+    }
+
+    .service h2 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .service p {
+      max-width: 700px;
+      margin: 0 auto 25px;
+      opacity: 0.95;
+    }
+
+    .service-button {
+      display: inline-block;
+      background: #ffbd00;
+      color: #111;
+      padding: 13px 25px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #0b1238;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 50px;
+    }
+
+    footer p {
+      opacity: 0.85;
+      font-size: 14px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 700px) {
+
+      .header-container {
+        flex-direction: column;
+      }
+
+      nav {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        padding: 55px 15px 60px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .search-box {
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .search-box button {
+        padding: 13px;
+      }
+
+      .section {
+        padding: 45px 15px;
+      }
+
+      .section-title h2 {
+        font-size: 27px;
+      }
+
+      .compressor-box {
+        padding: 22px 15px;
+      }
+
+      .options {
+        grid-template-columns: 1fr;
+      }
+
+      .service h2 {
+        font-size: 27px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header>
+
+    <div class="header-container">
+
+      <a href="#" class="logo">
+        أدواتي <span>AI</span>
+      </a>
+
+      <nav>
+        <a href="#tools">الأدوات</a>
+        <a href="#compressor">ضغط الصور</a>
+        <a href="#services">خدماتنا</a>
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h1>
+        كل أدواتك اليومية
+        <span>في مكان واحد</span>
+      </h1>
+
+      <p>
+        أدوات سهلة وسريعة تساعدك على إنجاز أعمالك اليومية
+        باستخدام الذكاء الاصطناعي والتقنيات الحديثة.
+      </p>
+
+      <div class="search-box">
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="ماذا تريد أن تنجز؟"
+        >
+
+        <button onclick="searchTools()">
+          بحث
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CATEGORIES
+  ========================= -->
+
+  <section class="section">
+
+    <div class="section-title">
+
+      <h2>استكشف الأدوات</h2>
+
+      <p>
+        اختر القسم الذي تحتاجه
+      </p>
+
+    </div>
+
+
+    <div class="categories">
+
+      <div class="category"
+           onclick="scrollToTool('compressor')">
+
+        <div class="category-icon">🖼️</div>
+
+        <h3>الصور</h3>
+
+      </div>
+
+
+      <div class="category">
+
+        <div class="category-icon">📄</div>
+
+        <h3>PDF</h3>
+
+      </div>
+
+
+      <div class="category">
+
+        <div class="category-icon">✍️</div>
+
+        <h3>النصوص</h3>
+
+      </div>
+
+
+      <div class="category">
+
+        <div class="category-icon">🧮</div>
+
+        <h3>الحساب</h3>
+
+      </div>
+
+
+      <div class="category">
+
+        <div class="category-icon">🤖</div>
+
+        <h3>الذكاء الاصطناعي</h3>
+
+      </div>
+
+
+      <div class="category">
+
+        <div class="category-icon">📱</div>
+
+        <h3>أدوات التواصل</h3>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       TOOLS
+  ========================= -->
+
+  <section class="section" id="tools">
+
+    <div class="section-title">
+
+      <h2>أدوات مفيدة لك</h2>
+
+      <p>
+        نبدأ بالأدوات الأساسية، وسنضيف المزيد قريباً.
+      </p>
+
+    </div>
+
+
+    <div class="tools-grid">
+
+      <!-- IMAGE COMPRESSOR -->
+
+      <div class="tool-card">
+
+        <div class="tool-icon">
+          🗜️
+        </div>
+
+        <h3>
+          ضغط الصور
+        </h3>
+
+        <p>
+          قلل حجم صورك بسرعة مع الحفاظ على جودة جيدة.
+        </p>
+
+        <button
+          class="tool-button"
+          onclick="scrollToTool('compressor')">
+
+          ابدأ الآن
+
+        </button>
+
+      </div>
+
+
+      <!-- PDF -->
+
+      <div class="tool-card">
+
+        <div class="tool-icon">
+          📑
+        </div>
+
+        <h3>
+          أدوات PDF
+        </h3>
+
+        <p>
+          أدوات PDF قادمة قريباً مثل الدمج والتقسيم والضغط.
+        </p>
+
+        <button
+          class="tool-button"
+          onclick="comingSoon()">
+
+          قريباً
+
+        </button>
+
+      </div>
+
+
+      <!-- TEXT -->
+
+      <div class="tool-card">
+
+        <div class="tool-icon">
+          📝
+        </div>
+
+        <h3>
+          عداد الكلمات
+        </h3>
+
+        <p>
+          احسب عدد الكلمات والحروف في النص بسهولة.
+        </p>
+
+        <button
+          class="tool-button"
+          onclick="comingSoon()">
+
+          قريباً
+
+        </button>
+
+      </div>
+
+
+      <!-- CALCULATOR -->
+
+      <div class="tool-card">
+
+        <div class="tool-icon">
+          🧮
+        </div>
+
+        <h3>
+          حاسبة النسبة المئوية
+        </h3>
+
+        <p>
+          احسب النسبة المئوية بسرعة وسهولة.
+        </p>
+
+        <button
+          class="tool-button"
+          onclick="comingSoon()">
+
+          قريباً
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       IMAGE COMPRESSOR
+  ========================= -->
+
+  <section
+    class="compressor-section"
+    id="compressor">
+
+    <div class="compressor-box">
+
+      <h2>
+        🖼️ ضغط الصور
+      </h2>
+
+      <p class="compressor-description">
+        اختر صورة من جهازك، حدد الجودة، ثم اضغط على الصورة.
+      </p>
+
+
+      <div class="file-area">
+
+        <div class="file-area-icon">
+          📤
+        </div>
+
+        <strong>
+          اختر الصورة التي تريد ضغطها
+        </strong>
+
+        <input
+          class="file-input"
+          type="file"
+          id="imageInput"
+          accept="image/*"
+        >
+
+      </div>
+
+
+      <div class="options">
+
+        <div class="option-box">
+
+          <label for="quality">
+            جودة الصورة
+          </label>
+
+          <select id="quality">
+
+            <option value="0.9">
+              عالية
+            </option>
+
+            <option value="0.7" selected>
+              متوسطة
+            </option>
+
+            <option value="0.5">
+              منخفضة
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="option-box">
+
+          <label for="format">
+            صيغة الصورة
+          </label>
+
+          <select id="format">
+
+            <option value="image/jpeg">
+              JPG
+            </option>
+
+            <option value="image/webp">
+              WEBP
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="compress-button"
+        onclick="compressImage()">
+
+        ضغط الصورة الآن
+
+      </button>
+
+
+      <div
+        class="result"
+        id="result">
+
+      </div>
+
+
+      <a
+        id="download"
+        class="download-button"
+        download="compressed-image.jpg">
+
+        تحميل الصورة المضغوطة
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       SERVICES
+  ========================= -->
+
+  <section
+    class="section"
+    id="services">
+
+    <div class="service">
+
+      <h2>
+        هل تريد أن نصنعها لك؟
+      </h2>
+
+      <p>
+        لا تريد إنشاء الصورة أو الفيديو بنفسك؟
+        يمكنك لاحقاً طلب خدمتنا، وسنقوم بتنفيذ
+        التصميم أو الفيديو أو المحتوى لك.
+      </p>
+
+      <a
+        href="#"
+        class="service-button"
+        onclick="serviceMessage(); return false;">
+
+        اطلب خدمتك الآن
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <p>
+      © 2026 أدواتي AI — كل أدواتك اليومية في مكان واحد
+    </p>
+
+    <p>
+      أدوات سهلة، سريعة ومفيدة للجميع
+    </p>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    /* =========================
+       SCROLL TO TOOL
+    ========================= */
+
+    function scrollToTool(id) {
+
+      const element = document.getElementById(id);
+
+      if (element) {
+
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      }
+
+    }
+
+
+    /* =========================
+       IMAGE COMPRESSOR
+    ========================= */
+
+    function compressImage() {
+
+      const input =
+        document.getElementById("imageInput");
+
+      const quality =
+        parseFloat(
+          document.getElementById("quality").value
+        );
+
+      const format =
+        document.getElementById("format").value;
+
+      const result =
+        document.getElementById("result");
+
+      const download =
+        document.getElementById("download");
+
+
+      /* Reset */
+
+      result.style.display = "none";
+
+      download.style.display = "none";
+
+      download.removeAttribute("href");
+
+
+      /* Check file */
+
+      if (!input.files || input.files.length === 0) {
+
+        result.style.display = "block";
+
+        result.innerHTML =
+          "⚠️ يرجى اختيار صورة أولاً.";
+
+        return;
+
+      }
+
+
+      const file = input.files[0];
+
+
+      /* Check image */
+
+      if (!file.type.startsWith("image/")) {
+
+        result.style.display = "block";
+
+        result.innerHTML =
+          "⚠️ الملف المختار ليس صورة.";
+
+        return;
+
+      }
+
+
+      result.style.display = "block";
+
+      result.innerHTML =
+        "⏳ جاري ضغط الصورة...";
+
+
+      const reader =
+        new FileReader();
+
+
+      reader.onload = function(event) {
+
+        const img =
+          new Image();
+
+
+        img.onload = function() {
+
+          try {
+
+            const canvas =
+              document.createElement("canvas");
+
+            const ctx =
+              canvas.getContext("2d");
+
+
+            /* Maximum width */
+
+            const maxWidth = 1600;
+
+            let scale = 1;
+
+
+            if (img.width > maxWidth) {
+
+              scale =
+                maxWidth / img.width;
+
+            }
+
+
+            canvas.width =
+              Math.round(img.width * scale);
+
+            canvas.height =
+              Math.round(img.height * scale);
+
+
+            /* White background for JPG */
+
+            if (format === "image/jpeg") {
+
+              ctx.fillStyle = "#ffffff";
+
+              ctx.fillRect(
+                0,
+                0,
+                canvas.width,
+                canvas.height
+              );
+
+            }
+
+
+            ctx.drawImage(
+              img,
+              0,
+              0,
+              canvas.width,
+              canvas.height
+            );
+
+
+            canvas.toBlob(
+
+              function(blob) {
+
+                if (!blob) {
+
+                  result.innerHTML =
+                    "❌ حدث خطأ أثناء ضغط الصورة.";
+
+                  return;
+
+                }
+
+
+                const url =
+                  URL.createObjectURL(blob);
+
+
+                download.href = url;
+
+
+                if (format === "image/webp") {
+
+                  download.download =
+                    "compressed-image.webp";
+
+                } else {
+
+                  download.download =
+                    "compressed-image.jpg";
+
+                }
+
+
+                download.style.display =
+                  "block";
+
+
+                const originalKB =
+                  Math.round(file.size / 1024);
+
+
+                const compressedKB =
+                  Math.round(blob.size / 1024);
+
+
+                let savedPercent = 0;
+
+
+                if (file.size > 0) {
+
+                  savedPercent =
+                    Math.max(
+                      0,
+                      Math.round(
+                        (
+                          1 -
+                          blob.size /
+                          file.size
+                        ) * 100
+                      )
+                    );
+
+                }
+
+
+                result.innerHTML =
+                  "✅ تم ضغط الصورة بنجاح!" +
+                  "<br><br>" +
+                  "الحجم الأصلي: " +
+                  originalKB +
+                  " KB" +
+                  "<br>" +
+                  "الحجم الجديد: " +
+                  compressedKB +
+                  " KB" +
+                  "<br>" +
+                  "نسبة التوفير: " +
+                  savedPercent +
+                  "%";
+
+
+              },
+
+              format,
+
+              quality
+
+            );
+
+
+          } catch (error) {
+
+            result.innerHTML =
+              "❌ حدث خطأ أثناء معالجة الصورة. يرجى المحاولة مرة أخرى.";
+
+          }
+
+        };
+
+
+        img.onerror = function() {
+
+          result.innerHTML =
+            "❌ تعذر قراءة الصورة. يرجى اختيار صورة أخرى.";
+
+        };
+
+
+        img.src =
+          event.target.result;
+
+      };
+
+
+      reader.onerror = function() {
+
+        result.innerHTML =
+          "❌ تعذر قراءة الملف.";
+
+      };
+
+
+      reader.readAsDataURL(file);
+
+    }
+
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    function searchTools() {
+
+      const input =
+        document.getElementById("searchInput");
+
+      const value =
+        input.value.trim().toLowerCase();
+
+
+      if (value === "") {
+
+        alert(
+          "اكتب اسم الأداة التي تبحث عنها."
+        );
+
+        return;
+
+      }
+
+
+      if (
+        value.includes("صورة") ||
+        value.includes("صور") ||
+        value.includes("ضغط")
+      ) {
+
+        scrollToTool("compressor");
+
+        return;
+
+      }
+
+
+      alert(
+        "هذه الأداة ستتوفر قريباً. سنضيف المزيد من الأدوات باستمرار."
+      );
+
+    }
+
+
+    /* =========================
+       COMING SOON
+    ========================= */
+
+    function comingSoon() {
+
+      alert(
+        "🚀 هذه الأداة قادمة قريباً. سنضيفها في التحديث القادم."
+      );
+
+    }
+
+
+    /* =========================
+       SERVICES
+    ========================= */
+
+    function serviceMessage() {
+
+      alert(
+        "✨ خدمة تنفيذ التصاميم والفيديوهات بالذكاء الاصطناعي ستكون متاحة قريباً."
+      );
+
+    }
+
+  </script>
+
+</body>
+
+</html>
