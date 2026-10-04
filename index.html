@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#071a3d" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071a3d">
 
-  <title>أدواتي AI | كل أدواتك اليومية في مكان واحد</title>
+  <title>أداتي AI | كل أدواتك اليومية في مكان واحد</title>
 
   <meta
     name="description"
-    content="أدواتي AI — أدوات مجانية للصور وPDF والنصوص والحساب والذكاء الاصطناعي، بالإضافة إلى خدمات AI احترافية."
-  />
+    content="أداتي AI — منصة عربية تجمع الأدوات الرقمية اليومية وخدمات الذكاء الاصطناعي في مكان واحد."
+  >
 
   <style>
     * {
@@ -24,16 +24,12 @@
     }
 
     body {
-      font-family:
-        Tahoma,
-        Arial,
-        "Noto Sans Arabic",
-        sans-serif;
+      font-family: Tahoma, Arial, sans-serif;
       background:
-        radial-gradient(circle at 20% 10%, rgba(31, 96, 255, 0.18), transparent 28%),
-        radial-gradient(circle at 80% 20%, rgba(0, 195, 255, 0.12), transparent 25%),
+        radial-gradient(circle at 15% 10%, rgba(30, 110, 255, .18), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(110, 70, 255, .14), transparent 25%),
         #06142f;
-      color: #ffffff;
+      color: #fff;
       line-height: 1.7;
       min-height: 100vh;
     }
@@ -46,8 +42,8 @@
     }
 
     a {
-      color: inherit;
       text-decoration: none;
+      color: inherit;
     }
 
     .container {
@@ -55,34 +51,64 @@
       margin: auto;
     }
 
-    /* HEADER */
+    /* =========================
+       HEADER / BRAND
+    ========================== */
 
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(4, 18, 48, 0.9);
+      background: rgba(4, 18, 48, .90);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
 
     .nav {
-      min-height: 72px;
+      min-height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
     }
 
-    .logo {
-      font-size: 25px;
-      font-weight: 900;
-      color: #ffffff;
-      white-space: nowrap;
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      direction: rtl;
     }
 
-    .logo span {
-      color: #49a5ff;
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: linear-gradient(135deg, #168cff, #635bff);
+      color: white;
+
+      font-size: 25px;
+      font-weight: 900;
+
+      box-shadow: 0 8px 28px rgba(35,130,255,.28);
+    }
+
+    .brand-name {
+      color: #fff;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -.5px;
+    }
+
+    .brand-name span {
+      color: #55b5ff;
+      font-family: Arial, sans-serif;
+      direction: ltr;
+      display: inline-block;
     }
 
     .nav-links {
@@ -94,7 +120,7 @@
     }
 
     .nav-links a:hover {
-      color: #55b4ff;
+      color: #55b5ff;
     }
 
     .nav-btn {
@@ -104,7 +130,9 @@
       font-weight: bold;
     }
 
-    /* HERO */
+    /* =========================
+       HERO
+    ========================== */
 
     .hero {
       padding: 90px 0 65px;
@@ -113,10 +141,10 @@
 
     .badge {
       display: inline-block;
-      padding: 7px 14px;
+      padding: 7px 15px;
       border-radius: 999px;
-      background: rgba(65, 153, 255, 0.12);
-      border: 1px solid rgba(86, 168, 255, 0.25);
+      background: rgba(65,153,255,.12);
+      border: 1px solid rgba(86,168,255,.25);
       color: #72bcff;
       font-size: 13px;
       margin-bottom: 20px;
@@ -130,14 +158,14 @@
     }
 
     .hero h1 span {
-      background: linear-gradient(90deg, #55b8ff, #a06cff);
+      background: linear-gradient(90deg,#55b8ff,#a06cff);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
     .hero p {
-      max-width: 720px;
+      max-width: 750px;
       margin: auto;
       color: #b9c8df;
       font-size: 18px;
@@ -146,15 +174,14 @@
     .search-box {
       max-width: 720px;
       margin: 35px auto 0;
-      position: relative;
     }
 
     .search-box input {
       width: 100%;
       padding: 18px 22px;
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,.12);
       border-radius: 18px;
-      background: rgba(255,255,255,0.07);
+      background: rgba(255,255,255,.07);
       color: white;
       outline: none;
       font-size: 16px;
@@ -164,7 +191,9 @@
       color: #8fa2bf;
     }
 
-    /* SECTION */
+    /* =========================
+       SECTIONS
+    ========================== */
 
     section {
       padding: 65px 0;
@@ -180,11 +209,17 @@
       margin-bottom: 8px;
     }
 
+    .section-title h2 span {
+      color: #58b3ff;
+    }
+
     .section-title p {
       color: #9eb0ca;
     }
 
-    /* CATEGORIES */
+    /* =========================
+       CATEGORIES
+    ========================== */
 
     .categories {
       display: flex;
@@ -195,8 +230,8 @@
     }
 
     .category {
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.05);
       color: #dbe8ff;
       padding: 10px 16px;
       border-radius: 999px;
@@ -211,7 +246,9 @@
       color: white;
     }
 
-    /* TOOLS */
+    /* =========================
+       TOOLS
+    ========================== */
 
     .tools-grid {
       display: grid;
@@ -223,10 +260,10 @@
       background:
         linear-gradient(
           145deg,
-          rgba(255,255,255,0.08),
-          rgba(255,255,255,0.025)
+          rgba(255,255,255,.08),
+          rgba(255,255,255,.025)
         );
-      border: 1px solid rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,.09);
       border-radius: 20px;
       padding: 23px;
       min-height: 190px;
@@ -268,22 +305,24 @@
       width: 100%;
       border: 0;
       cursor: pointer;
-      background: linear-gradient(135deg, #128cff, #4d5bff);
+      background: linear-gradient(135deg,#128cff,#4d5bff);
       color: white;
       padding: 11px;
       border-radius: 11px;
       font-weight: bold;
     }
 
-    /* WORKSPACE */
+    /* =========================
+       WORKSPACE
+    ========================== */
 
     #workspace {
       display: none;
     }
 
     .workspace-box {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
       border-radius: 22px;
       padding: 25px;
       max-width: 850px;
@@ -343,7 +382,9 @@
       min-height: 45px;
     }
 
-    /* AI SERVICES */
+    /* =========================
+       AI SERVICES
+    ========================== */
 
     .ai-section {
       background:
@@ -356,7 +397,7 @@
 
     .ai-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3,1fr);
       gap: 18px;
     }
 
@@ -387,16 +428,24 @@
       font-size: 14px;
     }
 
-    /* SERVICE CTA */
+    /* =========================
+       SERVICE CTA
+    ========================== */
 
     .service-box {
       margin-top: 40px;
       border-radius: 25px;
-      padding: 38px;
+      padding: 40px 25px;
       text-align: center;
+
       background:
-        radial-gradient(circle at top right, rgba(50,145,255,.3), transparent 35%),
-        linear-gradient(135deg, #102d68, #101b48);
+        radial-gradient(
+          circle at top right,
+          rgba(50,145,255,.3),
+          transparent 35%
+        ),
+        linear-gradient(135deg,#102d68,#101b48);
+
       border: 1px solid rgba(96,170,255,.2);
     }
 
@@ -407,8 +456,8 @@
 
     .service-box p {
       color: #c0d0e8;
-      max-width: 760px;
-      margin: 0 auto 20px;
+      max-width: 800px;
+      margin: 0 auto 22px;
     }
 
     .whatsapp-btn {
@@ -416,12 +465,15 @@
       align-items: center;
       justify-content: center;
       gap: 9px;
+
       background: #20c56b;
       color: white;
       border: 0;
       cursor: pointer;
+
       padding: 13px 23px;
       border-radius: 13px;
+
       font-weight: 900;
       font-size: 15px;
     }
@@ -430,7 +482,9 @@
       background: #19ae5d;
     }
 
-    /* CONTACT */
+    /* =========================
+       CONTACT
+    ========================== */
 
     .contact-box {
       max-width: 750px;
@@ -471,35 +525,50 @@
       font-size: 16px;
     }
 
-    /* FOOTER */
+    /* =========================
+       FOOTER
+    ========================== */
 
     footer {
       border-top: 1px solid rgba(255,255,255,.08);
-      padding: 35px 0;
+      padding: 38px 0;
       text-align: center;
       color: #8295b1;
       font-size: 13px;
     }
 
-    /* HIDDEN */
-
-    .hidden {
-      display: none !important;
+    .footer-brand {
+      font-size: 25px;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 7px;
     }
 
-    /* RESPONSIVE */
+    .footer-brand span {
+      color: #55b5ff;
+      font-family: Arial, sans-serif;
+      direction: ltr;
+      display: inline-block;
+    }
 
-    @media (max-width: 1000px) {
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media (max-width:1000px) {
+
       .tools-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3,1fr);
       }
 
       .ai-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2,1fr);
       }
+
     }
 
-    @media (max-width: 720px) {
+    @media (max-width:720px) {
+
       .nav {
         min-height: 65px;
       }
@@ -517,7 +586,7 @@
       }
 
       .tools-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2,1fr);
       }
 
       .ai-grid {
@@ -540,1499 +609,2315 @@
       .service-box {
         padding: 28px 18px;
       }
+
     }
 
-    @media (max-width: 460px) {
+    @media (max-width:460px) {
+
       .tools-grid {
         grid-template-columns: 1fr;
       }
 
-      .logo {
+      .brand-name {
         font-size: 21px;
       }
 
       .hero h1 {
         font-size: 38px;
       }
+
     }
   </style>
 </head>
 
+
 <body>
 
-  <!-- HEADER -->
 
-  <header>
-    <div class="container nav">
+<!-- =========================
+     HEADER
+========================== -->
 
-      <a href="#" class="logo">
-        أدواتي <span>AI</span>
+<header>
+
+  <div class="container nav">
+
+    <a href="#" class="brand-logo">
+
+      <span class="brand-icon">✦</span>
+
+      <span class="brand-name">
+        أداتي <span>AI</span>
+      </span>
+
+    </a>
+
+
+    <nav class="nav-links">
+
+      <a href="#tools">الأدوات</a>
+
+      <a href="#ai-services">خدمات AI</a>
+
+      <a href="#contact">اطلب خدمتك</a>
+
+      <a href="#ai-services" class="nav-btn">
+        ابدأ الآن
       </a>
 
-      <nav class="nav-links">
-        <a href="#tools">الأدوات</a>
-        <a href="#ai-services">خدمات AI</a>
-        <a href="#contact">تواصل معنا</a>
-        <a href="#ai-services" class="nav-btn">اطلب خدمتك</a>
-      </nav>
+    </nav>
+
+  </div>
+
+</header>
+
+
+<!-- =========================
+     MAIN
+========================== -->
+
+<main>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="container">
+
+    <div class="badge">
+      ✨ مرحباً بك في أداتي AI
+    </div>
+
+
+    <h1>
+
+      كل أدواتك اليومية
+
+      <br>
+
+      <span>في مكان واحد</span>
+
+    </h1>
+
+
+    <p>
+
+      أدوات رقمية سهلة وسريعة للصور وملفات PDF والنصوص
+      والحساب والذكاء الاصطناعي، بالإضافة إلى خدمات AI احترافية.
+
+    </p>
+
+
+    <div class="search-box">
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="ماذا تريد أن تنجز؟"
+        oninput="searchTools()"
+      >
 
     </div>
-  </header>
 
+  </div>
 
-  <!-- HERO -->
+</section>
 
-  <main>
 
-    <section class="hero">
 
-      <div class="container">
+<!-- TOOLS -->
 
-        <div class="badge">
-          ✨ أدوات ذكية وسهلة للجميع
-        </div>
+<section id="tools">
 
-        <h1>
-          كل أدواتك اليومية
-          <br>
-          <span>في مكان واحد</span>
-        </h1>
+  <div class="container">
 
-        <p>
-          أدوات مجانية وسريعة للصور وملفات PDF والنصوص والحساب
-          والذكاء الاصطناعي، بالإضافة إلى خدمات AI احترافية.
-        </p>
+    <div class="section-title">
 
-        <div class="search-box">
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="ماذا تريد أن تنجز؟"
-            oninput="searchTools()"
-          />
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- TOOLS -->
-
-    <section id="tools">
-
-      <div class="container">
-
-        <div class="section-title">
-          <h2>الأدوات</h2>
-          <p>اختر الأداة التي تحتاجها وابدأ مباشرة</p>
-        </div>
-
-        <div class="categories">
-
-          <button class="category active" onclick="filterCategory('all', this)">
-            الكل
-          </button>
-
-          <button class="category" onclick="filterCategory('image', this)">
-            🖼️ الصور
-          </button>
-
-          <button class="category" onclick="filterCategory('pdf', this)">
-            📄 PDF
-          </button>
-
-          <button class="category" onclick="filterCategory('text', this)">
-            ✍️ النصوص
-          </button>
-
-          <button class="category" onclick="filterCategory('calc', this)">
-            🧮 الحساب
-          </button>
-
-          <button class="category" onclick="filterCategory('utility', this)">
-            ⚙️ أدوات أخرى
-          </button>
-
-        </div>
-
-
-        <div class="tools-grid" id="toolsGrid">
-
-
-          <!-- IMAGE -->
-
-          <div class="tool-card" data-category="image" data-name="ضغط الصور">
-            <div>
-              <div class="tool-icon">🗜️</div>
-              <h3>ضغط الصور</h3>
-              <p>قلل حجم الصورة بسهولة.</p>
-            </div>
-            <button class="tool-btn" onclick="openTool('compress')">
-              ابدأ الآن
-            </button>
-          </div>
-
-
-          <div class="tool-card" data-category="image" data-name="تغيير حجم الصورة">
-            <div>
-              <div class="tool-icon">📐</div>
-              <h3>تغيير حجم الصورة</h3>
-              <p>غيّر أبعاد الصورة بسرعة.</p>
-            </div>
-            <button class="tool-btn" onclick="openTool('resize')">
-              ابدأ الآن
-            </button>
-          </div>
-
-
-          <div class="tool-card" data-category="image" data-name="تحويل الصور">
-            <div>
-              <div class="tool-icon">🔄</div>
-              <h3>تحويل الصور</h3>
-              <p>JPG و PNG و WEBP بسهولة.</p>
-            </div>
-            <button class="tool-btn" onclick="openTool('convert')">
-              ابدأ الآن
-            </button>
-          </div>
-
-
-          <div class="tool-card" data-category="image" data-name="صورة إلى PDF">
-            <div>
-              <div class="tool-icon">🖼️</div>
-              <h3>صورة إلى PDF</h3>
-              <p>حوّل الصورة إلى ملف PDF.</p>
-            </div>
-            <button class="tool-btn" onclick="openTool('imagepdf')">
-              ابدأ الآن
-            </button>
-          </div>
-
-
-          <!-- PDF -->
-
-          <div class="tool-card" data-category="pdf" data-name="دمج PDF">
-            <div>
-              <div class="tool-icon">📚</div>
-              <h3>دمج ملفات PDF</h3>
-              <p>اجمع ملفات PDF في ملف واحد.</p>
-            </div>
-            <button class="tool-btn" onclick="openTool('mergepdf')">
-              ابدأ الآن
-            </button>
-          </div>
-
-
-          <div class="tool-card" data-category="pdf" data-name="تقسيم PDF">
-            <div>
-              <div class="tool-icon">✂️</div>
-              <h3>تقسيم PDF</h3>
-              <p>قسّم ملف PDF إلى أجزاء.</p>
-            </div>
-            <button class="tool-btn" onclick="openTool('splitpdf')">
-              ابدأ الآن
-            </button>
-          </div>
-
-
-          <div class="tool-card" data-category="pdf" data-name="ضغط PDF">
-            <div>
-              <div class="tool-icon">📦</div>
-              <h3>ضغط PDF</h3>
-              <p>قلل حجم ملفات PDF.</p>
-            </div>
-            <button class="tool-btn" onclick="openTool('compresspdf')">
-              ابدأ الآن
-            </button>
-          </div>
-
-
-          <div class="tool-card" data-category="pdf" data-name="PDF إلى JPG">
-            <div>
-              <div class="tool-icon">📄</div>
-              <h3>PDF إلى JPG</h3>
-              <p>حوّل صفحات PDF إلى صور.</p>
-            </div>
-            <button class="tool-btn" onclick="openTool('pdfjpg')">
-              ابدأ الآن
-            </button>
-          </div>
-
-
-          <!-- TEXT -->
-
-          <div class="tool-card" data-category="text" data-name="عداد الكلمات">
-            <div>
-              <div class="tool-icon">🔢</div>
-              <h3>عداد الكلمات والحروف</h3>
-              <p>اعرف عدد الكلمات والحروف.</p>
-            </div>
-            <button class="tool-btn" onclick="openTool('counter')">
-              ابدأ الآن
-            </button>
-          </div>
-
-
-          <div class="tool-card" data-category="text" data-name="تنظيف النص">
-            <div>
-              <div class="tool-icon">🧹</div>
-              <h3>تنظيف النص</h3>
-              <p>احذف المسافات الزائدة ورتب النص.</p>
-            </div>
-            <button class="tool-btn" onclick="openTool('clean')">
-              ابدأ الآن
-            </button>
-          </div>
-
-
-          <div class="tool-card" data-category="text" data-name="تحويل حالة النص">
-            <div>
-              <div class="tool-icon">🔠</div>
-              <h3>تحويل حالة النص</h3>
-              <p>حوّل النص إلى أحرف كبيرة أو صغيرة.</p>
-            </div>
-            <button class="tool-btn" onclick="openTool('case')">
-              ابدأ الآن
-            </button>
-          </div>
-
-
-          <!-- CALCULATORS -->
-
-          <div class="tool-card" data-category="calc" data-name="حاسبة النسبة">
-            <div>
-              <div class="tool-icon">%</div>
-              <h3>حاسبة النسبة المئوية</h3>
-              <p>احسب النسبة بسهولة.</p>
-            </div>
-            <button class="tool-btn" onclick="openTool('percentage')">
-              ابدأ الآن
-            </button>
-          </div>
-
-
-          <div class="tool-card" data-category="calc" data-name="حاسبة الخصم">
-            <div>
-              <div class="tool-icon">🏷️</div>
-              <h3>حاسبة الخصم</h3>
-              <p>احسب السعر بعد الخصم.</p>
-            </div>
-            <button class="tool-btn" onclick="openTool('discount')">
-              ابدأ الآن
-            </button>
-          </div>
-
-
-          <div class="tool-card" data-category="calc" data-name="حاسبة العمر">
-            <div>
-              <div class="tool-icon">🎂</div>
-              <h3>حاسبة العمر</h3>
-              <p>احسب عمرك بالسنوات والأيام.</p>
-            </div>
-            <button class="tool-btn" onclick="openTool('age')">
-              ابدأ الآن
-            </button>
-          </div>
-
-
-          <!-- UTILITY -->
-
-          <div class="tool-card" data-category="utility" data-name="مولد كلمات المرور">
-            <div>
-              <div class="tool-icon">🔐</div>
-              <h3>مولد كلمات المرور</h3>
-              <p>أنشئ كلمة مرور قوية.</p>
-            </div>
-            <button class="tool-btn" onclick="openTool('password')">
-              ابدأ الآن
-            </button>
-          </div>
-
-
-          <div class="tool-card" data-category="utility" data-name="محول الوحدات">
-            <div>
-              <div class="tool-icon">📏</div>
-              <h3>محول الوحدات</h3>
-              <p>حوّل بين وحدات القياس.</p>
-            </div>
-            <button class="tool-btn" onclick="openTool('units')">
-              ابدأ الآن
-            </button>
-          </div>
-
-
-          <div class="tool-card" data-category="utility" data-name="آلة حاسبة">
-            <div>
-              <div class="tool-icon">🧮</div>
-              <h3>آلة حاسبة</h3>
-              <p>حسابات يومية سريعة.</p>
-            </div>
-            <button class="tool-btn" onclick="openTool('calculator')">
-              ابدأ الآن
-            </button>
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- WORKSPACE -->
-
-    <section id="workspace">
-
-      <div class="container">
-
-        <div class="workspace-box">
-
-          <h3 id="workspaceTitle">الأداة</h3>
-
-          <div id="workspaceContent"></div>
-
-          <div class="workspace-actions" style="margin-top:18px;">
-            <button class="secondary-btn" onclick="closeTool()">
-              إغلاق
-            </button>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- AI SERVICES -->
-
-    <section id="ai-services" class="ai-section">
-
-      <div class="container">
-
-        <div class="section-title">
-          <h2>خدمات الذكاء الاصطناعي</h2>
-          <p>
-            لا تريد تنفيذ المهمة بنفسك؟ يمكننا تنفيذها لك.
-          </p>
-        </div>
-
-
-        <div class="ai-grid">
-
-
-          <div class="ai-card">
-            <div class="ai-icon">🌐</div>
-            <h3>تطوير مواقع AI</h3>
-            <p>
-              تصميم وتطوير مواقع وأدوات تعتمد على الذكاء الاصطناعي.
-            </p>
-          </div>
-
-
-          <div class="ai-card">
-            <div class="ai-icon">🤖</div>
-            <h3>AI Agents</h3>
-            <p>
-              إنشاء وكلاء ذكاء اصطناعي لتنفيذ المهام تلقائياً.
-            </p>
-          </div>
-
-
-          <div class="ai-card">
-            <div class="ai-icon">⚙️</div>
-            <h3>AI Automation</h3>
-            <p>
-              أتمتة الأعمال والمهام المتكررة باستخدام AI.
-            </p>
-          </div>
-
-
-          <div class="ai-card">
-            <div class="ai-icon">🎨</div>
-            <h3>توليد الصور</h3>
-            <p>
-              صور احترافية وإعلانات وتصاميم باستخدام الذكاء الاصطناعي.
-            </p>
-          </div>
-
-
-          <div class="ai-card">
-            <div class="ai-icon">🎬</div>
-            <h3>توليد الفيديو</h3>
-            <p>
-              فيديوهات واقعية وسينمائية ومحتوى للسوشيال ميديا.
-            </p>
-          </div>
-
-
-          <div class="ai-card">
-            <div class="ai-icon">📢</div>
-            <h3>الإعلانات التجارية</h3>
-            <p>
-              إنشاء فيديوهات وإعلانات احترافية للمنتجات والخدمات.
-            </p>
-          </div>
-
-
-          <div class="ai-card">
-            <div class="ai-icon">🖼️</div>
-            <h3>البوسترات والتصاميم</h3>
-            <p>
-              تصميم بوسترات ومنشورات وإعلانات للسوشيال ميديا.
-            </p>
-          </div>
-
-
-          <div class="ai-card">
-            <div class="ai-icon">📱</div>
-            <h3>محتوى السوشيال ميديا</h3>
-            <p>
-              أفكار ومحتوى وفيديوهات قصيرة مناسبة للمنصات الاجتماعية.
-            </p>
-          </div>
-
-
-          <div class="ai-card">
-            <div class="ai-icon">💡</div>
-            <h3>خدمات AI مخصصة</h3>
-            <p>
-              لديك فكرة مختلفة؟ أخبرنا بما تحتاج وسنحاول تنفيذها لك.
-            </p>
-          </div>
-
-
-        </div>
-
-
-        <div class="service-box">
-
-          <h2>هل تريد أن نصنعها لك؟</h2>
-
-          <p>
-            لا تعرف كيف تستخدم أدوات الذكاء الاصطناعي؟
-            أو لديك مشروع يحتاج إلى موقع AI أو Agent أو Automation
-            أو صورة أو فيديو أو إعلان أو أي خدمة أخرى؟
-            تواصل معنا وسنساعدك في تنفيذ فكرتك.
-          </p>
-
-          <button class="whatsapp-btn" onclick="openWhatsApp('service')">
-            💬 تواصل معنا عبر واتساب
-          </button>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-
-    <section id="contact">
-
-      <div class="container">
-
-        <div class="section-title">
-          <h2>اطلب خدمتك</h2>
-          <p>
-            أرسل تفاصيل طلبك وسنتواصل معك عبر واتساب.
-          </p>
-        </div>
-
-
-        <div class="contact-box">
-
-          <input
-            id="clientName"
-            type="text"
-            placeholder="اسمك"
-          />
-
-          <select id="serviceType">
-
-            <option value="">
-              اختر نوع الخدمة
-            </option>
-
-            <option>موقع ذكاء اصطناعي</option>
-            <option>AI Agent</option>
-            <option>AI Automation</option>
-            <option>توليد صورة</option>
-            <option>توليد فيديو</option>
-            <option>إعلان تجاري</option>
-            <option>بوستر / تصميم</option>
-            <option>محتوى سوشيال ميديا</option>
-            <option>خدمة AI أخرى</option>
-
-          </select>
-
-          <textarea
-            id="serviceDetails"
-            placeholder="اكتب تفاصيل ما تحتاجه..."
-          ></textarea>
-
-          <button class="submit-btn" onclick="sendRequest()">
-            إرسال الطلب عبر واتساب
-          </button>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <div class="container">
-
-      <div style="font-size:20px;font-weight:900;margin-bottom:7px;">
-        أدواتي <span style="color:#4da9ff;">AI</span>
-      </div>
+      <h2>أدواتك اليومية</h2>
 
       <p>
-        كل أدواتك اليومية في مكان واحد.
-      </p>
-
-      <p style="margin-top:12px;">
-        © 2026 أدواتي AI — جميع الحقوق محفوظة
+        اختر الأداة التي تحتاجها وابدأ مباشرة
       </p>
 
     </div>
 
-  </footer>
+
+    <div class="categories">
+
+      <button
+        class="category active"
+        onclick="filterCategory('all',this)"
+      >
+        الكل
+      </button>
+
+      <button
+        class="category"
+        onclick="filterCategory('image',this)"
+      >
+        🖼️ الصور
+      </button>
+
+      <button
+        class="category"
+        onclick="filterCategory('pdf',this)"
+      >
+        📄 PDF
+      </button>
+
+      <button
+        class="category"
+        onclick="filterCategory('text',this)"
+      >
+        ✍️ النصوص
+      </button>
+
+      <button
+        class="category"
+        onclick="filterCategory('calc',this)"
+      >
+        🧮 الحساب
+      </button>
+
+      <button
+        class="category"
+        onclick="filterCategory('utility',this)"
+      >
+        ⚙️ أدوات أخرى
+      </button>
+
+    </div>
 
 
-  <script>
 
-    /*
-      ============================================================
-      WHATSAPP
-      ============================================================
-      الرقم موجود داخل الكود فقط وليس معروضاً للمستخدم.
-    */
-
-    const WHATSAPP_NUMBER = "96890682630";
+    <div class="tools-grid" id="toolsGrid">
 
 
-    function openWhatsApp(type = "service") {
+      <!-- IMAGE -->
 
-      let message = "";
+      <div
+        class="tool-card"
+        data-category="image"
+        data-name="ضغط الصور"
+      >
 
-      if (type === "service") {
+        <div>
 
-        message =
-          "السلام عليكم، أريد الاستفسار عن خدمات الذكاء الاصطناعي. لدي مشروع أو فكرة وأريد معرفة إمكانية تنفيذها.";
+          <div class="tool-icon">🗜️</div>
+
+          <h3>ضغط الصور</h3>
+
+          <p>
+            قلل حجم الصورة بسهولة.
+          </p>
+
+        </div>
+
+        <button
+          class="tool-btn"
+          onclick="openTool('compress')"
+        >
+          ابدأ الآن
+        </button>
+
+      </div>
+
+
+
+      <div
+        class="tool-card"
+        data-category="image"
+        data-name="تغيير حجم الصورة"
+      >
+
+        <div>
+
+          <div class="tool-icon">📐</div>
+
+          <h3>تغيير حجم الصورة</h3>
+
+          <p>
+            غيّر أبعاد الصورة بسرعة.
+          </p>
+
+        </div>
+
+        <button
+          class="tool-btn"
+          onclick="openTool('resize')"
+        >
+          ابدأ الآن
+        </button>
+
+      </div>
+
+
+
+      <div
+        class="tool-card"
+        data-category="image"
+        data-name="تحويل الصور"
+      >
+
+        <div>
+
+          <div class="tool-icon">🔄</div>
+
+          <h3>تحويل الصور</h3>
+
+          <p>
+            تحويل JPG و PNG و WEBP.
+          </p>
+
+        </div>
+
+        <button
+          class="tool-btn"
+          onclick="openTool('convert')"
+        >
+          ابدأ الآن
+        </button>
+
+      </div>
+
+
+
+      <div
+        class="tool-card"
+        data-category="image"
+        data-name="صورة إلى PDF"
+      >
+
+        <div>
+
+          <div class="tool-icon">🖼️</div>
+
+          <h3>صورة إلى PDF</h3>
+
+          <p>
+            حوّل الصورة إلى ملف PDF.
+          </p>
+
+        </div>
+
+        <button
+          class="tool-btn"
+          onclick="openTool('imagepdf')"
+        >
+          ابدأ الآن
+        </button>
+
+      </div>
+
+
+
+      <!-- PDF -->
+
+      <div
+        class="tool-card"
+        data-category="pdf"
+        data-name="دمج PDF"
+      >
+
+        <div>
+
+          <div class="tool-icon">📚</div>
+
+          <h3>دمج ملفات PDF</h3>
+
+          <p>
+            اجمع ملفات PDF في ملف واحد.
+          </p>
+
+        </div>
+
+        <button
+          class="tool-btn"
+          onclick="openTool('mergepdf')"
+        >
+          ابدأ الآن
+        </button>
+
+      </div>
+
+
+
+      <div
+        class="tool-card"
+        data-category="pdf"
+        data-name="تقسيم PDF"
+      >
+
+        <div>
+
+          <div class="tool-icon">✂️</div>
+
+          <h3>تقسيم PDF</h3>
+
+          <p>
+            قسّم ملف PDF إلى أجزاء.
+          </p>
+
+        </div>
+
+        <button
+          class="tool-btn"
+          onclick="openTool('splitpdf')"
+        >
+          ابدأ الآن
+        </button>
+
+      </div>
+
+
+
+      <div
+        class="tool-card"
+        data-category="pdf"
+        data-name="ضغط PDF"
+      >
+
+        <div>
+
+          <div class="tool-icon">📦</div>
+
+          <h3>ضغط PDF</h3>
+
+          <p>
+            قلل حجم ملفات PDF.
+          </p>
+
+        </div>
+
+        <button
+          class="tool-btn"
+          onclick="openTool('compresspdf')"
+        >
+          ابدأ الآن
+        </button>
+
+      </div>
+
+
+
+      <div
+        class="tool-card"
+        data-category="pdf"
+        data-name="PDF إلى JPG"
+      >
+
+        <div>
+
+          <div class="tool-icon">📄</div>
+
+          <h3>PDF إلى JPG</h3>
+
+          <p>
+            حوّل صفحات PDF إلى صور.
+          </p>
+
+        </div>
+
+        <button
+          class="tool-btn"
+          onclick="openTool('pdfjpg')"
+        >
+          ابدأ الآن
+        </button>
+
+      </div>
+
+
+
+      <!-- TEXT -->
+
+      <div
+        class="tool-card"
+        data-category="text"
+        data-name="عداد الكلمات"
+      >
+
+        <div>
+
+          <div class="tool-icon">🔢</div>
+
+          <h3>عداد الكلمات والحروف</h3>
+
+          <p>
+            اعرف عدد الكلمات والحروف.
+          </p>
+
+        </div>
+
+        <button
+          class="tool-btn"
+          onclick="openTool('counter')"
+        >
+          ابدأ الآن
+        </button>
+
+      </div>
+
+
+
+      <div
+        class="tool-card"
+        data-category="text"
+        data-name="تنظيف النص"
+      >
+
+        <div>
+
+          <div class="tool-icon">🧹</div>
+
+          <h3>تنظيف النص</h3>
+
+          <p>
+            احذف المسافات الزائدة ورتب النص.
+          </p>
+
+        </div>
+
+        <button
+          class="tool-btn"
+          onclick="openTool('clean')"
+        >
+          ابدأ الآن
+        </button>
+
+      </div>
+
+
+
+      <div
+        class="tool-card"
+        data-category="text"
+        data-name="تحويل حالة النص"
+      >
+
+        <div>
+
+          <div class="tool-icon">🔠</div>
+
+          <h3>تحويل حالة النص</h3>
+
+          <p>
+            حوّل النص إلى أحرف كبيرة أو صغيرة.
+          </p>
+
+        </div>
+
+        <button
+          class="tool-btn"
+          onclick="openTool('case')"
+        >
+          ابدأ الآن
+        </button>
+
+      </div>
+
+
+
+      <!-- CALCULATORS -->
+
+      <div
+        class="tool-card"
+        data-category="calc"
+        data-name="حاسبة النسبة"
+      >
+
+        <div>
+
+          <div class="tool-icon">%</div>
+
+          <h3>حاسبة النسبة المئوية</h3>
+
+          <p>
+            احسب النسبة بسهولة.
+          </p>
+
+        </div>
+
+        <button
+          class="tool-btn"
+          onclick="openTool('percentage')"
+        >
+          ابدأ الآن
+        </button>
+
+      </div>
+
+
+
+      <div
+        class="tool-card"
+        data-category="calc"
+        data-name="حاسبة الخصم"
+      >
+
+        <div>
+
+          <div class="tool-icon">🏷️</div>
+
+          <h3>حاسبة الخصم</h3>
+
+          <p>
+            احسب السعر بعد الخصم.
+          </p>
+
+        </div>
+
+        <button
+          class="tool-btn"
+          onclick="openTool('discount')"
+        >
+          ابدأ الآن
+        </button>
+
+      </div>
+
+
+
+      <div
+        class="tool-card"
+        data-category="calc"
+        data-name="حاسبة العمر"
+      >
+
+        <div>
+
+          <div class="tool-icon">🎂</div>
+
+          <h3>حاسبة العمر</h3>
+
+          <p>
+            احسب عمرك بالسنوات.
+          </p>
+
+        </div>
+
+        <button
+          class="tool-btn"
+          onclick="openTool('age')"
+        >
+          ابدأ الآن
+        </button>
+
+      </div>
+
+
+
+      <!-- UTILITY -->
+
+      <div
+        class="tool-card"
+        data-category="utility"
+        data-name="مولد كلمات المرور"
+      >
+
+        <div>
+
+          <div class="tool-icon">🔐</div>
+
+          <h3>مولد كلمات المرور</h3>
+
+          <p>
+            أنشئ كلمة مرور قوية.
+          </p>
+
+        </div>
+
+        <button
+          class="tool-btn"
+          onclick="openTool('password')"
+        >
+          ابدأ الآن
+        </button>
+
+      </div>
+
+
+
+      <div
+        class="tool-card"
+        data-category="utility"
+        data-name="محول الوحدات"
+      >
+
+        <div>
+
+          <div class="tool-icon">📏</div>
+
+          <h3>محول الوحدات</h3>
+
+          <p>
+            حوّل بين وحدات القياس.
+          </p>
+
+        </div>
+
+        <button
+          class="tool-btn"
+          onclick="openTool('units')"
+        >
+          ابدأ الآن
+        </button>
+
+      </div>
+
+
+
+      <div
+        class="tool-card"
+        data-category="utility"
+        data-name="آلة حاسبة"
+      >
+
+        <div>
+
+          <div class="tool-icon">🧮</div>
+
+          <h3>آلة حاسبة</h3>
+
+          <p>
+            حسابات يومية سريعة.
+          </p>
+
+        </div>
+
+        <button
+          class="tool-btn"
+          onclick="openTool('calculator')"
+        >
+          ابدأ الآن
+        </button>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- WORKSPACE -->
+
+<section id="workspace">
+
+  <div class="container">
+
+    <div class="workspace-box">
+
+      <h3 id="workspaceTitle">
+        الأداة
+      </h3>
+
+      <div id="workspaceContent"></div>
+
+      <div
+        class="workspace-actions"
+        style="margin-top:18px;"
+      >
+
+        <button
+          class="secondary-btn"
+          onclick="closeTool()"
+        >
+          إغلاق
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     AI SERVICES
+========================== -->
+
+<section
+  id="ai-services"
+  class="ai-section"
+>
+
+  <div class="container">
+
+
+    <div class="section-title">
+
+      <div class="badge">
+        ✨ خدمات الذكاء الاصطناعي
+      </div>
+
+      <h2>
+
+        لا تريد تنفيذها بنفسك؟
+
+        <br>
+
+        <span>دعنا ننفذها لك</span>
+
+      </h2>
+
+      <p>
+
+        من المواقع والأنظمة الذكية إلى الصور والفيديوهات والإعلانات
+        والأتمتة — أخبرنا بما تحتاج وسنساعدك في تنفيذ فكرتك.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="ai-grid">
+
+
+      <div class="ai-card">
+
+        <div class="ai-icon">🌐</div>
+
+        <h3>
+          مواقع AI
+        </h3>
+
+        <p>
+          تصميم وتطوير مواقع وأدوات ذكية تعتمد على الذكاء الاصطناعي.
+        </p>
+
+      </div>
+
+
+
+      <div class="ai-card">
+
+        <div class="ai-icon">🤖</div>
+
+        <h3>
+          AI Agents
+        </h3>
+
+        <p>
+          إنشاء وكلاء ذكاء اصطناعي لتنفيذ المهام والعمل بشكل ذكي.
+        </p>
+
+      </div>
+
+
+
+      <div class="ai-card">
+
+        <div class="ai-icon">⚙️</div>
+
+        <h3>
+          AI Automation
+        </h3>
+
+        <p>
+          أتمتة المهام والأعمال المتكررة باستخدام تقنيات AI.
+        </p>
+
+      </div>
+
+
+
+      <div class="ai-card">
+
+        <div class="ai-icon">🎨</div>
+
+        <h3>
+          توليد الصور
+        </h3>
+
+        <p>
+          إنشاء صور إبداعية وواقعية وإعلانية باستخدام AI.
+        </p>
+
+      </div>
+
+
+
+      <div class="ai-card">
+
+        <div class="ai-icon">🎬</div>
+
+        <h3>
+          توليد الفيديو
+        </h3>
+
+        <p>
+          إنشاء فيديوهات احترافية وسينمائية ومحتوى للسوشيال ميديا.
+        </p>
+
+      </div>
+
+
+
+      <div class="ai-card">
+
+        <div class="ai-icon">📢</div>
+
+        <h3>
+          الإعلانات التجارية
+        </h3>
+
+        <p>
+          إنشاء فيديوهات وإعلانات احترافية للمنتجات والخدمات.
+        </p>
+
+      </div>
+
+
+
+      <div class="ai-card">
+
+        <div class="ai-icon">🖼️</div>
+
+        <h3>
+          التصاميم والبوسترات
+        </h3>
+
+        <p>
+          بوسترات وإعلانات ومنشورات احترافية للعلامات التجارية.
+        </p>
+
+      </div>
+
+
+
+      <div class="ai-card">
+
+        <div class="ai-icon">📱</div>
+
+        <h3>
+          محتوى السوشيال ميديا
+        </h3>
+
+        <p>
+          أفكار وفيديوهات ومنشورات تساعدك على تطوير حضورك الرقمي.
+        </p>
+
+      </div>
+
+
+
+      <div class="ai-card">
+
+        <div class="ai-icon">💡</div>
+
+        <h3>
+          خدمة AI مخصصة
+        </h3>
+
+        <p>
+          لديك فكرة مختلفة؟ أرسل لنا التفاصيل وسنبحث عن أفضل طريقة لتنفيذها.
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+
+    <div class="service-box">
+
+      <h2>
+        💡 لديك فكرة؟ نحن جاهزون
+      </h2>
+
+      <p>
+
+        يمكنك التواصل معنا لأي خدمة مرتبطة بالذكاء الاصطناعي،
+        مثل تطوير المواقع، AI Agents، الأتمتة، الصور، الفيديوهات،
+        الإعلانات، التصاميم أو أي مشروع AI مخصص.
+
+      </p>
+
+
+      <button
+        class="whatsapp-btn"
+        onclick="openWhatsApp('service')"
+      >
+        💬 تواصل معنا عبر واتساب
+      </button>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT
+========================== -->
+
+<section id="contact">
+
+  <div class="container">
+
+
+    <div class="section-title">
+
+      <h2>
+        اطلب خدمتك
+      </h2>
+
+      <p>
+        أرسل تفاصيل طلبك وسنتواصل معك عبر واتساب.
+      </p>
+
+    </div>
+
+
+
+    <div class="contact-box">
+
+
+      <input
+        id="clientName"
+        type="text"
+        placeholder="اسمك"
+      >
+
+
+      <select id="serviceType">
+
+        <option value="">
+          اختر نوع الخدمة
+        </option>
+
+        <option>
+          موقع ذكاء اصطناعي
+        </option>
+
+        <option>
+          AI Agent
+        </option>
+
+        <option>
+          AI Automation
+        </option>
+
+        <option>
+          توليد صورة
+        </option>
+
+        <option>
+          توليد فيديو
+        </option>
+
+        <option>
+          إعلان تجاري
+        </option>
+
+        <option>
+          بوستر / تصميم
+        </option>
+
+        <option>
+          محتوى سوشيال ميديا
+        </option>
+
+        <option>
+          خدمة AI أخرى
+        </option>
+
+      </select>
+
+
+      <textarea
+        id="serviceDetails"
+        placeholder="اكتب تفاصيل ما تحتاجه..."
+      ></textarea>
+
+
+      <button
+        class="submit-btn"
+        onclick="sendRequest()"
+      >
+        إرسال الطلب عبر واتساب
+      </button>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-brand">
+
+      أداتي <span>AI</span>
+
+    </div>
+
+    <p>
+      كل أدواتك اليومية في مكان واحد
+    </p>
+
+    <p style="margin-top:12px;">
+      © 2026 أداتي AI — جميع الحقوق محفوظة
+    </p>
+
+  </div>
+
+</footer>
+
+
+
+<script>
+
+/* ==========================================
+   WHATSAPP
+   الرقم غير ظاهر للمستخدم على الموقع
+========================================== */
+
+const WHATSAPP_NUMBER = "96890682630";
+
+
+function openWhatsApp(type = "service") {
+
+  let message =
+    "السلام عليكم، أريد الاستفسار عن خدمات أداتي AI. " +
+    "لدي مشروع أو فكرة وأريد معرفة إمكانية تنفيذها.";
+
+
+  if (type !== "service") {
+
+    message =
+      "السلام عليكم، أريد الاستفسار عن خدمة من أداتي AI.";
+
+  }
+
+
+  const whatsappURL =
+    "https://api.whatsapp.com/send?phone=" +
+    WHATSAPP_NUMBER +
+    "&text=" +
+    encodeURIComponent(message);
+
+
+  window.open(
+    whatsappURL,
+    "_blank",
+    "noopener,noreferrer"
+  );
+
+}
+
+
+/* ==========================================
+   CONTACT REQUEST
+========================================== */
+
+function sendRequest() {
+
+  const name =
+    document.getElementById("clientName")
+      .value
+      .trim();
+
+  const type =
+    document.getElementById("serviceType")
+      .value;
+
+  const details =
+    document.getElementById("serviceDetails")
+      .value
+      .trim();
+
+
+  if (!name || !type || !details) {
+
+    alert(
+      "يرجى تعبئة جميع البيانات أولاً."
+    );
+
+    return;
+
+  }
+
+
+  const message =
+    "السلام عليكم، أريد طلب خدمة من أداتي AI.\n\n" +
+
+    "الاسم: " +
+    name +
+    "\n" +
+
+    "الخدمة: " +
+    type +
+    "\n" +
+
+    "التفاصيل: " +
+    details;
+
+
+  const whatsappURL =
+    "https://api.whatsapp.com/send?phone=" +
+    WHATSAPP_NUMBER +
+    "&text=" +
+    encodeURIComponent(message);
+
+
+  window.open(
+    whatsappURL,
+    "_blank",
+    "noopener,noreferrer"
+  );
+
+}
+
+
+/* ==========================================
+   SEARCH
+========================================== */
+
+function searchTools() {
+
+  const query =
+    document.getElementById("searchInput")
+      .value
+      .trim()
+      .toLowerCase();
+
+
+  const cards =
+    document.querySelectorAll(".tool-card");
+
+
+  cards.forEach(card => {
+
+    const name =
+      (card.dataset.name || "")
+      .toLowerCase();
+
+
+    if (!query || name.includes(query)) {
+
+      card.style.display = "";
+
+    } else {
+
+      card.style.display = "none";
+
+    }
+
+  });
+
+}
+
+
+/* ==========================================
+   CATEGORY FILTER
+========================================== */
+
+function filterCategory(category, button) {
+
+  document
+    .querySelectorAll(".category")
+    .forEach(btn =>
+      btn.classList.remove("active")
+    );
+
+
+  button.classList.add("active");
+
+
+  document
+    .querySelectorAll(".tool-card")
+    .forEach(card => {
+
+      if (
+        category === "all" ||
+        card.dataset.category === category
+      ) {
+
+        card.style.display = "";
 
       } else {
 
-        message =
-          "السلام عليكم، أريد الاستفسار عن خدمة من أدواتي AI.";
+        card.style.display = "none";
 
       }
 
-      /*
-        api.whatsapp.com يعمل من الهاتف والكمبيوتر
-        ولا نستخدم wa.me هنا.
-      */
+    });
 
-      const whatsappURL =
-        "https://api.whatsapp.com/send?phone=" +
-        WHATSAPP_NUMBER +
-        "&text=" +
-        encodeURIComponent(message);
-
-      window.open(whatsappURL, "_blank", "noopener,noreferrer");
-    }
+}
 
 
-    function sendRequest() {
+/* ==========================================
+   TOOL WORKSPACE
+========================================== */
 
-      const name =
-        document.getElementById("clientName").value.trim();
+function openTool(tool) {
 
-      const type =
-        document.getElementById("serviceType").value;
+  const workspace =
+    document.getElementById("workspace");
 
-      const details =
-        document.getElementById("serviceDetails").value.trim();
+  const title =
+    document.getElementById("workspaceTitle");
 
-
-      if (!name || !type || !details) {
-
-        alert("يرجى تعبئة جميع البيانات أولاً.");
-
-        return;
-      }
+  const content =
+    document.getElementById("workspaceContent");
 
 
-      const message =
-        "السلام عليكم، أريد طلب خدمة من أدواتي AI.%0A%0A" +
-        "الاسم: " +
-        name +
-        "%0A" +
-        "الخدمة: " +
-        type +
-        "%0A" +
-        "التفاصيل: " +
-        details;
+  workspace.style.display = "block";
 
 
-      const whatsappURL =
-        "https://api.whatsapp.com/send?phone=" +
-        WHATSAPP_NUMBER +
-        "&text=" +
-        encodeURIComponent(
-          "السلام عليكم، أريد طلب خدمة من أدواتي AI.\n\n" +
-          "الاسم: " + name + "\n" +
-          "الخدمة: " + type + "\n" +
-          "التفاصيل: " + details
-        );
+  let html = "";
 
 
-      window.open(whatsappURL, "_blank", "noopener,noreferrer");
-    }
+  /* WORD COUNTER */
+
+  if (tool === "counter") {
+
+    title.innerText =
+      "عداد الكلمات والحروف";
 
 
-    /* SEARCH */
+    html = `
 
-    function searchTools() {
+      <textarea
+        id="toolText"
+        placeholder="اكتب أو الصق النص هنا..."
+        oninput="countText()"
+      ></textarea>
 
-      const query =
-        document.getElementById("searchInput")
+      <div
+        class="result"
+        id="counterResult"
+      >
+        الكلمات: 0
+        الحروف: 0
+      </div>
+
+    `;
+
+  }
+
+
+  /* CLEAN TEXT */
+
+  else if (tool === "clean") {
+
+    title.innerText =
+      "تنظيف النص";
+
+
+    html = `
+
+      <textarea
+        id="toolText"
+        placeholder="ضع النص هنا..."
+      ></textarea>
+
+      <div class="workspace-actions">
+
+        <button onclick="cleanText()">
+          تنظيف النص
+        </button>
+
+      </div>
+
+      <div
+        class="result"
+        id="toolResult"
+      ></div>
+
+    `;
+
+  }
+
+
+  /* CASE */
+
+  else if (tool === "case") {
+
+    title.innerText =
+      "تحويل حالة النص";
+
+
+    html = `
+
+      <textarea
+        id="toolText"
+        placeholder="اكتب النص هنا..."
+      ></textarea>
+
+      <div class="workspace-actions">
+
+        <button onclick="upperCaseText()">
+          أحرف كبيرة
+        </button>
+
+        <button onclick="lowerCaseText()">
+          أحرف صغيرة
+        </button>
+
+      </div>
+
+      <div
+        class="result"
+        id="toolResult"
+      ></div>
+
+    `;
+
+  }
+
+
+  /* PERCENTAGE */
+
+  else if (tool === "percentage") {
+
+    title.innerText =
+      "حاسبة النسبة المئوية";
+
+
+    html = `
+
+      <input
+        id="percentValue"
+        type="number"
+        placeholder="القيمة"
+      >
+
+      <input
+        id="percentTotal"
+        type="number"
+        placeholder="من أصل"
+      >
+
+      <div class="workspace-actions">
+
+        <button onclick="calculatePercentage()">
+          احسب
+        </button>
+
+      </div>
+
+      <div
+        class="result"
+        id="toolResult"
+      ></div>
+
+    `;
+
+  }
+
+
+  /* DISCOUNT */
+
+  else if (tool === "discount") {
+
+    title.innerText =
+      "حاسبة الخصم";
+
+
+    html = `
+
+      <input
+        id="price"
+        type="number"
+        placeholder="السعر"
+      >
+
+      <input
+        id="discount"
+        type="number"
+        placeholder="نسبة الخصم %"
+      >
+
+      <div class="workspace-actions">
+
+        <button onclick="calculateDiscount()">
+          احسب السعر
+        </button>
+
+      </div>
+
+      <div
+        class="result"
+        id="toolResult"
+      ></div>
+
+    `;
+
+  }
+
+
+  /* AGE */
+
+  else if (tool === "age") {
+
+    title.innerText =
+      "حاسبة العمر";
+
+
+    html = `
+
+      <input
+        id="birthDate"
+        type="date"
+      >
+
+      <div class="workspace-actions">
+
+        <button onclick="calculateAge()">
+          احسب العمر
+        </button>
+
+      </div>
+
+      <div
+        class="result"
+        id="toolResult"
+      ></div>
+
+    `;
+
+  }
+
+
+  /* PASSWORD */
+
+  else if (tool === "password") {
+
+    title.innerText =
+      "مولد كلمات المرور";
+
+
+    html = `
+
+      <input
+        id="passLength"
+        type="number"
+        value="16"
+        min="6"
+        max="64"
+        placeholder="طول كلمة المرور"
+      >
+
+      <div class="workspace-actions">
+
+        <button onclick="generatePassword()">
+          إنشاء كلمة مرور
+        </button>
+
+      </div>
+
+      <div
+        class="result"
+        id="toolResult"
+      ></div>
+
+    `;
+
+  }
+
+
+  /* UNITS */
+
+  else if (tool === "units") {
+
+    title.innerText =
+      "محول الوحدات";
+
+
+    html = `
+
+      <input
+        id="unitValue"
+        type="number"
+        placeholder="القيمة"
+      >
+
+      <select id="unitType">
+
+        <option value="kmmi">
+          كيلومتر → ميل
+        </option>
+
+        <option value="mikm">
+          ميل → كيلومتر
+        </option>
+
+        <option value="kgpound">
+          كيلوغرام → رطل
+        </option>
+
+        <option value="poundkg">
+          رطل → كيلوغرام
+        </option>
+
+        <option value="cmInch">
+          سنتيمتر → إنش
+        </option>
+
+        <option value="inchCm">
+          إنش → سنتيمتر
+        </option>
+
+      </select>
+
+
+      <div class="workspace-actions">
+
+        <button onclick="convertUnits()">
+          تحويل
+        </button>
+
+      </div>
+
+
+      <div
+        class="result"
+        id="toolResult"
+      ></div>
+
+    `;
+
+  }
+
+
+  /* CALCULATOR */
+
+  else if (tool === "calculator") {
+
+    title.innerText =
+      "آلة حاسبة";
+
+
+    html = `
+
+      <input
+        id="calcInput"
+        type="text"
+        placeholder="مثال: 25*4+10"
+      >
+
+      <div class="workspace-actions">
+
+        <button onclick="calculateBasic()">
+          احسب
+        </button>
+
+      </div>
+
+      <div
+        class="result"
+        id="toolResult"
+      ></div>
+
+    `;
+
+  }
+
+
+  /* IMAGE TOOLS */
+
+  else if (
+    tool === "compress" ||
+    tool === "resize" ||
+    tool === "convert"
+  ) {
+
+    title.innerText =
+      tool === "compress"
+        ? "ضغط الصور"
+        : tool === "resize"
+          ? "تغيير حجم الصورة"
+          : "تحويل الصور";
+
+
+    html = `
+
+      <input
+        type="file"
+        id="imageFile"
+        accept="image/*"
+      >
+
+      <div class="workspace-actions">
+
+        <button onclick="processImage('${tool}')">
+          معالجة الصورة
+        </button>
+
+      </div>
+
+      <div
+        class="result"
+        id="toolResult"
+      >
+        اختر صورة من جهازك.
+      </div>
+
+    `;
+
+  }
+
+
+  /* IMAGE PDF */
+
+  else if (tool === "imagepdf") {
+
+    title.innerText =
+      "تحويل صورة إلى PDF";
+
+
+    html = `
+
+      <input
+        type="file"
+        id="imagePdfFile"
+        accept="image/*"
+      >
+
+      <div class="workspace-actions">
+
+        <button onclick="imageToPDFInfo()">
+          بدء
+        </button>
+
+      </div>
+
+      <div
+        class="result"
+        id="toolResult"
+      >
+        اختر صورة للبدء.
+      </div>
+
+    `;
+
+  }
+
+
+  /* OTHER TOOLS */
+
+  else {
+
+    title.innerText =
+      "الأداة قادمة قريباً";
+
+
+    html = `
+
+      <div class="result">
+
+        هذه الأداة موجودة في منصة أداتي AI
+        وسيتم تفعيل المعالجة الكاملة لها في التحديث القادم.
+
+      </div>
+
+    `;
+
+  }
+
+
+  content.innerHTML = html;
+
+
+  workspace.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+
+}
+
+
+/* ==========================================
+   CLOSE TOOL
+========================================== */
+
+function closeTool() {
+
+  document.getElementById("workspace")
+    .style.display = "none";
+
+
+  document.getElementById("workspaceContent")
+    .innerHTML = "";
+
+}
+
+
+/* ==========================================
+   COUNTER
+========================================== */
+
+function countText() {
+
+  const text =
+    document.getElementById("toolText")
+      .value;
+
+
+  const words =
+    text.trim()
+      ? text.trim().split(/\s+/).length
+      : 0;
+
+
+  const chars =
+    text.length;
+
+
+  document.getElementById("counterResult")
+    .innerText =
+      "الكلمات: " +
+      words +
+      "\nالحروف: " +
+      chars;
+
+}
+
+
+/* ==========================================
+   CLEAN TEXT
+========================================== */
+
+function cleanText() {
+
+  const text =
+    document.getElementById("toolText")
+      .value;
+
+
+  const cleaned =
+    text
+      .replace(/\s+/g," ")
+      .trim();
+
+
+  document.getElementById("toolResult")
+    .innerText = cleaned;
+
+}
+
+
+/* ==========================================
+   CASE
+========================================== */
+
+function upperCaseText() {
+
+  const text =
+    document.getElementById("toolText")
+      .value;
+
+
+  document.getElementById("toolResult")
+    .innerText =
+      text.toUpperCase();
+
+}
+
+
+function lowerCaseText() {
+
+  const text =
+    document.getElementById("toolText")
+      .value;
+
+
+  document.getElementById("toolResult")
+    .innerText =
+      text.toLowerCase();
+
+}
+
+
+/* ==========================================
+   PERCENTAGE
+========================================== */
+
+function calculatePercentage() {
+
+  const value =
+    parseFloat(
+      document.getElementById("percentValue")
         .value
-        .trim()
-        .toLowerCase();
+    );
 
 
-      const cards =
-        document.querySelectorAll(".tool-card");
+  const total =
+    parseFloat(
+      document.getElementById("percentTotal")
+        .value
+    );
 
 
-      cards.forEach(card => {
+  if (
+    !isFinite(value) ||
+    !isFinite(total) ||
+    total === 0
+  ) {
 
-        const name =
-          (card.dataset.name || "").toLowerCase();
+    document.getElementById("toolResult")
+      .innerText =
+        "يرجى إدخال أرقام صحيحة.";
 
-        if (!query || name.includes(query)) {
+    return;
 
-          card.style.display = "";
+  }
 
-        } else {
 
-          card.style.display = "none";
+  const result =
+    (value / total) * 100;
 
-        }
 
-      });
+  document.getElementById("toolResult")
+    .innerText =
+      "النتيجة: " +
+      result.toFixed(2) +
+      "%";
 
-    }
+}
 
 
-    /* FILTER */
+/* ==========================================
+   DISCOUNT
+========================================== */
 
-    function filterCategory(category, button) {
+function calculateDiscount() {
 
-      document
-        .querySelectorAll(".category")
-        .forEach(btn => btn.classList.remove("active"));
+  const price =
+    parseFloat(
+      document.getElementById("price")
+        .value
+    );
 
-      button.classList.add("active");
 
+  const discount =
+    parseFloat(
+      document.getElementById("discount")
+        .value
+    );
 
-      document
-        .querySelectorAll(".tool-card")
-        .forEach(card => {
 
-          if (
-            category === "all" ||
-            card.dataset.category === category
-          ) {
+  if (
+    !isFinite(price) ||
+    !isFinite(discount)
+  ) {
 
-            card.style.display = "";
+    document.getElementById("toolResult")
+      .innerText =
+        "يرجى إدخال السعر ونسبة الخصم.";
 
-          } else {
+    return;
 
-            card.style.display = "none";
+  }
 
-          }
 
-        });
+  const saving =
+    price * discount / 100;
 
-    }
 
+  const finalPrice =
+    price - saving;
 
-    /* TOOL WORKSPACE */
 
-    function openTool(tool) {
+  document.getElementById("toolResult")
+    .innerText =
+      "قيمة الخصم: " +
+      saving.toFixed(2) +
+      "\nالسعر بعد الخصم: " +
+      finalPrice.toFixed(2);
 
-      const workspace =
-        document.getElementById("workspace");
+}
 
-      const title =
-        document.getElementById("workspaceTitle");
 
-      const content =
-        document.getElementById("workspaceContent");
+/* ==========================================
+   AGE
+========================================== */
 
+function calculateAge() {
 
-      workspace.style.display = "block";
+  const value =
+    document.getElementById("birthDate")
+      .value;
 
 
-      let html = "";
+  if (!value) {
 
+    document.getElementById("toolResult")
+      .innerText =
+        "اختر تاريخ الميلاد أولاً.";
 
-      if (tool === "counter") {
+    return;
 
-        title.innerText = "عداد الكلمات والحروف";
+  }
 
-        html = `
-          <textarea id="toolText"
-            placeholder="اكتب أو الصق النص هنا..."
-            oninput="countText()"></textarea>
 
-          <div class="result" id="counterResult">
-            الكلمات: 0
-            الحروف: 0
-          </div>
-        `;
+  const birth =
+    new Date(value);
 
-      }
 
+  const today =
+    new Date();
 
-      else if (tool === "clean") {
 
-        title.innerText = "تنظيف النص";
+  let age =
+    today.getFullYear() -
+    birth.getFullYear();
 
-        html = `
-          <textarea id="toolText"
-            placeholder="ضع النص هنا..."></textarea>
 
-          <div class="workspace-actions">
-            <button onclick="cleanText()">
-              تنظيف النص
-            </button>
-          </div>
+  const month =
+    today.getMonth() -
+    birth.getMonth();
 
-          <div class="result" id="toolResult"></div>
-        `;
 
-      }
+  if (
+    month < 0 ||
+    (
+      month === 0 &&
+      today.getDate() < birth.getDate()
+    )
+  ) {
 
+    age--;
 
-      else if (tool === "case") {
+  }
 
-        title.innerText = "تحويل حالة النص";
 
-        html = `
-          <textarea id="toolText"
-            placeholder="اكتب النص هنا..."></textarea>
+  document.getElementById("toolResult")
+    .innerText =
+      "عمرك التقريبي: " +
+      age +
+      " سنة";
 
-          <div class="workspace-actions">
-            <button onclick="upperCaseText()">
-              أحرف كبيرة
-            </button>
+}
 
-            <button onclick="lowerCaseText()">
-              أحرف صغيرة
-            </button>
-          </div>
 
-          <div class="result" id="toolResult"></div>
-        `;
+/* ==========================================
+   PASSWORD
+========================================== */
 
-      }
+function generatePassword() {
 
+  let length =
+    parseInt(
+      document.getElementById("passLength")
+        .value
+    );
 
-      else if (tool === "percentage") {
 
-        title.innerText = "حاسبة النسبة المئوية";
+  if (!length || length < 6) {
+    length = 16;
+  }
 
-        html = `
-          <input id="percentValue"
-            type="number"
-            placeholder="القيمة">
 
-          <input id="percentTotal"
-            type="number"
-            placeholder="من أصل">
+  if (length > 64) {
+    length = 64;
+  }
 
-          <div class="workspace-actions">
-            <button onclick="calculatePercentage()">
-              احسب
-            </button>
-          </div>
 
-          <div class="result" id="toolResult"></div>
-        `;
+  const chars =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=";
 
-      }
 
+  let password = "";
 
-      else if (tool === "discount") {
 
-        title.innerText = "حاسبة الخصم";
+  for (
+    let i = 0;
+    i < length;
+    i++
+  ) {
 
-        html = `
-          <input id="price"
-            type="number"
-            placeholder="السعر">
-
-          <input id="discount"
-            type="number"
-            placeholder="نسبة الخصم %">
-
-          <div class="workspace-actions">
-            <button onclick="calculateDiscount()">
-              احسب السعر
-            </button>
-          </div>
-
-          <div class="result" id="toolResult"></div>
-        `;
-
-      }
-
-
-      else if (tool === "age") {
-
-        title.innerText = "حاسبة العمر";
-
-        html = `
-          <input id="birthDate"
-            type="date">
-
-          <div class="workspace-actions">
-            <button onclick="calculateAge()">
-              احسب العمر
-            </button>
-          </div>
-
-          <div class="result" id="toolResult"></div>
-        `;
-
-      }
-
-
-      else if (tool === "password") {
-
-        title.innerText = "مولد كلمات المرور";
-
-        html = `
-          <input id="passLength"
-            type="number"
-            value="16"
-            min="6"
-            max="64"
-            placeholder="طول كلمة المرور">
-
-          <div class="workspace-actions">
-            <button onclick="generatePassword()">
-              إنشاء كلمة مرور
-            </button>
-          </div>
-
-          <div class="result" id="toolResult"></div>
-        `;
-
-      }
-
-
-      else if (tool === "units") {
-
-        title.innerText = "محول الوحدات";
-
-        html = `
-          <input id="unitValue"
-            type="number"
-            placeholder="القيمة">
-
-          <select id="unitType">
-            <option value="kmmi">كيلومتر → ميل</option>
-            <option value="mikm">ميل → كيلومتر</option>
-            <option value="kgpound">كيلوغرام → رطل</option>
-            <option value="poundkg">رطل → كيلوغرام</option>
-            <option value="cmInch">سنتيمتر → إنش</option>
-            <option value="inchCm">إنش → سنتيمتر</option>
-          </select>
-
-          <div class="workspace-actions">
-            <button onclick="convertUnits()">
-              تحويل
-            </button>
-          </div>
-
-          <div class="result" id="toolResult"></div>
-        `;
-
-      }
-
-
-      else if (tool === "calculator") {
-
-        title.innerText = "آلة حاسبة";
-
-        html = `
-          <input id="calcInput"
-            type="text"
-            placeholder="مثال: 25*4+10">
-
-          <div class="workspace-actions">
-            <button onclick="calculateBasic()">
-              احسب
-            </button>
-          </div>
-
-          <div class="result" id="toolResult"></div>
-        `;
-
-      }
-
-
-      else if (
-        tool === "compress" ||
-        tool === "resize" ||
-        tool === "convert"
-      ) {
-
-        title.innerText =
-          tool === "compress"
-            ? "ضغط الصور"
-            : tool === "resize"
-              ? "تغيير حجم الصورة"
-              : "تحويل الصور";
-
-
-        html = `
-          <input
-            type="file"
-            id="imageFile"
-            accept="image/*"
-          >
-
-          <div class="workspace-actions">
-            <button onclick="processImage('${tool}')">
-              معالجة الصورة
-            </button>
-          </div>
-
-          <div class="result" id="toolResult">
-            اختر صورة من جهازك.
-          </div>
-        `;
-
-      }
-
-
-      else if (tool === "imagepdf") {
-
-        title.innerText = "تحويل صورة إلى PDF";
-
-        html = `
-          <input
-            type="file"
-            id="imagePdfFile"
-            accept="image/*"
-          >
-
-          <div class="workspace-actions">
-            <button onclick="imageToPDFInfo()">
-              بدء
-            </button>
-          </div>
-
-          <div class="result" id="toolResult">
-            سيتم دعم إنشاء PDF بشكل كامل في الإصدار القادم.
-          </div>
-        `;
-
-      }
-
-
-      else {
-
-        title.innerText = "هذه الأداة قادمة قريباً";
-
-        html = `
-          <div class="result">
-            هذه الأداة موجودة في المنصة وسيتم تفعيل المعالجة الكاملة لها في التحديث القادم.
-          </div>
-        `;
-
-      }
-
-
-      content.innerHTML = html;
-
-
-      workspace.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
-
-    }
-
-
-    function closeTool() {
-
-      document.getElementById("workspace").style.display = "none";
-
-      document.getElementById("workspaceContent").innerHTML = "";
-
-    }
-
-
-    /* COUNTER */
-
-    function countText() {
-
-      const text =
-        document.getElementById("toolText").value;
-
-      const words =
-        text.trim()
-          ? text.trim().split(/\s+/).length
-          : 0;
-
-      const chars =
-        text.length;
-
-
-      document.getElementById("counterResult")
-        .innerText =
-          "الكلمات: " +
-          words +
-          "\nالحروف: " +
-          chars;
-
-    }
-
-
-    /* CLEAN */
-
-    function cleanText() {
-
-      const text =
-        document.getElementById("toolText").value;
-
-      const cleaned =
-        text
-          .replace(/\s+/g, " ")
-          .trim();
-
-
-      document.getElementById("toolResult")
-        .innerText = cleaned;
-
-    }
-
-
-    /* CASE */
-
-    function upperCaseText() {
-
-      const text =
-        document.getElementById("toolText").value;
-
-      document.getElementById("toolResult")
-        .innerText =
-        text.toUpperCase();
-
-    }
-
-
-    function lowerCaseText() {
-
-      const text =
-        document.getElementById("toolText").value;
-
-      document.getElementById("toolResult")
-        .innerText =
-        text.toLowerCase();
-
-    }
-
-
-    /* PERCENTAGE */
-
-    function calculatePercentage() {
-
-      const value =
-        parseFloat(
-          document.getElementById("percentValue").value
-        );
-
-      const total =
-        parseFloat(
-          document.getElementById("percentTotal").value
-        );
-
-
-      if (!isFinite(value) || !isFinite(total) || total === 0) {
-
-        document.getElementById("toolResult")
-          .innerText =
-          "يرجى إدخال أرقام صحيحة.";
-
-        return;
-      }
-
-
-      const result =
-        (value / total) * 100;
-
-
-      document.getElementById("toolResult")
-        .innerText =
-        "النتيجة: " +
-        result.toFixed(2) +
-        "%";
-
-    }
-
-
-    /* DISCOUNT */
-
-    function calculateDiscount() {
-
-      const price =
-        parseFloat(
-          document.getElementById("price").value
-        );
-
-      const discount =
-        parseFloat(
-          document.getElementById("discount").value
-        );
-
-
-      if (!isFinite(price) || !isFinite(discount)) {
-
-        document.getElementById("toolResult")
-          .innerText =
-          "يرجى إدخال السعر ونسبة الخصم.";
-
-        return;
-      }
-
-
-      const saving =
-        price * discount / 100;
-
-      const finalPrice =
-        price - saving;
-
-
-      document.getElementById("toolResult")
-        .innerText =
-        "قيمة الخصم: " +
-        saving.toFixed(2) +
-        "\nالسعر بعد الخصم: " +
-        finalPrice.toFixed(2);
-
-    }
-
-
-    /* AGE */
-
-    function calculateAge() {
-
-      const value =
-        document.getElementById("birthDate").value;
-
-      if (!value) {
-
-        document.getElementById("toolResult")
-          .innerText =
-          "اختر تاريخ الميلاد أولاً.";
-
-        return;
-      }
-
-
-      const birth =
-        new Date(value);
-
-      const today =
-        new Date();
-
-
-      let age =
-        today.getFullYear() -
-        birth.getFullYear();
-
-
-      const month =
-        today.getMonth() -
-        birth.getMonth();
-
-
-      if (
-        month < 0 ||
-        (
-          month === 0 &&
-          today.getDate() < birth.getDate()
+    password +=
+      chars.charAt(
+        Math.floor(
+          Math.random() *
+          chars.length
         )
-      ) {
-        age--;
-      }
+      );
+
+  }
 
 
-      document.getElementById("toolResult")
-        .innerText =
-        "عمرك التقريبي: " +
-        age +
-        " سنة";
+  document.getElementById("toolResult")
+    .innerText =
+      password;
 
+}
+
+
+/* ==========================================
+   UNIT CONVERTER
+========================================== */
+
+function convertUnits() {
+
+  const value =
+    parseFloat(
+      document.getElementById("unitValue")
+        .value
+    );
+
+
+  const type =
+    document.getElementById("unitType")
+      .value;
+
+
+  if (!isFinite(value)) {
+
+    document.getElementById("toolResult")
+      .innerText =
+        "أدخل قيمة صحيحة.";
+
+    return;
+
+  }
+
+
+  let result;
+
+
+  if (type === "kmmi") {
+
+    result = value * 0.621371;
+
+    document.getElementById("toolResult")
+      .innerText =
+        result.toFixed(4) +
+        " ميل";
+
+  }
+
+
+  else if (type === "mikm") {
+
+    result = value * 1.609344;
+
+    document.getElementById("toolResult")
+      .innerText =
+        result.toFixed(4) +
+        " كيلومتر";
+
+  }
+
+
+  else if (type === "kgpound") {
+
+    result = value * 2.20462262;
+
+    document.getElementById("toolResult")
+      .innerText =
+        result.toFixed(4) +
+        " رطل";
+
+  }
+
+
+  else if (type === "poundkg") {
+
+    result = value * 0.45359237;
+
+    document.getElementById("toolResult")
+      .innerText =
+        result.toFixed(4) +
+        " كيلوغرام";
+
+  }
+
+
+  else if (type === "cmInch") {
+
+    result = value / 2.54;
+
+    document.getElementById("toolResult")
+      .innerText =
+        result.toFixed(4) +
+        " إنش";
+
+  }
+
+
+  else if (type === "inchCm") {
+
+    result = value * 2.54;
+
+    document.getElementById("toolResult")
+      .innerText =
+        result.toFixed(4) +
+        " سنتيمتر";
+
+  }
+
+}
+
+
+/* ==========================================
+   BASIC CALCULATOR
+========================================== */
+
+function calculateBasic() {
+
+  const expression =
+    document.getElementById("calcInput")
+      .value
+      .trim();
+
+
+  if (
+    !/^[0-9+\-*/().%\s]+$/.test(
+      expression
+    )
+  ) {
+
+    document.getElementById("toolResult")
+      .innerText =
+        "يرجى إدخال عملية حسابية صحيحة.";
+
+    return;
+
+  }
+
+
+  try {
+
+    const result =
+      Function(
+        '"use strict"; return (' +
+        expression +
+        ')'
+      )();
+
+
+    if (!isFinite(result)) {
+      throw new Error();
     }
 
 
-    /* PASSWORD */
+    document.getElementById("toolResult")
+      .innerText =
+        "النتيجة: " +
+        result;
 
-    function generatePassword() {
+  }
 
-      let length =
-        parseInt(
-          document.getElementById("passLength").value
-        );
+  catch {
 
+    document.getElementById("toolResult")
+      .innerText =
+        "تعذر إجراء العملية.";
 
-      if (!length || length < 6) {
-        length = 16;
-      }
+  }
 
+}
 
-      if (length > 64) {
-        length = 64;
-      }
 
+/* ==========================================
+   IMAGE TOOLS
+========================================== */
 
-      const chars =
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=";
+function processImage(type) {
 
+  const fileInput =
+    document.getElementById("imageFile");
 
-      let password = "";
 
+  const resultBox =
+    document.getElementById("toolResult");
 
-      for (let i = 0; i < length; i++) {
 
-        password +=
-          chars.charAt(
-            Math.floor(
-              Math.random() * chars.length
-            )
-          );
+  if (!fileInput.files.length) {
 
-      }
+    resultBox.innerText =
+      "اختر صورة أولاً.";
 
+    return;
 
-      document.getElementById("toolResult")
-        .innerText = password;
+  }
 
-    }
 
+  if (type === "compress") {
 
-    /* UNITS */
+    resultBox.innerText =
+      "تم اختيار الصورة. سيتم تفعيل الضغط والتنزيل الكامل في التحديث القادم.";
 
-    function convertUnits() {
+  }
 
-      const value =
-        parseFloat(
-          document.getElementById("unitValue").value
-        );
 
-      const type =
-        document.getElementById("unitType").value;
+  else if (type === "resize") {
 
+    resultBox.innerText =
+      "تم اختيار الصورة. سيتم تفعيل تغيير الحجم والتنزيل الكامل في التحديث القادم.";
 
-      if (!isFinite(value)) {
+  }
 
-        document.getElementById("toolResult")
-          .innerText =
-          "أدخل قيمة صحيحة.";
 
-        return;
-      }
+  else if (type === "convert") {
 
+    resultBox.innerText =
+      "تم اختيار الصورة. سيتم تفعيل التحويل والتنزيل الكامل في التحديث القادم.";
 
-      let result;
+  }
 
+}
 
-      if (type === "kmmi") {
-        result = value * 0.621371;
-        document.getElementById("toolResult").innerText =
-          result.toFixed(4) + " ميل";
-      }
 
-      else if (type === "mikm") {
-        result = value * 1.609344;
-        document.getElementById("toolResult").innerText =
-          result.toFixed(4) + " كيلومتر";
-      }
+/* ==========================================
+   IMAGE TO PDF
+========================================== */
 
-      else if (type === "kgpound") {
-        result = value * 2.20462262;
-        document.getElementById("toolResult").innerText =
-          result.toFixed(4) + " رطل";
-      }
+function imageToPDFInfo() {
 
-      else if (type === "poundkg") {
-        result = value * 0.45359237;
-        document.getElementById("toolResult").innerText =
-          result.toFixed(4) + " كيلوغرام";
-      }
+  const input =
+    document.getElementById("imagePdfFile");
 
-      else if (type === "cmInch") {
-        result = value / 2.54;
-        document.getElementById("toolResult").innerText =
-          result.toFixed(4) + " إنش";
-      }
 
-      else if (type === "inchCm") {
-        result = value * 2.54;
-        document.getElementById("toolResult").innerText =
-          result.toFixed(4) + " سنتيمتر";
-      }
+  const result =
+    document.getElementById("toolResult");
 
-    }
 
+  if (!input.files.length) {
 
-    /* BASIC CALCULATOR */
+    result.innerText =
+      "اختر صورة أولاً.";
 
-    function calculateBasic() {
+    return;
 
-      const expression =
-        document.getElementById("calcInput")
-          .value
-          .trim();
+  }
 
 
-      if (!/^[0-9+\-*/().%\s]+$/.test(expression)) {
+  result.innerText =
+    "تم اختيار الصورة. سيتم تفعيل إنشاء وتنزيل PDF بشكل كامل في التحديث القادم.";
 
-        document.getElementById("toolResult")
-          .innerText =
-          "يرجى إدخال عملية حسابية صحيحة.";
+}
 
-        return;
-      }
-
-
-      try {
-
-        const result =
-          Function(
-            '"use strict"; return (' +
-            expression +
-            ')'
-          )();
-
-
-        if (!isFinite(result)) {
-          throw new Error();
-        }
-
-
-        document.getElementById("toolResult")
-          .innerText =
-          "النتيجة: " + result;
-
-      }
-
-      catch {
-
-        document.getElementById("toolResult")
-          .innerText =
-          "تعذر إجراء العملية.";
-
-      }
-
-    }
-
-
-    /* IMAGE PROCESSING */
-
-    function processImage(type) {
-
-      const fileInput =
-        document.getElementById("imageFile");
-
-      const resultBox =
-        document.getElementById("toolResult");
-
-
-      if (!fileInput.files.length) {
-
-        resultBox.innerText =
-          "اختر صورة أولاً.";
-
-        return;
-
-      }
-
-
-      const file =
-        fileInput.files[0];
-
-
-      if (type === "compress") {
-
-        resultBox.innerText =
-          "تم اختيار الصورة. سيتم تفعيل الضغط والتنزيل الكامل في التحديث القادم.";
-
-      }
-
-
-      else if (type === "resize") {
-
-        resultBox.innerText =
-          "تم اختيار الصورة. سيتم تفعيل تغيير الحجم والتنزيل الكامل في التحديث القادم.";
-
-      }
-
-
-      else if (type === "convert") {
-
-        resultBox.innerText =
-          "تم اختيار الصورة. سيتم تفعيل التحويل والتنزيل الكامل في التحديث القادم.";
-
-      }
-
-    }
-
-
-    function imageToPDFInfo() {
-
-      const input =
-        document.getElementById("imagePdfFile");
-
-      const result =
-        document.getElementById("toolResult");
-
-
-      if (!input.files.length) {
-
-        result.innerText =
-          "اختر صورة أولاً.";
-
-        return;
-
-      }
-
-
-      result.innerText =
-        "تم اختيار الصورة. سيتم تفعيل إنشاء وتنزيل PDF بشكل كامل في التحديث القادم.";
-
-    }
-
-
-  </script>
+</script>
 
 </body>
 </html>
