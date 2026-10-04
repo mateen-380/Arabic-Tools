@@ -3,18 +3,325 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>أدواتي - كل أدواتك اليومية في مكان واحد</title>
+
+  <title>أدواتي | كل أدواتك اليومية في مكان واحد</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Tahoma, sans-serif;
+      background: #f5f7fb;
+      color: #172033;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, #111b4d, #243b8f);
+      color: white;
+      padding: 22px 6%;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #ffd43b;
+    }
+
+    .nav-btn {
+      background: white;
+      color: #17245f;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #111b4d, #243b8f);
+      color: white;
+      text-align: center;
+      padding: 65px 20px 80px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: #e5e9ff;
+      margin-bottom: 28px;
+    }
+
+    .search {
+      max-width: 650px;
+      margin: auto;
+      display: flex;
+      background: white;
+      border-radius: 14px;
+      padding: 7px;
+    }
+
+    .search input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 14px;
+      font-size: 16px;
+      text-align: right;
+    }
+
+    .search button {
+      background: #ffbd00;
+      border: none;
+      border-radius: 10px;
+      padding: 0 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: 45px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 25px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+
+    .category {
+      background: white;
+      padding: 22px 15px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .category:hover {
+      transform: translateY(-4px);
+    }
+
+    .icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .tool {
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    }
+
+    .tool h3 {
+      margin-bottom: 8px;
+    }
+
+    .tool p {
+      color: #667085;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .tool button {
+      width: 100%;
+      padding: 11px;
+      border: none;
+      background: #18245f;
+      color: white;
+      border-radius: 9px;
+      cursor: pointer;
+    }
+
+    .service {
+      background: linear-gradient(135deg, #fff4c7, #fff9e9);
+      padding: 35px 25px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .service h2 {
+      margin-bottom: 10px;
+    }
+
+    .service button {
+      margin-top: 20px;
+      background: #17245f;
+      color: white;
+      border: none;
+      padding: 13px 25px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 50px;
+      background: #11182f;
+      color: #cbd2e5;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .search {
+        flex-direction: column;
+        gap: 7px;
+      }
+
+      .search button {
+        padding: 12px;
+      }
+
+      .nav {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <h1>أدواتي</h1>
+  <header>
+    <div class="nav">
+      <div class="logo">أدواتي <span>AI</span></div>
+      <button class="nav-btn">تسجيل الدخول</button>
+    </div>
+  </header>
 
-  <h2>كل أدواتك اليومية في مكان واحد</h2>
+  <section class="hero">
+    <h1>كل أدواتك اليومية في مكان واحد</h1>
+    <p>أدوات سهلة وسريعة تساعدك على إنجاز أعمالك اليومية.</p>
 
-  <p>أدوات مجانية وسهلة تساعدك في إنجاز أعمالك اليومية بسرعة.</p>
+    <div class="search">
+      <input type="text" placeholder="ماذا تريد أن تنجز؟">
+      <button>بحث</button>
+    </div>
+  </section>
 
-  <button>ابدأ الآن</button>
+  <section class="section">
+    <h2 class="section-title">استكشف الأدوات</h2>
+
+    <div class="categories">
+      <div class="category">
+        <div class="icon">🖼️</div>
+        <strong>الصور</strong>
+      </div>
+
+      <div class="category">
+        <div class="icon">📄</div>
+        <strong>PDF</strong>
+      </div>
+
+      <div class="category">
+        <div class="icon">✍️</div>
+        <strong>النصوص</strong>
+      </div>
+
+      <div class="category">
+        <div class="icon">🧮</div>
+        <strong>الحساب</strong>
+      </div>
+
+      <div class="category">
+        <div class="icon">🤖</div>
+        <strong>الذكاء الاصطناعي</strong>
+      </div>
+
+      <div class="category">
+        <div class="icon">📱</div>
+        <strong>أدوات التواصل</strong>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">أدوات مفيدة لك</h2>
+
+    <div class="tools">
+
+      <div class="tool">
+        <h3>ضغط الصور</h3>
+        <p>قلل حجم الصور بسهولة مع الحفاظ على جودة جيدة.</p>
+        <button>ابدأ الآن</button>
+      </div>
+
+      <div class="tool">
+        <h3>دمج ملفات PDF</h3>
+        <p>اجمع عدة ملفات PDF في ملف واحد.</p>
+        <button>ابدأ الآن</button>
+      </div>
+
+      <div class="tool">
+        <h3>عداد الكلمات</h3>
+        <p>احسب الكلمات والحروف في النص بسرعة.</p>
+        <button>ابدأ الآن</button>
+      </div>
+
+      <div class="tool">
+        <h3>حاسبة النسبة المئوية</h3>
+        <p>احسب النسب والخصومات بسهولة.</p>
+        <button>ابدأ الآن</button>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="service">
+      <h2>هل تريد أن نصنعها لك؟</h2>
+      <p>اطلب تصميم صورة أو بوستر أو فيديو أو إعلان بالذكاء الاصطناعي.</p>
+      <button>اطلب خدمتك الآن</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 أدواتي AI — كل أدواتك اليومية في مكان واحد</p>
+  </footer>
 
 </body>
 </html>
