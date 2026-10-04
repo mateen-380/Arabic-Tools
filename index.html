@@ -1,1315 +1,2016 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+<title>أدواتي AI | كل أدواتك اليومية في مكان واحد</title>
 
-  <meta name="description"
-        content="أدواتي AI - كل أدواتك اليومية في مكان واحد">
+<meta name="description" content="أدواتي AI - مجموعة من الأدوات الرقمية المجانية للصور والنصوص والحساب والتحويل والذكاء الاصطناعي.">
+<meta name="theme-color" content="#08142f">
 
-  <meta name="theme-color"
-        content="#101a4f">
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-  <title>أدواتي AI | كل أدواتك اليومية في مكان واحد</title>
+html{
+    scroll-behavior:smooth;
+}
 
-  <style>
+body{
+    font-family:Arial,"Tahoma",sans-serif;
+    background:#071226;
+    color:#fff;
+    line-height:1.7;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1150px,92%);
+    margin:auto;
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(5,15,35,.94);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    color:#ffd43b;
+}
+
+.logo span{
+    color:#fff;
+}
+
+nav{
+    display:flex;
+    gap:20px;
+    align-items:center;
+}
+
+nav a{
+    color:#dbe6ff;
+    font-size:14px;
+    transition:.2s;
+}
+
+nav a:hover{
+    color:#ffd43b;
+}
+
+.menu-btn{
+    display:none;
+    background:none;
+    border:0;
+    color:#fff;
+    font-size:27px;
+}
+
+/* HERO */
+
+.hero{
+    padding:80px 0 60px;
+    background:
+    radial-gradient(circle at 20% 20%,rgba(0,174,255,.18),transparent 35%),
+    radial-gradient(circle at 80% 20%,rgba(255,190,0,.12),transparent 35%);
+}
+
+.hero-content{
+    text-align:center;
+    max-width:850px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 15px;
+    border-radius:50px;
+    background:rgba(255,212,59,.12);
+    border:1px solid rgba(255,212,59,.3);
+    color:#ffd43b;
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(38px,6vw,68px);
+    line-height:1.15;
+    margin-bottom:18px;
+}
+
+.hero h1 span{
+    color:#ffd43b;
+}
+
+.hero p{
+    color:#c7d3ed;
+    max-width:700px;
+    margin:0 auto 28px;
+    font-size:18px;
+}
+
+.search-box{
+    max-width:650px;
+    margin:auto;
+    position:relative;
+}
+
+.search-box input{
+    width:100%;
+    padding:18px 22px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,.12);
+    background:#101f3c;
+    color:#fff;
+    outline:none;
+    font-size:16px;
+}
+
+.search-box input:focus{
+    border-color:#ffd43b;
+}
+
+/* CATEGORIES */
+
+.categories{
+    padding:25px 0;
+}
+
+.category-list{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+}
+
+.category{
+    padding:9px 15px;
+    background:#10213f;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:30px;
+    cursor:pointer;
+    color:#dce6fa;
+    transition:.2s;
+}
+
+.category:hover,
+.category.active{
+    background:#ffd43b;
+    color:#101010;
+}
+
+/* SECTION */
+
+section{
+    padding:65px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.section-title h2{
+    font-size:34px;
+    margin-bottom:8px;
+}
+
+.section-title p{
+    color:#9eabc5;
+}
+
+/* TOOLS */
+
+.tools-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.tool-card{
+    background:linear-gradient(145deg,#10203d,#0b1830);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:22px;
+    transition:.25s;
+}
+
+.tool-card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(255,212,59,.35);
+}
+
+.tool-icon{
+    width:52px;
+    height:52px;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,212,59,.12);
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.tool-card h3{
+    margin-bottom:8px;
+}
+
+.tool-card p{
+    color:#9eabc5;
+    font-size:14px;
+    min-height:48px;
+}
+
+.tool-btn{
+    margin-top:16px;
+    width:100%;
+    border:0;
+    border-radius:12px;
+    padding:11px;
+    background:#ffd43b;
+    color:#111;
+    font-weight:800;
+    cursor:pointer;
+}
+
+/* TOOL WORKSPACE */
+
+.workspace{
+    background:#0b1933;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:25px;
+    padding:25px;
+    margin-top:30px;
+}
+
+.workspace h3{
+    margin-bottom:18px;
+}
+
+.tool-area{
+    display:none;
+}
+
+.tool-area.active{
+    display:block;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    color:#dce6fa;
+    font-weight:bold;
+}
+
+input[type="file"],
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea,
+select{
+    width:100%;
+    padding:13px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.12);
+    background:#071226;
+    color:#fff;
+    outline:none;
+    margin-bottom:14px;
+}
+
+textarea{
+    min-height:150px;
+    resize:vertical;
+}
+
+.action-btn{
+    border:0;
+    background:#ffd43b;
+    color:#111;
+    padding:12px 20px;
+    border-radius:12px;
+    font-weight:800;
+    cursor:pointer;
+    margin-top:5px;
+}
+
+.secondary-btn{
+    border:1px solid rgba(255,255,255,.15);
+    background:#122441;
+    color:#fff;
+    padding:12px 20px;
+    border-radius:12px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:5px;
+}
+
+.result{
+    margin-top:20px;
+    padding:18px;
+    background:#071226;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,.07);
+    color:#dce6fa;
+}
+
+.result a{
+    display:inline-block;
+    margin-top:12px;
+    background:#20c997;
+    padding:10px 16px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+/* AI SERVICES */
+
+.ai-section{
+    background:
+    radial-gradient(circle at 80% 30%,rgba(123,92,255,.18),transparent 35%),
+    #09152d;
+}
+
+.ai-box{
+    max-width:1000px;
+    margin:auto;
+    background:linear-gradient(145deg,#111f43,#0a1730);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:28px;
+    padding:40px;
+    text-align:center;
+}
+
+.ai-box h2{
+    font-size:36px;
+    margin-bottom:15px;
+}
+
+.ai-box h2 span{
+    color:#ffd43b;
+}
+
+.ai-box > p{
+    color:#bdc9e2;
+    max-width:750px;
+    margin:0 auto 30px;
+}
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    margin:25px 0 30px;
+}
+
+.service{
+    background:#0a1730;
+    border:1px solid rgba(255,255,255,.07);
+    padding:17px;
+    border-radius:15px;
+    color:#e5ecfb;
+}
+
+.service-icon{
+    font-size:27px;
+    display:block;
+    margin-bottom:5px;
+}
+
+.whatsapp-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    background:#20c76a;
+    color:#fff;
+    padding:15px 28px;
+    border-radius:14px;
+    font-size:17px;
+    font-weight:900;
+    border:0;
+    cursor:pointer;
+    box-shadow:0 8px 25px rgba(32,199,106,.18);
+}
+
+.whatsapp-icon{
+    font-size:23px;
+}
+
+/* CONTACT */
+
+.contact-box{
+    max-width:700px;
+    margin:auto;
+    background:#0d1d38;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:22px;
+    padding:30px;
+}
+
+/* FOOTER */
+
+footer{
+    padding:35px 0;
+    border-top:1px solid rgba(255,255,255,.08);
+    text-align:center;
+    color:#8290ac;
+}
+
+.footer-logo{
+    color:#ffd43b;
+    font-size:22px;
+    font-weight:900;
+    margin-bottom:8px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+    .tools-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+@media(max-width:760px){
+    nav{
+        display:none;
     }
 
-    html {
-      scroll-behavior: smooth;
+    .menu-btn{
+        display:block;
     }
 
-    body {
-      font-family: Arial, Tahoma, sans-serif;
-      background: #f5f7fb;
-      color: #172033;
-      line-height: 1.7;
+    .tools-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-      background: #101a4f;
-      color: white;
-      padding: 18px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+    .services{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .header-container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+    .hero{
+        padding-top:55px;
     }
 
-    .logo {
-      font-size: 25px;
-      font-weight: bold;
-      color: white;
-      text-decoration: none;
+    .ai-box{
+        padding:25px 18px;
+    }
+}
+
+@media(max-width:500px){
+    .tools-grid{
+        grid-template-columns:1fr;
     }
 
-    .logo span {
-      color: #ffbd00;
+    .services{
+        grid-template-columns:1fr;
     }
 
-    nav {
-      display: flex;
-      gap: 20px;
+    .hero h1{
+        font-size:40px;
     }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: bold;
+    section{
+        padding:45px 0;
     }
-
-    nav a:hover {
-      color: #ffbd00;
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      background:
-        linear-gradient(
-          135deg,
-          #101a4f,
-          #1d2d7a,
-          #18245f
-        );
-
-      color: white;
-      padding: 75px 20px 80px;
-      text-align: center;
-    }
-
-    .hero-content {
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 15px;
-    }
-
-    .hero h1 span {
-      color: #ffbd00;
-    }
-
-    .hero p {
-      font-size: 20px;
-      opacity: 0.95;
-      margin-bottom: 30px;
-    }
-
-    .search-box {
-      max-width: 650px;
-      margin: auto;
-      display: flex;
-      background: white;
-      border-radius: 14px;
-      padding: 6px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
-
-    .search-box input {
-      flex: 1;
-      border: none;
-      outline: none;
-      padding: 15px;
-      font-size: 16px;
-      direction: rtl;
-    }
-
-    .search-box button {
-      background: #ffbd00;
-      color: #111;
-      border: none;
-      padding: 0 25px;
-      border-radius: 10px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    /* =========================
-       GENERAL SECTION
-    ========================= */
-
-    .section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 65px 20px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .section-title h2 {
-      font-size: 32px;
-      color: #101a4f;
-      margin-bottom: 8px;
-    }
-
-    .section-title p {
-      color: #667085;
-    }
-
-    /* =========================
-       CATEGORIES
-    ========================= */
-
-    .categories {
-      display: grid;
-      grid-template-columns:
-        repeat(auto-fit, minmax(150px, 1fr));
-      gap: 15px;
-    }
-
-    .category {
-      background: white;
-      border-radius: 16px;
-      padding: 25px 15px;
-      text-align: center;
-      cursor: pointer;
-      border: 1px solid #e8ebf2;
-      transition: 0.3s;
-    }
-
-    .category:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(16,26,79,0.12);
-    }
-
-    .category-icon {
-      font-size: 35px;
-      margin-bottom: 8px;
-    }
-
-    .category h3 {
-      font-size: 17px;
-      color: #101a4f;
-    }
-
-    /* =========================
-       TOOL CARDS
-    ========================= */
-
-    .tools-grid {
-      display: grid;
-      grid-template-columns:
-        repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-
-    .tool-card {
-      background: white;
-      border-radius: 18px;
-      padding: 25px;
-      border: 1px solid #e7eaf0;
-      transition: 0.3s;
-    }
-
-    .tool-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(16,26,79,0.12);
-    }
-
-    .tool-icon {
-      font-size: 38px;
-      margin-bottom: 10px;
-    }
-
-    .tool-card h3 {
-      color: #101a4f;
-      margin-bottom: 7px;
-    }
-
-    .tool-card p {
-      color: #667085;
-      font-size: 14px;
-      margin-bottom: 18px;
-    }
-
-    .tool-button {
-      display: inline-block;
-      background: #101a4f;
-      color: white;
-      padding: 10px 18px;
-      border-radius: 9px;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .tool-button:hover {
-      background: #18245f;
-    }
-
-    /* =========================
-       IMAGE COMPRESSOR
-    ========================= */
-
-    .compressor-section {
-      background: #eef1f8;
-      padding: 70px 20px;
-    }
-
-    .compressor-box {
-      max-width: 750px;
-      margin: auto;
-      background: white;
-      border-radius: 22px;
-      padding: 35px;
-      box-shadow: 0 12px 35px rgba(16,26,79,0.10);
-      border: 1px solid #e4e7ef;
-    }
-
-    .compressor-box h2 {
-      color: #101a4f;
-      text-align: center;
-      margin-bottom: 8px;
-      font-size: 30px;
-    }
-
-    .compressor-description {
-      text-align: center;
-      color: #667085;
-      margin-bottom: 30px;
-    }
-
-    .file-area {
-      border: 2px dashed #b9c0d0;
-      border-radius: 15px;
-      padding: 30px 20px;
-      text-align: center;
-      background: #fafbfe;
-      margin-bottom: 20px;
-    }
-
-    .file-area-icon {
-      font-size: 45px;
-      margin-bottom: 10px;
-    }
-
-    .file-input {
-      width: 100%;
-      margin-top: 15px;
-      font-size: 15px;
-    }
-
-    .options {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-      margin: 20px 0;
-    }
-
-    .option-box {
-      background: #f5f7fb;
-      padding: 15px;
-      border-radius: 12px;
-    }
-
-    .option-box label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 8px;
-      color: #101a4f;
-    }
-
-    .option-box select {
-      width: 100%;
-      padding: 11px;
-      border: 1px solid #d7dce6;
-      border-radius: 8px;
-      background: white;
-      font-size: 15px;
-    }
-
-    .compress-button {
-      width: 100%;
-      padding: 15px;
-      background: #101a4f;
-      color: white;
-      border: none;
-      border-radius: 11px;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .compress-button:hover {
-      background: #18245f;
-    }
-
-    .result {
-      margin-top: 20px;
-      padding: 15px;
-      background: #f5f7fb;
-      border-radius: 10px;
-      text-align: center;
-      display: none;
-    }
-
-    .download-button {
-      display: none;
-      margin-top: 15px;
-      width: 100%;
-      text-align: center;
-      background: #ffbd00;
-      color: #111;
-      padding: 13px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    /* =========================
-       SERVICE CTA
-    ========================= */
-
-    .service {
-      background:
-        linear-gradient(
-          135deg,
-          #101a4f,
-          #1e2e79
-        );
-
-      color: white;
-      margin-top: 20px;
-      border-radius: 25px;
-      padding: 55px 25px;
-      text-align: center;
-    }
-
-    .service h2 {
-      font-size: 32px;
-      margin-bottom: 12px;
-    }
-
-    .service p {
-      max-width: 700px;
-      margin: 0 auto 25px;
-      opacity: 0.95;
-    }
-
-    .service-button {
-      display: inline-block;
-      background: #ffbd00;
-      color: #111;
-      padding: 13px 25px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      background: #0b1238;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-      margin-top: 50px;
-    }
-
-    footer p {
-      opacity: 0.85;
-      font-size: 14px;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 700px) {
-
-      .header-container {
-        flex-direction: column;
-      }
-
-      nav {
-        gap: 12px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .hero {
-        padding: 55px 15px 60px;
-      }
-
-      .hero h1 {
-        font-size: 34px;
-      }
-
-      .hero p {
-        font-size: 17px;
-      }
-
-      .search-box {
-        flex-direction: column;
-        gap: 6px;
-      }
-
-      .search-box button {
-        padding: 13px;
-      }
-
-      .section {
-        padding: 45px 15px;
-      }
-
-      .section-title h2 {
-        font-size: 27px;
-      }
-
-      .compressor-box {
-        padding: 22px 15px;
-      }
-
-      .options {
-        grid-template-columns: 1fr;
-      }
-
-      .service h2 {
-        font-size: 27px;
-      }
-    }
-
-  </style>
+}
+</style>
 </head>
-
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================= -->
+<!-- HEADER -->
 
-  <header>
+<header>
+<div class="container nav">
 
-    <div class="header-container">
+<a href="#" class="logo">أدواتي <span>AI</span></a>
 
-      <a href="#" class="logo">
-        أدواتي <span>AI</span>
-      </a>
+<nav>
+<a href="#tools">الأدوات</a>
+<a href="#services">خدمات الذكاء الاصطناعي</a>
+<a href="#contact">تواصل معنا</a>
+</nav>
 
-      <nav>
-        <a href="#tools">الأدوات</a>
-        <a href="#compressor">ضغط الصور</a>
-        <a href="#services">خدماتنا</a>
-      </nav>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-    </div>
+</div>
+</header>
 
-  </header>
 
+<!-- HERO -->
 
-  <!-- =========================
-       HERO
-  ========================= -->
+<section class="hero">
 
-  <section class="hero">
+<div class="container hero-content">
 
-    <div class="hero-content">
+<div class="badge">🚀 منصة رقمية عربية متطورة</div>
 
-      <h1>
-        كل أدواتك اليومية
-        <span>في مكان واحد</span>
-      </h1>
+<h1>
+كل أدواتك اليومية
+<span>في مكان واحد</span>
+</h1>
 
-      <p>
-        أدوات سهلة وسريعة تساعدك على إنجاز أعمالك اليومية
-        باستخدام الذكاء الاصطناعي والتقنيات الحديثة.
-      </p>
+<p>
+أدوات مجانية وسهلة للصور والنصوص والحساب والتحويل والذكاء الاصطناعي،
+مصممة لتوفير وقتك وإنجاز أعمالك بشكل أسرع.
+</p>
 
-      <div class="search-box">
+<div class="search-box">
+<input
+type="text"
+id="searchInput"
+placeholder="🔍 ماذا تريد أن تنجز؟"
+oninput="searchTools()">
+</div>
 
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="ماذا تريد أن تنجز؟"
-        >
+</div>
 
-        <button onclick="searchTools()">
-          بحث
-        </button>
+</section>
 
-      </div>
 
-    </div>
+<!-- CATEGORIES -->
 
-  </section>
+<div class="categories">
+<div class="container category-list">
 
+<button class="category active" onclick="filterTools('all',this)">الكل</button>
+<button class="category" onclick="filterTools('image',this)">🖼️ الصور</button>
+<button class="category" onclick="filterTools('text',this)">📝 النصوص</button>
+<button class="category" onclick="filterTools('calc',this)">🧮 الحساب</button>
+<button class="category" onclick="filterTools('utility',this)">⚙️ أدوات مفيدة</button>
 
-  <!-- =========================
-       CATEGORIES
-  ========================= -->
+</div>
+</div>
 
-  <section class="section">
 
-    <div class="section-title">
+<!-- TOOLS -->
 
-      <h2>استكشف الأدوات</h2>
+<section id="tools">
 
-      <p>
-        اختر القسم الذي تحتاجه
-      </p>
+<div class="container">
 
-    </div>
+<div class="section-title">
+<h2>🛠️ أدوات مجانية</h2>
+<p>استخدم أدواتك اليومية مباشرة من المتصفح</p>
+</div>
 
+<div class="tools-grid" id="toolsGrid">
 
-    <div class="categories">
 
-      <div class="category"
-           onclick="scrollToTool('compressor')">
+<div class="tool-card" data-category="image" data-name="ضغط الصور">
+<div class="tool-icon">🗜️</div>
+<h3>ضغط الصور</h3>
+<p>قلل حجم الصور مع الحفاظ على جودة مناسبة.</p>
+<button class="tool-btn" onclick="openTool('compress')">ابدأ الآن</button>
+</div>
 
-        <div class="category-icon">🖼️</div>
 
-        <h3>الصور</h3>
+<div class="tool-card" data-category="image" data-name="تغيير حجم الصورة">
+<div class="tool-icon">📐</div>
+<h3>تغيير حجم الصورة</h3>
+<p>غيّر أبعاد الصورة بسهولة.</p>
+<button class="tool-btn" onclick="openTool('resize')">ابدأ الآن</button>
+</div>
 
-      </div>
 
+<div class="tool-card" data-category="image" data-name="تحويل الصور">
+<div class="tool-icon">🔄</div>
+<h3>تحويل الصور</h3>
+<p>حوّل الصور بين JPG وPNG وWEBP.</p>
+<button class="tool-btn" onclick="openTool('convert')">ابدأ الآن</button>
+</div>
 
-      <div class="category">
 
-        <div class="category-icon">📄</div>
+<div class="tool-card" data-category="image" data-name="صورة الى PDF">
+<div class="tool-icon">📄</div>
+<h3>صورة إلى PDF</h3>
+<p>حوّل صورة إلى ملف PDF بسهولة.</p>
+<button class="tool-btn" onclick="openTool('imagepdf')">ابدأ الآن</button>
+</div>
 
-        <h3>PDF</h3>
 
-      </div>
+<div class="tool-card" data-category="text" data-name="عداد الكلمات الحروف">
+<div class="tool-icon">🔢</div>
+<h3>عداد الكلمات</h3>
+<p>احسب الكلمات والحروف والجمل.</p>
+<button class="tool-btn" onclick="openTool('counter')">ابدأ الآن</button>
+</div>
 
 
-      <div class="category">
+<div class="tool-card" data-category="text" data-name="تنظيف النص">
+<div class="tool-icon">🧹</div>
+<h3>تنظيف النص</h3>
+<p>نظّف المسافات والأسطر الزائدة.</p>
+<button class="tool-btn" onclick="openTool('clean')">ابدأ الآن</button>
+</div>
 
-        <div class="category-icon">✍️</div>
 
-        <h3>النصوص</h3>
+<div class="tool-card" data-category="text" data-name="تغيير حالة النص">
+<div class="tool-icon">🔤</div>
+<h3>تغيير حالة النص</h3>
+<p>حوّل النص إلى أحرف كبيرة أو صغيرة.</p>
+<button class="tool-btn" onclick="openTool('case')">ابدأ الآن</button>
+</div>
 
-      </div>
 
+<div class="tool-card" data-category="calc" data-name="حاسبة النسبة المئوية">
+<div class="tool-icon">％</div>
+<h3>النسبة المئوية</h3>
+<p>احسب النسب المئوية بسرعة.</p>
+<button class="tool-btn" onclick="openTool('percentage')">ابدأ الآن</button>
+</div>
 
-      <div class="category">
 
-        <div class="category-icon">🧮</div>
+<div class="tool-card" data-category="calc" data-name="حاسبة الخصم">
+<div class="tool-icon">🏷️</div>
+<h3>حاسبة الخصم</h3>
+<p>احسب السعر بعد الخصم.</p>
+<button class="tool-btn" onclick="openTool('discount')">ابدأ الآن</button>
+</div>
 
-        <h3>الحساب</h3>
 
-      </div>
+<div class="tool-card" data-category="calc" data-name="حاسبة العمر">
+<div class="tool-icon">🎂</div>
+<h3>حاسبة العمر</h3>
+<p>احسب عمرك بالسنوات والأشهر والأيام.</p>
+<button class="tool-btn" onclick="openTool('age')">ابدأ الآن</button>
+</div>
 
 
-      <div class="category">
+<div class="tool-card" data-category="utility" data-name="مولد كلمات المرور">
+<div class="tool-icon">🔐</div>
+<h3>مولد كلمات المرور</h3>
+<p>أنشئ كلمة مرور قوية وعشوائية.</p>
+<button class="tool-btn" onclick="openTool('password')">ابدأ الآن</button>
+</div>
 
-        <div class="category-icon">🤖</div>
 
-        <h3>الذكاء الاصطناعي</h3>
+<div class="tool-card" data-category="utility" data-name="محول الوحدات">
+<div class="tool-icon">📏</div>
+<h3>محول الوحدات</h3>
+<p>حوّل بين المتر والكيلومتر والقدم وغيرها.</p>
+<button class="tool-btn" onclick="openTool('units')">ابدأ الآن</button>
+</div>
 
-      </div>
 
+<div class="tool-card" data-category="calc" data-name="آلة حاسبة">
+<div class="tool-icon">🧮</div>
+<h3>آلة حاسبة</h3>
+<p>آلة حاسبة بسيطة وسريعة.</p>
+<button class="tool-btn" onclick="openTool('calculator')">ابدأ الآن</button>
+</div>
 
-      <div class="category">
+</div>
 
-        <div class="category-icon">📱</div>
 
-        <h3>أدوات التواصل</h3>
+<!-- WORKSPACE -->
 
-      </div>
+<div class="workspace">
 
-    </div>
 
-  </section>
+<!-- COMPRESS -->
 
+<div id="compress" class="tool-area">
 
-  <!-- =========================
-       TOOLS
-  ========================= -->
+<h3>🗜️ ضغط الصور</h3>
 
-  <section class="section" id="tools">
+<label>اختر صورة</label>
+<input type="file" id="compressFile" accept="image/*">
 
-    <div class="section-title">
+<label>الجودة</label>
+<select id="compressQuality">
+<option value="0.9">عالية</option>
+<option value="0.7" selected>متوسطة</option>
+<option value="0.5">منخفضة</option>
+</select>
 
-      <h2>أدوات مفيدة لك</h2>
+<button class="action-btn" onclick="compressImage()">ضغط الصورة</button>
 
-      <p>
-        نبدأ بالأدوات الأساسية، وسنضيف المزيد قريباً.
-      </p>
+<div id="compressResult" class="result"></div>
 
-    </div>
+</div>
 
 
-    <div class="tools-grid">
+<!-- RESIZE -->
 
-      <!-- IMAGE COMPRESSOR -->
+<div id="resize" class="tool-area">
 
-      <div class="tool-card">
+<h3>📐 تغيير حجم الصورة</h3>
 
-        <div class="tool-icon">
-          🗜️
-        </div>
+<input type="file" id="resizeFile" accept="image/*">
 
-        <h3>
-          ضغط الصور
-        </h3>
+<label>العرض بالبكسل</label>
+<input type="number" id="resizeWidth" placeholder="مثال: 1080">
 
-        <p>
-          قلل حجم صورك بسرعة مع الحفاظ على جودة جيدة.
-        </p>
+<label>الارتفاع بالبكسل</label>
+<input type="number" id="resizeHeight" placeholder="مثال: 1080">
 
-        <button
-          class="tool-button"
-          onclick="scrollToTool('compressor')">
+<button class="action-btn" onclick="resizeImage()">تغيير الحجم</button>
 
-          ابدأ الآن
+<div id="resizeResult" class="result"></div>
 
-        </button>
+</div>
 
-      </div>
 
+<!-- CONVERT -->
 
-      <!-- PDF -->
+<div id="convert" class="tool-area">
 
-      <div class="tool-card">
+<h3>🔄 تحويل الصور</h3>
 
-        <div class="tool-icon">
-          📑
-        </div>
+<input type="file" id="convertFile" accept="image/*">
 
-        <h3>
-          أدوات PDF
-        </h3>
+<label>الصيغة الجديدة</label>
 
-        <p>
-          أدوات PDF قادمة قريباً مثل الدمج والتقسيم والضغط.
-        </p>
+<select id="convertType">
+<option value="image/jpeg">JPG</option>
+<option value="image/png">PNG</option>
+<option value="image/webp">WEBP</option>
+</select>
 
-        <button
-          class="tool-button"
-          onclick="comingSoon()">
+<button class="action-btn" onclick="convertImage()">تحويل الصورة</button>
 
-          قريباً
+<div id="convertResult" class="result"></div>
 
-        </button>
+</div>
 
-      </div>
 
+<!-- IMAGE PDF -->
 
-      <!-- TEXT -->
+<div id="imagepdf" class="tool-area">
 
-      <div class="tool-card">
+<h3>📄 تحويل الصورة إلى PDF</h3>
 
-        <div class="tool-icon">
-          📝
-        </div>
+<input type="file" id="pdfImage" accept="image/*">
 
-        <h3>
-          عداد الكلمات
-        </h3>
+<button class="action-btn" onclick="imageToPDF()">تحويل إلى PDF</button>
 
-        <p>
-          احسب عدد الكلمات والحروف في النص بسهولة.
-        </p>
+<div id="imagePdfResult" class="result"></div>
 
-        <button
-          class="tool-button"
-          onclick="comingSoon()">
+</div>
 
-          قريباً
 
-        </button>
+<!-- COUNTER -->
 
-      </div>
+<div id="counter" class="tool-area">
 
+<h3>🔢 عداد الكلمات والحروف</h3>
 
-      <!-- CALCULATOR -->
+<textarea id="counterText" oninput="countText()" placeholder="اكتب أو الصق النص هنا..."></textarea>
 
-      <div class="tool-card">
+<div class="result" id="counterResult">
+الكلمات: 0<br>
+الحروف: 0<br>
+الجمل: 0
+</div>
 
-        <div class="tool-icon">
-          🧮
-        </div>
+</div>
 
-        <h3>
-          حاسبة النسبة المئوية
-        </h3>
 
-        <p>
-          احسب النسبة المئوية بسرعة وسهولة.
-        </p>
+<!-- CLEAN -->
 
-        <button
-          class="tool-button"
-          onclick="comingSoon()">
+<div id="clean" class="tool-area">
 
-          قريباً
+<h3>🧹 تنظيف النص</h3>
 
-        </button>
+<textarea id="cleanText" placeholder="ضع النص هنا..."></textarea>
 
-      </div>
+<button class="action-btn" onclick="cleanText()">تنظيف النص</button>
 
-    </div>
+<div id="cleanResult" class="result"></div>
 
-  </section>
+</div>
 
 
-  <!-- =========================
-       IMAGE COMPRESSOR
-  ========================= -->
+<!-- CASE -->
 
-  <section
-    class="compressor-section"
-    id="compressor">
+<div id="case" class="tool-area">
 
-    <div class="compressor-box">
+<h3>🔤 تغيير حالة النص</h3>
 
-      <h2>
-        🖼️ ضغط الصور
-      </h2>
+<textarea id="caseText" placeholder="اكتب النص الإنجليزي هنا..."></textarea>
 
-      <p class="compressor-description">
-        اختر صورة من جهازك، حدد الجودة، ثم اضغط على الصورة.
-      </p>
+<button class="action-btn" onclick="upperCase()">UPPERCASE</button>
+<button class="secondary-btn" onclick="lowerCase()">lowercase</button>
 
+<div id="caseResult" class="result"></div>
 
-      <div class="file-area">
+</div>
 
-        <div class="file-area-icon">
-          📤
-        </div>
 
-        <strong>
-          اختر الصورة التي تريد ضغطها
-        </strong>
+<!-- PERCENTAGE -->
 
-        <input
-          class="file-input"
-          type="file"
-          id="imageInput"
-          accept="image/*"
-        >
+<div id="percentage" class="tool-area">
 
-      </div>
+<h3>％ حاسبة النسبة المئوية</h3>
 
+<input type="number" id="percentNumber" placeholder="الرقم">
+<input type="number" id="percentValue" placeholder="النسبة %">
 
-      <div class="options">
+<button class="action-btn" onclick="calculatePercentage()">احسب</button>
 
-        <div class="option-box">
+<div id="percentageResult" class="result"></div>
 
-          <label for="quality">
-            جودة الصورة
-          </label>
+</div>
 
-          <select id="quality">
 
-            <option value="0.9">
-              عالية
-            </option>
+<!-- DISCOUNT -->
 
-            <option value="0.7" selected>
-              متوسطة
-            </option>
+<div id="discount" class="tool-area">
 
-            <option value="0.5">
-              منخفضة
-            </option>
+<h3>🏷️ حاسبة الخصم</h3>
 
-          </select>
+<input type="number" id="price" placeholder="السعر الأصلي">
+<input type="number" id="discountValue" placeholder="نسبة الخصم %">
 
-        </div>
+<button class="action-btn" onclick="calculateDiscount()">احسب السعر</button>
 
+<div id="discountResult" class="result"></div>
 
-        <div class="option-box">
+</div>
 
-          <label for="format">
-            صيغة الصورة
-          </label>
 
-          <select id="format">
+<!-- AGE -->
 
-            <option value="image/jpeg">
-              JPG
-            </option>
+<div id="age" class="tool-area">
 
-            <option value="image/webp">
-              WEBP
-            </option>
+<h3>🎂 حاسبة العمر</h3>
 
-          </select>
+<label>تاريخ الميلاد</label>
+<input type="date" id="birthDate">
 
-        </div>
+<button class="action-btn" onclick="calculateAge()">احسب العمر</button>
 
-      </div>
+<div id="ageResult" class="result"></div>
 
+</div>
 
-      <button
-        class="compress-button"
-        onclick="compressImage()">
 
-        ضغط الصورة الآن
+<!-- PASSWORD -->
 
-      </button>
+<div id="password" class="tool-area">
 
+<h3>🔐 مولد كلمات المرور</h3>
 
-      <div
-        class="result"
-        id="result">
+<label>طول كلمة المرور</label>
+<input type="number" id="passwordLength" value="16" min="6" max="50">
 
-      </div>
+<button class="action-btn" onclick="generatePassword()">إنشاء كلمة مرور</button>
 
+<div id="passwordResult" class="result"></div>
 
-      <a
-        id="download"
-        class="download-button"
-        download="compressed-image.jpg">
+</div>
 
-        تحميل الصورة المضغوطة
 
-      </a>
+<!-- UNITS -->
 
-    </div>
+<div id="units" class="tool-area">
 
-  </section>
+<h3>📏 محول الوحدات</h3>
 
+<input type="number" id="unitValue" placeholder="القيمة">
 
-  <!-- =========================
-       SERVICES
-  ========================= -->
+<select id="unitType">
+<option value="km-m">كيلومتر → متر</option>
+<option value="m-km">متر → كيلومتر</option>
+<option value="m-cm">متر → سنتيمتر</option>
+<option value="cm-m">سنتيمتر → متر</option>
+<option value="kg-g">كيلوغرام → غرام</option>
+<option value="g-kg">غرام → كيلوغرام</option>
+</select>
 
-  <section
-    class="section"
-    id="services">
+<button class="action-btn" onclick="convertUnit()">تحويل</button>
 
-    <div class="service">
+<div id="unitResult" class="result"></div>
 
-      <h2>
-        هل تريد أن نصنعها لك؟
-      </h2>
+</div>
 
-      <p>
-        لا تريد إنشاء الصورة أو الفيديو بنفسك؟
-        يمكنك لاحقاً طلب خدمتنا، وسنقوم بتنفيذ
-        التصميم أو الفيديو أو المحتوى لك.
-      </p>
 
-      <a
-        href="#"
-        class="service-button"
-        onclick="serviceMessage(); return false;">
+<!-- CALCULATOR -->
 
-        اطلب خدمتك الآن
+<div id="calculator" class="tool-area">
 
-      </a>
+<h3>🧮 الآلة الحاسبة</h3>
 
-    </div>
+<input type="text" id="calcInput" placeholder="مثال: 100+50*2">
 
-  </section>
+<button class="action-btn" onclick="calculate()">احسب</button>
 
+<div id="calcResult" class="result"></div>
 
-  <!-- =========================
-       FOOTER
-  ========================= -->
+</div>
 
-  <footer>
+</div>
 
-    <p>
-      © 2026 أدواتي AI — كل أدواتك اليومية في مكان واحد
-    </p>
+</div>
 
-    <p>
-      أدوات سهلة، سريعة ومفيدة للجميع
-    </p>
+</section>
 
-  </footer>
 
+<!-- AI SERVICES -->
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
+<section id="services" class="ai-section">
 
-  <script>
+<div class="container">
 
-    /* =========================
-       SCROLL TO TOOL
-    ========================= */
+<div class="ai-box">
 
-    function scrollToTool(id) {
+<h2>🤖 هل تريد خدمة بالذكاء الاصطناعي؟</h2>
 
-      const element = document.getElementById(id);
+<p>
+إذا كنت لا تريد تنفيذ العمل بنفسك، يمكنك التواصل معنا.
+نقدم خدمات الذكاء الاصطناعي حسب طلبك، من المشاريع البسيطة إلى الحلول المتقدمة والمخصصة.
+</p>
 
-      if (element) {
 
-        element.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
+<div class="services">
 
-      }
+<div class="service">
+<span class="service-icon">🌐</span>
+إنشاء مواقع بالذكاء الاصطناعي
+</div>
 
+<div class="service">
+<span class="service-icon">🤖</span>
+إنشاء AI Agents
+</div>
+
+<div class="service">
+<span class="service-icon">⚙️</span>
+AI Automation
+</div>
+
+<div class="service">
+<span class="service-icon">🖼️</span>
+إنشاء الصور بالذكاء الاصطناعي
+</div>
+
+<div class="service">
+<span class="service-icon">🎬</span>
+إنشاء الفيديوهات بالذكاء الاصطناعي
+</div>
+
+<div class="service">
+<span class="service-icon">📢</span>
+الإعلانات والفيديوهات التجارية
+</div>
+
+<div class="service">
+<span class="service-icon">🎨</span>
+بوسترات وتصاميم احترافية
+</div>
+
+<div class="service">
+<span class="service-icon">📱</span>
+محتوى السوشيال ميديا
+</div>
+
+<div class="service">
+<span class="service-icon">💡</span>
+أي مشروع أو خدمة AI مخصصة
+</div>
+
+</div>
+
+
+<p>
+<strong>لديك فكرة أو مشروع خاص؟</strong><br>
+أرسل لنا فكرتك وسنساعدك في تحويلها إلى حل عملي باستخدام الذكاء الاصطناعي.
+</p>
+
+
+<!-- WhatsApp number is hidden inside the link -->
+
+<a
+class="whatsapp-btn"
+href="https://wa.me/96890682630?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1%20%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A."
+target="_blank"
+rel="noopener">
+
+<span class="whatsapp-icon">💬</span>
+تواصل معنا عبر واتساب
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-title">
+<h2>📩 اطلب خدمتك</h2>
+<p>اكتب تفاصيل فكرتك وسنتواصل معك عبر واتساب</p>
+</div>
+
+
+<div class="contact-box">
+
+<label>اسمك</label>
+<input type="text" id="clientName" placeholder="اكتب اسمك">
+
+<label>ما الخدمة التي تحتاجها؟</label>
+<select id="clientService">
+<option>إنشاء موقع بالذكاء الاصطناعي</option>
+<option>AI Agent</option>
+<option>AI Automation</option>
+<option>إنشاء صورة</option>
+<option>إنشاء فيديو</option>
+<option>إعلان تجاري</option>
+<option>تصميم بوستر</option>
+<option>محتوى سوشيال ميديا</option>
+<option>خدمة AI أخرى</option>
+</select>
+
+<label>تفاصيل الطلب</label>
+<textarea id="clientMessage" placeholder="اكتب تفاصيل مشروعك أو فكرتك هنا..."></textarea>
+
+<button class="whatsapp-btn" onclick="sendRequest()">
+<span class="whatsapp-icon">💬</span>
+إرسال الطلب عبر واتساب
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-logo">أدواتي AI</div>
+
+<p>كل أدواتك اليومية في مكان واحد</p>
+
+<p style="margin-top:8px;font-size:13px;">
+© 2026 أدواتي AI — جميع الحقوق محفوظة
+</p>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* ==============================
+   WHATSAPP
+   ============================== */
+
+const WHATSAPP_NUMBER = "96890682630";
+
+
+/* ==============================
+   MOBILE MENU
+   ============================== */
+
+function toggleMenu(){
+
+    const nav = document.querySelector("nav");
+
+    if(nav.style.display === "flex"){
+        nav.style.display = "none";
+    }else{
+        nav.style.display = "flex";
+        nav.style.flexDirection = "column";
+        nav.style.position = "absolute";
+        nav.style.top = "72px";
+        nav.style.right = "20px";
+        nav.style.background = "#0b1933";
+        nav.style.padding = "18px";
+        nav.style.borderRadius = "15px";
     }
 
-
-    /* =========================
-       IMAGE COMPRESSOR
-    ========================= */
-
-    function compressImage() {
-
-      const input =
-        document.getElementById("imageInput");
-
-      const quality =
-        parseFloat(
-          document.getElementById("quality").value
-        );
-
-      const format =
-        document.getElementById("format").value;
-
-      const result =
-        document.getElementById("result");
-
-      const download =
-        document.getElementById("download");
+}
 
 
-      /* Reset */
+/* ==============================
+   OPEN TOOL
+   ============================== */
 
-      result.style.display = "none";
+function openTool(id){
 
-      download.style.display = "none";
+    document.querySelectorAll(".tool-area").forEach(el=>{
+        el.classList.remove("active");
+    });
 
-      download.removeAttribute("href");
+    const tool = document.getElementById(id);
+
+    if(tool){
+        tool.classList.add("active");
+        tool.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+    }
+
+}
 
 
-      /* Check file */
+/* ==============================
+   SEARCH
+   ============================== */
 
-      if (!input.files || input.files.length === 0) {
+function searchTools(){
 
-        result.style.display = "block";
+    const search = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
 
-        result.innerHTML =
-          "⚠️ يرجى اختيار صورة أولاً.";
+    document.querySelectorAll(".tool-card").forEach(card=>{
+
+        const name = card.dataset.name.toLowerCase();
+
+        if(name.includes(search)){
+            card.style.display = "";
+        }else{
+            card.style.display = "none";
+        }
+
+    });
+
+}
+
+
+/* ==============================
+   FILTER
+   ============================== */
+
+function filterTools(category,button){
+
+    document.querySelectorAll(".category").forEach(btn=>{
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    document.querySelectorAll(".tool-card").forEach(card=>{
+
+        if(category === "all" || card.dataset.category === category){
+            card.style.display = "";
+        }else{
+            card.style.display = "none";
+        }
+
+    });
+
+}
+
+
+/* ==============================
+   IMAGE COMPRESSOR
+   ============================== */
+
+function compressImage(){
+
+    const file =
+        document.getElementById("compressFile").files[0];
+
+    const result =
+        document.getElementById("compressResult");
+
+    if(!file){
+
+        result.innerHTML = "⚠️ الرجاء اختيار صورة أولاً.";
 
         return;
+    }
 
-      }
+    const quality =
+        Number(document.getElementById("compressQuality").value);
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+        const img = new Image();
+
+        img.onload = function(){
+
+            const canvas = document.createElement("canvas");
+
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            const ctx = canvas.getContext("2d");
+
+            ctx.drawImage(img,0,0);
+
+            canvas.toBlob(function(blob){
+
+                const oldSize = file.size;
+                const newSize = blob.size;
+
+                const saving =
+                    Math.max(
+                        0,
+                        Math.round((1-newSize/oldSize)*100)
+                    );
+
+                const url = URL.createObjectURL(blob);
+
+                result.innerHTML = `
+                    <strong>تم ضغط الصورة بنجاح ✅</strong><br><br>
+                    الحجم الأصلي: ${(oldSize/1024).toFixed(1)} KB<br>
+                    الحجم الجديد: ${(newSize/1024).toFixed(1)} KB<br>
+                    التوفير: ${saving}%
+                    <br>
+                    <a href="${url}" download="compressed-image.jpg">
+                        ⬇️ تحميل الصورة المضغوطة
+                    </a>
+                `;
+
+            },"image/jpeg",quality);
+
+        };
+
+        img.src = e.target.result;
+
+    };
+
+    reader.readAsDataURL(file);
+
+}
 
 
-      const file = input.files[0];
+/* ==============================
+   RESIZE IMAGE
+   ============================== */
 
+function resizeImage(){
 
-      /* Check image */
+    const file =
+        document.getElementById("resizeFile").files[0];
 
-      if (!file.type.startsWith("image/")) {
+    const width =
+        Number(document.getElementById("resizeWidth").value);
 
-        result.style.display = "block";
+    const height =
+        Number(document.getElementById("resizeHeight").value);
+
+    const result =
+        document.getElementById("resizeResult");
+
+    if(!file || !width || !height){
 
         result.innerHTML =
-          "⚠️ الملف المختار ليس صورة.";
+            "⚠️ اختر صورة وأدخل العرض والارتفاع.";
 
         return;
+    }
 
-      }
+    const reader = new FileReader();
 
+    reader.onload = function(e){
 
-      result.style.display = "block";
+        const img = new Image();
 
-      result.innerHTML =
-        "⏳ جاري ضغط الصورة...";
+        img.onload = function(){
 
+            const canvas = document.createElement("canvas");
 
-      const reader =
-        new FileReader();
+            canvas.width = width;
+            canvas.height = height;
 
+            const ctx = canvas.getContext("2d");
 
-      reader.onload = function(event) {
+            ctx.drawImage(img,0,0,width,height);
 
-        const img =
-          new Image();
+            canvas.toBlob(function(blob){
 
+                const url =
+                    URL.createObjectURL(blob);
 
-        img.onload = function() {
+                result.innerHTML = `
+                    تم تغيير حجم الصورة بنجاح ✅
+                    <br>
+                    <a href="${url}" download="resized-image.jpg">
+                    ⬇️ تحميل الصورة
+                    </a>
+                `;
 
-          try {
+            },"image/jpeg",.9);
 
-            const canvas =
-              document.createElement("canvas");
+        };
 
-            const ctx =
-              canvas.getContext("2d");
+        img.src = e.target.result;
 
+    };
 
-            /* Maximum width */
+    reader.readAsDataURL(file);
 
-            const maxWidth = 1600;
-
-            let scale = 1;
-
-
-            if (img.width > maxWidth) {
-
-              scale =
-                maxWidth / img.width;
-
-            }
-
-
-            canvas.width =
-              Math.round(img.width * scale);
-
-            canvas.height =
-              Math.round(img.height * scale);
+}
 
 
-            /* White background for JPG */
+/* ==============================
+   IMAGE CONVERTER
+   ============================== */
 
-            if (format === "image/jpeg") {
+function convertImage(){
 
-              ctx.fillStyle = "#ffffff";
+    const file =
+        document.getElementById("convertFile").files[0];
 
-              ctx.fillRect(
+    const type =
+        document.getElementById("convertType").value;
+
+    const result =
+        document.getElementById("convertResult");
+
+    if(!file){
+
+        result.innerHTML = "⚠️ اختر صورة أولاً.";
+
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+        const img = new Image();
+
+        img.onload = function(){
+
+            const canvas = document.createElement("canvas");
+
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            const ctx = canvas.getContext("2d");
+
+            ctx.drawImage(img,0,0);
+
+            canvas.toBlob(function(blob){
+
+                const url =
+                    URL.createObjectURL(blob);
+
+                let extension = "jpg";
+
+                if(type === "image/png"){
+                    extension = "png";
+                }
+
+                if(type === "image/webp"){
+                    extension = "webp";
+                }
+
+                result.innerHTML = `
+                    تم تحويل الصورة بنجاح ✅
+                    <br>
+                    <a href="${url}" download="converted-image.${extension}">
+                    ⬇️ تحميل الصورة
+                    </a>
+                `;
+
+            },type,.9);
+
+        };
+
+        img.src = e.target.result;
+
+    };
+
+    reader.readAsDataURL(file);
+
+}
+
+
+/* ==============================
+   IMAGE TO PDF
+   ============================== */
+
+function imageToPDF(){
+
+    const file =
+        document.getElementById("pdfImage").files[0];
+
+    const result =
+        document.getElementById("imagePdfResult");
+
+    if(!file){
+
+        result.innerHTML = "⚠️ اختر صورة أولاً.";
+
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+        const img = new Image();
+
+        img.onload = function(){
+
+            const canvas = document.createElement("canvas");
+
+            const ratio =
+                Math.min(1000/img.width,1400/img.height);
+
+            canvas.width = img.width * ratio;
+            canvas.height = img.height * ratio;
+
+            const ctx = canvas.getContext("2d");
+
+            ctx.fillStyle = "#fff";
+            ctx.fillRect(0,0,canvas.width,canvas.height);
+
+            ctx.drawImage(
+                img,
                 0,
                 0,
                 canvas.width,
                 canvas.height
-              );
-
-            }
-
-
-            ctx.drawImage(
-              img,
-              0,
-              0,
-              canvas.width,
-              canvas.height
             );
 
+            const imageData =
+                canvas.toDataURL("image/jpeg",.9);
 
-            canvas.toBlob(
+            /*
+             Simple PDF structure
+             */
 
-              function(blob) {
+            const pdf =
+                createSimplePDF(
+                    imageData,
+                    canvas.width,
+                    canvas.height
+                );
 
-                if (!blob) {
+            const blob =
+                new Blob([pdf],{
+                    type:"application/pdf"
+                });
 
-                  result.innerHTML =
-                    "❌ حدث خطأ أثناء ضغط الصورة.";
+            const url =
+                URL.createObjectURL(blob);
 
-                  return;
-
-                }
-
-
-                const url =
-                  URL.createObjectURL(blob);
-
-
-                download.href = url;
-
-
-                if (format === "image/webp") {
-
-                  download.download =
-                    "compressed-image.webp";
-
-                } else {
-
-                  download.download =
-                    "compressed-image.jpg";
-
-                }
-
-
-                download.style.display =
-                  "block";
-
-
-                const originalKB =
-                  Math.round(file.size / 1024);
-
-
-                const compressedKB =
-                  Math.round(blob.size / 1024);
-
-
-                let savedPercent = 0;
-
-
-                if (file.size > 0) {
-
-                  savedPercent =
-                    Math.max(
-                      0,
-                      Math.round(
-                        (
-                          1 -
-                          blob.size /
-                          file.size
-                        ) * 100
-                      )
-                    );
-
-                }
-
-
-                result.innerHTML =
-                  "✅ تم ضغط الصورة بنجاح!" +
-                  "<br><br>" +
-                  "الحجم الأصلي: " +
-                  originalKB +
-                  " KB" +
-                  "<br>" +
-                  "الحجم الجديد: " +
-                  compressedKB +
-                  " KB" +
-                  "<br>" +
-                  "نسبة التوفير: " +
-                  savedPercent +
-                  "%";
-
-
-              },
-
-              format,
-
-              quality
-
-            );
-
-
-          } catch (error) {
-
-            result.innerHTML =
-              "❌ حدث خطأ أثناء معالجة الصورة. يرجى المحاولة مرة أخرى.";
-
-          }
+            result.innerHTML = `
+                تم إنشاء ملف PDF بنجاح ✅
+                <br>
+                <a href="${url}" download="image.pdf">
+                ⬇️ تحميل PDF
+                </a>
+            `;
 
         };
 
+        img.src = e.target.result;
 
-        img.onerror = function() {
+    };
 
-          result.innerHTML =
-            "❌ تعذر قراءة الصورة. يرجى اختيار صورة أخرى.";
+    reader.readAsDataURL(file);
 
-        };
-
-
-        img.src =
-          event.target.result;
-
-      };
+}
 
 
-      reader.onerror = function() {
+/*
+Simple PDF generator
+*/
+
+function createSimplePDF(imageData,width,height){
+
+    /*
+    This creates a lightweight PDF wrapper.
+    */
+
+    const base64 =
+        imageData.split(",")[1];
+
+    const binary =
+        atob(base64);
+
+    let imageBinary = "";
+
+    for(let i=0;i<binary.length;i++){
+        imageBinary += binary[i];
+    }
+
+    const objects = [];
+
+    objects.push(
+        "1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n"
+    );
+
+    objects.push(
+        "2 0 obj\n<< /Type /Pages /Kids [3 0 R] /Count 1 >>\nendobj\n"
+    );
+
+    objects.push(
+        `3 0 obj
+<< /Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 ${width} ${height}]
+/Resources << /XObject << /Im1 4 0 R >> >>
+/Contents 5 0 R
+>>
+endobj
+`
+    );
+
+    objects.push(
+        `4 0 obj
+<< /Type /XObject
+/Subtype /Image
+/Width ${width}
+/Height ${height}
+/ColorSpace /DeviceRGB
+/BitsPerComponent 8
+/Filter /DCTDecode
+/Length ${imageBinary.length}
+>>
+stream
+${imageBinary}
+endstream
+endobj
+`
+    );
+
+    const content =
+        `q
+${width} 0 0 ${height} 0 0 cm
+/Im1 Do
+Q`;
+
+    objects.push(
+        `5 0 obj
+<< /Length ${content.length} >>
+stream
+${content}
+endstream
+endobj
+`
+    );
+
+    let pdf = "%PDF-1.4\n";
+
+    const offsets = [0];
+
+    objects.forEach(obj=>{
+
+        offsets.push(pdf.length);
+
+        pdf += obj;
+
+    });
+
+    const xref =
+        pdf.length;
+
+    pdf +=
+        `xref
+0 ${objects.length+1}
+0000000000 65535 f 
+`;
+
+    for(let i=1;i<offsets.length;i++){
+
+        pdf +=
+            String(offsets[i]).padStart(10,"0") +
+            " 00000 n \n";
+
+    }
+
+    pdf +=
+        `trailer
+<< /Size ${objects.length+1} /Root 1 0 R >>
+startxref
+${xref}
+%%EOF`;
+
+    return pdf;
+
+}
+
+
+/* ==============================
+   WORD COUNTER
+   ============================== */
+
+function countText(){
+
+    const text =
+        document.getElementById("counterText").value;
+
+    const words =
+        text.trim()
+        ? text.trim().split(/\s+/).length
+        : 0;
+
+    const characters =
+        text.length;
+
+    const sentences =
+        text.split(/[.!؟?]+/)
+        .filter(x=>x.trim()).length;
+
+    document.getElementById("counterResult").innerHTML = `
+        الكلمات: <strong>${words}</strong><br>
+        الحروف: <strong>${characters}</strong><br>
+        الجمل: <strong>${sentences}</strong>
+    `;
+
+}
+
+
+/* ==============================
+   CLEAN TEXT
+   ============================== */
+
+function cleanText(){
+
+    const text =
+        document.getElementById("cleanText").value;
+
+    const cleaned =
+        text
+        .replace(/[ \t]+/g," ")
+        .replace(/\n\s*\n+/g,"\n")
+        .trim();
+
+    document.getElementById("cleanResult").innerHTML =
+        `<textarea style="min-height:180px">${escapeHTML(cleaned)}</textarea>`;
+
+}
+
+
+/* ==============================
+   CASE
+   ============================== */
+
+function upperCase(){
+
+    const text =
+        document.getElementById("caseText").value;
+
+    document.getElementById("caseResult").innerHTML =
+        escapeHTML(text.toUpperCase());
+
+}
+
+function lowerCase(){
+
+    const text =
+        document.getElementById("caseText").value;
+
+    document.getElementById("caseResult").innerHTML =
+        escapeHTML(text.toLowerCase());
+
+}
+
+
+/* ==============================
+   PERCENTAGE
+   ============================== */
+
+function calculatePercentage(){
+
+    const number =
+        Number(document.getElementById("percentNumber").value);
+
+    const percentage =
+        Number(document.getElementById("percentValue").value);
+
+    if(isNaN(number)||isNaN(percentage)){
+
+        document.getElementById("percentageResult").innerHTML =
+            "⚠️ أدخل الأرقام المطلوبة.";
+
+        return;
+    }
+
+    const result =
+        number * percentage / 100;
+
+    document.getElementById("percentageResult").innerHTML =
+        `النتيجة: <strong>${result}</strong>`;
+
+}
+
+
+/* ==============================
+   DISCOUNT
+   ============================== */
+
+function calculateDiscount(){
+
+    const price =
+        Number(document.getElementById("price").value);
+
+    const discount =
+        Number(document.getElementById("discountValue").value);
+
+    if(isNaN(price)||isNaN(discount)){
+
+        document.getElementById("discountResult").innerHTML =
+            "⚠️ أدخل السعر ونسبة الخصم.";
+
+        return;
+    }
+
+    const saving =
+        price * discount / 100;
+
+    const finalPrice =
+        price - saving;
+
+    document.getElementById("discountResult").innerHTML = `
+        قيمة الخصم: <strong>${saving.toFixed(2)}</strong><br>
+        السعر بعد الخصم: <strong>${finalPrice.toFixed(2)}</strong>
+    `;
+
+}
+
+
+/* ==============================
+   AGE
+   ============================== */
+
+function calculateAge(){
+
+    const birth =
+        new Date(document.getElementById("birthDate").value);
+
+    const today =
+        new Date();
+
+    if(isNaN(birth.getTime())){
+
+        document.getElementById("ageResult").innerHTML =
+            "⚠️ اختر تاريخ الميلاد.";
+
+        return;
+    }
+
+    let years =
+        today.getFullYear() - birth.getFullYear();
+
+    const monthDiff =
+        today.getMonth() - birth.getMonth();
+
+    if(
+        monthDiff < 0 ||
+        (
+            monthDiff === 0 &&
+            today.getDate() < birth.getDate()
+        )
+    ){
+
+        years--;
+
+    }
+
+    document.getElementById("ageResult").innerHTML =
+        `عمرك تقريباً: <strong>${years} سنة</strong>`;
+
+}
+
+
+/* ==============================
+   PASSWORD
+   ============================== */
+
+function generatePassword(){
+
+    const length =
+        Number(document.getElementById("passwordLength").value);
+
+    const chars =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+
+    let password = "";
+
+    for(let i=0;i<length;i++){
+
+        password +=
+            chars.charAt(
+                Math.floor(Math.random()*chars.length)
+            );
+
+    }
+
+    document.getElementById("passwordResult").innerHTML =
+        `<strong style="word-break:break-all">${escapeHTML(password)}</strong>`;
+
+}
+
+
+/* ==============================
+   UNITS
+   ============================== */
+
+function convertUnit(){
+
+    const value =
+        Number(document.getElementById("unitValue").value);
+
+    const type =
+        document.getElementById("unitType").value;
+
+    if(isNaN(value)){
+
+        document.getElementById("unitResult").innerHTML =
+            "⚠️ أدخل قيمة.";
+
+        return;
+    }
+
+    let result;
+
+    switch(type){
+
+        case "km-m":
+            result = value * 1000;
+            break;
+
+        case "m-km":
+            result = value / 1000;
+            break;
+
+        case "m-cm":
+            result = value * 100;
+            break;
+
+        case "cm-m":
+            result = value / 100;
+            break;
+
+        case "kg-g":
+            result = value * 1000;
+            break;
+
+        case "g-kg":
+            result = value / 1000;
+            break;
+
+    }
+
+    document.getElementById("unitResult").innerHTML =
+        `النتيجة: <strong>${result}</strong>`;
+
+}
+
+
+/* ==============================
+   CALCULATOR
+   ============================== */
+
+function calculate(){
+
+    const expression =
+        document.getElementById("calcInput").value;
+
+    const result =
+        document.getElementById("calcResult");
+
+    if(!expression){
 
         result.innerHTML =
-          "❌ تعذر قراءة الملف.";
-
-      };
-
-
-      reader.readAsDataURL(file);
-
-    }
-
-
-    /* =========================
-       SEARCH
-    ========================= */
-
-    function searchTools() {
-
-      const input =
-        document.getElementById("searchInput");
-
-      const value =
-        input.value.trim().toLowerCase();
-
-
-      if (value === "") {
-
-        alert(
-          "اكتب اسم الأداة التي تبحث عنها."
-        );
+            "⚠️ أدخل عملية حسابية.";
 
         return;
+    }
 
-      }
+    /*
+    Basic calculator only.
+    */
 
+    if(!/^[0-9+\-*/().%\s]+$/.test(expression)){
 
-      if (
-        value.includes("صورة") ||
-        value.includes("صور") ||
-        value.includes("ضغط")
-      ) {
-
-        scrollToTool("compressor");
+        result.innerHTML =
+            "⚠️ العملية تحتوي على رموز غير مسموحة.";
 
         return;
+    }
 
-      }
+    try{
 
+        const answer =
+            Function('"use strict";return (' + expression + ')')();
 
-      alert(
-        "هذه الأداة ستتوفر قريباً. سنضيف المزيد من الأدوات باستمرار."
-      );
+        result.innerHTML =
+            `النتيجة: <strong>${answer}</strong>`;
+
+    }catch{
+
+        result.innerHTML =
+            "⚠️ العملية غير صحيحة.";
 
     }
 
+}
 
-    /* =========================
-       COMING SOON
-    ========================= */
 
-    function comingSoon() {
+/* ==============================
+   SEND SERVICE REQUEST
+   ============================== */
 
-      alert(
-        "🚀 هذه الأداة قادمة قريباً. سنضيفها في التحديث القادم."
-      );
+function sendRequest(){
 
+    const name =
+        document.getElementById("clientName").value.trim();
+
+    const service =
+        document.getElementById("clientService").value;
+
+    const message =
+        document.getElementById("clientMessage").value.trim();
+
+    if(!name || !message){
+
+        alert("الرجاء كتابة الاسم وتفاصيل الطلب.");
+
+        return;
     }
 
+    const text =
+`مرحباً، أريد الاستفسار عن خدمة بالذكاء الاصطناعي.
 
-    /* =========================
-       SERVICES
-    ========================= */
+الاسم: ${name}
 
-    function serviceMessage() {
+الخدمة المطلوبة:
+${service}
 
-      alert(
-        "✨ خدمة تنفيذ التصاميم والفيديوهات بالذكاء الاصطناعي ستكون متاحة قريباً."
-      );
+تفاصيل الطلب:
+${message}`;
 
-    }
+    const url =
+        "https://wa.me/" +
+        WHATSAPP_NUMBER +
+        "?text=" +
+        encodeURIComponent(text);
 
-  </script>
+    window.open(url,"_blank");
+
+}
+
+
+/* ==============================
+   HTML ESCAPE
+   ============================== */
+
+function escapeHTML(text){
+
+    return text
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+</script>
 
 </body>
-
 </html>
