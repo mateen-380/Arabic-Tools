@@ -6,8 +6,7 @@
 
 <title>أدواتي AI | كل أدواتك اليومية في مكان واحد</title>
 
-<meta name="description" content="أدواتي AI - مجموعة من الأدوات الرقمية المجانية للصور والنصوص والحساب والتحويل والذكاء الاصطناعي.">
-<meta name="theme-color" content="#08142f">
+<meta name="description" content="أدواتي AI - أدوات رقمية مجانية للصور والنصوص والحساب والتحويل وخدمات الذكاء الاصطناعي.">
 
 <style>
 *{
@@ -21,7 +20,7 @@ html{
 }
 
 body{
-    font-family:Arial,"Tahoma",sans-serif;
+    font-family:Arial,Tahoma,sans-serif;
     background:#071226;
     color:#fff;
     line-height:1.7;
@@ -34,9 +33,12 @@ select{
     font-family:inherit;
 }
 
+button{
+    cursor:pointer;
+}
+
 a{
     text-decoration:none;
-    color:inherit;
 }
 
 .container{
@@ -50,7 +52,7 @@ header{
     position:sticky;
     top:0;
     z-index:1000;
-    background:rgba(5,15,35,.94);
+    background:rgba(5,15,35,.96);
     backdrop-filter:blur(14px);
     border-bottom:1px solid rgba(255,255,255,.08);
 }
@@ -60,7 +62,6 @@ header{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:20px;
 }
 
 .logo{
@@ -75,26 +76,16 @@ header{
 
 nav{
     display:flex;
-    gap:20px;
-    align-items:center;
+    gap:22px;
 }
 
 nav a{
     color:#dbe6ff;
     font-size:14px;
-    transition:.2s;
 }
 
 nav a:hover{
     color:#ffd43b;
-}
-
-.menu-btn{
-    display:none;
-    background:none;
-    border:0;
-    color:#fff;
-    font-size:27px;
 }
 
 /* HERO */
@@ -143,7 +134,6 @@ nav a:hover{
 .search-box{
     max-width:650px;
     margin:auto;
-    position:relative;
 }
 
 .search-box input{
@@ -155,10 +145,6 @@ nav a:hover{
     color:#fff;
     outline:none;
     font-size:16px;
-}
-
-.search-box input:focus{
-    border-color:#ffd43b;
 }
 
 /* CATEGORIES */
@@ -179,18 +165,16 @@ nav a:hover{
     background:#10213f;
     border:1px solid rgba(255,255,255,.08);
     border-radius:30px;
-    cursor:pointer;
     color:#dce6fa;
-    transition:.2s;
 }
 
 .category:hover,
 .category.active{
     background:#ffd43b;
-    color:#101010;
+    color:#111;
 }
 
-/* SECTION */
+/* SECTIONS */
 
 section{
     padding:65px 0;
@@ -262,10 +246,9 @@ section{
     background:#ffd43b;
     color:#111;
     font-weight:800;
-    cursor:pointer;
 }
 
-/* TOOL WORKSPACE */
+/* WORKSPACE */
 
 .workspace{
     background:#0b1933;
@@ -275,16 +258,16 @@ section{
     margin-top:30px;
 }
 
-.workspace h3{
-    margin-bottom:18px;
-}
-
 .tool-area{
     display:none;
 }
 
 .tool-area.active{
     display:block;
+}
+
+.tool-area h3{
+    margin-bottom:18px;
 }
 
 label{
@@ -315,26 +298,23 @@ textarea{
     resize:vertical;
 }
 
-.action-btn{
+.action-btn,
+.secondary-btn{
     border:0;
-    background:#ffd43b;
-    color:#111;
     padding:12px 20px;
     border-radius:12px;
     font-weight:800;
-    cursor:pointer;
-    margin-top:5px;
+}
+
+.action-btn{
+    background:#ffd43b;
+    color:#111;
 }
 
 .secondary-btn{
-    border:1px solid rgba(255,255,255,.15);
     background:#122441;
     color:#fff;
-    padding:12px 20px;
-    border-radius:12px;
-    font-weight:bold;
-    cursor:pointer;
-    margin-top:5px;
+    border:1px solid rgba(255,255,255,.15);
 }
 
 .result{
@@ -350,6 +330,7 @@ textarea{
     display:inline-block;
     margin-top:12px;
     background:#20c997;
+    color:#fff;
     padding:10px 16px;
     border-radius:10px;
     font-weight:bold;
@@ -409,6 +390,8 @@ textarea{
     margin-bottom:5px;
 }
 
+/* WHATSAPP */
+
 .whatsapp-btn{
     display:inline-flex;
     align-items:center;
@@ -421,8 +404,12 @@ textarea{
     font-size:17px;
     font-weight:900;
     border:0;
-    cursor:pointer;
     box-shadow:0 8px 25px rgba(32,199,106,.18);
+}
+
+.whatsapp-btn:hover{
+    background:#19ad5b;
+    transform:translateY(-2px);
 }
 
 .whatsapp-icon{
@@ -459,18 +446,17 @@ footer{
 /* RESPONSIVE */
 
 @media(max-width:1000px){
+
     .tools-grid{
         grid-template-columns:repeat(3,1fr);
     }
+
 }
 
 @media(max-width:760px){
+
     nav{
         display:none;
-    }
-
-    .menu-btn{
-        display:block;
     }
 
     .tools-grid{
@@ -488,9 +474,11 @@ footer{
     .ai-box{
         padding:25px 18px;
     }
+
 }
 
 @media(max-width:500px){
+
     .tools-grid{
         grid-template-columns:1fr;
     }
@@ -506,13 +494,12 @@ footer{
     section{
         padding:45px 0;
     }
+
 }
 </style>
 </head>
 
 <body>
-
-<!-- HEADER -->
 
 <header>
 <div class="container nav">
@@ -525,13 +512,9 @@ footer{
 <a href="#contact">تواصل معنا</a>
 </nav>
 
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
-
 </div>
 </header>
 
-
-<!-- HERO -->
 
 <section class="hero">
 
@@ -562,235 +545,404 @@ oninput="searchTools()">
 </section>
 
 
-<!-- CATEGORIES -->
-
 <div class="categories">
+
 <div class="container category-list">
 
 <button class="category active" onclick="filterTools('all',this)">الكل</button>
-<button class="category" onclick="filterTools('image',this)">🖼️ الصور</button>
-<button class="category" onclick="filterTools('text',this)">📝 النصوص</button>
-<button class="category" onclick="filterTools('calc',this)">🧮 الحساب</button>
-<button class="category" onclick="filterTools('utility',this)">⚙️ أدوات مفيدة</button>
+
+<button class="category" onclick="filterTools('image',this)">
+🖼️ الصور
+</button>
+
+<button class="category" onclick="filterTools('text',this)">
+📝 النصوص
+</button>
+
+<button class="category" onclick="filterTools('calc',this)">
+🧮 الحساب
+</button>
+
+<button class="category" onclick="filterTools('utility',this)">
+⚙️ أدوات مفيدة
+</button>
 
 </div>
+
 </div>
 
-
-<!-- TOOLS -->
 
 <section id="tools">
 
 <div class="container">
 
 <div class="section-title">
+
 <h2>🛠️ أدوات مجانية</h2>
-<p>استخدم أدواتك اليومية مباشرة من المتصفح</p>
+
+<p>
+استخدم أدواتك اليومية مباشرة من المتصفح
+</p>
+
 </div>
 
-<div class="tools-grid" id="toolsGrid">
+
+<div class="tools-grid">
 
 
 <div class="tool-card" data-category="image" data-name="ضغط الصور">
+
 <div class="tool-icon">🗜️</div>
+
 <h3>ضغط الصور</h3>
-<p>قلل حجم الصور مع الحفاظ على جودة مناسبة.</p>
-<button class="tool-btn" onclick="openTool('compress')">ابدأ الآن</button>
+
+<p>
+قلل حجم الصور مع الحفاظ على جودة مناسبة.
+</p>
+
+<button class="tool-btn" onclick="openTool('compress')">
+ابدأ الآن
+</button>
+
 </div>
 
 
 <div class="tool-card" data-category="image" data-name="تغيير حجم الصورة">
+
 <div class="tool-icon">📐</div>
+
 <h3>تغيير حجم الصورة</h3>
-<p>غيّر أبعاد الصورة بسهولة.</p>
-<button class="tool-btn" onclick="openTool('resize')">ابدأ الآن</button>
+
+<p>
+غيّر أبعاد الصورة بسهولة.
+</p>
+
+<button class="tool-btn" onclick="openTool('resize')">
+ابدأ الآن
+</button>
+
 </div>
 
 
 <div class="tool-card" data-category="image" data-name="تحويل الصور">
+
 <div class="tool-icon">🔄</div>
+
 <h3>تحويل الصور</h3>
-<p>حوّل الصور بين JPG وPNG وWEBP.</p>
-<button class="tool-btn" onclick="openTool('convert')">ابدأ الآن</button>
+
+<p>
+حوّل الصور بين JPG وPNG وWEBP.
+</p>
+
+<button class="tool-btn" onclick="openTool('convert')">
+ابدأ الآن
+</button>
+
 </div>
 
 
 <div class="tool-card" data-category="image" data-name="صورة الى PDF">
+
 <div class="tool-icon">📄</div>
+
 <h3>صورة إلى PDF</h3>
-<p>حوّل صورة إلى ملف PDF بسهولة.</p>
-<button class="tool-btn" onclick="openTool('imagepdf')">ابدأ الآن</button>
+
+<p>
+حوّل صورة إلى ملف PDF بسهولة.
+</p>
+
+<button class="tool-btn" onclick="openTool('imagepdf')">
+ابدأ الآن
+</button>
+
 </div>
 
 
 <div class="tool-card" data-category="text" data-name="عداد الكلمات الحروف">
+
 <div class="tool-icon">🔢</div>
+
 <h3>عداد الكلمات</h3>
-<p>احسب الكلمات والحروف والجمل.</p>
-<button class="tool-btn" onclick="openTool('counter')">ابدأ الآن</button>
+
+<p>
+احسب الكلمات والحروف والجمل.
+</p>
+
+<button class="tool-btn" onclick="openTool('counter')">
+ابدأ الآن
+</button>
+
 </div>
 
 
 <div class="tool-card" data-category="text" data-name="تنظيف النص">
+
 <div class="tool-icon">🧹</div>
+
 <h3>تنظيف النص</h3>
-<p>نظّف المسافات والأسطر الزائدة.</p>
-<button class="tool-btn" onclick="openTool('clean')">ابدأ الآن</button>
+
+<p>
+نظّف المسافات والأسطر الزائدة.
+</p>
+
+<button class="tool-btn" onclick="openTool('clean')">
+ابدأ الآن
+</button>
+
 </div>
 
 
 <div class="tool-card" data-category="text" data-name="تغيير حالة النص">
+
 <div class="tool-icon">🔤</div>
+
 <h3>تغيير حالة النص</h3>
-<p>حوّل النص إلى أحرف كبيرة أو صغيرة.</p>
-<button class="tool-btn" onclick="openTool('case')">ابدأ الآن</button>
+
+<p>
+حوّل النص إلى أحرف كبيرة أو صغيرة.
+</p>
+
+<button class="tool-btn" onclick="openTool('case')">
+ابدأ الآن
+</button>
+
 </div>
 
 
 <div class="tool-card" data-category="calc" data-name="حاسبة النسبة المئوية">
+
 <div class="tool-icon">％</div>
+
 <h3>النسبة المئوية</h3>
-<p>احسب النسب المئوية بسرعة.</p>
-<button class="tool-btn" onclick="openTool('percentage')">ابدأ الآن</button>
+
+<p>
+احسب النسب المئوية بسرعة.
+</p>
+
+<button class="tool-btn" onclick="openTool('percentage')">
+ابدأ الآن
+</button>
+
 </div>
 
 
 <div class="tool-card" data-category="calc" data-name="حاسبة الخصم">
+
 <div class="tool-icon">🏷️</div>
+
 <h3>حاسبة الخصم</h3>
-<p>احسب السعر بعد الخصم.</p>
-<button class="tool-btn" onclick="openTool('discount')">ابدأ الآن</button>
+
+<p>
+احسب السعر بعد الخصم.
+</p>
+
+<button class="tool-btn" onclick="openTool('discount')">
+ابدأ الآن
+</button>
+
 </div>
 
 
 <div class="tool-card" data-category="calc" data-name="حاسبة العمر">
+
 <div class="tool-icon">🎂</div>
+
 <h3>حاسبة العمر</h3>
-<p>احسب عمرك بالسنوات والأشهر والأيام.</p>
-<button class="tool-btn" onclick="openTool('age')">ابدأ الآن</button>
+
+<p>
+احسب عمرك بالسنوات.
+</p>
+
+<button class="tool-btn" onclick="openTool('age')">
+ابدأ الآن
+</button>
+
 </div>
 
 
 <div class="tool-card" data-category="utility" data-name="مولد كلمات المرور">
+
 <div class="tool-icon">🔐</div>
+
 <h3>مولد كلمات المرور</h3>
-<p>أنشئ كلمة مرور قوية وعشوائية.</p>
-<button class="tool-btn" onclick="openTool('password')">ابدأ الآن</button>
+
+<p>
+أنشئ كلمة مرور قوية وعشوائية.
+</p>
+
+<button class="tool-btn" onclick="openTool('password')">
+ابدأ الآن
+</button>
+
 </div>
 
 
 <div class="tool-card" data-category="utility" data-name="محول الوحدات">
+
 <div class="tool-icon">📏</div>
+
 <h3>محول الوحدات</h3>
-<p>حوّل بين المتر والكيلومتر والقدم وغيرها.</p>
-<button class="tool-btn" onclick="openTool('units')">ابدأ الآن</button>
+
+<p>
+حوّل بين المتر والكيلومتر والقدم وغيرها.
+</p>
+
+<button class="tool-btn" onclick="openTool('units')">
+ابدأ الآن
+</button>
+
 </div>
 
 
 <div class="tool-card" data-category="calc" data-name="آلة حاسبة">
+
 <div class="tool-icon">🧮</div>
+
 <h3>آلة حاسبة</h3>
-<p>آلة حاسبة بسيطة وسريعة.</p>
-<button class="tool-btn" onclick="openTool('calculator')">ابدأ الآن</button>
-</div>
+
+<p>
+آلة حاسبة بسيطة وسريعة.
+</p>
+
+<button class="tool-btn" onclick="openTool('calculator')">
+ابدأ الآن
+</button>
 
 </div>
 
+</div>
 
-<!-- WORKSPACE -->
 
 <div class="workspace">
 
-
-<!-- COMPRESS -->
 
 <div id="compress" class="tool-area">
 
 <h3>🗜️ ضغط الصور</h3>
 
 <label>اختر صورة</label>
-<input type="file" id="compressFile" accept="image/*">
+
+<input
+type="file"
+id="compressFile"
+accept="image/*">
 
 <label>الجودة</label>
+
 <select id="compressQuality">
-<option value="0.9">عالية</option>
-<option value="0.7" selected>متوسطة</option>
-<option value="0.5">منخفضة</option>
+
+<option value="0.9">
+عالية
+</option>
+
+<option value="0.7" selected>
+متوسطة
+</option>
+
+<option value="0.5">
+منخفضة
+</option>
+
 </select>
 
-<button class="action-btn" onclick="compressImage()">ضغط الصورة</button>
+<button class="action-btn" onclick="compressImage()">
+ضغط الصورة
+</button>
 
 <div id="compressResult" class="result"></div>
 
 </div>
 
 
-<!-- RESIZE -->
-
 <div id="resize" class="tool-area">
 
 <h3>📐 تغيير حجم الصورة</h3>
 
-<input type="file" id="resizeFile" accept="image/*">
+<input
+type="file"
+id="resizeFile"
+accept="image/*">
 
 <label>العرض بالبكسل</label>
-<input type="number" id="resizeWidth" placeholder="مثال: 1080">
+
+<input
+type="number"
+id="resizeWidth"
+placeholder="مثال: 1080">
 
 <label>الارتفاع بالبكسل</label>
-<input type="number" id="resizeHeight" placeholder="مثال: 1080">
 
-<button class="action-btn" onclick="resizeImage()">تغيير الحجم</button>
+<input
+type="number"
+id="resizeHeight"
+placeholder="مثال: 1080">
+
+<button class="action-btn" onclick="resizeImage()">
+تغيير الحجم
+</button>
 
 <div id="resizeResult" class="result"></div>
 
 </div>
 
 
-<!-- CONVERT -->
-
 <div id="convert" class="tool-area">
 
 <h3>🔄 تحويل الصور</h3>
 
-<input type="file" id="convertFile" accept="image/*">
+<input
+type="file"
+id="convertFile"
+accept="image/*">
 
 <label>الصيغة الجديدة</label>
 
 <select id="convertType">
+
 <option value="image/jpeg">JPG</option>
+
 <option value="image/png">PNG</option>
+
 <option value="image/webp">WEBP</option>
+
 </select>
 
-<button class="action-btn" onclick="convertImage()">تحويل الصورة</button>
+<button class="action-btn" onclick="convertImage()">
+تحويل الصورة
+</button>
 
 <div id="convertResult" class="result"></div>
 
 </div>
 
 
-<!-- IMAGE PDF -->
-
 <div id="imagepdf" class="tool-area">
 
 <h3>📄 تحويل الصورة إلى PDF</h3>
 
-<input type="file" id="pdfImage" accept="image/*">
+<input
+type="file"
+id="pdfImage"
+accept="image/*">
 
-<button class="action-btn" onclick="imageToPDF()">تحويل إلى PDF</button>
+<button class="action-btn" onclick="imageToPDF()">
+تحويل إلى PDF
+</button>
 
 <div id="imagePdfResult" class="result"></div>
 
 </div>
 
 
-<!-- COUNTER -->
-
 <div id="counter" class="tool-area">
 
 <h3>🔢 عداد الكلمات والحروف</h3>
 
-<textarea id="counterText" oninput="countText()" placeholder="اكتب أو الصق النص هنا..."></textarea>
+<textarea
+id="counterText"
+oninput="countText()"
+placeholder="اكتب أو الصق النص هنا...">
+</textarea>
 
 <div class="result" id="counterResult">
 الكلمات: 0<br>
@@ -801,134 +953,191 @@ oninput="searchTools()">
 </div>
 
 
-<!-- CLEAN -->
-
 <div id="clean" class="tool-area">
 
 <h3>🧹 تنظيف النص</h3>
 
-<textarea id="cleanText" placeholder="ضع النص هنا..."></textarea>
+<textarea
+id="cleanText"
+placeholder="ضع النص هنا...">
+</textarea>
 
-<button class="action-btn" onclick="cleanText()">تنظيف النص</button>
+<button class="action-btn" onclick="cleanText()">
+تنظيف النص
+</button>
 
 <div id="cleanResult" class="result"></div>
 
 </div>
 
 
-<!-- CASE -->
-
 <div id="case" class="tool-area">
 
 <h3>🔤 تغيير حالة النص</h3>
 
-<textarea id="caseText" placeholder="اكتب النص الإنجليزي هنا..."></textarea>
+<textarea
+id="caseText"
+placeholder="اكتب النص الإنجليزي هنا...">
+</textarea>
 
-<button class="action-btn" onclick="upperCase()">UPPERCASE</button>
-<button class="secondary-btn" onclick="lowerCase()">lowercase</button>
+<button class="action-btn" onclick="upperCase()">
+UPPERCASE
+</button>
+
+<button class="secondary-btn" onclick="lowerCase()">
+lowercase
+</button>
 
 <div id="caseResult" class="result"></div>
 
 </div>
 
 
-<!-- PERCENTAGE -->
-
 <div id="percentage" class="tool-area">
 
 <h3>％ حاسبة النسبة المئوية</h3>
 
-<input type="number" id="percentNumber" placeholder="الرقم">
-<input type="number" id="percentValue" placeholder="النسبة %">
+<input
+type="number"
+id="percentNumber"
+placeholder="الرقم">
 
-<button class="action-btn" onclick="calculatePercentage()">احسب</button>
+<input
+type="number"
+id="percentValue"
+placeholder="النسبة %">
+
+<button class="action-btn" onclick="calculatePercentage()">
+احسب
+</button>
 
 <div id="percentageResult" class="result"></div>
 
 </div>
 
 
-<!-- DISCOUNT -->
-
 <div id="discount" class="tool-area">
 
 <h3>🏷️ حاسبة الخصم</h3>
 
-<input type="number" id="price" placeholder="السعر الأصلي">
-<input type="number" id="discountValue" placeholder="نسبة الخصم %">
+<input
+type="number"
+id="price"
+placeholder="السعر الأصلي">
 
-<button class="action-btn" onclick="calculateDiscount()">احسب السعر</button>
+<input
+type="number"
+id="discountValue"
+placeholder="نسبة الخصم %">
+
+<button class="action-btn" onclick="calculateDiscount()">
+احسب السعر
+</button>
 
 <div id="discountResult" class="result"></div>
 
 </div>
 
 
-<!-- AGE -->
-
 <div id="age" class="tool-area">
 
 <h3>🎂 حاسبة العمر</h3>
 
 <label>تاريخ الميلاد</label>
-<input type="date" id="birthDate">
 
-<button class="action-btn" onclick="calculateAge()">احسب العمر</button>
+<input
+type="date"
+id="birthDate">
+
+<button class="action-btn" onclick="calculateAge()">
+احسب العمر
+</button>
 
 <div id="ageResult" class="result"></div>
 
 </div>
 
 
-<!-- PASSWORD -->
-
 <div id="password" class="tool-area">
 
 <h3>🔐 مولد كلمات المرور</h3>
 
 <label>طول كلمة المرور</label>
-<input type="number" id="passwordLength" value="16" min="6" max="50">
 
-<button class="action-btn" onclick="generatePassword()">إنشاء كلمة مرور</button>
+<input
+type="number"
+id="passwordLength"
+value="16"
+min="6"
+max="50">
+
+<button class="action-btn" onclick="generatePassword()">
+إنشاء كلمة مرور
+</button>
 
 <div id="passwordResult" class="result"></div>
 
 </div>
 
 
-<!-- UNITS -->
-
 <div id="units" class="tool-area">
 
 <h3>📏 محول الوحدات</h3>
 
-<input type="number" id="unitValue" placeholder="القيمة">
+<input
+type="number"
+id="unitValue"
+placeholder="القيمة">
 
 <select id="unitType">
-<option value="km-m">كيلومتر → متر</option>
-<option value="m-km">متر → كيلومتر</option>
-<option value="m-cm">متر → سنتيمتر</option>
-<option value="cm-m">سنتيمتر → متر</option>
-<option value="kg-g">كيلوغرام → غرام</option>
-<option value="g-kg">غرام → كيلوغرام</option>
+
+<option value="km-m">
+كيلومتر → متر
+</option>
+
+<option value="m-km">
+متر → كيلومتر
+</option>
+
+<option value="m-cm">
+متر → سنتيمتر
+</option>
+
+<option value="cm-m">
+سنتيمتر → متر
+</option>
+
+<option value="kg-g">
+كيلوغرام → غرام
+</option>
+
+<option value="g-kg">
+غرام → كيلوغرام
+</option>
+
 </select>
 
-<button class="action-btn" onclick="convertUnit()">تحويل</button>
+<button class="action-btn" onclick="convertUnit()">
+تحويل
+</button>
 
 <div id="unitResult" class="result"></div>
 
 </div>
 
 
-<!-- CALCULATOR -->
-
 <div id="calculator" class="tool-area">
 
 <h3>🧮 الآلة الحاسبة</h3>
 
-<input type="text" id="calcInput" placeholder="مثال: 100+50*2">
+<input
+type="text"
+id="calcInput"
+placeholder="مثال: 100+50*2">
 
-<button class="action-btn" onclick="calculate()">احسب</button>
+<button class="action-btn" onclick="calculate()">
+احسب
+</button>
 
 <div id="calcResult" class="result"></div>
 
@@ -949,7 +1158,9 @@ oninput="searchTools()">
 
 <div class="ai-box">
 
-<h2>🤖 هل تريد خدمة بالذكاء الاصطناعي؟</h2>
+<h2>
+🤖 هل تريد خدمة بالذكاء الاصطناعي؟
+</h2>
 
 <p>
 إذا كنت لا تريد تنفيذ العمل بنفسك، يمكنك التواصل معنا.
@@ -959,45 +1170,54 @@ oninput="searchTools()">
 
 <div class="services">
 
+
 <div class="service">
 <span class="service-icon">🌐</span>
 إنشاء مواقع بالذكاء الاصطناعي
 </div>
+
 
 <div class="service">
 <span class="service-icon">🤖</span>
 إنشاء AI Agents
 </div>
 
+
 <div class="service">
 <span class="service-icon">⚙️</span>
 AI Automation
 </div>
+
 
 <div class="service">
 <span class="service-icon">🖼️</span>
 إنشاء الصور بالذكاء الاصطناعي
 </div>
 
+
 <div class="service">
 <span class="service-icon">🎬</span>
 إنشاء الفيديوهات بالذكاء الاصطناعي
 </div>
+
 
 <div class="service">
 <span class="service-icon">📢</span>
 الإعلانات والفيديوهات التجارية
 </div>
 
+
 <div class="service">
 <span class="service-icon">🎨</span>
 بوسترات وتصاميم احترافية
 </div>
 
+
 <div class="service">
 <span class="service-icon">📱</span>
 محتوى السوشيال ميديا
 </div>
+
 
 <div class="service">
 <span class="service-icon">💡</span>
@@ -1008,23 +1228,31 @@ AI Automation
 
 
 <p>
-<strong>لديك فكرة أو مشروع خاص؟</strong><br>
+
+<strong>
+لديك فكرة أو مشروع خاص؟
+</strong>
+
+<br>
+
 أرسل لنا فكرتك وسنساعدك في تحويلها إلى حل عملي باستخدام الذكاء الاصطناعي.
+
 </p>
 
 
-<!-- WhatsApp number is hidden inside the link -->
-
-<a
+<button
+type="button"
 class="whatsapp-btn"
-href="https://wa.me/96890682630?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1%20%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A."
-target="_blank"
-rel="noopener">
+onclick="openWhatsApp()">
 
-<span class="whatsapp-icon">💬</span>
+<span class="whatsapp-icon">
+💬
+</span>
+
 تواصل معنا عبر واتساب
 
-</a>
+</button>
+
 
 </div>
 
@@ -1040,35 +1268,94 @@ rel="noopener">
 <div class="container">
 
 <div class="section-title">
+
 <h2>📩 اطلب خدمتك</h2>
-<p>اكتب تفاصيل فكرتك وسنتواصل معك عبر واتساب</p>
+
+<p>
+اكتب تفاصيل فكرتك وسنتواصل معك عبر واتساب
+</p>
+
 </div>
 
 
 <div class="contact-box">
 
-<label>اسمك</label>
-<input type="text" id="clientName" placeholder="اكتب اسمك">
+<label>
+اسمك
+</label>
 
-<label>ما الخدمة التي تحتاجها؟</label>
+<input
+type="text"
+id="clientName"
+placeholder="اكتب اسمك">
+
+
+<label>
+ما الخدمة التي تحتاجها؟
+</label>
+
 <select id="clientService">
-<option>إنشاء موقع بالذكاء الاصطناعي</option>
-<option>AI Agent</option>
-<option>AI Automation</option>
-<option>إنشاء صورة</option>
-<option>إنشاء فيديو</option>
-<option>إعلان تجاري</option>
-<option>تصميم بوستر</option>
-<option>محتوى سوشيال ميديا</option>
-<option>خدمة AI أخرى</option>
+
+<option>
+إنشاء موقع بالذكاء الاصطناعي
+</option>
+
+<option>
+AI Agent
+</option>
+
+<option>
+AI Automation
+</option>
+
+<option>
+إنشاء صورة
+</option>
+
+<option>
+إنشاء فيديو
+</option>
+
+<option>
+إعلان تجاري
+</option>
+
+<option>
+تصميم بوستر
+</option>
+
+<option>
+محتوى سوشيال ميديا
+</option>
+
+<option>
+خدمة AI أخرى
+</option>
+
 </select>
 
-<label>تفاصيل الطلب</label>
-<textarea id="clientMessage" placeholder="اكتب تفاصيل مشروعك أو فكرتك هنا..."></textarea>
 
-<button class="whatsapp-btn" onclick="sendRequest()">
-<span class="whatsapp-icon">💬</span>
+<label>
+تفاصيل الطلب
+</label>
+
+<textarea
+id="clientMessage"
+placeholder="اكتب تفاصيل مشروعك أو فكرتك هنا...">
+</textarea>
+
+
+<button
+type="button"
+class="whatsapp-btn"
+onclick="sendRequest()">
+
+<span class="whatsapp-icon">
+💬
+</span>
+
 إرسال الطلب عبر واتساب
+
 </button>
 
 </div>
@@ -1078,15 +1365,17 @@ rel="noopener">
 </section>
 
 
-<!-- FOOTER -->
-
 <footer>
 
 <div class="container">
 
-<div class="footer-logo">أدواتي AI</div>
+<div class="footer-logo">
+أدواتي AI
+</div>
 
-<p>كل أدواتك اليومية في مكان واحد</p>
+<p>
+كل أدواتك اليومية في مكان واحد
+</p>
 
 <p style="margin-top:8px;font-size:13px;">
 © 2026 أدواتي AI — جميع الحقوق محفوظة
@@ -1099,80 +1388,99 @@ rel="noopener">
 
 <script>
 
-/* ==============================
-   WHATSAPP
-   ============================== */
+/* =========================================
+   WHATSAPP NUMBER
+   =========================================
+
+   الرقم موجود داخل الكود فقط.
+   الموقع لا يعرض الرقم للمستخدم.
+*/
 
 const WHATSAPP_NUMBER = "96890682630";
 
 
-/* ==============================
-   MOBILE MENU
-   ============================== */
+/* =========================================
+   OPEN WHATSAPP
+   ========================================= */
 
-function toggleMenu(){
+function openWhatsApp(){
 
-    const nav = document.querySelector("nav");
+    const message =
+        "مرحباً، أريد الاستفسار عن خدمات الذكاء الاصطناعي.";
 
-    if(nav.style.display === "flex"){
-        nav.style.display = "none";
-    }else{
-        nav.style.display = "flex";
-        nav.style.flexDirection = "column";
-        nav.style.position = "absolute";
-        nav.style.top = "72px";
-        nav.style.right = "20px";
-        nav.style.background = "#0b1933";
-        nav.style.padding = "18px";
-        nav.style.borderRadius = "15px";
-    }
+    const whatsappURL =
+        "https://wa.me/" +
+        WHATSAPP_NUMBER +
+        "?text=" +
+        encodeURIComponent(message);
 
+    /*
+       location.href يعمل بشكل أفضل
+       مع الهاتف والكمبيوتر من بعض
+       طرق فتح النوافذ الجديدة.
+    */
+
+    window.location.href = whatsappURL;
 }
 
 
-/* ==============================
+/* =========================================
    OPEN TOOL
-   ============================== */
+   ========================================= */
 
 function openTool(id){
 
-    document.querySelectorAll(".tool-area").forEach(el=>{
+    document.querySelectorAll(".tool-area").forEach(function(el){
+
         el.classList.remove("active");
+
     });
 
-    const tool = document.getElementById(id);
+    const tool =
+        document.getElementById(id);
 
     if(tool){
+
         tool.classList.add("active");
+
         tool.scrollIntoView({
             behavior:"smooth",
             block:"center"
         });
+
     }
 
 }
 
 
-/* ==============================
+/* =========================================
    SEARCH
-   ============================== */
+   ========================================= */
 
 function searchTools(){
 
-    const search = document
+    const search =
+        document
         .getElementById("searchInput")
         .value
         .toLowerCase()
         .trim();
 
-    document.querySelectorAll(".tool-card").forEach(card=>{
+    document
+    .querySelectorAll(".tool-card")
+    .forEach(function(card){
 
-        const name = card.dataset.name.toLowerCase();
+        const name =
+            card.dataset.name.toLowerCase();
 
         if(name.includes(search)){
+
             card.style.display = "";
+
         }else{
+
             card.style.display = "none";
+
         }
 
     });
@@ -1180,24 +1488,37 @@ function searchTools(){
 }
 
 
-/* ==============================
+/* =========================================
    FILTER
-   ============================== */
+   ========================================= */
 
 function filterTools(category,button){
 
-    document.querySelectorAll(".category").forEach(btn=>{
+    document
+    .querySelectorAll(".category")
+    .forEach(function(btn){
+
         btn.classList.remove("active");
+
     });
 
     button.classList.add("active");
 
-    document.querySelectorAll(".tool-card").forEach(card=>{
+    document
+    .querySelectorAll(".tool-card")
+    .forEach(function(card){
 
-        if(category === "all" || card.dataset.category === category){
+        if(
+            category === "all" ||
+            card.dataset.category === category
+        ){
+
             card.style.display = "";
+
         }else{
+
             card.style.display = "none";
+
         }
 
     });
@@ -1205,9 +1526,9 @@ function filterTools(category,button){
 }
 
 
-/* ==============================
+/* =========================================
    IMAGE COMPRESSOR
-   ============================== */
+   ========================================= */
 
 function compressImage(){
 
@@ -1219,60 +1540,91 @@ function compressImage(){
 
     if(!file){
 
-        result.innerHTML = "⚠️ الرجاء اختيار صورة أولاً.";
+        result.innerHTML =
+            "⚠️ الرجاء اختيار صورة أولاً.";
 
         return;
     }
 
     const quality =
-        Number(document.getElementById("compressQuality").value);
+        Number(
+            document.getElementById("compressQuality").value
+        );
 
-    const reader = new FileReader();
+    const reader =
+        new FileReader();
 
     reader.onload = function(e){
 
-        const img = new Image();
+        const img =
+            new Image();
 
         img.onload = function(){
 
-            const canvas = document.createElement("canvas");
+            const canvas =
+                document.createElement("canvas");
 
-            canvas.width = img.width;
-            canvas.height = img.height;
+            canvas.width =
+                img.width;
 
-            const ctx = canvas.getContext("2d");
+            canvas.height =
+                img.height;
 
-            ctx.drawImage(img,0,0);
+            const ctx =
+                canvas.getContext("2d");
 
-            canvas.toBlob(function(blob){
+            ctx.drawImage(
+                img,
+                0,
+                0
+            );
 
-                const oldSize = file.size;
-                const newSize = blob.size;
+            canvas.toBlob(
+                function(blob){
 
-                const saving =
-                    Math.max(
-                        0,
-                        Math.round((1-newSize/oldSize)*100)
-                    );
+                    const oldSize =
+                        file.size;
 
-                const url = URL.createObjectURL(blob);
+                    const newSize =
+                        blob.size;
 
-                result.innerHTML = `
-                    <strong>تم ضغط الصورة بنجاح ✅</strong><br><br>
-                    الحجم الأصلي: ${(oldSize/1024).toFixed(1)} KB<br>
-                    الحجم الجديد: ${(newSize/1024).toFixed(1)} KB<br>
-                    التوفير: ${saving}%
-                    <br>
-                    <a href="${url}" download="compressed-image.jpg">
-                        ⬇️ تحميل الصورة المضغوطة
-                    </a>
-                `;
+                    const saving =
+                        Math.max(
+                            0,
+                            Math.round(
+                                (1 - newSize / oldSize) * 100
+                            )
+                        );
 
-            },"image/jpeg",quality);
+                    const url =
+                        URL.createObjectURL(blob);
+
+                    result.innerHTML = `
+                        <strong>تم ضغط الصورة بنجاح ✅</strong>
+                        <br><br>
+                        الحجم الأصلي:
+                        ${(oldSize/1024).toFixed(1)} KB
+                        <br>
+                        الحجم الجديد:
+                        ${(newSize/1024).toFixed(1)} KB
+                        <br>
+                        التوفير:
+                        ${saving}%
+                        <br>
+                        <a href="${url}" download="compressed-image.jpg">
+                            ⬇️ تحميل الصورة المضغوطة
+                        </a>
+                    `;
+
+                },
+                "image/jpeg",
+                quality
+            );
 
         };
 
-        img.src = e.target.result;
+        img.src =
+            e.target.result;
 
     };
 
@@ -1281,9 +1633,9 @@ function compressImage(){
 }
 
 
-/* ==============================
+/* =========================================
    RESIZE IMAGE
-   ============================== */
+   ========================================= */
 
 function resizeImage(){
 
@@ -1291,15 +1643,23 @@ function resizeImage(){
         document.getElementById("resizeFile").files[0];
 
     const width =
-        Number(document.getElementById("resizeWidth").value);
+        Number(
+            document.getElementById("resizeWidth").value
+        );
 
     const height =
-        Number(document.getElementById("resizeHeight").value);
+        Number(
+            document.getElementById("resizeHeight").value
+        );
 
     const result =
         document.getElementById("resizeResult");
 
-    if(!file || !width || !height){
+    if(
+        !file ||
+        !width ||
+        !height
+    ){
 
         result.innerHTML =
             "⚠️ اختر صورة وأدخل العرض والارتفاع.";
@@ -1307,41 +1667,59 @@ function resizeImage(){
         return;
     }
 
-    const reader = new FileReader();
+    const reader =
+        new FileReader();
 
     reader.onload = function(e){
 
-        const img = new Image();
+        const img =
+            new Image();
 
         img.onload = function(){
 
-            const canvas = document.createElement("canvas");
+            const canvas =
+                document.createElement("canvas");
 
-            canvas.width = width;
-            canvas.height = height;
+            canvas.width =
+                width;
 
-            const ctx = canvas.getContext("2d");
+            canvas.height =
+                height;
 
-            ctx.drawImage(img,0,0,width,height);
+            const ctx =
+                canvas.getContext("2d");
 
-            canvas.toBlob(function(blob){
+            ctx.drawImage(
+                img,
+                0,
+                0,
+                width,
+                height
+            );
 
-                const url =
-                    URL.createObjectURL(blob);
+            canvas.toBlob(
+                function(blob){
 
-                result.innerHTML = `
-                    تم تغيير حجم الصورة بنجاح ✅
-                    <br>
-                    <a href="${url}" download="resized-image.jpg">
-                    ⬇️ تحميل الصورة
-                    </a>
-                `;
+                    const url =
+                        URL.createObjectURL(blob);
 
-            },"image/jpeg",.9);
+                    result.innerHTML = `
+                        تم تغيير حجم الصورة بنجاح ✅
+                        <br>
+                        <a href="${url}" download="resized-image.jpg">
+                            ⬇️ تحميل الصورة
+                        </a>
+                    `;
+
+                },
+                "image/jpeg",
+                .9
+            );
 
         };
 
-        img.src = e.target.result;
+        img.src =
+            e.target.result;
 
     };
 
@@ -1350,9 +1728,9 @@ function resizeImage(){
 }
 
 
-/* ==============================
+/* =========================================
    IMAGE CONVERTER
-   ============================== */
+   ========================================= */
 
 function convertImage(){
 
@@ -1367,56 +1745,74 @@ function convertImage(){
 
     if(!file){
 
-        result.innerHTML = "⚠️ اختر صورة أولاً.";
+        result.innerHTML =
+            "⚠️ اختر صورة أولاً.";
 
         return;
     }
 
-    const reader = new FileReader();
+    const reader =
+        new FileReader();
 
     reader.onload = function(e){
 
-        const img = new Image();
+        const img =
+            new Image();
 
         img.onload = function(){
 
-            const canvas = document.createElement("canvas");
+            const canvas =
+                document.createElement("canvas");
 
-            canvas.width = img.width;
-            canvas.height = img.height;
+            canvas.width =
+                img.width;
 
-            const ctx = canvas.getContext("2d");
+            canvas.height =
+                img.height;
 
-            ctx.drawImage(img,0,0);
+            const ctx =
+                canvas.getContext("2d");
 
-            canvas.toBlob(function(blob){
+            ctx.drawImage(
+                img,
+                0,
+                0
+            );
 
-                const url =
-                    URL.createObjectURL(blob);
+            canvas.toBlob(
+                function(blob){
 
-                let extension = "jpg";
+                    const url =
+                        URL.createObjectURL(blob);
 
-                if(type === "image/png"){
-                    extension = "png";
-                }
+                    let extension =
+                        "jpg";
 
-                if(type === "image/webp"){
-                    extension = "webp";
-                }
+                    if(type === "image/png"){
+                        extension = "png";
+                    }
 
-                result.innerHTML = `
-                    تم تحويل الصورة بنجاح ✅
-                    <br>
-                    <a href="${url}" download="converted-image.${extension}">
-                    ⬇️ تحميل الصورة
-                    </a>
-                `;
+                    if(type === "image/webp"){
+                        extension = "webp";
+                    }
 
-            },type,.9);
+                    result.innerHTML = `
+                        تم تحويل الصورة بنجاح ✅
+                        <br>
+                        <a href="${url}" download="converted-image.${extension}">
+                            ⬇️ تحميل الصورة
+                        </a>
+                    `;
+
+                },
+                type,
+                .9
+            );
 
         };
 
-        img.src = e.target.result;
+        img.src =
+            e.target.result;
 
     };
 
@@ -1425,9 +1821,9 @@ function convertImage(){
 }
 
 
-/* ==============================
+/* =========================================
    IMAGE TO PDF
-   ============================== */
+   ========================================= */
 
 function imageToPDF(){
 
@@ -1439,31 +1835,61 @@ function imageToPDF(){
 
     if(!file){
 
-        result.innerHTML = "⚠️ اختر صورة أولاً.";
+        result.innerHTML =
+            "⚠️ اختر صورة أولاً.";
 
         return;
     }
 
-    const reader = new FileReader();
+    /*
+       Lightweight PDF generation.
+       For now this is a simple browser tool.
+    */
+
+    const reader =
+        new FileReader();
 
     reader.onload = function(e){
 
-        const img = new Image();
+        const img =
+            new Image();
 
         img.onload = function(){
 
-            const canvas = document.createElement("canvas");
+            const canvas =
+                document.createElement("canvas");
+
+            const maxWidth =
+                1000;
+
+            const maxHeight =
+                1400;
 
             const ratio =
-                Math.min(1000/img.width,1400/img.height);
+                Math.min(
+                    maxWidth / img.width,
+                    maxHeight / img.height,
+                    1
+                );
 
-            canvas.width = img.width * ratio;
-            canvas.height = img.height * ratio;
+            canvas.width =
+                Math.round(img.width * ratio);
 
-            const ctx = canvas.getContext("2d");
+            canvas.height =
+                Math.round(img.height * ratio);
 
-            ctx.fillStyle = "#fff";
-            ctx.fillRect(0,0,canvas.width,canvas.height);
+            const ctx =
+                canvas.getContext("2d");
+
+            ctx.fillStyle =
+                "#ffffff";
+
+            ctx.fillRect(
+                0,
+                0,
+                canvas.width,
+                canvas.height
+            );
 
             ctx.drawImage(
                 img,
@@ -1474,11 +1900,10 @@ function imageToPDF(){
             );
 
             const imageData =
-                canvas.toDataURL("image/jpeg",.9);
-
-            /*
-             Simple PDF structure
-             */
+                canvas.toDataURL(
+                    "image/jpeg",
+                    .9
+                );
 
             const pdf =
                 createSimplePDF(
@@ -1488,9 +1913,12 @@ function imageToPDF(){
                 );
 
             const blob =
-                new Blob([pdf],{
-                    type:"application/pdf"
-                });
+                new Blob(
+                    [pdf],
+                    {
+                        type:"application/pdf"
+                    }
+                );
 
             const url =
                 URL.createObjectURL(blob);
@@ -1499,13 +1927,14 @@ function imageToPDF(){
                 تم إنشاء ملف PDF بنجاح ✅
                 <br>
                 <a href="${url}" download="image.pdf">
-                ⬇️ تحميل PDF
+                    ⬇️ تحميل PDF
                 </a>
             `;
 
         };
 
-        img.src = e.target.result;
+        img.src =
+            e.target.result;
 
     };
 
@@ -1514,15 +1943,15 @@ function imageToPDF(){
 }
 
 
-/*
-Simple PDF generator
-*/
+/* =========================================
+   SIMPLE PDF
+   ========================================= */
 
-function createSimplePDF(imageData,width,height){
-
-    /*
-    This creates a lightweight PDF wrapper.
-    */
+function createSimplePDF(
+    imageData,
+    width,
+    height
+){
 
     const base64 =
         imageData.split(",")[1];
@@ -1532,26 +1961,44 @@ function createSimplePDF(imageData,width,height){
 
     let imageBinary = "";
 
-    for(let i=0;i<binary.length;i++){
-        imageBinary += binary[i];
+    for(
+        let i = 0;
+        i < binary.length;
+        i++
+    ){
+
+        imageBinary +=
+            binary[i];
+
     }
 
     const objects = [];
 
     objects.push(
-        "1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n"
+`1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+`
     );
 
     objects.push(
-        "2 0 obj\n<< /Type /Pages /Kids [3 0 R] /Count 1 >>\nendobj\n"
+`2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+`
     );
 
     objects.push(
-        `3 0 obj
-<< /Type /Page
+`3 0 obj
+<<
+/Type /Page
 /Parent 2 0 R
 /MediaBox [0 0 ${width} ${height}]
-/Resources << /XObject << /Im1 4 0 R >> >>
+/Resources <<
+    /XObject <<
+        /Im1 4 0 R
+    >>
+>>
 /Contents 5 0 R
 >>
 endobj
@@ -1559,8 +2006,9 @@ endobj
     );
 
     objects.push(
-        `4 0 obj
-<< /Type /XObject
+`4 0 obj
+<<
+/Type /XObject
 /Subtype /Image
 /Width ${width}
 /Height ${height}
@@ -1577,13 +2025,13 @@ endobj
     );
 
     const content =
-        `q
+`q
 ${width} 0 0 ${height} 0 0 cm
 /Im1 Do
 Q`;
 
     objects.push(
-        `5 0 obj
+`5 0 obj
 << /Length ${content.length} >>
 stream
 ${content}
@@ -1592,13 +2040,17 @@ endobj
 `
     );
 
-    let pdf = "%PDF-1.4\n";
+    let pdf =
+        "%PDF-1.4\n";
 
-    const offsets = [0];
+    const offsets =
+        [0];
 
-    objects.forEach(obj=>{
+    objects.forEach(function(obj){
 
-        offsets.push(pdf.length);
+        offsets.push(
+            pdf.length
+        );
 
         pdf += obj;
 
@@ -1608,22 +2060,34 @@ endobj
         pdf.length;
 
     pdf +=
-        `xref
-0 ${objects.length+1}
+`xref
+0 ${objects.length + 1}
 0000000000 65535 f 
 `;
 
-    for(let i=1;i<offsets.length;i++){
+    for(
+        let i = 1;
+        i < offsets.length;
+        i++
+    ){
 
         pdf +=
-            String(offsets[i]).padStart(10,"0") +
+            String(
+                offsets[i]
+            ).padStart(
+                10,
+                "0"
+            ) +
             " 00000 n \n";
 
     }
 
     pdf +=
-        `trailer
-<< /Size ${objects.length+1} /Root 1 0 R >>
+`trailer
+<<
+/Size ${objects.length + 1}
+/Root 1 0 R
+>>
 startxref
 ${xref}
 %%EOF`;
@@ -1633,9 +2097,9 @@ ${xref}
 }
 
 
-/* ==============================
-   WORD COUNTER
-   ============================== */
+/* =========================================
+   TEXT COUNTER
+   ========================================= */
 
 function countText(){
 
@@ -1651,21 +2115,28 @@ function countText(){
         text.length;
 
     const sentences =
-        text.split(/[.!؟?]+/)
-        .filter(x=>x.trim()).length;
+        text
+        .split(/[.!؟?]+/)
+        .filter(function(x){
+            return x.trim();
+        }).length;
 
-    document.getElementById("counterResult").innerHTML = `
-        الكلمات: <strong>${words}</strong><br>
-        الحروف: <strong>${characters}</strong><br>
+    document.getElementById(
+        "counterResult"
+    ).innerHTML = `
+        الكلمات: <strong>${words}</strong>
+        <br>
+        الحروف: <strong>${characters}</strong>
+        <br>
         الجمل: <strong>${sentences}</strong>
     `;
 
 }
 
 
-/* ==============================
+/* =========================================
    CLEAN TEXT
-   ============================== */
+   ========================================= */
 
 function cleanText(){
 
@@ -1678,52 +2149,79 @@ function cleanText(){
         .replace(/\n\s*\n+/g,"\n")
         .trim();
 
-    document.getElementById("cleanResult").innerHTML =
-        `<textarea style="min-height:180px">${escapeHTML(cleaned)}</textarea>`;
+    document.getElementById(
+        "cleanResult"
+    ).innerHTML = `
+        <textarea
+            style="min-height:180px"
+        >${escapeHTML(cleaned)}</textarea>
+    `;
 
 }
 
 
-/* ==============================
+/* =========================================
    CASE
-   ============================== */
+   ========================================= */
 
 function upperCase(){
 
     const text =
         document.getElementById("caseText").value;
 
-    document.getElementById("caseResult").innerHTML =
-        escapeHTML(text.toUpperCase());
+    document.getElementById(
+        "caseResult"
+    ).innerHTML =
+        escapeHTML(
+            text.toUpperCase()
+        );
 
 }
+
 
 function lowerCase(){
 
     const text =
         document.getElementById("caseText").value;
 
-    document.getElementById("caseResult").innerHTML =
-        escapeHTML(text.toLowerCase());
+    document.getElementById(
+        "caseResult"
+    ).innerHTML =
+        escapeHTML(
+            text.toLowerCase()
+        );
 
 }
 
 
-/* ==============================
+/* =========================================
    PERCENTAGE
-   ============================== */
+   ========================================= */
 
 function calculatePercentage(){
 
     const number =
-        Number(document.getElementById("percentNumber").value);
+        Number(
+            document.getElementById(
+                "percentNumber"
+            ).value
+        );
 
     const percentage =
-        Number(document.getElementById("percentValue").value);
+        Number(
+            document.getElementById(
+                "percentValue"
+            ).value
+        );
 
-    if(isNaN(number)||isNaN(percentage)){
+    if(
+        isNaN(number) ||
+        isNaN(percentage)
+    ){
 
-        document.getElementById("percentageResult").innerHTML =
+        document.getElementById(
+            "percentageResult"
+        ).innerHTML =
             "⚠️ أدخل الأرقام المطلوبة.";
 
         return;
@@ -1732,27 +2230,42 @@ function calculatePercentage(){
     const result =
         number * percentage / 100;
 
-    document.getElementById("percentageResult").innerHTML =
+    document.getElementById(
+        "percentageResult"
+    ).innerHTML =
         `النتيجة: <strong>${result}</strong>`;
 
 }
 
 
-/* ==============================
+/* =========================================
    DISCOUNT
-   ============================== */
+   ========================================= */
 
 function calculateDiscount(){
 
     const price =
-        Number(document.getElementById("price").value);
+        Number(
+            document.getElementById(
+                "price"
+            ).value
+        );
 
     const discount =
-        Number(document.getElementById("discountValue").value);
+        Number(
+            document.getElementById(
+                "discountValue"
+            ).value
+        );
 
-    if(isNaN(price)||isNaN(discount)){
+    if(
+        isNaN(price) ||
+        isNaN(discount)
+    ){
 
-        document.getElementById("discountResult").innerHTML =
+        document.getElementById(
+            "discountResult"
+        ).innerHTML =
             "⚠️ أدخل السعر ونسبة الخصم.";
 
         return;
@@ -1764,45 +2277,63 @@ function calculateDiscount(){
     const finalPrice =
         price - saving;
 
-    document.getElementById("discountResult").innerHTML = `
-        قيمة الخصم: <strong>${saving.toFixed(2)}</strong><br>
-        السعر بعد الخصم: <strong>${finalPrice.toFixed(2)}</strong>
+    document.getElementById(
+        "discountResult"
+    ).innerHTML = `
+        قيمة الخصم:
+        <strong>${saving.toFixed(2)}</strong>
+        <br>
+        السعر بعد الخصم:
+        <strong>${finalPrice.toFixed(2)}</strong>
     `;
 
 }
 
 
-/* ==============================
+/* =========================================
    AGE
-   ============================== */
+   ========================================= */
 
 function calculateAge(){
 
     const birth =
-        new Date(document.getElementById("birthDate").value);
+        new Date(
+            document.getElementById(
+                "birthDate"
+            ).value
+        );
 
     const today =
         new Date();
 
-    if(isNaN(birth.getTime())){
+    if(
+        isNaN(
+            birth.getTime()
+        )
+    ){
 
-        document.getElementById("ageResult").innerHTML =
+        document.getElementById(
+            "ageResult"
+        ).innerHTML =
             "⚠️ اختر تاريخ الميلاد.";
 
         return;
     }
 
     let years =
-        today.getFullYear() - birth.getFullYear();
+        today.getFullYear() -
+        birth.getFullYear();
 
     const monthDiff =
-        today.getMonth() - birth.getMonth();
+        today.getMonth() -
+        birth.getMonth();
 
     if(
         monthDiff < 0 ||
         (
             monthDiff === 0 &&
-            today.getDate() < birth.getDate()
+            today.getDate() <
+            birth.getDate()
         )
     ){
 
@@ -1810,56 +2341,82 @@ function calculateAge(){
 
     }
 
-    document.getElementById("ageResult").innerHTML =
-        `عمرك تقريباً: <strong>${years} سنة</strong>`;
+    document.getElementById(
+        "ageResult"
+    ).innerHTML =
+        `عمرك تقريباً:
+        <strong>${years} سنة</strong>`;
 
 }
 
 
-/* ==============================
+/* =========================================
    PASSWORD
-   ============================== */
+   ========================================= */
 
 function generatePassword(){
 
     const length =
-        Number(document.getElementById("passwordLength").value);
+        Number(
+            document.getElementById(
+                "passwordLength"
+            ).value
+        );
 
     const chars =
         "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
 
     let password = "";
 
-    for(let i=0;i<length;i++){
+    for(
+        let i = 0;
+        i < length;
+        i++
+    ){
 
         password +=
             chars.charAt(
-                Math.floor(Math.random()*chars.length)
+                Math.floor(
+                    Math.random() *
+                    chars.length
+                )
             );
 
     }
 
-    document.getElementById("passwordResult").innerHTML =
-        `<strong style="word-break:break-all">${escapeHTML(password)}</strong>`;
+    document.getElementById(
+        "passwordResult"
+    ).innerHTML =
+        `<strong style="word-break:break-all">
+        ${escapeHTML(password)}
+        </strong>`;
 
 }
 
 
-/* ==============================
+/* =========================================
    UNITS
-   ============================== */
+   ========================================= */
 
 function convertUnit(){
 
     const value =
-        Number(document.getElementById("unitValue").value);
+        Number(
+            document.getElementById(
+                "unitValue"
+            ).value
+        );
 
     const type =
-        document.getElementById("unitType").value;
+        document.getElementById(
+            "unitType"
+        ).value;
 
     if(isNaN(value)){
 
-        document.getElementById("unitResult").innerHTML =
+        document.getElementById(
+            "unitResult"
+        ).innerHTML =
             "⚠️ أدخل قيمة.";
 
         return;
@@ -1895,23 +2452,30 @@ function convertUnit(){
 
     }
 
-    document.getElementById("unitResult").innerHTML =
-        `النتيجة: <strong>${result}</strong>`;
+    document.getElementById(
+        "unitResult"
+    ).innerHTML =
+        `النتيجة:
+        <strong>${result}</strong>`;
 
 }
 
 
-/* ==============================
+/* =========================================
    CALCULATOR
-   ============================== */
+   ========================================= */
 
 function calculate(){
 
     const expression =
-        document.getElementById("calcInput").value;
+        document.getElementById(
+            "calcInput"
+        ).value;
 
     const result =
-        document.getElementById("calcResult");
+        document.getElementById(
+            "calcResult"
+        );
 
     if(!expression){
 
@@ -1921,11 +2485,10 @@ function calculate(){
         return;
     }
 
-    /*
-    Basic calculator only.
-    */
-
-    if(!/^[0-9+\-*/().%\s]+$/.test(expression)){
+    if(
+        !/^[0-9+\-*/().%\s]+$/
+        .test(expression)
+    ){
 
         result.innerHTML =
             "⚠️ العملية تحتوي على رموز غير مسموحة.";
@@ -1936,10 +2499,15 @@ function calculate(){
     try{
 
         const answer =
-            Function('"use strict";return (' + expression + ')')();
+            Function(
+                '"use strict";return (' +
+                expression +
+                ')'
+            )();
 
         result.innerHTML =
-            `النتيجة: <strong>${answer}</strong>`;
+            `النتيجة:
+            <strong>${answer}</strong>`;
 
     }catch{
 
@@ -1951,24 +2519,35 @@ function calculate(){
 }
 
 
-/* ==============================
-   SEND SERVICE REQUEST
-   ============================== */
+/* =========================================
+   SERVICE REQUEST
+   ========================================= */
 
 function sendRequest(){
 
     const name =
-        document.getElementById("clientName").value.trim();
+        document.getElementById(
+            "clientName"
+        ).value.trim();
 
     const service =
-        document.getElementById("clientService").value;
+        document.getElementById(
+            "clientService"
+        ).value;
 
     const message =
-        document.getElementById("clientMessage").value.trim();
+        document.getElementById(
+            "clientMessage"
+        ).value.trim();
 
-    if(!name || !message){
+    if(
+        !name ||
+        !message
+    ){
 
-        alert("الرجاء كتابة الاسم وتفاصيل الطلب.");
+        alert(
+            "الرجاء كتابة الاسم وتفاصيل الطلب."
+        );
 
         return;
     }
@@ -1984,20 +2563,21 @@ ${service}
 تفاصيل الطلب:
 ${message}`;
 
-    const url =
+    const whatsappURL =
         "https://wa.me/" +
         WHATSAPP_NUMBER +
         "?text=" +
         encodeURIComponent(text);
 
-    window.open(url,"_blank");
+    window.location.href =
+        whatsappURL;
 
 }
 
 
-/* ==============================
-   HTML ESCAPE
-   ============================== */
+/* =========================================
+   ESCAPE HTML
+   ========================================= */
 
 function escapeHTML(text){
 
