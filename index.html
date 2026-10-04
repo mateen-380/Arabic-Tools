@@ -2,49 +2,22 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <title>أداتي AI — كل أدواتك اليومية في مكان واحد</title>
+  <meta name="description" content="أداتي AI — أدوات رقمية مجانية وخدمات ذكاء اصطناعي احترافية في مكان واحد.">
   <meta name="theme-color" content="#07152f">
 
-  <meta
-    name="description"
-    content="أداتي AI - كل أدواتك اليومية في مكان واحد. أدوات مجانية للصور وPDF والنصوص والحسابات وخدمات الذكاء الاصطناعي."
-  >
-
-  <meta
-    name="keywords"
-    content="أدوات مجانية, أدوات AI, PDF, ضغط الصور, تحويل الصور, حاسبة, ذكاء اصطناعي, Oman, الخليج"
-  >
-
-  <title>أداتي AI | كل أدواتك اليومية في مكان واحد</title>
-
-  <!-- =====================================================
-       GOOGLE ANALYTICS 4
-       Measurement ID: G-PZ4V60V18P
-  ====================================================== -->
-
+  <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PZ4V60V18P"></script>
-
   <script>
     window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-PZ4V60V18P');
   </script>
 
-  <!-- =====================================================
-       END GOOGLE ANALYTICS
-  ====================================================== -->
-
-
   <style>
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -57,3595 +30,2399 @@
 
     body {
       font-family:
-        Arial,
-        Tahoma,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
         "Segoe UI",
+        Tahoma,
+        Arial,
         sans-serif;
-
       background:
-        radial-gradient(
-          circle at top right,
-          rgba(30, 100, 255, 0.18),
-          transparent 35%
-        ),
-        linear-gradient(
-          180deg,
-          #06142e 0%,
-          #081b3c 45%,
-          #041126 100%
-        );
-
-      color: #ffffff;
+        radial-gradient(circle at top right, rgba(30, 96, 180, .18), transparent 35%),
+        linear-gradient(180deg, #06142d 0%, #081a38 45%, #06132a 100%);
+      color: #f7faff;
       min-height: 100vh;
-      line-height: 1.7;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
+      overflow-x: hidden;
     }
 
     button,
     input,
-    textarea,
-    select {
-      font-family: inherit;
+    select,
+    textarea {
+      font: inherit;
     }
 
     button {
       cursor: pointer;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    /* =====================================================
+    /* =========================
        HEADER
-    ====================================================== */
+    ========================= */
 
-    header {
+    .header {
       position: sticky;
       top: 0;
       z-index: 1000;
-
-      background: rgba(5, 18, 42, 0.90);
-      backdrop-filter: blur(15px);
-
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(5, 17, 39, .88);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
 
-    .nav {
-      max-width: 1200px;
+    .header-inner {
+      max-width: 1180px;
       margin: auto;
-
-      min-height: 76px;
-
+      min-height: 72px;
+      padding: 12px 22px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      padding: 12px 20px;
+      gap: 20px;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 11px;
+      font-weight: 900;
+      font-size: 21px;
+      white-space: nowrap;
     }
 
     .logo-icon {
-      width: 44px;
-      height: 44px;
-
-      border-radius: 14px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background:
-        linear-gradient(
-          135deg,
-          #7c3aed,
-          #2563eb
-        );
-
-      font-size: 22px;
-
-      box-shadow:
-        0 8px 25px rgba(37,99,235,0.35);
-    }
-
-    .logo-text {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #1769ff, #4b9dff);
+      box-shadow: 0 10px 30px rgba(23,105,255,.28);
       font-size: 21px;
-      font-weight: 900;
     }
 
-    .logo-text span {
-      color: #60a5fa;
+    .header-actions {
+      display: flex;
+      gap: 9px;
+      align-items: center;
     }
 
-    .nav-btn {
-      background: linear-gradient(
-        135deg,
-        #2563eb,
-        #7c3aed
-      );
-
+    .header-btn {
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.05);
       color: white;
-
-      border: none;
-
-      padding: 10px 18px;
-
       border-radius: 12px;
-
-      font-weight: 800;
-
-      box-shadow:
-        0 8px 25px rgba(37,99,235,0.25);
+      padding: 10px 15px;
+      font-weight: 700;
+      transition: .2s;
     }
 
+    .header-btn:hover {
+      background: rgba(255,255,255,.1);
+    }
 
-    /* =====================================================
+    /* =========================
        HERO
-    ====================================================== */
+    ========================= */
 
     .hero {
-      max-width: 1200px;
+      max-width: 1180px;
       margin: auto;
-
-      padding: 75px 20px 55px;
-
+      padding: 68px 22px 35px;
       text-align: center;
     }
 
     .hero-badge {
-      display: inline-block;
-
-      padding: 7px 15px;
-
-      border-radius: 30px;
-
-      background: rgba(96,165,250,0.12);
-
-      border: 1px solid rgba(96,165,250,0.25);
-
-      color: #93c5fd;
-
-      font-size: 14px;
-
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 13px;
+      border: 1px solid rgba(82,151,255,.22);
+      background: rgba(33,103,211,.09);
+      color: #9cc6ff;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
       margin-bottom: 20px;
     }
 
     .hero h1 {
-      font-size: clamp(38px, 7vw, 72px);
-
-      line-height: 1.15;
-
+      font-size: clamp(34px, 6vw, 64px);
+      line-height: 1.08;
       font-weight: 950;
+      letter-spacing: -1.5px;
+      margin-bottom: 18px;
+    }
 
-      margin-bottom: 20px;
-
-      background:
-        linear-gradient(
-          90deg,
-          #ffffff,
-          #60a5fa,
-          #c084fc
-        );
-
+    .hero h1 span {
+      background: linear-gradient(90deg, #6eb4ff, #d9ebff);
       -webkit-background-clip: text;
       background-clip: text;
-
       color: transparent;
     }
 
-    .hero h2 {
-      font-size: clamp(20px, 4vw, 31px);
-
-      color: #e0e7ff;
-
-      margin-bottom: 15px;
-    }
-
     .hero p {
-      max-width: 750px;
-
+      max-width: 720px;
       margin: auto;
-
-      color: #b8c6dd;
-
+      color: #aebed8;
+      line-height: 1.9;
       font-size: 17px;
     }
 
-    .hero-actions {
-      display: flex;
-
-      justify-content: center;
-
-      gap: 12px;
-
-      flex-wrap: wrap;
-
-      margin-top: 30px;
-    }
-
-    .primary-btn,
-    .secondary-btn {
-      border: none;
-
-      border-radius: 14px;
-
-      padding: 14px 24px;
-
-      font-size: 16px;
-
-      font-weight: 900;
-    }
-
-    .primary-btn {
-      color: white;
-
-      background:
-        linear-gradient(
-          135deg,
-          #2563eb,
-          #7c3aed
-        );
-
-      box-shadow:
-        0 12px 30px rgba(37,99,235,0.25);
-    }
-
-    .secondary-btn {
-      color: #dbeafe;
-
-      background: rgba(255,255,255,0.06);
-
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-
-    /* =====================================================
-       GENERAL
-    ====================================================== */
-
-    .section {
-      max-width: 1200px;
-
-      margin: auto;
-
-      padding: 55px 20px;
-    }
-
-    .section-title {
-      text-align: center;
-
-      margin-bottom: 30px;
-    }
-
-    .section-title h2 {
-      font-size: 32px;
-
-      margin-bottom: 8px;
-    }
-
-    .section-title p {
-      color: #94a3b8;
-    }
-
-
-    /* =====================================================
+    /* =========================
        SEARCH
-    ====================================================== */
+    ========================= */
+
+    .search-area {
+      max-width: 780px;
+      margin: 30px auto 0;
+      padding: 0 22px;
+    }
 
     .search-box {
-      max-width: 700px;
-
-      margin: 0 auto 25px;
-
       position: relative;
     }
 
     .search-box input {
       width: 100%;
-
-      padding: 16px 20px;
-
-      border-radius: 16px;
-
-      border: 1px solid rgba(255,255,255,0.10);
-
-      background: rgba(255,255,255,0.06);
-
-      color: white;
-
+      height: 58px;
+      padding: 0 55px 0 20px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.1);
       outline: none;
-
-      font-size: 16px;
+      color: white;
+      background: rgba(255,255,255,.055);
+      box-shadow: 0 18px 45px rgba(0,0,0,.16);
     }
 
     .search-box input::placeholder {
-      color: #94a3b8;
+      color: #7890b2;
     }
 
-    .search-box input:focus {
-      border-color: #3b82f6;
-
-      box-shadow:
-        0 0 0 3px rgba(59,130,246,0.12);
+    .search-icon {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      color: #79aef8;
     }
 
+    /* =========================
+       MAIN
+    ========================= */
 
-    /* =====================================================
-       CATEGORY FILTERS
-    ====================================================== */
+    .container {
+      max-width: 1180px;
+      margin: auto;
+      padding: 25px 22px 70px;
+    }
 
-    .filters {
+    .section-title {
+      margin: 35px 0 18px;
       display: flex;
-
-      flex-wrap: wrap;
-
-      justify-content: center;
-
-      gap: 8px;
-
-      margin-bottom: 28px;
+      align-items: end;
+      justify-content: space-between;
+      gap: 15px;
     }
 
-    .filter-btn {
-      border: 1px solid rgba(255,255,255,0.10);
-
-      background: rgba(255,255,255,0.05);
-
-      color: #cbd5e1;
-
-      padding: 9px 16px;
-
-      border-radius: 30px;
-
-      font-weight: 700;
+    .section-title h2 {
+      font-size: 27px;
+      font-weight: 900;
     }
 
-    .filter-btn.active,
-    .filter-btn:hover {
+    .section-title p {
+      color: #8094b3;
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+    /* =========================
+       CATEGORIES
+    ========================= */
+
+    .categories {
+      display: flex;
+      gap: 9px;
+      overflow-x: auto;
+      padding: 4px 2px 12px;
+      scrollbar-width: none;
+    }
+
+    .categories::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-btn {
+      flex: 0 0 auto;
+      border: 1px solid rgba(255,255,255,.09);
+      background: rgba(255,255,255,.045);
+      color: #aebed8;
+      padding: 10px 15px;
+      border-radius: 13px;
+      font-size: 13px;
+      font-weight: 800;
+      transition: .2s;
+    }
+
+    .category-btn.active {
       color: white;
-
-      background:
-        linear-gradient(
-          135deg,
-          #2563eb,
-          #7c3aed
-        );
-
+      background: linear-gradient(135deg, #1667ff, #3e91ff);
       border-color: transparent;
+      box-shadow: 0 9px 25px rgba(23,105,255,.22);
     }
 
-
-    /* =====================================================
+    /* =========================
        TOOLS GRID
-    ====================================================== */
+    ========================= */
 
     .tools-grid {
       display: grid;
-
-      grid-template-columns:
-        repeat(
-          auto-fit,
-          minmax(220px, 1fr)
-        );
-
+      grid-template-columns: repeat(4, 1fr);
       gap: 15px;
     }
 
     .tool-card {
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,0.075),
-          rgba(255,255,255,0.025)
-        );
-
-      border: 1px solid rgba(255,255,255,0.08);
-
+      position: relative;
+      min-height: 175px;
+      padding: 21px;
       border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.075);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.065), rgba(255,255,255,.025));
+      box-shadow: 0 12px 35px rgba(0,0,0,.12);
+      transition: transform .2s, border-color .2s, background .2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
 
-      padding: 22px;
-
-      min-height: 190px;
-
-      transition:
-        transform .25s ease,
-        border-color .25s ease,
-        box-shadow .25s ease;
-
-      cursor: pointer;
+    .tool-card::after {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: rgba(35,121,255,.08);
+      left: -30px;
+      bottom: -35px;
+      pointer-events: none;
     }
 
     .tool-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
+      border-color: rgba(82,151,255,.28);
+      background: rgba(255,255,255,.075);
+    }
 
-      border-color:
-        rgba(96,165,250,0.35);
-
-      box-shadow:
-        0 18px 45px rgba(0,0,0,0.20);
+    .tool-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
     }
 
     .tool-icon {
-      width: 52px;
-      height: 52px;
-
+      width: 50px;
+      height: 50px;
       border-radius: 15px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      font-size: 25px;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(37,99,235,.25),
-          rgba(124,58,237,.25)
-        );
-
-      margin-bottom: 15px;
+      display: grid;
+      place-items: center;
+      background: rgba(41,120,255,.13);
+      border: 1px solid rgba(82,151,255,.13);
+      font-size: 23px;
+      flex: 0 0 auto;
     }
 
     .tool-card h3 {
-      font-size: 18px;
-
-      margin-bottom: 7px;
+      font-size: 16px;
+      font-weight: 850;
+      line-height: 1.5;
+      margin-top: 3px;
     }
 
     .tool-card p {
-      color: #94a3b8;
-
-      font-size: 14px;
+      color: #8094b3;
+      font-size: 12px;
+      line-height: 1.7;
+      margin-top: 7px;
     }
 
+    .tool-action {
+      margin-top: 16px;
+      color: #81b7ff;
+      font-size: 12px;
+      font-weight: 900;
+    }
 
-    /* =====================================================
+    /* =========================
        WORKSPACE
-    ====================================================== */
+    ========================= */
 
-    #workspace {
+    .workspace {
       display: none;
+      margin-top: 24px;
+      padding: 24px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.09);
+      background: rgba(255,255,255,.045);
     }
 
-    .workspace-box {
-      background:
-        rgba(255,255,255,0.055);
-
-      border: 1px solid rgba(255,255,255,0.10);
-
-      border-radius: 24px;
-
-      padding: 25px;
-
-      max-width: 900px;
-
-      margin: auto;
+    .workspace.active {
+      display: block;
     }
 
     .workspace-header {
       display: flex;
-
       justify-content: space-between;
-
       align-items: center;
-
       gap: 15px;
-
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
-    .workspace-header h2 {
-      font-size: 25px;
-    }
-
-    .close-btn {
-      width: 40px;
-      height: 40px;
-
-      border-radius: 12px;
-
-      border: none;
-
-      background: rgba(255,255,255,0.08);
-
-      color: white;
-
-      font-size: 20px;
-    }
-
-    .tool-form {
+    .workspace-title {
       display: flex;
-
-      flex-direction: column;
-
-      gap: 15px;
+      align-items: center;
+      gap: 12px;
     }
 
-    .tool-form label {
-      font-weight: 800;
-
-      color: #dbeafe;
+    .workspace-title .tool-icon {
+      width: 44px;
+      height: 44px;
     }
 
-    .tool-form input,
-    .tool-form textarea,
-    .tool-form select {
-      width: 100%;
+    .workspace-title h3 {
+      font-size: 18px;
+    }
 
-      padding: 14px;
-
-      border-radius: 12px;
-
-      background: #081a36;
-
-      border: 1px solid rgba(255,255,255,0.12);
-
+    .close-workspace {
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.05);
       color: white;
+      border-radius: 10px;
+      padding: 8px 12px;
+    }
 
+    .tool-panel {
+      display: grid;
+      gap: 14px;
+    }
+
+    .tool-panel input,
+    .tool-panel textarea,
+    .tool-panel select {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(0,0,0,.15);
+      color: white;
+      border-radius: 13px;
+      padding: 13px;
       outline: none;
     }
 
-    .tool-form textarea {
-      min-height: 150px;
-
+    .tool-panel textarea {
+      min-height: 140px;
       resize: vertical;
     }
 
-    .tool-form input:focus,
-    .tool-form textarea:focus,
-    .tool-form select:focus {
-      border-color: #3b82f6;
-    }
-
-    .result-box {
-      background: rgba(0,0,0,0.20);
-
-      border: 1px solid rgba(255,255,255,0.08);
-
-      border-radius: 15px;
-
-      padding: 18px;
-
-      margin-top: 10px;
-
-      color: #bfdbfe;
-
-      word-break: break-word;
-    }
-
-    .action-btn {
-      border: none;
-
-      border-radius: 12px;
-
-      padding: 13px 20px;
-
+    .tool-button {
+      border: 0;
+      border-radius: 13px;
+      padding: 13px 18px;
+      background: linear-gradient(135deg, #1465ff, #438fff);
       color: white;
-
-      background:
-        linear-gradient(
-          135deg,
-          #2563eb,
-          #7c3aed
-        );
-
       font-weight: 900;
+      box-shadow: 0 10px 25px rgba(23,105,255,.2);
     }
 
-    .drop-zone {
-      border: 2px dashed rgba(96,165,250,0.35);
-
-      border-radius: 18px;
-
-      padding: 35px 20px;
-
-      text-align: center;
-
-      background: rgba(96,165,250,0.05);
+    .result {
+      padding: 15px;
+      border-radius: 13px;
+      background: rgba(255,255,255,.05);
+      color: #c9d8ee;
+      line-height: 1.8;
+      min-height: 50px;
     }
 
-    .drop-zone input {
-      margin-top: 15px;
-    }
-
-
-    /* =====================================================
+    /* =========================
        AI SERVICES
-    ====================================================== */
+    ========================= */
+
+    .ai-section {
+      margin-top: 65px;
+      padding: 30px;
+      border-radius: 27px;
+      background:
+        radial-gradient(circle at top left, rgba(55,137,255,.17), transparent 35%),
+        rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .ai-section-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .ai-section-header h2 {
+      font-size: 29px;
+      margin-bottom: 9px;
+    }
+
+    .ai-section-header p {
+      color: #8fa4c2;
+      line-height: 1.8;
+    }
 
     .ai-grid {
       display: grid;
-
-      grid-template-columns:
-        repeat(
-          auto-fit,
-          minmax(220px, 1fr)
-        );
-
-      gap: 15px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 13px;
     }
 
     .ai-card {
-      background:
-        linear-gradient(
-          145deg,
-          rgba(124,58,237,.12),
-          rgba(37,99,235,.07)
-        );
-
-      border: 1px solid rgba(124,58,237,.18);
-
-      border-radius: 20px;
-
-      padding: 22px;
-
-      transition: .25s;
-
+      padding: 19px;
+      border-radius: 17px;
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.07);
+      transition: .2s;
       cursor: pointer;
     }
 
     .ai-card:hover {
-      transform: translateY(-4px);
-
-      border-color:
-        rgba(167,139,250,.45);
+      transform: translateY(-3px);
+      background: rgba(255,255,255,.075);
     }
 
-    .ai-card .icon {
-      font-size: 30px;
-
-      margin-bottom: 12px;
+    .ai-card .ai-icon {
+      font-size: 25px;
+      margin-bottom: 11px;
     }
 
     .ai-card h3 {
-      margin-bottom: 6px;
+      font-size: 14px;
+      margin-bottom: 5px;
     }
 
     .ai-card p {
-      color: #9fb0c8;
-
-      font-size: 14px;
+      color: #8094b3;
+      font-size: 11px;
+      line-height: 1.6;
     }
 
+    /* =========================
+       CTA
+    ========================= */
 
-    /* =====================================================
-       CONTACT
-    ====================================================== */
-
-    .contact-box {
-      max-width: 800px;
-
-      margin: auto;
-
-      padding: 28px;
-
-      border-radius: 24px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(37,99,235,.10),
-          rgba(124,58,237,.08)
-        );
-
-      border: 1px solid rgba(255,255,255,0.09);
-    }
-
-    .contact-form {
-      display: grid;
-
-      gap: 15px;
-    }
-
-    .contact-form input,
-    .contact-form textarea,
-    .contact-form select {
-      width: 100%;
-
-      padding: 14px;
-
-      background: #081a36;
-
-      border: 1px solid rgba(255,255,255,0.10);
-
-      border-radius: 12px;
-
-      color: white;
-
-      outline: none;
-    }
-
-    .contact-form textarea {
-      min-height: 130px;
-    }
-
-    .contact-whatsapp {
-      margin-top: 20px;
-
-      padding: 18px;
-
-      border-radius: 16px;
-
-      background: rgba(34,197,94,.08);
-
-      border: 1px solid rgba(34,197,94,.18);
-
+    .cta {
+      margin-top: 45px;
+      padding: 32px 25px;
       text-align: center;
+      border-radius: 25px;
+      background: linear-gradient(135deg, rgba(19,92,230,.22), rgba(34,121,255,.07));
+      border: 1px solid rgba(75,145,255,.15);
+    }
+
+    .cta h2 {
+      font-size: 27px;
+      margin-bottom: 9px;
+    }
+
+    .cta p {
+      color: #94a8c6;
+      margin-bottom: 20px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .primary-btn,
+    .whatsapp-btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 0 21px;
+      border-radius: 13px;
+      font-weight: 900;
+      border: 0;
+    }
+
+    .primary-btn {
+      background: linear-gradient(135deg, #1769ff, #4a96ff);
+      color: white;
     }
 
     .whatsapp-btn {
-      display: inline-block;
-
-      margin-top: 12px;
-
-      background: #16a34a;
-
+      background: #1b9b5a;
       color: white;
-
-      padding: 12px 22px;
-
-      border-radius: 12px;
-
-      font-weight: 900;
     }
 
-
-    /* =====================================================
+    /* =========================
        FOOTER
-    ====================================================== */
+    ========================= */
 
     footer {
-      margin-top: 40px;
-
-      padding: 35px 20px;
-
+      border-top: 1px solid rgba(255,255,255,.07);
+      margin-top: 50px;
+      padding: 30px 20px;
       text-align: center;
-
-      border-top: 1px solid rgba(255,255,255,0.07);
-
-      color: #8191a9;
+      color: #7186a5;
+      font-size: 12px;
+      line-height: 1.8;
     }
 
-    footer strong {
-      color: #dbeafe;
+    .footer-logo {
+      color: white;
+      font-weight: 900;
+      font-size: 18px;
+      margin-bottom: 5px;
     }
 
-
-    /* =====================================================
+    /* =========================
        TOAST
-    ====================================================== */
+    ========================= */
 
     .toast {
       position: fixed;
-
-      bottom: 25px;
-
+      bottom: 20px;
       left: 50%;
-
-      transform:
-        translateX(-50%)
-        translateY(100px);
-
-      background: #111f3d;
-
-      border: 1px solid rgba(255,255,255,0.12);
-
+      transform: translateX(-50%) translateY(20px);
+      background: #10284c;
+      border: 1px solid rgba(255,255,255,.1);
       color: white;
-
-      padding: 13px 20px;
-
-      border-radius: 12px;
-
-      z-index: 9999;
-
+      padding: 12px 18px;
+      border-radius: 13px;
       opacity: 0;
-
-      transition: .3s;
-
-      box-shadow:
-        0 15px 40px rgba(0,0,0,.3);
+      pointer-events: none;
+      transition: .25s;
+      z-index: 3000;
+      font-size: 13px;
+      max-width: calc(100% - 30px);
+      text-align: center;
     }
 
     .toast.show {
       opacity: 1;
-
-      transform:
-        translateX(-50%)
-        translateY(0);
+      transform: translateX(-50%) translateY(0);
     }
 
+    /* =========================
+       MOBILE APP STYLE
+    ========================= */
 
-    /* =====================================================
-       MOBILE
-    ====================================================== */
+    @media (max-width: 700px) {
 
-    @media (max-width: 600px) {
-
-      .nav {
-        padding: 10px 14px;
+      body {
+        background:
+          radial-gradient(circle at 100% 0%, rgba(27,103,220,.17), transparent 38%),
+          linear-gradient(180deg, #06132b 0%, #071a38 100%);
       }
 
-      .logo-text {
-        font-size: 17px;
+      .header {
+        position: sticky;
+        top: 0;
+      }
+
+      .header-inner {
+        min-height: 62px;
+        padding: 9px 14px;
+      }
+
+      .logo {
+        font-size: 18px;
       }
 
       .logo-icon {
+        width: 37px;
+        height: 37px;
+        border-radius: 11px;
+        font-size: 18px;
+      }
+
+      .header-btn {
+        padding: 8px 11px;
+        border-radius: 10px;
+        font-size: 11px;
+      }
+
+      .hero {
+        padding: 35px 17px 18px;
+      }
+
+      .hero-badge {
+        font-size: 11px;
+        padding: 7px 11px;
+        margin-bottom: 15px;
+      }
+
+      .hero h1 {
+        font-size: 35px;
+        line-height: 1.12;
+        letter-spacing: -1px;
+        margin-bottom: 13px;
+      }
+
+      .hero p {
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .search-area {
+        padding: 0 14px;
+        margin-top: 18px;
+      }
+
+      .search-box input {
+        height: 53px;
+        border-radius: 15px;
+        padding-right: 48px;
+        font-size: 13px;
+      }
+
+      .container {
+        padding: 15px 14px 55px;
+      }
+
+      .section-title {
+        margin: 26px 0 13px;
+      }
+
+      .section-title h2 {
+        font-size: 21px;
+      }
+
+      .section-title p {
+        font-size: 11px;
+      }
+
+      .categories {
+        margin-left: -2px;
+        margin-right: -2px;
+        padding-bottom: 9px;
+        gap: 7px;
+      }
+
+      .category-btn {
+        padding: 9px 13px;
+        border-radius: 11px;
+        font-size: 11px;
+      }
+
+      /*
+        Mobile tools:
+        Two cards per row, but bigger and cleaner.
+      */
+
+      .tools-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .tool-card {
+        min-height: 165px;
+        padding: 15px;
+        border-radius: 17px;
+      }
+
+      .tool-icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 13px;
+        font-size: 20px;
+      }
+
+      .tool-card h3 {
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .tool-card p {
+        font-size: 10px;
+        line-height: 1.55;
+        margin-top: 5px;
+      }
+
+      .tool-action {
+        font-size: 10px;
+        margin-top: 12px;
+      }
+
+      .workspace {
+        padding: 16px;
+        border-radius: 18px;
+      }
+
+      .workspace-header {
+        margin-bottom: 15px;
+      }
+
+      .workspace-title h3 {
+        font-size: 15px;
+      }
+
+      .workspace-title .tool-icon {
         width: 40px;
         height: 40px;
       }
 
-      .nav-btn {
-        padding: 8px 12px;
+      .close-workspace {
+        font-size: 11px;
+        padding: 7px 9px;
+      }
 
+      .ai-section {
+        margin-top: 40px;
+        padding: 20px 14px;
+        border-radius: 21px;
+      }
+
+      .ai-section-header h2 {
+        font-size: 23px;
+      }
+
+      .ai-section-header p {
+        font-size: 12px;
+      }
+
+      .ai-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+      }
+
+      .ai-card {
+        padding: 14px;
+        border-radius: 14px;
+      }
+
+      .ai-card .ai-icon {
+        font-size: 21px;
+        margin-bottom: 8px;
+      }
+
+      .ai-card h3 {
+        font-size: 12px;
+      }
+
+      .ai-card p {
+        font-size: 9px;
+      }
+
+      .cta {
+        margin-top: 30px;
+        padding: 25px 17px;
+        border-radius: 20px;
+      }
+
+      .cta h2 {
+        font-size: 22px;
+      }
+
+      .cta p {
+        font-size: 12px;
+        line-height: 1.7;
+      }
+
+      .cta-buttons {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .primary-btn,
+      .whatsapp-btn {
+        width: 100%;
+        min-height: 49px;
         font-size: 13px;
       }
 
-      .hero {
-        padding:
-          55px 16px
-          35px;
+      footer {
+        margin-top: 30px;
+        padding: 25px 15px;
+      }
+    }
+
+    /* Extra small phones */
+
+    @media (max-width: 380px) {
+
+      .hero h1 {
+        font-size: 31px;
       }
 
-      .hero p {
-        font-size: 15px;
-      }
-
-      .section {
-        padding:
-          40px 15px;
+      .tools-grid {
+        gap: 8px;
       }
 
       .tool-card {
-        min-height: auto;
+        min-height: 155px;
+        padding: 13px;
       }
 
-      .workspace-box,
-      .contact-box {
-        padding: 18px;
+      .tool-icon {
+        width: 42px;
+        height: 42px;
       }
 
-      .workspace-header h2 {
-        font-size: 20px;
+      .tool-card h3 {
+        font-size: 12px;
       }
     }
-
   </style>
 </head>
 
-
 <body>
 
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
 
-<!-- =====================================================
-     HEADER
-====================================================== -->
+      <a href="#" class="logo">
+        <div class="logo-icon">⚡</div>
+        <span>أداتي AI</span>
+      </a>
 
-<header>
+      <div class="header-actions">
+        <button class="header-btn" onclick="scrollToTools()">
+          🛠️ الأدوات
+        </button>
 
-  <div class="nav">
-
-    <a href="#" class="logo">
-
-      <div class="logo-icon">
-        ✦
+        <button class="header-btn" onclick="openWhatsApp('header')">
+          💬 واتساب
+        </button>
       </div>
 
-      <div class="logo-text">
-        أداتي <span>AI</span>
-      </div>
-
-    </a>
-
-    <button
-      class="nav-btn"
-      onclick="scrollToTools()"
-    >
-      الأدوات
-    </button>
-
-  </div>
-
-</header>
+    </div>
+  </header>
 
 
+  <!-- HERO -->
+  <section class="hero">
 
-<!-- =====================================================
-     HERO
-====================================================== -->
+    <div class="hero-badge">
+      ✨ أدوات رقمية + ذكاء اصطناعي
+    </div>
 
-<section class="hero">
-
-  <div class="hero-badge">
-    ✦ منصة أدوات رقمية وذكاء اصطناعي
-  </div>
-
-  <h1>
-    أداتي AI
-  </h1>
-
-  <h2>
-    كل أدواتك اليومية في مكان واحد
-  </h2>
-
-  <p>
-    أدوات مجانية وسهلة للصور وPDF والنصوص والحسابات،
-    بالإضافة إلى خدمات الذكاء الاصطناعي والحلول الرقمية.
-  </p>
-
-  <div class="hero-actions">
-
-    <button
-      class="primary-btn"
-      onclick="scrollToTools()"
-    >
-      🚀 استخدم الأدوات مجاناً
-    </button>
-
-    <button
-      class="secondary-btn"
-      onclick="openWhatsApp('service')"
-    >
-      💬 تواصل معنا
-    </button>
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     TOOLS
-====================================================== -->
-
-<section
-  class="section"
-  id="toolsSection"
->
-
-  <div class="section-title">
-
-    <h2>
-      🛠️ الأدوات الرقمية
-    </h2>
+    <h1>
+      كل أدواتك اليومية<br>
+      <span>في مكان واحد</span>
+    </h1>
 
     <p>
-      اختر الأداة التي تحتاجها وابدأ مباشرة
+      أدوات مجانية وسريعة لإنجاز مهامك اليومية،
+      بالإضافة إلى خدمات احترافية بالذكاء الاصطناعي.
     </p>
 
-  </div>
+  </section>
 
 
-  <div class="search-box">
+  <!-- SEARCH -->
+  <div class="search-area">
 
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="🔎 ابحث عن أداة..."
-      oninput="searchTools()"
-    >
+    <div class="search-box">
 
-  </div>
-
-
-  <div class="filters">
-
-    <button
-      class="filter-btn active"
-      onclick="filterTools('all', this)"
-    >
-      الكل
-    </button>
-
-    <button
-      class="filter-btn"
-      onclick="filterTools('image', this)"
-    >
-      🖼️ الصور
-    </button>
-
-    <button
-      class="filter-btn"
-      onclick="filterTools('pdf', this)"
-    >
-      📄 PDF
-    </button>
-
-    <button
-      class="filter-btn"
-      onclick="filterTools('text', this)"
-    >
-      📝 النصوص
-    </button>
-
-    <button
-      class="filter-btn"
-      onclick="filterTools('calculator', this)"
-    >
-      🧮 الحسابات
-    </button>
-
-    <button
-      class="filter-btn"
-      onclick="filterTools('utility', this)"
-    >
-      ⚙️ أدوات
-    </button>
-
-  </div>
-
-
-  <div
-    class="tools-grid"
-    id="toolsGrid"
-  >
-
-
-    <!-- IMAGE -->
-
-    <div
-      class="tool-card"
-      data-category="image"
-      data-name="ضغط الصور"
-      onclick="openTool('compress')"
-    >
-
-      <div class="tool-icon">🗜️</div>
-
-      <h3>ضغط الصور</h3>
-
-      <p>
-        قلّل حجم الصورة بسهولة مع الحفاظ على الجودة.
-      </p>
-
-    </div>
-
-
-    <div
-      class="tool-card"
-      data-category="image"
-      data-name="تغيير حجم الصورة"
-      onclick="openTool('resize')"
-    >
-
-      <div class="tool-icon">📐</div>
-
-      <h3>تغيير حجم الصورة</h3>
-
-      <p>
-        غيّر أبعاد الصور بسرعة.
-      </p>
-
-    </div>
-
-
-    <div
-      class="tool-card"
-      data-category="image"
-      data-name="تحويل الصور"
-      onclick="openTool('convert')"
-    >
-
-      <div class="tool-icon">🔄</div>
-
-      <h3>تحويل الصور</h3>
-
-      <p>
-        تحويل بين JPG وPNG وWEBP.
-      </p>
-
-    </div>
-
-
-    <div
-      class="tool-card"
-      data-category="image pdf"
-      data-name="صورة إلى PDF"
-      onclick="openTool('imagepdf')"
-    >
-
-      <div class="tool-icon">🖼️➡️📄</div>
-
-      <h3>صورة إلى PDF</h3>
-
-      <p>
-        حوّل الصور إلى ملف PDF بسهولة.
-      </p>
-
-    </div>
-
-
-
-    <!-- PDF -->
-
-    <div
-      class="tool-card"
-      data-category="pdf"
-      data-name="دمج PDF"
-      onclick="openTool('mergepdf')"
-    >
-
-      <div class="tool-icon">📑</div>
-
-      <h3>دمج PDF</h3>
-
-      <p>
-        اجمع عدة ملفات PDF في ملف واحد.
-      </p>
-
-    </div>
-
-
-    <div
-      class="tool-card"
-      data-category="pdf"
-      data-name="تقسيم PDF"
-      onclick="openTool('splitpdf')"
-    >
-
-      <div class="tool-icon">✂️</div>
-
-      <h3>تقسيم PDF</h3>
-
-      <p>
-        تقسيم ملفات PDF إلى صفحات أو أجزاء.
-      </p>
-
-    </div>
-
-
-    <div
-      class="tool-card"
-      data-category="pdf"
-      data-name="ضغط PDF"
-      onclick="openTool('compresspdf')"
-    >
-
-      <div class="tool-icon">🗜️</div>
-
-      <h3>ضغط PDF</h3>
-
-      <p>
-        تقليل حجم ملفات PDF.
-      </p>
-
-    </div>
-
-
-    <div
-      class="tool-card"
-      data-category="pdf image"
-      data-name="PDF إلى JPG"
-      onclick="openTool('pdfjpg')"
-    >
-
-      <div class="tool-icon">📄➡️🖼️</div>
-
-      <h3>PDF إلى JPG</h3>
-
-      <p>
-        تحويل صفحات PDF إلى صور.
-      </p>
-
-    </div>
-
-
-
-    <!-- TEXT -->
-
-    <div
-      class="tool-card"
-      data-category="text"
-      data-name="عداد الكلمات والحروف"
-      onclick="openTool('counter')"
-    >
-
-      <div class="tool-icon">🔢</div>
-
-      <h3>عداد الكلمات والحروف</h3>
-
-      <p>
-        احسب الكلمات والحروف والمسافات.
-      </p>
-
-    </div>
-
-
-    <div
-      class="tool-card"
-      data-category="text"
-      data-name="تنظيف النص"
-      onclick="openTool('clean')"
-    >
-
-      <div class="tool-icon">🧹</div>
-
-      <h3>تنظيف النص</h3>
-
-      <p>
-        نظّف النص من المسافات والأسطر الزائدة.
-      </p>
-
-    </div>
-
-
-    <div
-      class="tool-card"
-      data-category="text"
-      data-name="تحويل حالة النص"
-      onclick="openTool('case')"
-    >
-
-      <div class="tool-icon">🔠</div>
-
-      <h3>تحويل حالة النص</h3>
-
-      <p>
-        تحويل النص إلى أحرف كبيرة أو صغيرة.
-      </p>
-
-    </div>
-
-
-
-    <!-- CALCULATORS -->
-
-    <div
-      class="tool-card"
-      data-category="calculator"
-      data-name="حاسبة النسبة المئوية"
-      onclick="openTool('percentage')"
-    >
-
-      <div class="tool-icon">%</div>
-
-      <h3>حاسبة النسبة المئوية</h3>
-
-      <p>
-        احسب النسب المئوية بسرعة.
-      </p>
-
-    </div>
-
-
-    <div
-      class="tool-card"
-      data-category="calculator"
-      data-name="حاسبة الخصم"
-      onclick="openTool('discount')"
-    >
-
-      <div class="tool-icon">🏷️</div>
-
-      <h3>حاسبة الخصم</h3>
-
-      <p>
-        احسب السعر بعد الخصم.
-      </p>
-
-    </div>
-
-
-    <div
-      class="tool-card"
-      data-category="calculator"
-      data-name="حاسبة العمر"
-      onclick="openTool('age')"
-    >
-
-      <div class="tool-icon">🎂</div>
-
-      <h3>حاسبة العمر</h3>
-
-      <p>
-        احسب عمرك بالسنوات والأشهر والأيام.
-      </p>
-
-    </div>
-
-
-    <div
-      class="tool-card"
-      data-category="calculator"
-      data-name="آلة حاسبة"
-      onclick="openTool('calculator')"
-    >
-
-      <div class="tool-icon">🧮</div>
-
-      <h3>آلة حاسبة</h3>
-
-      <p>
-        عمليات حسابية يومية بسهولة.
-      </p>
-
-    </div>
-
-
-
-    <!-- UTILITY -->
-
-    <div
-      class="tool-card"
-      data-category="utility"
-      data-name="مولد كلمات المرور"
-      onclick="openTool('password')"
-    >
-
-      <div class="tool-icon">🔐</div>
-
-      <h3>مولد كلمات المرور</h3>
-
-      <p>
-        أنشئ كلمة مرور قوية وآمنة.
-      </p>
-
-    </div>
-
-
-    <div
-      class="tool-card"
-      data-category="utility"
-      data-name="محول الوحدات"
-      onclick="openTool('units')"
-    >
-
-      <div class="tool-icon">📏</div>
-
-      <h3>محول الوحدات</h3>
-
-      <p>
-        تحويل الطول والوزن ودرجات الحرارة.
-      </p>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     WORKSPACE
-====================================================== -->
-
-<section
-  class="section"
-  id="workspace"
->
-
-  <div class="workspace-box">
-
-    <div class="workspace-header">
-
-      <h2 id="workspaceTitle">
-        الأداة
-      </h2>
-
-      <button
-        class="close-btn"
-        onclick="closeTool()"
-      >
-        ×
-      </button>
-
-    </div>
-
-    <div id="toolContent"></div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     AI SERVICES
-====================================================== -->
-
-<section
-  class="section"
-  id="aiServices"
->
-
-  <div class="section-title">
-
-    <h2>
-      🤖 خدمات الذكاء الاصطناعي
-    </h2>
-
-    <p>
-      هل لديك فكرة أو مشروع؟ يمكننا مساعدتك في تحويله إلى حل رقمي.
-    </p>
-
-  </div>
-
-
-  <div class="ai-grid">
-
-
-    <div
-      class="ai-card"
-      onclick="selectAIService('مواقع AI')"
-    >
-
-      <div class="icon">🌐</div>
-
-      <h3>مواقع AI</h3>
-
-      <p>
-        إنشاء مواقع وأدوات رقمية مدعومة بالذكاء الاصطناعي.
-      </p>
-
-    </div>
-
-
-    <div
-      class="ai-card"
-      onclick="selectAIService('AI Agents')"
-    >
-
-      <div class="icon">🤖</div>
-
-      <h3>AI Agents</h3>
-
-      <p>
-        حلول ذكية لتنفيذ المهام بشكل آلي.
-      </p>
-
-    </div>
-
-
-    <div
-      class="ai-card"
-      onclick="selectAIService('AI Automation')"
-    >
-
-      <div class="icon">⚙️</div>
-
-      <h3>AI Automation</h3>
-
-      <p>
-        أتمتة الأعمال والمهام المتكررة.
-      </p>
-
-    </div>
-
-
-    <div
-      class="ai-card"
-      onclick="selectAIService('توليد الصور')"
-    >
-
-      <div class="icon">🎨</div>
-
-      <h3>توليد الصور</h3>
-
-      <p>
-        صور إبداعية واحترافية بالذكاء الاصطناعي.
-      </p>
-
-    </div>
-
-
-    <div
-      class="ai-card"
-      onclick="selectAIService('توليد الفيديو')"
-    >
-
-      <div class="icon">🎬</div>
-
-      <h3>توليد الفيديو</h3>
-
-      <p>
-        فيديوهات إعلانية وسينمائية بالذكاء الاصطناعي.
-      </p>
-
-    </div>
-
-
-    <div
-      class="ai-card"
-      onclick="selectAIService('الإعلانات التجارية')"
-    >
-
-      <div class="icon">📢</div>
-
-      <h3>الإعلانات التجارية</h3>
-
-      <p>
-        تصميم أفكار وإعلانات احترافية للمشاريع.
-      </p>
-
-    </div>
-
-
-    <div
-      class="ai-card"
-      onclick="selectAIService('التصاميم والبوسترات')"
-    >
-
-      <div class="icon">🖼️</div>
-
-      <h3>التصاميم والبوسترات</h3>
-
-      <p>
-        تصاميم إعلانية واحترافية للسوشيال ميديا.
-      </p>
-
-    </div>
-
-
-    <div
-      class="ai-card"
-      onclick="selectAIService('محتوى السوشيال ميديا')"
-    >
-
-      <div class="icon">📱</div>
-
-      <h3>محتوى السوشيال ميديا</h3>
-
-      <p>
-        أفكار ومحتوى وتسويق لمنصات التواصل الاجتماعي.
-      </p>
-
-    </div>
-
-
-    <div
-      class="ai-card"
-      onclick="selectAIService('خدمة AI مخصصة')"
-    >
-
-      <div class="icon">✨</div>
-
-      <h3>خدمة AI مخصصة</h3>
-
-      <p>
-        لديك فكرة مختلفة؟ أخبرنا بما تحتاج إليه.
-      </p>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     CONTACT
-====================================================== -->
-
-<section
-  class="section"
-  id="contact"
->
-
-  <div class="section-title">
-
-    <h2>
-      💬 اطلب خدمتك
-    </h2>
-
-    <p>
-      أرسل لنا فكرتك وسنتواصل معك عبر WhatsApp.
-    </p>
-
-  </div>
-
-
-  <div class="contact-box">
-
-    <form
-      class="contact-form"
-      onsubmit="sendRequest(event)"
-    >
+      <span class="search-icon">🔍</span>
 
       <input
-        type="text"
-        id="clientName"
-        placeholder="الاسم"
-        required
+        type="search"
+        id="searchInput"
+        placeholder="ابحث عن أداة..."
+        oninput="searchTools()"
       >
-
-
-      <select
-        id="serviceType"
-        required
-      >
-
-        <option value="">
-          اختر الخدمة
-        </option>
-
-        <option>
-          مواقع AI
-        </option>
-
-        <option>
-          AI Agents
-        </option>
-
-        <option>
-          AI Automation
-        </option>
-
-        <option>
-          توليد الصور
-        </option>
-
-        <option>
-          توليد الفيديو
-        </option>
-
-        <option>
-          الإعلانات التجارية
-        </option>
-
-        <option>
-          التصاميم والبوسترات
-        </option>
-
-        <option>
-          محتوى السوشيال ميديا
-        </option>
-
-        <option>
-          خدمة AI مخصصة
-        </option>
-
-      </select>
-
-
-      <textarea
-        id="clientDetails"
-        placeholder="اكتب تفاصيل مشروعك أو فكرتك..."
-        required
-      ></textarea>
-
-
-      <button
-        type="submit"
-        class="primary-btn"
-      >
-        📲 إرسال الطلب عبر WhatsApp
-      </button>
-
-    </form>
-
-
-    <div class="contact-whatsapp">
-
-      <div>
-        أو تواصل معنا مباشرة عبر WhatsApp
-      </div>
-
-      <button
-        class="whatsapp-btn"
-        onclick="openWhatsApp('direct')"
-      >
-        💚 WhatsApp
-      </button>
 
     </div>
 
   </div>
 
-</section>
 
+  <main class="container">
 
+    <!-- TOOLS -->
+    <div class="section-title">
+      <div>
+        <h2>🛠️ الأدوات المجانية</h2>
+        <p>أدوات بسيطة وسريعة للاستخدام اليومي</p>
+      </div>
+    </div>
 
-<!-- =====================================================
-     FOOTER
-====================================================== -->
 
-<footer>
+    <!-- CATEGORIES -->
+    <div class="categories">
 
-  <p>
-    © <span id="year"></span>
-    <strong>أداتي AI</strong>
-    — كل أدواتك اليومية في مكان واحد
-  </p>
+      <button class="category-btn active" data-category="all">
+        الكل
+      </button>
 
-  <p style="margin-top:8px;">
-    أدوات رقمية وحلول ذكاء اصطناعي
-  </p>
+      <button class="category-btn" data-category="image">
+        📸 الصور
+      </button>
 
-</footer>
+      <button class="category-btn" data-category="pdf">
+        📄 PDF
+      </button>
 
+      <button class="category-btn" data-category="text">
+        📝 النصوص
+      </button>
 
+      <button class="category-btn" data-category="calculator">
+        🧮 الحاسبات
+      </button>
 
-<!-- TOAST -->
+      <button class="category-btn" data-category="other">
+        ⚙️ أخرى
+      </button>
 
-<div
-  id="toast"
-  class="toast"
-></div>
+    </div>
 
 
+    <!-- TOOLS GRID -->
+    <div class="tools-grid" id="toolsGrid">
 
-<script>
+      <div class="tool-card"
+           data-tool="ضغط الصور"
+           data-category="image"
+           onclick="openTool('ضغط الصور')">
 
+        <div class="tool-top">
+          <div>
+            <h3>ضغط الصور</h3>
+            <p>تقليل حجم الصورة بسهولة</p>
+          </div>
 
-/* =====================================================
-   ANALYTICS EVENT HELPER
-===================================================== */
-
-function trackEvent(name, params = {}) {
-
-  if (typeof gtag === "function") {
-
-    gtag(
-      "event",
-      name,
-      params
-    );
-
-  }
-
-}
-
-
-/* =====================================================
-   WHATSAPP
-===================================================== */
-
-const WHATSAPP_NUMBER = "96890682630";
-
-
-function openWhatsApp(type = "service") {
-
-  trackEvent(
-    "whatsapp_click",
-    {
-      click_type: type
-    }
-  );
-
-
-  let message =
-    "السلام عليكم، أريد الاستفسار عن خدمات أداتي AI. " +
-    "لدي مشروع أو فكرة وأريد معرفة إمكانية تنفيذها.";
-
-
-  if (type !== "service") {
-
-    message =
-      "السلام عليكم، أريد الاستفسار عن خدمة من أداتي AI.";
-
-  }
-
-
-  const whatsappURL =
-    "https://api.whatsapp.com/send?phone=" +
-    WHATSAPP_NUMBER +
-    "&text=" +
-    encodeURIComponent(message);
-
-
-  window.open(
-    whatsappURL,
-    "_blank",
-    "noopener,noreferrer"
-  );
-
-}
-
-
-/* =====================================================
-   SCROLL
-===================================================== */
-
-function scrollToTools() {
-
-  document
-    .getElementById("toolsSection")
-    .scrollIntoView({
-      behavior: "smooth"
-    });
-
-}
-
-
-/* =====================================================
-   TOAST
-===================================================== */
-
-function showToast(message) {
-
-  const toast =
-    document.getElementById("toast");
-
-  toast.textContent = message;
-
-  toast.classList.add("show");
-
-  setTimeout(() => {
-
-    toast.classList.remove("show");
-
-  }, 2500);
-
-}
-
-
-/* =====================================================
-   SEARCH
-===================================================== */
-
-function searchTools() {
-
-  const search =
-    document
-      .getElementById("searchInput")
-      .value
-      .toLowerCase()
-      .trim();
-
-
-  const cards =
-    document.querySelectorAll(".tool-card");
-
-
-  cards.forEach(card => {
-
-    const name =
-      (
-        card.dataset.name || ""
-      ).toLowerCase();
-
-
-    if (
-      name.includes(search)
-      ||
-      search === ""
-    ) {
-
-      card.style.display = "";
-
-    } else {
-
-      card.style.display = "none";
-
-    }
-
-  });
-
-}
-
-
-/* =====================================================
-   FILTER
-===================================================== */
-
-function filterTools(category, button) {
-
-  document
-    .querySelectorAll(".filter-btn")
-    .forEach(btn => {
-
-      btn.classList.remove("active");
-
-    });
-
-
-  button.classList.add("active");
-
-
-  document
-    .getElementById("searchInput")
-    .value = "";
-
-
-  const cards =
-    document.querySelectorAll(".tool-card");
-
-
-  cards.forEach(card => {
-
-    const categories =
-      card.dataset.category || "";
-
-
-    if (
-      category === "all"
-      ||
-      categories.includes(category)
-    ) {
-
-      card.style.display = "";
-
-    } else {
-
-      card.style.display = "none";
-
-    }
-
-  });
-
-}
-
-
-/* =====================================================
-   OPEN TOOL
-===================================================== */
-
-function openTool(tool) {
-
-  trackEvent(
-    "tool_open",
-    {
-      tool_name: tool
-    }
-  );
-
-
-  const workspace =
-    document.getElementById("workspace");
-
-  const title =
-    document.getElementById("workspaceTitle");
-
-  const content =
-    document.getElementById("toolContent");
-
-
-  workspace.style.display = "block";
-
-
-  const titles = {
-
-    compress:
-      "ضغط الصور",
-
-    resize:
-      "تغيير حجم الصورة",
-
-    convert:
-      "تحويل الصور",
-
-    imagepdf:
-      "صورة إلى PDF",
-
-    mergepdf:
-      "دمج PDF",
-
-    splitpdf:
-      "تقسيم PDF",
-
-    compresspdf:
-      "ضغط PDF",
-
-    pdfjpg:
-      "PDF إلى JPG",
-
-    counter:
-      "عداد الكلمات والحروف",
-
-    clean:
-      "تنظيف النص",
-
-    case:
-      "تحويل حالة النص",
-
-    percentage:
-      "حاسبة النسبة المئوية",
-
-    discount:
-      "حاسبة الخصم",
-
-    age:
-      "حاسبة العمر",
-
-    password:
-      "مولد كلمات المرور",
-
-    units:
-      "محول الوحدات",
-
-    calculator:
-      "آلة حاسبة"
-
-  };
-
-
-  title.textContent =
-    titles[tool] || "الأداة";
-
-
-  content.innerHTML = "";
-
-
-  /* COUNTER */
-
-  if (tool === "counter") {
-
-    content.innerHTML = `
-
-      <div class="tool-form">
-
-        <textarea
-          id="counterText"
-          placeholder="اكتب النص هنا..."
-          oninput="runCounter()"
-        ></textarea>
-
-        <div
-          class="result-box"
-          id="counterResult"
-        >
-          الكلمات: 0<br>
-          الحروف: 0<br>
-          الحروف بدون مسافات: 0
+          <div class="tool-icon">🗜️</div>
         </div>
 
+        <div class="tool-action">استخدام الأداة ←</div>
       </div>
 
-    `;
 
-  }
+      <div class="tool-card"
+           data-tool="تغيير حجم الصورة"
+           data-category="image"
+           onclick="openTool('تغيير حجم الصورة')">
 
+        <div class="tool-top">
+          <div>
+            <h3>تغيير حجم الصورة</h3>
+            <p>تغيير أبعاد الصور بسرعة</p>
+          </div>
 
-  /* CLEAN */
+          <div class="tool-icon">📐</div>
+        </div>
 
-  else if (tool === "clean") {
-
-    content.innerHTML = `
-
-      <div class="tool-form">
-
-        <textarea
-          id="cleanText"
-          placeholder="ضع النص هنا..."
-        ></textarea>
-
-        <button
-          class="action-btn"
-          onclick="cleanText()"
-        >
-          🧹 تنظيف النص
-        </button>
-
-        <textarea
-          id="cleanResult"
-          placeholder="النتيجة..."
-          readonly
-        ></textarea>
-
+        <div class="tool-action">استخدام الأداة ←</div>
       </div>
 
-    `;
 
-  }
+      <div class="tool-card"
+           data-tool="تحويل الصور"
+           data-category="image"
+           onclick="openTool('تحويل الصور')">
 
+        <div class="tool-top">
+          <div>
+            <h3>تحويل الصور</h3>
+            <p>JPG • PNG • WEBP</p>
+          </div>
 
-  /* CASE */
+          <div class="tool-icon">🔄</div>
+        </div>
 
-  else if (tool === "case") {
-
-    content.innerHTML = `
-
-      <div class="tool-form">
-
-        <textarea
-          id="caseText"
-          placeholder="اكتب النص بالإنجليزية..."
-        ></textarea>
-
-        <select id="caseType">
-
-          <option value="upper">
-            UPPERCASE
-          </option>
-
-          <option value="lower">
-            lowercase
-          </option>
-
-          <option value="title">
-            Title Case
-          </option>
-
-        </select>
-
-        <button
-          class="action-btn"
-          onclick="convertCase()"
-        >
-          🔠 تحويل
-        </button>
-
-        <textarea
-          id="caseResult"
-          readonly
-        ></textarea>
-
+        <div class="tool-action">استخدام الأداة ←</div>
       </div>
 
-    `;
 
-  }
+      <div class="tool-card"
+           data-tool="صورة إلى PDF"
+           data-category="pdf"
+           onclick="openTool('صورة إلى PDF')">
 
+        <div class="tool-top">
+          <div>
+            <h3>صورة إلى PDF</h3>
+            <p>تحويل الصور إلى ملف PDF</p>
+          </div>
 
-  /* PERCENTAGE */
+          <div class="tool-icon">📄</div>
+        </div>
 
-  else if (tool === "percentage") {
-
-    content.innerHTML = `
-
-      <div class="tool-form">
-
-        <label>
-          كم تساوي النسبة من الرقم؟
-        </label>
-
-        <input
-          type="number"
-          id="percentValue"
-          placeholder="مثال: 500"
-        >
-
-        <input
-          type="number"
-          id="percentRate"
-          placeholder="النسبة %"
-        >
-
-        <button
-          class="action-btn"
-          onclick="calculatePercentage()"
-        >
-          🧮 احسب
-        </button>
-
-        <div
-          class="result-box"
-          id="percentageResult"
-        ></div>
-
+        <div class="tool-action">استخدام الأداة ←</div>
       </div>
 
-    `;
 
-  }
+      <div class="tool-card"
+           data-tool="دمج PDF"
+           data-category="pdf"
+           onclick="openTool('دمج PDF')">
 
+        <div class="tool-top">
+          <div>
+            <h3>دمج PDF</h3>
+            <p>دمج ملفات PDF في ملف واحد</p>
+          </div>
 
-  /* DISCOUNT */
+          <div class="tool-icon">📚</div>
+        </div>
 
-  else if (tool === "discount") {
-
-    content.innerHTML = `
-
-      <div class="tool-form">
-
-        <input
-          type="number"
-          id="discountPrice"
-          placeholder="السعر الأصلي"
-        >
-
-        <input
-          type="number"
-          id="discountRate"
-          placeholder="نسبة الخصم %"
-        >
-
-        <button
-          class="action-btn"
-          onclick="calculateDiscount()"
-        >
-          🏷️ احسب السعر
-        </button>
-
-        <div
-          class="result-box"
-          id="discountResult"
-        ></div>
-
+        <div class="tool-action">قريباً ←</div>
       </div>
 
-    `;
 
-  }
+      <div class="tool-card"
+           data-tool="تقسيم PDF"
+           data-category="pdf"
+           onclick="openTool('تقسيم PDF')">
 
+        <div class="tool-top">
+          <div>
+            <h3>تقسيم PDF</h3>
+            <p>تقسيم ملفات PDF</p>
+          </div>
 
-  /* AGE */
+          <div class="tool-icon">✂️</div>
+        </div>
 
-  else if (tool === "age") {
-
-    content.innerHTML = `
-
-      <div class="tool-form">
-
-        <label>
-          تاريخ الميلاد
-        </label>
-
-        <input
-          type="date"
-          id="birthDate"
-        >
-
-        <button
-          class="action-btn"
-          onclick="calculateAge()"
-        >
-          🎂 احسب العمر
-        </button>
-
-        <div
-          class="result-box"
-          id="ageResult"
-        ></div>
-
+        <div class="tool-action">قريباً ←</div>
       </div>
 
-    `;
 
-  }
+      <div class="tool-card"
+           data-tool="ضغط PDF"
+           data-category="pdf"
+           onclick="openTool('ضغط PDF')">
 
+        <div class="tool-top">
+          <div>
+            <h3>ضغط PDF</h3>
+            <p>تقليل حجم ملفات PDF</p>
+          </div>
 
-  /* PASSWORD */
+          <div class="tool-icon">🗜️</div>
+        </div>
 
-  else if (tool === "password") {
-
-    content.innerHTML = `
-
-      <div class="tool-form">
-
-        <input
-          type="number"
-          id="passwordLength"
-          value="16"
-          min="6"
-          max="100"
-          placeholder="طول كلمة المرور"
-        >
-
-        <button
-          class="action-btn"
-          onclick="generatePassword()"
-        >
-          🔐 إنشاء كلمة مرور
-        </button>
-
-        <div
-          class="result-box"
-          id="passwordResult"
-        ></div>
-
+        <div class="tool-action">قريباً ←</div>
       </div>
 
-    `;
 
-  }
+      <div class="tool-card"
+           data-tool="PDF إلى JPG"
+           data-category="pdf"
+           onclick="openTool('PDF إلى JPG')">
 
+        <div class="tool-top">
+          <div>
+            <h3>PDF إلى JPG</h3>
+            <p>تحويل صفحات PDF إلى صور</p>
+          </div>
 
-  /* UNITS */
+          <div class="tool-icon">🖼️</div>
+        </div>
 
-  else if (tool === "units") {
-
-    content.innerHTML = `
-
-      <div class="tool-form">
-
-        <input
-          type="number"
-          id="unitValue"
-          placeholder="القيمة"
-        >
-
-        <select
-          id="unitType"
-        >
-
-          <option value="km-m">
-            كيلومتر → متر
-          </option>
-
-          <option value="m-km">
-            متر → كيلومتر
-          </option>
-
-          <option value="kg-g">
-            كيلوجرام → جرام
-          </option>
-
-          <option value="g-kg">
-            جرام → كيلوجرام
-          </option>
-
-          <option value="c-f">
-            مئوية → فهرنهايت
-          </option>
-
-          <option value="f-c">
-            فهرنهايت → مئوية
-          </option>
-
-        </select>
-
-        <button
-          class="action-btn"
-          onclick="convertUnits()"
-        >
-          📏 تحويل
-        </button>
-
-        <div
-          class="result-box"
-          id="unitsResult"
-        ></div>
-
+        <div class="tool-action">قريباً ←</div>
       </div>
 
-    `;
 
-  }
+      <div class="tool-card"
+           data-tool="عداد الكلمات والحروف"
+           data-category="text"
+           onclick="openTool('عداد الكلمات والحروف')">
 
+        <div class="tool-top">
+          <div>
+            <h3>عداد الكلمات والحروف</h3>
+            <p>احسب الكلمات والحروف فوراً</p>
+          </div>
 
-  /* CALCULATOR */
+          <div class="tool-icon">🔢</div>
+        </div>
 
-  else if (tool === "calculator") {
-
-    content.innerHTML = `
-
-      <div class="tool-form">
-
-        <input
-          type="text"
-          id="calcInput"
-          placeholder="مثال: 100 + 25 * 2"
-        >
-
-        <button
-          class="action-btn"
-          onclick="calculateBasic()"
-        >
-          🧮 احسب
-        </button>
-
-        <div
-          class="result-box"
-          id="calcResult"
-        ></div>
-
+        <div class="tool-action">استخدام الأداة ←</div>
       </div>
 
-    `;
 
-  }
+      <div class="tool-card"
+           data-tool="تنظيف النص"
+           data-category="text"
+           onclick="openTool('تنظيف النص')">
 
+        <div class="tool-top">
+          <div>
+            <h3>تنظيف النص</h3>
+            <p>تنظيف وترتيب النصوص</p>
+          </div>
 
-  /* IMAGE TOOLS */
+          <div class="tool-icon">🧹</div>
+        </div>
 
-  else if (
-    tool === "compress"
-    ||
-    tool === "resize"
-    ||
-    tool === "convert"
-  ) {
-
-    let extra = "";
-
-
-    if (tool === "resize") {
-
-      extra = `
-
-        <input
-          type="number"
-          id="imageWidth"
-          placeholder="العرض بالبكسل"
-        >
-
-        <input
-          type="number"
-          id="imageHeight"
-          placeholder="الارتفاع بالبكسل"
-        >
-
-      `;
-
-    }
+        <div class="tool-action">استخدام الأداة ←</div>
+      </div>
 
 
-    if (tool === "convert") {
+      <div class="tool-card"
+           data-tool="تحويل حالة النص"
+           data-category="text"
+           onclick="openTool('تحويل حالة النص')">
 
-      extra = `
+        <div class="tool-top">
+          <div>
+            <h3>تحويل حالة النص</h3>
+            <p>تغيير شكل النص بسرعة</p>
+          </div>
 
-        <select id="imageFormat">
+          <div class="tool-icon">🔤</div>
+        </div>
 
-          <option value="image/jpeg">
-            JPG
-          </option>
-
-          <option value="image/png">
-            PNG
-          </option>
-
-          <option value="image/webp">
-            WEBP
-          </option>
-
-        </select>
-
-      `;
-
-    }
+        <div class="tool-action">استخدام الأداة ←</div>
+      </div>
 
 
-    content.innerHTML = `
+      <div class="tool-card"
+           data-tool="حاسبة النسبة المئوية"
+           data-category="calculator"
+           onclick="openTool('حاسبة النسبة المئوية')">
 
-      <div class="tool-form">
+        <div class="tool-top">
+          <div>
+            <h3>حاسبة النسبة المئوية</h3>
+            <p>احسب النسب بسهولة</p>
+          </div>
 
-        <div class="drop-zone">
+          <div class="tool-icon">%</div>
+        </div>
 
-          <div style="font-size:40px;">
-            🖼️
+        <div class="tool-action">استخدام الأداة ←</div>
+      </div>
+
+
+      <div class="tool-card"
+           data-tool="حاسبة الخصم"
+           data-category="calculator"
+           onclick="openTool('حاسبة الخصم')">
+
+        <div class="tool-top">
+          <div>
+            <h3>حاسبة الخصم</h3>
+            <p>احسب السعر بعد الخصم</p>
+          </div>
+
+          <div class="tool-icon">🏷️</div>
+        </div>
+
+        <div class="tool-action">استخدام الأداة ←</div>
+      </div>
+
+
+      <div class="tool-card"
+           data-tool="حاسبة العمر"
+           data-category="calculator"
+           onclick="openTool('حاسبة العمر')">
+
+        <div class="tool-top">
+          <div>
+            <h3>حاسبة العمر</h3>
+            <p>احسب عمرك بسهولة</p>
+          </div>
+
+          <div class="tool-icon">🎂</div>
+        </div>
+
+        <div class="tool-action">استخدام الأداة ←</div>
+      </div>
+
+
+      <div class="tool-card"
+           data-tool="مولد كلمات المرور"
+           data-category="other"
+           onclick="openTool('مولد كلمات المرور')">
+
+        <div class="tool-top">
+          <div>
+            <h3>مولد كلمات المرور</h3>
+            <p>أنشئ كلمة مرور قوية</p>
+          </div>
+
+          <div class="tool-icon">🔐</div>
+        </div>
+
+        <div class="tool-action">استخدام الأداة ←</div>
+      </div>
+
+
+      <div class="tool-card"
+           data-tool="محول الوحدات"
+           data-category="other"
+           onclick="openTool('محول الوحدات')">
+
+        <div class="tool-top">
+          <div>
+            <h3>محول الوحدات</h3>
+            <p>تحويل الوحدات بسهولة</p>
+          </div>
+
+          <div class="tool-icon">🔁</div>
+        </div>
+
+        <div class="tool-action">استخدام الأداة ←</div>
+      </div>
+
+
+      <div class="tool-card"
+           data-tool="الآلة الحاسبة"
+           data-category="calculator"
+           onclick="openTool('الآلة الحاسبة')">
+
+        <div class="tool-top">
+          <div>
+            <h3>الآلة الحاسبة</h3>
+            <p>حساباتك اليومية بسهولة</p>
+          </div>
+
+          <div class="tool-icon">🧮</div>
+        </div>
+
+        <div class="tool-action">استخدام الأداة ←</div>
+      </div>
+
+    </div>
+
+
+    <!-- WORKSPACE -->
+    <section class="workspace" id="workspace">
+
+      <div class="workspace-header">
+
+        <div class="workspace-title">
+
+          <div class="tool-icon" id="workspaceIcon">
+            🛠️
           </div>
 
           <div>
-            اختر صورة من جهازك
+            <h3 id="workspaceTitle">
+              الأداة
+            </h3>
           </div>
-
-          <input
-            type="file"
-            id="imageFile"
-            accept="image/*"
-          >
-
-        </div>
-
-        ${extra}
-
-        <button
-          class="action-btn"
-          onclick="processImage('${tool}')"
-        >
-          🚀 معالجة الصورة
-        </button>
-
-        <div
-          class="result-box"
-          id="imageResult"
-        >
-          اختر صورة للبدء.
-        </div>
-
-      </div>
-
-    `;
-
-  }
-
-
-  /* IMAGE PDF */
-
-  else if (tool === "imagepdf") {
-
-    content.innerHTML = `
-
-      <div class="tool-form">
-
-        <div class="drop-zone">
-
-          <div style="font-size:40px;">
-            📄
-          </div>
-
-          <div>
-            اختر صورة لتحويلها إلى PDF
-          </div>
-
-          <input
-            type="file"
-            id="pdfImageFile"
-            accept="image/*"
-          >
 
         </div>
 
         <button
-          class="action-btn"
-          onclick="imageToPDFInfo()"
-        >
-          📄 تحويل إلى PDF
+          class="close-workspace"
+          onclick="closeWorkspace()">
+          إغلاق ✕
         </button>
-
-        <div
-          class="result-box"
-          id="imagePdfResult"
-        ></div>
 
       </div>
 
-    `;
+      <div id="toolPanel" class="tool-panel"></div>
 
-  }
+    </section>
 
 
-  /* PDF PLACEHOLDER */
+    <!-- AI SERVICES -->
+    <section class="ai-section">
 
-  else {
+      <div class="ai-section-header">
 
-    content.innerHTML = `
+        <h2>🤖 خدمات الذكاء الاصطناعي</h2>
 
-      <div class="result-box">
-
-        <div style="font-size:40px;margin-bottom:10px;">
-          🚀
-        </div>
-
-        <h3>
-          هذه الأداة قيد التطوير
-        </h3>
-
-        <p style="margin-top:8px;color:#94a3b8;">
-          سيتم تفعيل هذه الخدمة في التحديث القادم.
+        <p>
+          نحول أفكارك إلى حلول رقمية ومحتوى احترافي باستخدام الذكاء الاصطناعي.
         </p>
 
+      </div>
+
+
+      <div class="ai-grid">
+
+        <div class="ai-card"
+             onclick="aiServiceClick('مواقع AI')">
+          <div class="ai-icon">🌐</div>
+          <h3>مواقع AI</h3>
+          <p>تصميم وتطوير مواقع ذكية</p>
+        </div>
+
+
+        <div class="ai-card"
+             onclick="aiServiceClick('AI Agents')">
+          <div class="ai-icon">🤖</div>
+          <h3>AI Agents</h3>
+          <p>وكلاء ذكاء اصطناعي مخصصون</p>
+        </div>
+
+
+        <div class="ai-card"
+             onclick="aiServiceClick('AI Automation')">
+          <div class="ai-icon">⚡</div>
+          <h3>AI Automation</h3>
+          <p>أتمتة المهام والعمليات</p>
+        </div>
+
+
+        <div class="ai-card"
+             onclick="aiServiceClick('توليد الصور')">
+          <div class="ai-icon">🎨</div>
+          <h3>توليد الصور</h3>
+          <p>صور إبداعية واحترافية بالذكاء الاصطناعي</p>
+        </div>
+
+
+        <div class="ai-card"
+             onclick="aiServiceClick('توليد الفيديو')">
+          <div class="ai-icon">🎬</div>
+          <h3>توليد الفيديو</h3>
+          <p>فيديوهات إعلانية وسينمائية</p>
+        </div>
+
+
+        <div class="ai-card"
+             onclick="aiServiceClick('الإعلانات التجارية')">
+          <div class="ai-icon">📢</div>
+          <h3>الإعلانات التجارية</h3>
+          <p>إعلانات احترافية باستخدام AI</p>
+        </div>
+
+
+        <div class="ai-card"
+             onclick="aiServiceClick('محتوى السوشيال ميديا')">
+          <div class="ai-icon">📱</div>
+          <h3>محتوى السوشيال ميديا</h3>
+          <p>محتوى جذاب للمنصات الاجتماعية</p>
+        </div>
+
+
+        <div class="ai-card"
+             onclick="aiServiceClick('خدمة AI مخصصة')">
+          <div class="ai-icon">💡</div>
+          <h3>خدمة AI مخصصة</h3>
+          <p>حلول مصممة حسب فكرتك</p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta">
+
+      <h2>💡 لديك فكرة؟</h2>
+
+      <p>
+        أخبرنا بما تحتاج إليه وسنساعدك في تحويل فكرتك إلى حل رقمي باستخدام الذكاء الاصطناعي.
+      </p>
+
+      <div class="cta-buttons">
+
+        <a
+          class="primary-btn"
+          href="https://arabic-tools.adati-ai.workers.dev"
+          target="_blank"
+          rel="noopener">
+          🌐 زيارة الموقع
+        </a>
+
         <button
-          class="action-btn"
-          style="margin-top:18px;"
-          onclick="openWhatsApp('tool')"
-        >
-          💬 اطلب هذه الخدمة
+          class="whatsapp-btn"
+          onclick="openWhatsApp('cta')">
+          💬 تواصل معنا عبر واتساب
         </button>
 
       </div>
 
-    `;
+    </section>
 
-  }
+  </main>
 
 
-  workspace.scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-  });
+  <!-- FOOTER -->
+  <footer>
 
-}
+    <div class="footer-logo">
+      ⚡ أداتي AI
+    </div>
 
+    <div>
+      كل أدواتك اليومية في مكان واحد
+    </div>
 
-/* =====================================================
-   CLOSE TOOL
-===================================================== */
+    <div style="margin-top:8px;">
+      © 2026 أداتي AI — جميع الحقوق محفوظة
+    </div>
 
-function closeTool() {
+  </footer>
 
-  document
-    .getElementById("workspace")
-    .style.display = "none";
 
-}
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
 
 
-/* =====================================================
-   COUNTER
-===================================================== */
+  <script>
 
-function runCounter() {
+    /* =========================
+       SETTINGS
+    ========================= */
 
-  const text =
-    document
-      .getElementById("counterText")
-      .value;
+    const WHATSAPP_NUMBER = "96890682630";
 
 
-  const words =
-    text.trim()
-      ? text.trim().split(/\s+/).length
-      : 0;
+    /* =========================
+       ANALYTICS
+    ========================= */
 
+    function trackEvent(name, params = {}) {
 
-  const chars =
-    text.length;
+      if (typeof gtag === "function") {
 
+        gtag("event", name, params);
 
-  const charsNoSpaces =
-    text.replace(/\s/g, "").length;
-
-
-  document
-    .getElementById("counterResult")
-    .innerHTML =
-
-      "الكلمات: " + words +
-      "<br>" +
-      "الحروف: " + chars +
-      "<br>" +
-      "الحروف بدون مسافات: " +
-      charsNoSpaces;
-
-
-  trackEvent(
-    "tool_use",
-    {
-      tool_name: "counter"
-    }
-  );
-
-}
-
-
-/* =====================================================
-   CLEAN TEXT
-===================================================== */
-
-function cleanText() {
-
-  const input =
-    document
-      .getElementById("cleanText")
-      .value;
-
-
-  const result =
-    input
-      .replace(/[ \t]+/g, " ")
-      .replace(/\n\s*\n+/g, "\n")
-      .trim();
-
-
-  document
-    .getElementById("cleanResult")
-    .value = result;
-
-
-  trackEvent(
-    "tool_use",
-    {
-      tool_name: "clean"
-    }
-  );
-
-}
-
-
-/* =====================================================
-   CASE
-===================================================== */
-
-function convertCase() {
-
-  const text =
-    document
-      .getElementById("caseText")
-      .value;
-
-
-  const type =
-    document
-      .getElementById("caseType")
-      .value;
-
-
-  let result = text;
-
-
-  if (type === "upper") {
-
-    result =
-      text.toUpperCase();
-
-  }
-
-
-  else if (type === "lower") {
-
-    result =
-      text.toLowerCase();
-
-  }
-
-
-  else if (type === "title") {
-
-    result =
-      text.toLowerCase()
-        .replace(
-          /\b\w/g,
-          char => char.toUpperCase()
-        );
-
-  }
-
-
-  document
-    .getElementById("caseResult")
-    .value = result;
-
-
-  trackEvent(
-    "tool_use",
-    {
-      tool_name: "case"
-    }
-  );
-
-}
-
-
-/* =====================================================
-   PERCENTAGE
-===================================================== */
-
-function calculatePercentage() {
-
-  const value =
-    parseFloat(
-      document
-        .getElementById("percentValue")
-        .value
-    );
-
-
-  const rate =
-    parseFloat(
-      document
-        .getElementById("percentRate")
-        .value
-    );
-
-
-  if (
-    isNaN(value)
-    ||
-    isNaN(rate)
-  ) {
-
-    showToast(
-      "يرجى إدخال الأرقام"
-    );
-
-    return;
-
-  }
-
-
-  const result =
-    value * rate / 100;
-
-
-  document
-    .getElementById("percentageResult")
-    .textContent =
-      rate + "% من " +
-      value +
-      " = " +
-      result;
-
-
-  trackEvent(
-    "tool_use",
-    {
-      tool_name: "percentage"
-    }
-  );
-
-}
-
-
-/* =====================================================
-   DISCOUNT
-===================================================== */
-
-function calculateDiscount() {
-
-  const price =
-    parseFloat(
-      document
-        .getElementById("discountPrice")
-        .value
-    );
-
-
-  const rate =
-    parseFloat(
-      document
-        .getElementById("discountRate")
-        .value
-    );
-
-
-  if (
-    isNaN(price)
-    ||
-    isNaN(rate)
-  ) {
-
-    showToast(
-      "يرجى إدخال الأرقام"
-    );
-
-    return;
-
-  }
-
-
-  const discount =
-    price * rate / 100;
-
-
-  const finalPrice =
-    price - discount;
-
-
-  document
-    .getElementById("discountResult")
-    .innerHTML =
-
-      "قيمة الخصم: " +
-      discount.toFixed(2) +
-      "<br>" +
-
-      "السعر النهائي: " +
-      finalPrice.toFixed(2);
-
-
-  trackEvent(
-    "tool_use",
-    {
-      tool_name: "discount"
-    }
-  );
-
-}
-
-
-/* =====================================================
-   AGE
-===================================================== */
-
-function calculateAge() {
-
-  const input =
-    document
-      .getElementById("birthDate")
-      .value;
-
-
-  if (!input) {
-
-    showToast(
-      "اختر تاريخ الميلاد"
-    );
-
-    return;
-
-  }
-
-
-  const birth =
-    new Date(input);
-
-
-  const today =
-    new Date();
-
-
-  let years =
-    today.getFullYear()
-    -
-    birth.getFullYear();
-
-
-  let months =
-    today.getMonth()
-    -
-    birth.getMonth();
-
-
-  let days =
-    today.getDate()
-    -
-    birth.getDate();
-
-
-  if (days < 0) {
-
-    months--;
-
-    const previousMonth =
-      new Date(
-        today.getFullYear(),
-        today.getMonth(),
-        0
-      );
-
-    days +=
-      previousMonth.getDate();
-
-  }
-
-
-  if (months < 0) {
-
-    years--;
-
-    months += 12;
-
-  }
-
-
-  document
-    .getElementById("ageResult")
-    .innerHTML =
-
-      "العمر: " +
-      years +
-      " سنة، " +
-      months +
-      " شهر، " +
-      days +
-      " يوم";
-
-
-  trackEvent(
-    "tool_use",
-    {
-      tool_name: "age"
-    }
-  );
-
-}
-
-
-/* =====================================================
-   PASSWORD
-===================================================== */
-
-function generatePassword() {
-
-  let length =
-    parseInt(
-      document
-        .getElementById("passwordLength")
-        .value
-    );
-
-
-  if (
-    isNaN(length)
-    ||
-    length < 6
-  ) {
-
-    length = 16;
-
-  }
-
-
-  const chars =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
-    "abcdefghijklmnopqrstuvwxyz" +
-    "0123456789" +
-    "!@#$%^&*()_+-=";
-
-
-  let password = "";
-
-
-  const array =
-    new Uint32Array(length);
-
-
-  crypto
-    .getRandomValues(array);
-
-
-  for (
-    let i = 0;
-    i < length;
-    i++
-  ) {
-
-    password +=
-      chars[
-        array[i] % chars.length
-      ];
-
-  }
-
-
-  document
-    .getElementById("passwordResult")
-    .textContent = password;
-
-
-  trackEvent(
-    "tool_use",
-    {
-      tool_name: "password"
-    }
-  );
-
-}
-
-
-/* =====================================================
-   UNITS
-===================================================== */
-
-function convertUnits() {
-
-  const value =
-    parseFloat(
-      document
-        .getElementById("unitValue")
-        .value
-    );
-
-
-  const type =
-    document
-      .getElementById("unitType")
-      .value;
-
-
-  if (isNaN(value)) {
-
-    showToast(
-      "أدخل قيمة صحيحة"
-    );
-
-    return;
-
-  }
-
-
-  let result;
-
-
-  switch (type) {
-
-    case "km-m":
-      result =
-        value * 1000;
-      break;
-
-    case "m-km":
-      result =
-        value / 1000;
-      break;
-
-    case "kg-g":
-      result =
-        value * 1000;
-      break;
-
-    case "g-kg":
-      result =
-        value / 1000;
-      break;
-
-    case "c-f":
-      result =
-        (value * 9 / 5) + 32;
-      break;
-
-    case "f-c":
-      result =
-        (value - 32) * 5 / 9;
-      break;
-
-  }
-
-
-  document
-    .getElementById("unitsResult")
-    .textContent =
-      "النتيجة: " +
-      result;
-
-
-  trackEvent(
-    "tool_use",
-    {
-      tool_name: "units"
-    }
-  );
-
-}
-
-
-/* =====================================================
-   CALCULATOR
-===================================================== */
-
-function calculateBasic() {
-
-  const input =
-    document
-      .getElementById("calcInput")
-      .value
-      .trim();
-
-
-  if (!input) {
-
-    showToast(
-      "أدخل العملية الحسابية"
-    );
-
-    return;
-
-  }
-
-
-  try {
-
-    /*
-      يسمح فقط بالأرقام والعمليات الأساسية
-    */
-
-    if (
-      !/^[0-9+\-*/().%\s]+$/
-        .test(input)
-    ) {
-
-      throw new Error();
-
-    }
-
-
-    const result =
-      Function(
-        '"use strict"; return (' +
-        input +
-        ')'
-      )();
-
-
-    document
-      .getElementById("calcResult")
-      .textContent =
-        "النتيجة: " +
-        result;
-
-
-    trackEvent(
-      "tool_use",
-      {
-        tool_name: "calculator"
       }
-    );
 
-  }
-
-  catch {
-
-    showToast(
-      "العملية غير صحيحة"
-    );
-
-  }
-
-}
+    }
 
 
-/* =====================================================
-   IMAGE PROCESSING
-===================================================== */
-
-function processImage(type) {
-
-  const fileInput =
-    document
-      .getElementById("imageFile");
+    trackEvent("page_ready", {
+      page_name: "Adati AI Home"
+    });
 
 
-  const file =
-    fileInput.files[0];
+    /* =========================
+       WHATSAPP
+    ========================= */
+
+    function openWhatsApp(type = "general") {
+
+      trackEvent("whatsapp_click", {
+        click_type: type
+      });
+
+      const message =
+        "السلام عليكم، أريد الاستفسار عن خدمات أداتي AI.";
+
+      const url =
+        "https://api.whatsapp.com/send?phone=" +
+        WHATSAPP_NUMBER +
+        "&text=" +
+        encodeURIComponent(message);
+
+      window.open(url, "_blank");
+
+    }
 
 
-  if (!file) {
+    /* =========================
+       TOAST
+    ========================= */
 
-    showToast(
-      "اختر صورة أولاً"
-    );
+    function showToast(message) {
 
-    return;
+      const toast =
+        document.getElementById("toast");
 
-  }
+      toast.textContent = message;
 
+      toast.classList.add("show");
 
-  const reader =
-    new FileReader();
+      setTimeout(() => {
 
+        toast.classList.remove("show");
 
-  reader.onload = function(event) {
+      }, 2500);
 
-    const img =
-      new Image();
-
-
-    img.onload = function() {
-
-      let width =
-        img.width;
-
-      let height =
-        img.height;
+    }
 
 
-      if (type === "resize") {
+    /* =========================
+       SCROLL TO TOOLS
+    ========================= */
 
-        const newWidth =
-          parseInt(
-            document
-              .getElementById("imageWidth")
-              .value
-          );
+    function scrollToTools() {
+
+      const tools =
+        document.getElementById("toolsGrid");
+
+      tools.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    }
 
 
-        const newHeight =
-          parseInt(
-            document
-              .getElementById("imageHeight")
-              .value
-          );
+    /* =========================
+       SEARCH
+    ========================= */
 
+    function searchTools() {
+
+      const query =
+        document
+          .getElementById("searchInput")
+          .value
+          .toLowerCase()
+          .trim();
+
+      const cards =
+        document.querySelectorAll(".tool-card");
+
+      cards.forEach(card => {
+
+        const name =
+          card.dataset.tool.toLowerCase();
+
+        const description =
+          card.innerText.toLowerCase();
 
         if (
-          newWidth > 0
-          &&
-          newHeight > 0
+          name.includes(query) ||
+          description.includes(query)
         ) {
 
-          width =
-            newWidth;
+          card.style.display = "";
 
-          height =
-            newHeight;
+        } else {
+
+          card.style.display = "none";
 
         }
 
-      }
+      });
+
+    }
 
 
-      const canvas =
-        document.createElement(
-          "canvas"
-        );
+    /* =========================
+       CATEGORY FILTER
+    ========================= */
 
+    document
+      .querySelectorAll(".category-btn")
+      .forEach(button => {
 
-      canvas.width =
-        width;
+        button.addEventListener("click", () => {
 
-      canvas.height =
-        height;
-
-
-      const ctx =
-        canvas.getContext(
-          "2d"
-        );
-
-
-      ctx.drawImage(
-        img,
-        0,
-        0,
-        width,
-        height
-      );
-
-
-      let format =
-        "image/jpeg";
-
-
-      if (type === "convert") {
-
-        format =
           document
-            .getElementById(
-              "imageFormat"
-            )
-            .value;
-
-      }
-
-
-      const quality =
-        type === "compress"
-          ? 0.65
-          : 0.90;
-
-
-      canvas.toBlob(
-        function(blob) {
-
-          const url =
-            URL.createObjectURL(
-              blob
+            .querySelectorAll(".category-btn")
+            .forEach(btn =>
+              btn.classList.remove("active")
             );
 
+          button.classList.add("active");
 
-          const result =
-            document
-              .getElementById(
-                "imageResult"
-              );
+          const category =
+            button.dataset.category;
 
+          document
+            .querySelectorAll(".tool-card")
+            .forEach(card => {
 
-          result.innerHTML = `
+              if (
+                category === "all" ||
+                card.dataset.category === category
+              ) {
 
-            <div>
-              تم تجهيز الصورة بنجاح.
-            </div>
+                card.style.display = "";
 
-            <div style="margin-top:8px;">
-              الحجم الجديد:
-              ${(blob.size / 1024).toFixed(1)}
-              KB
-            </div>
+              } else {
 
-            <a
-              href="${url}"
-              download="adati-ai-image"
-              class="action-btn"
-              style="
-                display:inline-block;
-                margin-top:15px;
-              "
-            >
-              ⬇️ تحميل الصورة
-            </a>
+                card.style.display = "none";
 
-          `;
+              }
+
+            });
+
+        });
+
+      });
 
 
-          trackEvent(
-            "tool_use",
-            {
-              tool_name: type
-            }
-          );
+    /* =========================
+       TOOL ICONS
+    ========================= */
 
-        },
-        format,
-        quality
-      );
+    const toolIcons = {
+
+      "ضغط الصور": "🗜️",
+      "تغيير حجم الصورة": "📐",
+      "تحويل الصور": "🔄",
+      "صورة إلى PDF": "📄",
+      "دمج PDF": "📚",
+      "تقسيم PDF": "✂️",
+      "ضغط PDF": "🗜️",
+      "PDF إلى JPG": "🖼️",
+      "عداد الكلمات والحروف": "🔢",
+      "تنظيف النص": "🧹",
+      "تحويل حالة النص": "🔤",
+      "حاسبة النسبة المئوية": "%",
+      "حاسبة الخصم": "🏷️",
+      "حاسبة العمر": "🎂",
+      "مولد كلمات المرور": "🔐",
+      "محول الوحدات": "🔁",
+      "الآلة الحاسبة": "🧮"
 
     };
 
 
-    img.src =
-      event.target.result;
+    /* =========================
+       OPEN TOOL
+    ========================= */
 
-  };
+    function openTool(tool) {
 
+      trackEvent("tool_open", {
+        tool_name: tool
+      });
 
-  reader.readAsDataURL(file);
+      const workspace =
+        document.getElementById("workspace");
 
-}
+      const title =
+        document.getElementById("workspaceTitle");
 
+      const icon =
+        document.getElementById("workspaceIcon");
 
-/* =====================================================
-   IMAGE TO PDF INFO
-===================================================== */
+      const panel =
+        document.getElementById("toolPanel");
 
-function imageToPDFInfo() {
+      title.textContent = tool;
 
-  const input =
-    document
-      .getElementById("pdfImageFile");
+      icon.textContent =
+        toolIcons[tool] || "🛠️";
 
+      workspace.classList.add("active");
 
-  if (
-    !input.files.length
-  ) {
+      panel.innerHTML =
+        getToolHTML(tool);
 
-    showToast(
-      "اختر صورة أولاً"
-    );
+      workspace.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
 
-    return;
-
-  }
-
-
-  document
-    .getElementById(
-      "imagePdfResult"
-    )
-    .innerHTML = `
-
-      <div>
-        تم اختيار الصورة بنجاح.
-      </div>
-
-      <p style="
-        margin-top:8px;
-        color:#94a3b8;
-      ">
-        سيتم تطوير التحويل الكامل إلى PDF
-        في التحديث القادم.
-      </p>
-
-    `;
-
-
-  trackEvent(
-    "tool_use",
-    {
-      tool_name: "imagepdf"
     }
-  );
-
-}
 
 
-/* =====================================================
-   AI SERVICE
-===================================================== */
+    /* =========================
+       CLOSE TOOL
+    ========================= */
 
-function selectAIService(service) {
+    function closeWorkspace() {
 
-  trackEvent(
-    "ai_service_click",
-    {
-      service_name: service
+      document
+        .getElementById("workspace")
+        .classList.remove("active");
+
     }
-  );
 
 
-  document
-    .getElementById("serviceType")
-    .value = service;
+    /* =========================
+       TOOL HTML
+    ========================= */
+
+    function getToolHTML(tool) {
+
+      if (tool === "عداد الكلمات والحروف") {
+
+        return `
+          <textarea
+            id="counterText"
+            placeholder="اكتب النص هنا..."></textarea>
+
+          <button
+            class="tool-button"
+            onclick="countText()">
+            احسب الآن
+          </button>
+
+          <div
+            class="result"
+            id="counterResult">
+            عدد الكلمات: 0<br>
+            عدد الحروف: 0
+          </div>
+        `;
+
+      }
 
 
-  document
-    .getElementById("contact")
-    .scrollIntoView({
-      behavior: "smooth"
-    });
+      if (tool === "تنظيف النص") {
+
+        return `
+          <textarea
+            id="cleanText"
+            placeholder="ضع النص هنا..."></textarea>
+
+          <button
+            class="tool-button"
+            onclick="cleanText()">
+            تنظيف النص
+          </button>
+
+          <div
+            class="result"
+            id="cleanResult">
+          </div>
+        `;
+
+      }
 
 
-  showToast(
-    "تم اختيار: " + service
-  );
+      if (tool === "تحويل حالة النص") {
 
-}
+        return `
+          <textarea
+            id="caseText"
+            placeholder="اكتب النص هنا..."></textarea>
 
+          <button
+            class="tool-button"
+            onclick="convertCase()">
+            تحويل النص
+          </button>
 
-/* =====================================================
-   CONTACT REQUEST
-===================================================== */
+          <div
+            class="result"
+            id="caseResult">
+          </div>
+        `;
 
-function sendRequest(event) {
-
-  event.preventDefault();
-
-
-  const name =
-    document
-      .getElementById(
-        "clientName"
-      )
-      .value
-      .trim();
+      }
 
 
-  const type =
-    document
-      .getElementById(
-        "serviceType"
-      )
-      .value
-      .trim();
+      if (tool === "حاسبة النسبة المئوية") {
+
+        return `
+          <input
+            id="percentValue"
+            type="number"
+            placeholder="القيمة">
+
+          <input
+            id="percentTotal"
+            type="number"
+            placeholder="الإجمالي">
+
+          <button
+            class="tool-button"
+            onclick="calculatePercentage()">
+            احسب النسبة
+          </button>
+
+          <div
+            class="result"
+            id="percentResult">
+          </div>
+        `;
+
+      }
 
 
-  const details =
-    document
-      .getElementById(
-        "clientDetails"
-      )
-      .value
-      .trim();
+      if (tool === "حاسبة الخصم") {
+
+        return `
+          <input
+            id="discountPrice"
+            type="number"
+            placeholder="السعر">
+
+          <input
+            id="discountPercent"
+            type="number"
+            placeholder="نسبة الخصم %">
+
+          <button
+            class="tool-button"
+            onclick="calculateDiscount()">
+            احسب السعر
+          </button>
+
+          <div
+            class="result"
+            id="discountResult">
+          </div>
+        `;
+
+      }
 
 
-  if (
-    !name
-    ||
-    !type
-    ||
-    !details
-  ) {
+      if (tool === "حاسبة العمر") {
 
-    showToast(
-      "يرجى تعبئة جميع البيانات"
-    );
+        return `
+          <input
+            id="birthDate"
+            type="date">
 
-    return;
+          <button
+            class="tool-button"
+            onclick="calculateAge()">
+            احسب العمر
+          </button>
 
-  }
+          <div
+            class="result"
+            id="ageResult">
+          </div>
+        `;
+
+      }
 
 
-  /*
-    لا نرسل اسم العميل أو تفاصيله إلى Google Analytics.
-    يتم إرسال نوع الخدمة فقط.
-  */
+      if (tool === "مولد كلمات المرور") {
 
-  trackEvent(
-    "contact_request",
-    {
-      service_type: type
+        return `
+          <input
+            id="passwordLength"
+            type="number"
+            value="16"
+            min="6"
+            max="50"
+            placeholder="طول كلمة المرور">
+
+          <button
+            class="tool-button"
+            onclick="generatePassword()">
+            إنشاء كلمة مرور
+          </button>
+
+          <div
+            class="result"
+            id="passwordResult">
+          </div>
+        `;
+
+      }
+
+
+      if (tool === "محول الوحدات") {
+
+        return `
+          <input
+            id="unitValue"
+            type="number"
+            placeholder="القيمة">
+
+          <select id="unitType">
+
+            <option value="km">كيلومتر → ميل</option>
+            <option value="mile">ميل → كيلومتر</option>
+            <option value="kg">كيلوغرام → رطل</option>
+            <option value="lb">رطل → كيلوغرام</option>
+
+          </select>
+
+          <button
+            class="tool-button"
+            onclick="convertUnits()">
+            تحويل
+          </button>
+
+          <div
+            class="result"
+            id="unitResult">
+          </div>
+        `;
+
+      }
+
+
+      if (tool === "الآلة الحاسبة") {
+
+        return `
+          <input
+            id="calculatorInput"
+            type="text"
+            placeholder="مثال: 25 × 4 + 10">
+
+          <button
+            class="tool-button"
+            onclick="calculateBasic()">
+            احسب
+          </button>
+
+          <div
+            class="result"
+            id="calculatorResult">
+          </div>
+        `;
+
+      }
+
+
+      return `
+        <div class="result">
+          🚧 هذه الأداة سيتم تفعيلها في التحديث القادم.
+        </div>
+
+        <button
+          class="whatsapp-btn"
+          onclick="openWhatsApp('tool_request')">
+          💬 اطلب هذه الأداة
+        </button>
+      `;
+
     }
-  );
 
 
-  const message =
-    "السلام عليكم، أريد طلب خدمة من أداتي AI.%0A%0A" +
+    /* =========================
+       WORD COUNTER
+    ========================= */
 
-    "الاسم: " +
-    name +
-    "%0A" +
+    function countText() {
 
-    "الخدمة: " +
-    type +
-    "%0A%0A" +
+      const text =
+        document.getElementById("counterText").value;
 
-    "تفاصيل المشروع:%0A" +
-    details;
+      const words =
+        text.trim()
+          ? text.trim().split(/\s+/).length
+          : 0;
 
+      const chars =
+        text.length;
 
-  const whatsappURL =
-    "https://api.whatsapp.com/send?phone=" +
-    WHATSAPP_NUMBER +
-    "&text=" +
-    encodeURIComponent(
-      message
-    );
+      document.getElementById("counterResult")
+        .innerHTML =
+        "عدد الكلمات: <strong>" +
+        words +
+        "</strong><br>عدد الحروف: <strong>" +
+        chars +
+        "</strong>";
 
+      trackEvent("tool_use", {
+        tool_name: "عداد الكلمات والحروف"
+      });
 
-  window.open(
-    whatsappURL,
-    "_blank",
-    "noopener,noreferrer"
-  );
-
-}
-
-
-/* =====================================================
-   YEAR
-===================================================== */
-
-document
-  .getElementById("year")
-  .textContent =
-    new Date().getFullYear();
+    }
 
 
-/* =====================================================
-   PAGE VIEW
-===================================================== */
+    /* =========================
+       CLEAN TEXT
+    ========================= */
 
-trackEvent(
-  "page_ready",
-  {
-    page_name: "Adati AI Home"
-  }
-);
+    function cleanText() {
+
+      const text =
+        document.getElementById("cleanText").value;
+
+      const cleaned =
+        text
+          .replace(/\s+/g, " ")
+          .trim();
+
+      document.getElementById("cleanResult")
+        .textContent = cleaned;
+
+      trackEvent("tool_use", {
+        tool_name: "تنظيف النص"
+      });
+
+    }
 
 
-</script>
+    /* =========================
+       CASE
+    ========================= */
+
+    function convertCase() {
+
+      const text =
+        document.getElementById("caseText").value;
+
+      const result =
+        text
+          .split("\n")
+          .map(line =>
+            line.charAt(0).toUpperCase() +
+            line.slice(1).toLowerCase()
+          )
+          .join("\n");
+
+      document.getElementById("caseResult")
+        .textContent = result;
+
+      trackEvent("tool_use", {
+        tool_name: "تحويل حالة النص"
+      });
+
+    }
+
+
+    /* =========================
+       PERCENTAGE
+    ========================= */
+
+    function calculatePercentage() {
+
+      const value =
+        parseFloat(
+          document.getElementById("percentValue").value
+        );
+
+      const total =
+        parseFloat(
+          document.getElementById("percentTotal").value
+        );
+
+      if (
+        isNaN(value) ||
+        isNaN(total) ||
+        total === 0
+      ) {
+
+        document.getElementById("percentResult")
+          .textContent =
+          "يرجى إدخال أرقام صحيحة.";
+
+        return;
+      }
+
+      const result =
+        (value / total) * 100;
+
+      document.getElementById("percentResult")
+        .textContent =
+        "النسبة = " + result.toFixed(2) + "%";
+
+      trackEvent("tool_use", {
+        tool_name: "حاسبة النسبة المئوية"
+      });
+
+    }
+
+
+    /* =========================
+       DISCOUNT
+    ========================= */
+
+    function calculateDiscount() {
+
+      const price =
+        parseFloat(
+          document.getElementById("discountPrice").value
+        );
+
+      const discount =
+        parseFloat(
+          document.getElementById("discountPercent").value
+        );
+
+      if (
+        isNaN(price) ||
+        isNaN(discount)
+      ) {
+
+        document.getElementById("discountResult")
+          .textContent =
+          "يرجى إدخال أرقام صحيحة.";
+
+        return;
+      }
+
+      const saving =
+        price * discount / 100;
+
+      const finalPrice =
+        price - saving;
+
+      document.getElementById("discountResult")
+        .innerHTML =
+        "قيمة الخصم: " +
+        saving.toFixed(2) +
+        "<br>السعر النهائي: <strong>" +
+        finalPrice.toFixed(2) +
+        "</strong>";
+
+      trackEvent("tool_use", {
+        tool_name: "حاسبة الخصم"
+      });
+
+    }
+
+
+    /* =========================
+       AGE
+    ========================= */
+
+    function calculateAge() {
+
+      const input =
+        document.getElementById("birthDate").value;
+
+      if (!input) {
+
+        document.getElementById("ageResult")
+          .textContent =
+          "اختر تاريخ الميلاد أولاً.";
+
+        return;
+      }
+
+      const birth =
+        new Date(input);
+
+      const today =
+        new Date();
+
+      let age =
+        today.getFullYear() -
+        birth.getFullYear();
+
+      const month =
+        today.getMonth() -
+        birth.getMonth();
+
+      if (
+        month < 0 ||
+        (
+          month === 0 &&
+          today.getDate() < birth.getDate()
+        )
+      ) {
+
+        age--;
+
+      }
+
+      document.getElementById("ageResult")
+        .textContent =
+        "عمرك التقريبي: " +
+        age +
+        " سنة";
+
+      trackEvent("tool_use", {
+        tool_name: "حاسبة العمر"
+      });
+
+    }
+
+
+    /* =========================
+       PASSWORD
+    ========================= */
+
+    function generatePassword() {
+
+      let length =
+        parseInt(
+          document.getElementById("passwordLength").value
+        );
+
+      if (
+        isNaN(length) ||
+        length < 6
+      ) {
+        length = 16;
+      }
+
+      if (length > 50) {
+        length = 50;
+      }
+
+      const chars =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+        "abcdefghijklmnopqrstuvwxyz" +
+        "0123456789" +
+        "!@#$%^&*()_+-=";
+
+      let password = "";
+
+      for (
+        let i = 0;
+        i < length;
+        i++
+      ) {
+
+        password +=
+          chars.charAt(
+            Math.floor(
+              Math.random() * chars.length
+            )
+          );
+
+      }
+
+      document.getElementById("passwordResult")
+        .textContent = password;
+
+      trackEvent("tool_use", {
+        tool_name: "مولد كلمات المرور"
+      });
+
+    }
+
+
+    /* =========================
+       UNITS
+    ========================= */
+
+    function convertUnits() {
+
+      const value =
+        parseFloat(
+          document.getElementById("unitValue").value
+        );
+
+      const type =
+        document.getElementById("unitType").value;
+
+      if (isNaN(value)) {
+
+        document.getElementById("unitResult")
+          .textContent =
+          "يرجى إدخال قيمة صحيحة.";
+
+        return;
+      }
+
+      let result;
+      let label;
+
+      if (type === "km") {
+
+        result =
+          value * 0.621371;
+
+        label =
+          "ميل";
+
+      } else if (type === "mile") {
+
+        result =
+          value * 1.60934;
+
+        label =
+          "كيلومتر";
+
+      } else if (type === "kg") {
+
+        result =
+          value * 2.20462;
+
+        label =
+          "رطل";
+
+      } else {
+
+        result =
+          value * 0.453592;
+
+        label =
+          "كيلوغرام";
+
+      }
+
+      document.getElementById("unitResult")
+        .textContent =
+        result.toFixed(3) +
+        " " +
+        label;
+
+      trackEvent("tool_use", {
+        tool_name: "محول الوحدات"
+      });
+
+    }
+
+
+    /* =========================
+       BASIC CALCULATOR
+    ========================= */
+
+    function calculateBasic() {
+
+      const input =
+        document.getElementById("calculatorInput").value;
+
+      try {
+
+        /*
+          Basic safe calculator:
+          only numbers and math operators.
+        */
+
+        if (!/^[0-9+\-*/().%\s]+$/.test(input)) {
+          throw new Error();
+        }
+
+        const expression =
+          input.replace(/%/g, "/100");
+
+        const result =
+          Function(
+            '"use strict"; return (' +
+            expression +
+            ')'
+          )();
+
+        document.getElementById("calculatorResult")
+          .textContent =
+          "النتيجة: " + result;
+
+        trackEvent("tool_use", {
+          tool_name: "الآلة الحاسبة"
+        });
+
+      } catch (error) {
+
+        document.getElementById("calculatorResult")
+          .textContent =
+          "يرجى إدخال عملية حسابية صحيحة.";
+
+      }
+
+    }
+
+
+    /* =========================
+       AI SERVICE CLICK
+    ========================= */
+
+    function aiServiceClick(service) {
+
+      trackEvent("ai_service_click", {
+        service_name: service
+      });
+
+      const message =
+        "السلام عليكم، أريد الاستفسار عن خدمة: " +
+        service;
+
+      const url =
+        "https://api.whatsapp.com/send?phone=" +
+        WHATSAPP_NUMBER +
+        "&text=" +
+        encodeURIComponent(message);
+
+      window.open(url, "_blank");
+
+    }
+
+
+    /* =========================
+       CONTACT REQUEST
+    ========================= */
+
+    function sendRequest(type = "general") {
+
+      trackEvent("contact_request", {
+        service_type: type
+      });
+
+      openWhatsApp("contact_request");
+
+    }
+
+  </script>
 
 </body>
 </html>
