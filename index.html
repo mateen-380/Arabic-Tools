@@ -3,26 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>أداتي AI | كل أدواتك اليومية في مكان واحد</title>
-
-  <meta name="description" content="أداتي AI - أدوات رقمية مجانية وخدمات ذكاء اصطناعي احترافية في مكان واحد.">
   <meta name="theme-color" content="#07152f">
 
-  <!-- Google Analytics 4 -->
+  <title>أداتي AI | كل أدواتك اليومية في مكان واحد</title>
+  <meta name="description" content="أداتي AI - أدوات رقمية مجانية وخدمات ذكاء اصطناعي احترافية في مكان واحد.">
+
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PZ4V60V18P"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-PZ4V60V18P');
   </script>
 
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.5.0/docx.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
   <style>
+    :root {
+      --bg: #06142f;
+      --bg2: #0a1d40;
+      --card: rgba(17, 39, 77, 0.78);
+      --card2: rgba(13, 31, 63, 0.95);
+      --border: rgba(255,255,255,.10);
+      --text: #f5f8ff;
+      --muted: #aebbd2;
+      --primary: #4f8cff;
+      --primary2: #7c5cff;
+      --green: #21c58b;
+      --danger: #ff5c6c;
+      --gold: #ffc857;
+      --shadow: 0 18px 50px rgba(0,0,0,.25);
+      --radius: 22px;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -35,50 +54,52 @@
 
     body {
       font-family:
+        "Noto Sans Arabic",
         "Segoe UI",
         Tahoma,
         Arial,
         sans-serif;
       background:
-        radial-gradient(circle at top right, rgba(35, 99, 235, 0.18), transparent 30%),
-        radial-gradient(circle at bottom left, rgba(0, 196, 255, 0.10), transparent 28%),
-        #061126;
-      color: #ffffff;
+        radial-gradient(circle at 10% 0%, rgba(79,140,255,.18), transparent 30%),
+        radial-gradient(circle at 90% 10%, rgba(124,92,255,.16), transparent 28%),
+        linear-gradient(145deg, #041027, #081a38 55%, #05142d);
+      color: var(--text);
       min-height: 100vh;
       line-height: 1.7;
     }
 
     button,
     input,
-    textarea,
-    select {
+    select,
+    textarea {
       font-family: inherit;
     }
 
+    button {
+      cursor: pointer;
+    }
+
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
     .container {
-      width: min(1180px, 92%);
+      width: min(1180px, calc(100% - 32px));
       margin: auto;
     }
 
-    /* =========================
-       HEADER
-    ========================= */
-
+    /* HEADER */
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(5, 16, 38, 0.88);
+      background: rgba(4,16,39,.88);
       backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid var(--border);
     }
 
-    .navbar {
+    .nav {
       min-height: 74px;
       display: flex;
       align-items: center;
@@ -86,592 +107,617 @@
       gap: 20px;
     }
 
-    .logo {
+    .brand {
       display: flex;
       align-items: center;
       gap: 11px;
-      font-size: 23px;
       font-weight: 900;
+      font-size: 22px;
       white-space: nowrap;
     }
 
-    .logo-icon {
-      width: 43px;
-      height: 43px;
+    .brand-logo {
+      width: 42px;
+      height: 42px;
       border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #1677ff, #00c6ff);
-      box-shadow: 0 8px 25px rgba(0, 151, 255, 0.30);
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--primary2));
+      box-shadow: 0 8px 25px rgba(79,140,255,.3);
       font-size: 21px;
-    }
-
-    .logo span {
-      color: #5bc9ff;
     }
 
     .nav-links {
       display: flex;
+      gap: 8px;
       align-items: center;
-      gap: 24px;
-      font-size: 14px;
-      color: #c7d4ec;
     }
 
     .nav-links a {
-      transition: .25s;
+      padding: 9px 14px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: 14px;
+      transition: .2s;
     }
 
     .nav-links a:hover {
-      color: #5bc9ff;
+      background: rgba(255,255,255,.07);
+      color: white;
     }
 
-    .nav-button {
-      background: linear-gradient(135deg, #1677ff, #00b9ff);
-      padding: 10px 18px;
-      border-radius: 12px;
+    .nav-whatsapp {
+      background: #18b878 !important;
       color: white !important;
-      font-weight: 700;
-      box-shadow: 0 8px 25px rgba(0, 149, 255, .18);
+      font-weight: 800;
     }
 
-    /* =========================
-       HERO
-    ========================= */
-
+    /* HERO */
     .hero {
-      padding: 72px 0 55px;
-      text-align: center;
+      padding: 80px 0 55px;
     }
 
-    .hero-badge {
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .badge {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      background: rgba(32, 118, 255, .12);
-      border: 1px solid rgba(70, 159, 255, .25);
-      color: #71ceff;
-      padding: 8px 15px;
-      border-radius: 50px;
+      gap: 8px;
+      padding: 7px 13px;
+      border: 1px solid rgba(79,140,255,.3);
+      background: rgba(79,140,255,.1);
+      color: #cbdcff;
+      border-radius: 999px;
       font-size: 13px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .hero h1 {
-      font-size: clamp(34px, 5vw, 64px);
-      line-height: 1.15;
-      font-weight: 950;
-      letter-spacing: -1px;
-      margin-bottom: 20px;
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1.12;
+      letter-spacing: -.8px;
+      margin-bottom: 18px;
     }
 
-    .hero h1 .gradient {
-      background: linear-gradient(90deg, #58cfff, #6f8cff, #a66dff);
+    .hero h1 span {
+      background: linear-gradient(90deg, #70a5ff, #b08cff);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
     .hero p {
-      max-width: 730px;
-      margin: auto;
-      color: #aebed9;
-      font-size: 17px;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 700px;
+      margin-bottom: 27px;
     }
 
-    .hero-buttons {
-      margin-top: 30px;
+    .hero-actions {
       display: flex;
-      justify-content: center;
-      gap: 13px;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
-    .primary-btn,
-    .secondary-btn {
-      border: none;
-      cursor: pointer;
-      padding: 14px 23px;
+    .btn {
+      border: 0;
+      padding: 13px 20px;
       border-radius: 14px;
       font-weight: 800;
-      font-size: 15px;
-      transition: .25s;
+      font-size: 14px;
+      transition: transform .2s, box-shadow .2s, opacity .2s;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
     }
 
-    .primary-btn {
-      background: linear-gradient(135deg, #1478ff, #00bfff);
-      color: white;
-      box-shadow: 0 12px 30px rgba(0, 146, 255, .23);
-    }
-
-    .secondary-btn {
-      background: rgba(255,255,255,.055);
-      border: 1px solid rgba(255,255,255,.12);
-      color: #e8f0ff;
-    }
-
-    .primary-btn:hover,
-    .secondary-btn:hover {
+    .btn:hover {
       transform: translateY(-2px);
     }
 
-    /* =========================
-       SEARCH
-    ========================= */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary2));
+      color: white;
+      box-shadow: 0 12px 30px rgba(79,140,255,.22);
+    }
 
+    .btn-green {
+      background: linear-gradient(135deg, #12ae77, #19d58f);
+      color: white;
+    }
+
+    .btn-dark {
+      background: rgba(255,255,255,.07);
+      color: white;
+      border: 1px solid var(--border);
+    }
+
+    .hero-card {
+      min-height: 340px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 25% 20%, rgba(79,140,255,.2), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(124,92,255,.18), transparent 35%),
+        var(--card);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-card-icon {
+      font-size: 60px;
+      margin-bottom: 12px;
+    }
+
+    .hero-card h2 {
+      font-size: 26px;
+      margin-bottom: 7px;
+    }
+
+    .hero-card p {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    /* SECTION */
+    section {
+      padding: 55px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-head h2 {
+      font-size: 34px;
+      margin-bottom: 7px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* SEARCH */
     .search-box {
-      margin: 15px auto 30px;
-      max-width: 720px;
+      max-width: 760px;
+      margin: 0 auto 22px;
       position: relative;
     }
 
     .search-box input {
       width: 100%;
-      background: rgba(255,255,255,.055);
-      border: 1px solid rgba(255,255,255,.12);
-      color: white;
-      padding: 17px 52px 17px 18px;
-      border-radius: 16px;
+      height: 56px;
+      padding: 0 50px 0 18px;
+      border-radius: 17px;
+      border: 1px solid var(--border);
       outline: none;
+      color: white;
+      background: rgba(255,255,255,.06);
       font-size: 15px;
     }
 
-    .search-box input::placeholder {
-      color: #7f91af;
-    }
-
-    .search-icon {
+    .search-box span {
       position: absolute;
-      right: 18px;
+      right: 17px;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 21px;
-      color: #5bc9ff;
+      font-size: 20px;
     }
-
-    /* =========================
-       SECTION
-    ========================= */
-
-    .section {
-      padding: 38px 0 60px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 28px;
-    }
-
-    .section-title h2 {
-      font-size: 31px;
-      margin-bottom: 7px;
-      font-weight: 900;
-    }
-
-    .section-title p {
-      color: #8ea2c2;
-      font-size: 14px;
-    }
-
-    /* =========================
-       CATEGORIES
-    ========================= */
 
     .categories {
       display: flex;
-      gap: 9px;
       justify-content: center;
+      gap: 9px;
       flex-wrap: wrap;
-      margin-bottom: 28px;
+      margin-bottom: 30px;
     }
 
     .category-btn {
-      border: 1px solid rgba(255,255,255,.1);
+      border: 1px solid var(--border);
+      color: var(--muted);
       background: rgba(255,255,255,.045);
-      color: #afbed5;
-      padding: 9px 16px;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: .2s;
-      font-size: 13px;
+      padding: 9px 15px;
+      border-radius: 12px;
+      font-weight: 700;
     }
 
     .category-btn.active,
     .category-btn:hover {
-      background: rgba(38, 126, 255, .18);
-      border-color: rgba(64, 153, 255, .4);
-      color: #68ceff;
+      background: rgba(79,140,255,.18);
+      color: white;
+      border-color: rgba(79,140,255,.4);
     }
 
-    /* =========================
-       TOOLS GRID
-    ========================= */
-
+    /* TOOLS GRID */
     .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .tool-card {
+      border: 1px solid var(--border);
+      background: linear-gradient(145deg, rgba(18,43,84,.82), rgba(10,27,58,.94));
+      border-radius: var(--radius);
+      padding: 21px;
+      min-height: 225px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 12px 35px rgba(0,0,0,.12);
+      transition: .25s;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(79,140,255,.35);
+      box-shadow: 0 18px 45px rgba(0,0,0,.22);
+    }
+
+    .tool-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 17px;
+      display: grid;
+      place-items: center;
+      font-size: 27px;
+      background: rgba(79,140,255,.13);
+      border: 1px solid rgba(79,140,255,.15);
+      margin-bottom: 15px;
+    }
+
+    .tool-card h3 {
+      font-size: 17px;
+      margin-bottom: 7px;
+    }
+
+    .tool-card p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+      flex: 1;
+    }
+
+    .tool-use {
+      margin-top: 16px;
+      width: 100%;
+      border: 0;
+      border-radius: 12px;
+      padding: 10px;
+      background: rgba(79,140,255,.12);
+      color: #cbdcff;
+      font-weight: 800;
+    }
+
+    .tool-use:hover {
+      background: rgba(79,140,255,.22);
+    }
+
+    /* AI SERVICES */
+    .ai-section {
+      background: rgba(0,0,0,.10);
+      border-top: 1px solid rgba(255,255,255,.04);
+      border-bottom: 1px solid rgba(255,255,255,.04);
+    }
+
+    .services-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
     }
 
-    .tool-card {
-      position: relative;
-      min-height: 205px;
-      padding: 20px;
-      background:
-        linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
-      border: 1px solid rgba(255,255,255,.09);
-      border-radius: 20px;
-      overflow: hidden;
-      cursor: pointer;
-      transition:
-        transform .25s,
-        border-color .25s,
-        background .25s;
+    .service-card {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 21px;
+      background: rgba(255,255,255,.045);
+      transition: .2s;
     }
 
-    .tool-card::after {
-      content: "";
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: rgba(45, 145, 255, .08);
-      left: -35px;
-      bottom: -45px;
-      pointer-events: none;
-    }
-
-    .tool-card:hover {
+    .service-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(71, 164, 255, .35);
-      background:
-        linear-gradient(145deg, rgba(35,112,255,.13), rgba(255,255,255,.035));
+      background: rgba(255,255,255,.065);
     }
 
-    .tool-icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 16px;
+    .service-icon {
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .service-card h3 {
+      font-size: 17px;
+      margin-bottom: 7px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(0,0,0,.72);
+      backdrop-filter: blur(8px);
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .modal.show {
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(
-        135deg,
-        rgba(28,126,255,.20),
-        rgba(0,195,255,.09)
-      );
-      border: 1px solid rgba(75,166,255,.18);
-      font-size: 25px;
-      margin-bottom: 15px;
     }
 
-    .tool-card h3 {
-      font-size: 16px;
-      margin-bottom: 5px;
-      font-weight: 850;
-    }
-
-    .tool-card p {
-      color: #8498b8;
-      font-size: 12px;
-      line-height: 1.6;
-    }
-
-    .tool-action {
-      position: absolute;
-      left: 18px;
-      bottom: 16px;
-      color: #55caff;
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    /* =========================
-       WORKSPACE
-    ========================= */
-
-    .workspace {
-      display: none;
-      margin-top: 25px;
-      background: rgba(255,255,255,.045);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 22px;
+    .modal-content {
+      width: min(760px, 100%);
+      max-height: 92vh;
+      overflow-y: auto;
+      background: #081a38;
+      border: 1px solid var(--border);
+      border-radius: 25px;
       padding: 25px;
+      box-shadow: 0 25px 80px rgba(0,0,0,.5);
+      position: relative;
     }
 
-    .workspace.active {
-      display: block;
-    }
-
-    .workspace-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .workspace-header h3 {
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 12px;
+      background: rgba(255,255,255,.07);
+      color: white;
       font-size: 20px;
     }
 
-    .close-workspace {
-      border: none;
-      background: rgba(255,255,255,.08);
-      color: white;
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 18px;
+    .modal-title {
+      padding-left: 50px;
+      margin-bottom: 20px;
     }
 
-    .tool-panel {
-      display: none;
+    .modal-title h2 {
+      font-size: 24px;
     }
 
-    .tool-panel.active {
-      display: block;
+    .modal-title p {
+      color: var(--muted);
+      font-size: 13px;
     }
 
-    .upload-area {
-      border: 2px dashed rgba(74,166,255,.3);
-      border-radius: 18px;
-      padding: 35px 20px;
-      text-align: center;
-      background: rgba(26,116,255,.045);
-      margin-bottom: 18px;
-    }
-
-    .upload-area input {
-      margin-top: 15px;
-      color: #cdd8e9;
-    }
-
-    .tool-form {
+    .form-grid {
       display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 13px;
     }
 
-    .tool-form input,
-    .tool-form textarea,
-    .tool-form select {
-      width: 100%;
-      padding: 13px 14px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 12px;
-      color: white;
-      outline: none;
+    .field {
+      margin-bottom: 13px;
     }
 
-    .tool-form textarea {
-      min-height: 140px;
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      display: block;
+      color: #dbe5f8;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      background: rgba(255,255,255,.055);
+      color: white;
+      border: 1px solid var(--border);
+      outline: none;
+      border-radius: 13px;
+      padding: 12px 13px;
+      min-height: 46px;
+    }
+
+    .field textarea {
+      min-height: 120px;
       resize: vertical;
     }
 
-    .result-box {
-      margin-top: 18px;
-      padding: 17px;
+    .field input::file-selector-button {
+      border: 0;
+      background: var(--primary);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 9px;
+      margin-left: 8px;
+      cursor: pointer;
+    }
+
+    select option {
+      background: #0a1b39;
+      color: white;
+    }
+
+    .result {
+      margin-top: 15px;
+      padding: 15px;
       border-radius: 14px;
-      background: rgba(0,0,0,.2);
-      border: 1px solid rgba(255,255,255,.07);
-      color: #d7e5fa;
+      background: rgba(33,197,139,.08);
+      border: 1px solid rgba(33,197,139,.18);
+      color: #dffbef;
       white-space: pre-wrap;
       word-break: break-word;
     }
 
-    /* =========================
-       AI SERVICES
-    ========================= */
-
-    .ai-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
+    .error {
+      background: rgba(255,92,108,.09);
+      border-color: rgba(255,92,108,.25);
+      color: #ffd4d9;
     }
 
-    .ai-card {
-      padding: 21px;
-      border-radius: 19px;
-      border: 1px solid rgba(255,255,255,.09);
-      background:
-        linear-gradient(145deg, rgba(100,75,255,.10), rgba(255,255,255,.025));
-      cursor: pointer;
-      transition: .25s;
+    .hidden {
+      display: none !important;
     }
 
-    .ai-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(131,104,255,.4);
+    .loading {
+      opacity: .65;
+      pointer-events: none;
     }
 
-    .ai-card .ai-icon {
-      font-size: 30px;
-      margin-bottom: 10px;
+    /* FILE AREA */
+    .file-area {
+      border: 1px dashed rgba(255,255,255,.18);
+      border-radius: 17px;
+      padding: 20px;
+      text-align: center;
+      background: rgba(255,255,255,.035);
+      margin-bottom: 15px;
     }
 
-    .ai-card h3 {
-      font-size: 16px;
+    .file-area .big {
+      font-size: 38px;
       margin-bottom: 5px;
     }
 
-    .ai-card p {
-      color: #8da0bd;
-      font-size: 12px;
+    .file-area p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 13px;
     }
 
-    /* =========================
-       CTA
-    ========================= */
-
-    .cta {
-      margin: 20px 0 70px;
-      padding: 45px 25px;
+    /* CONTACT */
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      background: linear-gradient(135deg, rgba(79,140,255,.10), rgba(124,92,255,.08));
+      border: 1px solid var(--border);
       border-radius: 28px;
-      text-align: center;
-      background:
-        radial-gradient(circle at center, rgba(36,128,255,.20), transparent 60%),
-        rgba(255,255,255,.035);
-      border: 1px solid rgba(91,167,255,.15);
+      padding: 30px;
     }
 
-    .cta h2 {
+    .contact-info h2 {
       font-size: 30px;
       margin-bottom: 10px;
     }
 
-    .cta p {
-      color: #9eafc9;
-      max-width: 680px;
-      margin: 0 auto 22px;
+    .contact-info p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 20px;
     }
 
-    /* =========================
-       CONTACT
-    ========================= */
-
-    .contact-box {
-      max-width: 720px;
-      margin: auto;
-      background: rgba(255,255,255,.035);
-      border: 1px solid rgba(255,255,255,.09);
-      border-radius: 22px;
-      padding: 25px;
-    }
-
-    .contact-box form {
+    .contact-form {
       display: grid;
-      gap: 13px;
+      gap: 11px;
     }
 
-    .contact-box input,
-    .contact-box textarea,
-    .contact-box select {
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
       width: 100%;
-      padding: 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.1);
-      background: rgba(255,255,255,.055);
+      background: rgba(0,0,0,.16);
       color: white;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 12px;
       outline: none;
     }
 
-    .contact-box textarea {
-      min-height: 130px;
+    .contact-form textarea {
+      min-height: 110px;
       resize: vertical;
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
-
+    /* FOOTER */
     footer {
-      border-top: 1px solid rgba(255,255,255,.07);
-      padding: 28px 0;
-      color: #7285a3;
-      font-size: 12px;
+      padding: 35px 0;
+      border-top: 1px solid var(--border);
       text-align: center;
     }
 
-    footer .footer-logo {
-      color: #dce8fa;
-      font-size: 18px;
+    .footer-brand {
+      font-size: 20px;
       font-weight: 900;
       margin-bottom: 5px;
     }
 
-    .website-link {
-      color: #58caff;
-      display: inline-block;
-      margin-top: 8px;
-    }
-
-    /* =========================
-       TOAST
-    ========================= */
-
-    .toast {
-      position: fixed;
-      bottom: 22px;
-      right: 22px;
-      max-width: calc(100% - 44px);
-      padding: 13px 18px;
-      background: #10264d;
-      border: 1px solid rgba(91,174,255,.25);
-      border-radius: 12px;
-      color: white;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(15px);
-      transition: .3s;
-      z-index: 3000;
+    footer p {
+      color: var(--muted);
       font-size: 13px;
     }
 
-    .toast.show {
-      opacity: 1;
-      transform: translateY(0);
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 17px;
+      margin: 15px 0;
+      flex-wrap: wrap;
     }
 
-    /* =========================
-       TABLET
-    ========================= */
+    .footer-links a {
+      color: #bdcbe3;
+      font-size: 13px;
+    }
 
-    @media (max-width: 1000px) {
-      .tools-grid {
-        grid-template-columns: repeat(3, 1fr);
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
       }
 
-      .ai-grid {
+      .hero-card {
+        min-height: 230px;
+      }
+
+      .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .services-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    /* =========================
-       MOBILE
-       BIGGER CARDS / ONE PER ROW
-    ========================= */
-
     @media (max-width: 700px) {
-
       .container {
-        width: 92%;
+        width: min(100% - 22px, 600px);
       }
 
-      .navbar {
-        min-height: 65px;
+      header {
+        position: relative;
       }
 
-      .logo {
-        font-size: 19px;
+      .nav {
+        min-height: 66px;
       }
 
-      .logo-icon {
-        width: 39px;
-        height: 39px;
-        font-size: 19px;
+      .brand {
+        font-size: 18px;
+      }
+
+      .brand-logo {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
       }
 
       .nav-links {
@@ -679,39 +725,71 @@
       }
 
       .hero {
-        padding: 48px 0 38px;
+        padding: 45px 0 30px;
       }
 
       .hero h1 {
-        font-size: 36px;
-        line-height: 1.18;
+        font-size: 39px;
       }
 
       .hero p {
-        font-size: 14px;
-        line-height: 1.8;
+        font-size: 15px;
       }
 
-      .hero-buttons {
-        flex-direction: column;
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
       }
 
-      .primary-btn,
-      .secondary-btn {
+      .hero-actions .btn {
         width: 100%;
-        padding: 15px;
       }
 
-      .section {
-        padding: 30px 0 45px;
+      section {
+        padding: 38px 0;
       }
 
-      .section-title h2 {
-        font-size: 27px;
+      .section-head h2 {
+        font-size: 28px;
       }
 
-      .section-title p {
+      /* IMPORTANT MOBILE TOOL DESIGN */
+      .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .tool-card {
+        min-height: 148px;
+        padding: 19px;
+        display: grid;
+        grid-template-columns: 64px 1fr;
+        column-gap: 15px;
+        align-items: center;
+      }
+
+      .tool-icon {
+        width: 64px;
+        height: 64px;
+        font-size: 30px;
+        grid-row: span 3;
+        margin: 0;
+      }
+
+      .tool-card h3 {
+        font-size: 18px;
+        margin-bottom: 3px;
+      }
+
+      .tool-card p {
+        font-size: 12.5px;
+        line-height: 1.65;
+      }
+
+      .tool-use {
+        margin-top: 9px;
         font-size: 13px;
+        padding: 9px;
       }
 
       .categories {
@@ -719,139 +797,71 @@
         overflow-x: auto;
         flex-wrap: nowrap;
         padding-bottom: 5px;
-        scrollbar-width: none;
-      }
-
-      .categories::-webkit-scrollbar {
-        display: none;
       }
 
       .category-btn {
         flex: 0 0 auto;
+        white-space: nowrap;
       }
 
-      /* IMPORTANT:
-         MOBILE = ONE BIG CARD PER ROW
-      */
-
-      .tools-grid {
+      .services-grid {
         grid-template-columns: 1fr;
-        gap: 14px;
       }
 
-      .tool-card {
-        min-height: 150px;
-        padding: 20px;
-        border-radius: 19px;
-      }
-
-      .tool-icon {
-        width: 60px;
-        height: 60px;
-        border-radius: 17px;
-        font-size: 29px;
-        margin-bottom: 14px;
-      }
-
-      .tool-card h3 {
-        font-size: 18px;
-        margin-bottom: 5px;
-      }
-
-      .tool-card p {
-        font-size: 13px;
-        max-width: 85%;
-      }
-
-      .tool-action {
-        left: 20px;
-        bottom: 18px;
-        font-size: 12px;
-      }
-
-      .ai-grid {
-        grid-template-columns: 1fr;
-        gap: 13px;
-      }
-
-      .ai-card {
-        padding: 20px;
-        min-height: 115px;
-      }
-
-      .ai-card .ai-icon {
-        font-size: 32px;
-      }
-
-      .ai-card h3 {
-        font-size: 17px;
-      }
-
-      .ai-card p {
-        font-size: 13px;
-      }
-
-      .workspace {
-        padding: 18px;
-        border-radius: 18px;
-      }
-
-      .workspace-header h3 {
-        font-size: 17px;
-      }
-
-      .cta {
-        padding: 35px 18px;
-        border-radius: 22px;
-        margin-bottom: 45px;
-      }
-
-      .cta h2 {
-        font-size: 26px;
-      }
-
-      .cta p {
-        font-size: 13px;
+      .service-card {
+        min-height: 135px;
       }
 
       .contact-box {
-        padding: 18px;
+        grid-template-columns: 1fr;
+        padding: 21px;
       }
 
-      .toast {
-        right: 12px;
-        bottom: 12px;
-        max-width: calc(100% - 24px);
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+
+      .modal {
+        padding: 10px;
+      }
+
+      .modal-content {
+        padding: 20px 15px;
+        border-radius: 20px;
+        max-height: 95vh;
+      }
+
+      .modal-title h2 {
+        font-size: 21px;
+      }
+
+      .search-box input {
+        height: 52px;
       }
     }
 
-    /* =========================
-       SMALL PHONES
-    ========================= */
-
-    @media (max-width: 390px) {
-
+    @media (max-width: 380px) {
       .hero h1 {
-        font-size: 31px;
+        font-size: 34px;
       }
 
       .tool-card {
-        min-height: 145px;
-        padding: 18px;
+        grid-template-columns: 57px 1fr;
+        column-gap: 12px;
       }
 
       .tool-icon {
         width: 57px;
         height: 57px;
-        font-size: 27px;
+        font-size: 26px;
       }
 
       .tool-card h3 {
-        font-size: 17px;
-      }
-
-      .tool-card p {
-        font-size: 12px;
+        font-size: 16px;
       }
     }
   </style>
@@ -859,54 +869,34 @@
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================= -->
+<header>
+  <div class="container nav">
+    <a href="#" class="brand" onclick="trackEvent('brand_click')">
+      <div class="brand-logo">✦</div>
+      <span>أداتي AI</span>
+    </a>
 
-  <header>
-    <div class="container navbar">
+    <nav class="nav-links">
+      <a href="#tools">الأدوات</a>
+      <a href="#ai-services">خدمات AI</a>
+      <a href="#contact">تواصل معنا</a>
+      <a href="#" class="nav-whatsapp" onclick="openWhatsApp('header')">💬 واتساب</a>
+    </nav>
+  </div>
+</header>
 
-      <a href="#" class="logo">
-        <div class="logo-icon">✦</div>
-        <div>أداتي <span>AI</span></div>
-      </a>
+<main>
 
-      <nav class="nav-links">
-        <a href="#tools">الأدوات</a>
-        <a href="#ai-services">خدمات AI</a>
-        <a href="#contact">تواصل معنا</a>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
 
-        <a
-          href="https://api.whatsapp.com/send?phone=96890682630"
-          target="_blank"
-          class="nav-button"
-          onclick="trackEvent('whatsapp_click',{click_type:'header'})"
-        >
-          تواصل معنا
-        </a>
-      </nav>
-
-    </div>
-  </header>
-
-
-  <!-- =========================
-       HERO
-  ========================= -->
-
-  <main>
-
-    <section class="hero">
-      <div class="container">
-
-        <div class="hero-badge">
-          ✨ منصة رقمية ذكية
-        </div>
+      <div>
+        <div class="badge">✨ منصة رقمية ذكية</div>
 
         <h1>
           كل أدواتك اليومية
-          <br>
-          <span class="gradient">في مكان واحد</span>
+          <span>في مكان واحد</span>
         </h1>
 
         <p>
@@ -915,2086 +905,2463 @@
           بطريقة أسرع وأسهل وأكثر احترافية.
         </p>
 
-        <div class="hero-buttons">
-
-          <button
-            class="primary-btn"
-            onclick="scrollToTools(); trackEvent('hero_tools_click')"
-          >
+        <div class="hero-actions">
+          <a href="#tools" class="btn btn-primary">
             🛠️ اكتشف الأدوات
-          </button>
+          </a>
 
-          <button
-            class="secondary-btn"
-            onclick="scrollToAI(); trackEvent('hero_ai_click')"
-          >
+          <a href="#ai-services" class="btn btn-dark">
             🤖 خدمات الذكاء الاصطناعي
-          </button>
-
+          </a>
         </div>
-
-      </div>
-    </section>
-
-
-    <!-- =========================
-         TOOLS
-    ========================= -->
-
-    <section class="section" id="tools">
-
-      <div class="container">
-
-        <div class="section-title">
-          <h2>🛠️ الأدوات المجانية</h2>
-          <p>
-            أدوات بسيطة وسريعة لمهامك اليومية
-          </p>
-        </div>
-
-        <div class="search-box">
-
-          <div class="search-icon">🔍</div>
-
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="ابحث عن أداة..."
-            oninput="searchTools()"
-          >
-
-        </div>
-
-
-        <div class="categories">
-
-          <button
-            class="category-btn active"
-            onclick="filterTools('all',this)"
-          >
-            الكل
-          </button>
-
-          <button
-            class="category-btn"
-            onclick="filterTools('image',this)"
-          >
-            📸 الصور
-          </button>
-
-          <button
-            class="category-btn"
-            onclick="filterTools('pdf',this)"
-          >
-            📄 PDF
-          </button>
-
-          <button
-            class="category-btn"
-            onclick="filterTools('text',this)"
-          >
-            📝 النصوص
-          </button>
-
-          <button
-            class="category-btn"
-            onclick="filterTools('calculator',this)"
-          >
-            🧮 الحاسبات
-          </button>
-
-          <button
-            class="category-btn"
-            onclick="filterTools('other',this)"
-          >
-            🔧 أخرى
-          </button>
-
-        </div>
-
-
-        <div class="tools-grid" id="toolsGrid">
-
-          <!-- IMAGE -->
-
-          <div
-            class="tool-card"
-            data-category="image"
-            data-name="ضغط الصور"
-            onclick="openTool('compress-image')"
-          >
-            <div class="tool-icon">🗜️</div>
-            <h3>ضغط الصور</h3>
-            <p>تقليل حجم الصور بسهولة وسرعة.</p>
-            <div class="tool-action">استخدام الأداة ←</div>
-          </div>
-
-
-          <div
-            class="tool-card"
-            data-category="image"
-            data-name="تغيير حجم الصورة"
-            onclick="openTool('resize-image')"
-          >
-            <div class="tool-icon">📐</div>
-            <h3>تغيير حجم الصورة</h3>
-            <p>تغيير أبعاد الصور حسب احتياجك.</p>
-            <div class="tool-action">استخدام الأداة ←</div>
-          </div>
-
-
-          <div
-            class="tool-card"
-            data-category="image"
-            data-name="تحويل الصور"
-            onclick="openTool('convert-image')"
-          >
-            <div class="tool-icon">🔄</div>
-            <h3>تحويل الصور</h3>
-            <p>تحويل الصور بين JPG وPNG وWEBP.</p>
-            <div class="tool-action">استخدام الأداة ←</div>
-          </div>
-
-
-          <div
-            class="tool-card"
-            data-category="image"
-            data-name="صورة إلى PDF"
-            onclick="openTool('image-pdf')"
-          >
-            <div class="tool-icon">🖼️</div>
-            <h3>صورة إلى PDF</h3>
-            <p>تحويل الصور إلى ملف PDF بسهولة.</p>
-            <div class="tool-action">استخدام الأداة ←</div>
-          </div>
-
-
-          <!-- PDF -->
-
-          <div
-            class="tool-card"
-            data-category="pdf"
-            data-name="دمج PDF"
-            onclick="openTool('merge-pdf')"
-          >
-            <div class="tool-icon">📚</div>
-            <h3>دمج PDF</h3>
-            <p>جمع ملفات PDF في ملف واحد.</p>
-            <div class="tool-action">قريباً ←</div>
-          </div>
-
-
-          <div
-            class="tool-card"
-            data-category="pdf"
-            data-name="تقسيم PDF"
-            onclick="openTool('split-pdf')"
-          >
-            <div class="tool-icon">✂️</div>
-            <h3>تقسيم PDF</h3>
-            <p>تقسيم ملف PDF إلى صفحات أو ملفات.</p>
-            <div class="tool-action">قريباً ←</div>
-          </div>
-
-
-          <div
-            class="tool-card"
-            data-category="pdf"
-            data-name="ضغط PDF"
-            onclick="openTool('compress-pdf')"
-          >
-            <div class="tool-icon">📉</div>
-            <h3>ضغط PDF</h3>
-            <p>تقليل حجم ملفات PDF.</p>
-            <div class="tool-action">قريباً ←</div>
-          </div>
-
-
-          <div
-            class="tool-card"
-            data-category="pdf"
-            data-name="PDF إلى JPG"
-            onclick="openTool('pdf-jpg')"
-          >
-            <div class="tool-icon">📄</div>
-            <h3>PDF إلى JPG</h3>
-            <p>تحويل صفحات PDF إلى صور.</p>
-            <div class="tool-action">قريباً ←</div>
-          </div>
-
-
-          <!-- TEXT -->
-
-          <div
-            class="tool-card"
-            data-category="text"
-            data-name="عداد الكلمات والحروف"
-            onclick="openTool('word-counter')"
-          >
-            <div class="tool-icon">🔢</div>
-            <h3>عداد الكلمات والحروف</h3>
-            <p>احسب الكلمات والحروف في النص.</p>
-            <div class="tool-action">استخدام الأداة ←</div>
-          </div>
-
-
-          <div
-            class="tool-card"
-            data-category="text"
-            data-name="تنظيف النص"
-            onclick="openTool('clean-text')"
-          >
-            <div class="tool-icon">🧹</div>
-            <h3>تنظيف النص</h3>
-            <p>تنظيف المسافات والأسطر الزائدة.</p>
-            <div class="tool-action">استخدام الأداة ←</div>
-          </div>
-
-
-          <div
-            class="tool-card"
-            data-category="text"
-            data-name="تحويل حالة النص"
-            onclick="openTool('text-case')"
-          >
-            <div class="tool-icon">🔠</div>
-            <h3>تحويل حالة النص</h3>
-            <p>تحويل النص إلى أحرف كبيرة أو صغيرة.</p>
-            <div class="tool-action">استخدام الأداة ←</div>
-          </div>
-
-
-          <!-- CALCULATORS -->
-
-          <div
-            class="tool-card"
-            data-category="calculator"
-            data-name="حاسبة النسبة المئوية"
-            onclick="openTool('percentage')"
-          >
-            <div class="tool-icon">%</div>
-            <h3>حاسبة النسبة المئوية</h3>
-            <p>احسب النسب المئوية بسهولة.</p>
-            <div class="tool-action">استخدام الأداة ←</div>
-          </div>
-
-
-          <div
-            class="tool-card"
-            data-category="calculator"
-            data-name="حاسبة الخصم"
-            onclick="openTool('discount')"
-          >
-            <div class="tool-icon">🏷️</div>
-            <h3>حاسبة الخصم</h3>
-            <p>احسب السعر بعد الخصم.</p>
-            <div class="tool-action">استخدام الأداة ←</div>
-          </div>
-
-
-          <div
-            class="tool-card"
-            data-category="calculator"
-            data-name="حاسبة العمر"
-            onclick="openTool('age')"
-          >
-            <div class="tool-icon">🎂</div>
-            <h3>حاسبة العمر</h3>
-            <p>احسب عمرك بسهولة.</p>
-            <div class="tool-action">استخدام الأداة ←</div>
-          </div>
-
-
-          <!-- OTHER -->
-
-          <div
-            class="tool-card"
-            data-category="other"
-            data-name="مولد كلمات المرور"
-            onclick="openTool('password')"
-          >
-            <div class="tool-icon">🔐</div>
-            <h3>مولد كلمات المرور</h3>
-            <p>إنشاء كلمات مرور قوية وعشوائية.</p>
-            <div class="tool-action">استخدام الأداة ←</div>
-          </div>
-
-
-          <div
-            class="tool-card"
-            data-category="other"
-            data-name="محول الوحدات"
-            onclick="openTool('units')"
-          >
-            <div class="tool-icon">📏</div>
-            <h3>محول الوحدات</h3>
-            <p>تحويل الطول والوزن والحجم وغيرها.</p>
-            <div class="tool-action">استخدام الأداة ←</div>
-          </div>
-
-
-          <div
-            class="tool-card"
-            data-category="calculator"
-            data-name="الآلة الحاسبة"
-            onclick="openTool('calculator')"
-          >
-            <div class="tool-icon">🧮</div>
-            <h3>الآلة الحاسبة</h3>
-            <p>حاسبة بسيطة وسريعة للاستخدام اليومي.</p>
-            <div class="tool-action">استخدام الأداة ←</div>
-          </div>
-
-        </div>
-
-
-        <!-- WORKSPACE -->
-
-        <div class="workspace" id="workspace">
-
-          <div class="workspace-header">
-
-            <h3 id="workspaceTitle">
-              الأداة
-            </h3>
-
-            <button
-              class="close-workspace"
-              onclick="closeWorkspace()"
-            >
-              ×
-            </button>
-
-          </div>
-
-
-          <!-- WORD COUNTER -->
-
-          <div
-            class="tool-panel"
-            id="panel-word-counter"
-          >
-
-            <div class="tool-form">
-
-              <textarea
-                id="counterText"
-                placeholder="اكتب أو الصق النص هنا..."
-                oninput="countText()"
-              ></textarea>
-
-            </div>
-
-            <div class="result-box" id="counterResult">
-              الكلمات: 0
-              <br>
-              الحروف: 0
-            </div>
-
-          </div>
-
-
-          <!-- CLEAN TEXT -->
-
-          <div
-            class="tool-panel"
-            id="panel-clean-text"
-          >
-
-            <div class="tool-form">
-
-              <textarea
-                id="cleanTextInput"
-                placeholder="الصق النص هنا..."
-              ></textarea>
-
-              <button
-                class="primary-btn"
-                onclick="cleanText()"
-              >
-                تنظيف النص
-              </button>
-
-            </div>
-
-            <div
-              class="result-box"
-              id="cleanResult"
-            ></div>
-
-          </div>
-
-
-          <!-- TEXT CASE -->
-
-          <div
-            class="tool-panel"
-            id="panel-text-case"
-          >
-
-            <div class="tool-form">
-
-              <textarea
-                id="caseTextInput"
-                placeholder="اكتب النص هنا..."
-              ></textarea>
-
-              <button
-                class="primary-btn"
-                onclick="upperCaseText()"
-              >
-                تحويل إلى أحرف كبيرة
-              </button>
-
-              <button
-                class="secondary-btn"
-                onclick="lowerCaseText()"
-              >
-                تحويل إلى أحرف صغيرة
-              </button>
-
-            </div>
-
-            <div
-              class="result-box"
-              id="caseResult"
-            ></div>
-
-          </div>
-
-
-          <!-- PERCENTAGE -->
-
-          <div
-            class="tool-panel"
-            id="panel-percentage"
-          >
-
-            <div class="tool-form">
-
-              <input
-                type="number"
-                id="percentageNumber"
-                placeholder="الرقم"
-              >
-
-              <input
-                type="number"
-                id="percentageValue"
-                placeholder="النسبة %"
-              >
-
-              <button
-                class="primary-btn"
-                onclick="calculatePercentage()"
-              >
-                احسب
-              </button>
-
-            </div>
-
-            <div
-              class="result-box"
-              id="percentageResult"
-            ></div>
-
-          </div>
-
-
-          <!-- DISCOUNT -->
-
-          <div
-            class="tool-panel"
-            id="panel-discount"
-          >
-
-            <div class="tool-form">
-
-              <input
-                type="number"
-                id="discountPrice"
-                placeholder="السعر الأصلي"
-              >
-
-              <input
-                type="number"
-                id="discountPercent"
-                placeholder="نسبة الخصم %"
-              >
-
-              <button
-                class="primary-btn"
-                onclick="calculateDiscount()"
-              >
-                احسب
-              </button>
-
-            </div>
-
-            <div
-              class="result-box"
-              id="discountResult"
-            ></div>
-
-          </div>
-
-
-          <!-- AGE -->
-
-          <div
-            class="tool-panel"
-            id="panel-age"
-          >
-
-            <div class="tool-form">
-
-              <input
-                type="date"
-                id="birthDate"
-              >
-
-              <button
-                class="primary-btn"
-                onclick="calculateAge()"
-              >
-                احسب العمر
-              </button>
-
-            </div>
-
-            <div
-              class="result-box"
-              id="ageResult"
-            ></div>
-
-          </div>
-
-
-          <!-- PASSWORD -->
-
-          <div
-            class="tool-panel"
-            id="panel-password"
-          >
-
-            <div class="tool-form">
-
-              <input
-                type="number"
-                id="passwordLength"
-                value="16"
-                min="6"
-                max="64"
-                placeholder="طول كلمة المرور"
-              >
-
-              <button
-                class="primary-btn"
-                onclick="generatePassword()"
-              >
-                إنشاء كلمة مرور
-              </button>
-
-            </div>
-
-            <div
-              class="result-box"
-              id="passwordResult"
-            ></div>
-
-          </div>
-
-
-          <!-- UNITS -->
-
-          <div
-            class="tool-panel"
-            id="panel-units"
-          >
-
-            <div class="tool-form">
-
-              <input
-                type="number"
-                id="unitValue"
-                placeholder="القيمة"
-              >
-
-              <select id="unitType">
-
-                <option value="km-mi">
-                  كيلومتر → ميل
-                </option>
-
-                <option value="mi-km">
-                  ميل → كيلومتر
-                </option>
-
-                <option value="kg-lb">
-                  كيلوغرام → رطل
-                </option>
-
-                <option value="lb-kg">
-                  رطل → كيلوغرام
-                </option>
-
-                <option value="c-f">
-                  مئوية → فهرنهايت
-                </option>
-
-                <option value="f-c">
-                  فهرنهايت → مئوية
-                </option>
-
-              </select>
-
-              <button
-                class="primary-btn"
-                onclick="convertUnits()"
-              >
-                تحويل
-              </button>
-
-            </div>
-
-            <div
-              class="result-box"
-              id="unitResult"
-            ></div>
-
-          </div>
-
-
-          <!-- CALCULATOR -->
-
-          <div
-            class="tool-panel"
-            id="panel-calculator"
-          >
-
-            <div class="tool-form">
-
-              <input
-                type="text"
-                id="calcInput"
-                placeholder="مثال: 100 + 25 * 2"
-              >
-
-              <button
-                class="primary-btn"
-                onclick="calculateExpression()"
-              >
-                احسب
-              </button>
-
-            </div>
-
-            <div
-              class="result-box"
-              id="calcResult"
-            ></div>
-
-          </div>
-
-
-          <!-- IMAGE UPLOAD TOOLS -->
-
-          <div
-            class="tool-panel"
-            id="panel-compress-image"
-          >
-
-            <div class="upload-area">
-
-              <div style="font-size:40px;">📸</div>
-
-              <h3>ضغط الصور</h3>
-
-              <p style="color:#8ea2c2;">
-                اختر صورة للبدء
-              </p>
-
-              <input
-                type="file"
-                accept="image/*"
-                onchange="imagePlaceholder('ضغط الصور')"
-              >
-
-            </div>
-
-          </div>
-
-
-          <div
-            class="tool-panel"
-            id="panel-resize-image"
-          >
-
-            <div class="upload-area">
-
-              <div style="font-size:40px;">📐</div>
-
-              <h3>تغيير حجم الصورة</h3>
-
-              <p style="color:#8ea2c2;">
-                اختر صورة للبدء
-              </p>
-
-              <input
-                type="file"
-                accept="image/*"
-                onchange="imagePlaceholder('تغيير حجم الصورة')"
-              >
-
-            </div>
-
-          </div>
-
-
-          <div
-            class="tool-panel"
-            id="panel-convert-image"
-          >
-
-            <div class="upload-area">
-
-              <div style="font-size:40px;">🔄</div>
-
-              <h3>تحويل الصور</h3>
-
-              <p style="color:#8ea2c2;">
-                اختر صورة للبدء
-              </p>
-
-              <input
-                type="file"
-                accept="image/*"
-                onchange="imagePlaceholder('تحويل الصور')"
-              >
-
-            </div>
-
-          </div>
-
-
-          <div
-            class="tool-panel"
-            id="panel-image-pdf"
-          >
-
-            <div class="upload-area">
-
-              <div style="font-size:40px;">🖼️</div>
-
-              <h3>صورة إلى PDF</h3>
-
-              <p style="color:#8ea2c2;">
-                اختر صورة للبدء
-              </p>
-
-              <input
-                type="file"
-                accept="image/*"
-                onchange="imagePlaceholder('صورة إلى PDF')"
-              >
-
-            </div>
-
-          </div>
-
-
-          <!-- PLACEHOLDER PDF -->
-
-          <div
-            class="tool-panel"
-            id="panel-merge-pdf"
-          >
-            <div class="upload-area">
-              <div style="font-size:40px;">📚</div>
-              <h3>دمج PDF</h3>
-              <p style="color:#8ea2c2;">
-                سيتم تفعيل هذه الأداة في التحديث القادم.
-              </p>
-            </div>
-          </div>
-
-
-          <div
-            class="tool-panel"
-            id="panel-split-pdf"
-          >
-            <div class="upload-area">
-              <div style="font-size:40px;">✂️</div>
-              <h3>تقسيم PDF</h3>
-              <p style="color:#8ea2c2;">
-                سيتم تفعيل هذه الأداة في التحديث القادم.
-              </p>
-            </div>
-          </div>
-
-
-          <div
-            class="tool-panel"
-            id="panel-compress-pdf"
-          >
-            <div class="upload-area">
-              <div style="font-size:40px;">📉</div>
-              <h3>ضغط PDF</h3>
-              <p style="color:#8ea2c2;">
-                سيتم تفعيل هذه الأداة في التحديث القادم.
-              </p>
-            </div>
-          </div>
-
-
-          <div
-            class="tool-panel"
-            id="panel-pdf-jpg"
-          >
-            <div class="upload-area">
-              <div style="font-size:40px;">📄</div>
-              <h3>PDF إلى JPG</h3>
-              <p style="color:#8ea2c2;">
-                سيتم تفعيل هذه الأداة في التحديث القادم.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
       </div>
 
-    </section>
-
-
-    <!-- =========================
-         AI SERVICES
-    ========================= -->
-
-    <section
-      class="section"
-      id="ai-services"
-    >
-
-      <div class="container">
-
-        <div class="section-title">
-
-          <h2>🤖 خدمات الذكاء الاصطناعي</h2>
-
-          <p>
-            نحول أفكارك إلى حلول رقمية ومحتوى احترافي
-          </p>
-
-        </div>
-
-
-        <div class="ai-grid">
-
-          <div
-            class="ai-card"
-            onclick="requestAI('مواقع AI')"
-          >
-            <div class="ai-icon">🌐</div>
-            <h3>مواقع AI</h3>
-            <p>
-              تصميم وتطوير مواقع تعتمد على الذكاء الاصطناعي.
-            </p>
-          </div>
-
-
-          <div
-            class="ai-card"
-            onclick="requestAI('AI Agents')"
-          >
-            <div class="ai-icon">🤖</div>
-            <h3>AI Agents</h3>
-            <p>
-              وكلاء ذكاء اصطناعي لتنفيذ المهام والخدمات.
-            </p>
-          </div>
-
-
-          <div
-            class="ai-card"
-            onclick="requestAI('AI Automation')"
-          >
-            <div class="ai-icon">⚡</div>
-            <h3>AI Automation</h3>
-            <p>
-              أتمتة الأعمال والمهام باستخدام AI.
-            </p>
-          </div>
-
-
-          <div
-            class="ai-card"
-            onclick="requestAI('توليد الصور')"
-          >
-            <div class="ai-icon">🎨</div>
-            <h3>توليد الصور</h3>
-            <p>
-              صور واقعية وإبداعية باستخدام الذكاء الاصطناعي.
-            </p>
-          </div>
-
-
-          <div
-            class="ai-card"
-            onclick="requestAI('توليد الفيديو')"
-          >
-            <div class="ai-icon">🎬</div>
-            <h3>توليد الفيديو</h3>
-            <p>
-              فيديوهات إعلانية وسينمائية بالذكاء الاصطناعي.
-            </p>
-          </div>
-
-
-          <div
-            class="ai-card"
-            onclick="requestAI('الإعلانات والتصاميم')"
-          >
-            <div class="ai-icon">📢</div>
-            <h3>الإعلانات والتصاميم</h3>
-            <p>
-              إعلانات وتصاميم احترافية للسوشيال ميديا.
-            </p>
-          </div>
-
-
-          <div
-            class="ai-card"
-            onclick="requestAI('محتوى السوشيال ميديا')"
-          >
-            <div class="ai-icon">📱</div>
-            <h3>محتوى السوشيال ميديا</h3>
-            <p>
-              أفكار ومحتوى احترافي للمنصات الاجتماعية.
-            </p>
-          </div>
-
-
-          <div
-            class="ai-card"
-            onclick="requestAI('حلول AI مخصصة')"
-          >
-            <div class="ai-icon">💡</div>
-            <h3>حلول AI مخصصة</h3>
-            <p>
-              حلول ذكية حسب احتياج مشروعك وفكرتك.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         CTA
-    ========================= -->
-
-    <section class="container">
-
-      <div class="cta">
-
-        <h2>
-          🚀 لديك فكرة؟
-        </h2>
-
+      <div class="hero-card">
+        <div class="hero-card-icon">🚀</div>
+        <h2>أداتي AI</h2>
         <p>
-          أخبرنا بفكرتك وسنساعدك على تحويلها إلى
-          مشروع أو محتوى احترافي باستخدام الذكاء الاصطناعي.
+          أدوات مجانية + حلول ذكاء اصطناعي
+          لمساعدتك في إنجاز مهامك اليومية والمشاريع الرقمية.
         </p>
 
-        <button
-          class="primary-btn"
-          onclick="openWhatsApp('cta')"
-        >
-          💬 تواصل معنا عبر واتساب
-        </button>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         CONTACT
-    ========================= -->
-
-    <section
-      class="section"
-      id="contact"
-    >
-
-      <div class="container">
-
-        <div class="section-title">
-
-          <h2>📩 اطلب خدمتك</h2>
-
-          <p>
-            أرسل لنا فكرتك وسنتواصل معك
-          </p>
-
+        <div style="margin-top:20px;display:flex;gap:9px;flex-wrap:wrap;">
+          <span class="badge" style="margin:0;">⚡ سريع</span>
+          <span class="badge" style="margin:0;">🔒 سهل</span>
+          <span class="badge" style="margin:0;">🤖 ذكي</span>
         </div>
-
-
-        <div class="contact-box">
-
-          <form onsubmit="sendRequest(event)">
-
-            <input
-              type="text"
-              id="clientName"
-              placeholder="الاسم"
-              required
-            >
-
-            <select
-              id="serviceType"
-              required
-            >
-
-              <option value="">
-                اختر الخدمة
-              </option>
-
-              <option>
-                مواقع AI
-              </option>
-
-              <option>
-                AI Agents
-              </option>
-
-              <option>
-                AI Automation
-              </option>
-
-              <option>
-                توليد الصور
-              </option>
-
-              <option>
-                توليد الفيديو
-              </option>
-
-              <option>
-                الإعلانات والتصاميم
-              </option>
-
-              <option>
-                محتوى السوشيال ميديا
-              </option>
-
-              <option>
-                حل AI مخصص
-              </option>
-
-            </select>
-
-
-            <textarea
-              id="clientMessage"
-              placeholder="اكتب فكرتك أو طلبك هنا..."
-              required
-            ></textarea>
-
-
-            <button
-              type="submit"
-              class="primary-btn"
-            >
-              إرسال الطلب عبر واتساب
-            </button>
-
-          </form>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- =========================
-       FOOTER
-  ========================= -->
-
-  <footer>
-
-    <div class="container">
-
-      <div class="footer-logo">
-        أداتي AI
-      </div>
-
-      <div>
-        كل أدواتك اليومية في مكان واحد
-      </div>
-
-      <a
-        class="website-link"
-        href="https://arabic-tools.adati-ai.workers.dev"
-        target="_blank"
-      >
-        arabic-tools.adati-ai.workers.dev
-      </a>
-
-      <div style="margin-top:12px;">
-        © 2026 أداتي AI — جميع الحقوق محفوظة
       </div>
 
     </div>
+  </section>
 
-  </footer>
+  <!-- TOOLS -->
+  <section id="tools">
+    <div class="container">
 
+      <div class="section-head">
+        <h2>🛠️ الأدوات المجانية</h2>
+        <p>أدوات بسيطة وسريعة لمهامك اليومية</p>
+      </div>
 
-  <!-- TOAST -->
+      <div class="search-box">
+        <span>🔍</span>
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="ابحث عن أداة..."
+          oninput="searchTools()"
+        >
+      </div>
 
-  <div
-    class="toast"
-    id="toast"
-  ></div>
+      <div class="categories">
+        <button class="category-btn active" onclick="filterTools('all',this)">الكل</button>
+        <button class="category-btn" onclick="filterTools('image',this)">📸 الصور</button>
+        <button class="category-btn" onclick="filterTools('pdf',this)">📄 PDF</button>
+        <button class="category-btn" onclick="filterTools('text',this)">📝 النصوص</button>
+        <button class="category-btn" onclick="filterTools('calc',this)">🧮 الحاسبات</button>
+        <button class="category-btn" onclick="filterTools('finance',this)">💱 المال</button>
+        <button class="category-btn" onclick="filterTools('other',this)">🔧 أخرى</button>
+      </div>
 
+      <div class="tools-grid" id="toolsGrid">
 
-  <script>
+        <article class="tool-card" data-category="image" data-name="ضغط الصور compress image">
+          <div class="tool-icon">🗜️</div>
+          <h3>ضغط الصور</h3>
+          <p>تقليل حجم الصور بسهولة وسرعة.</p>
+          <button class="tool-use" onclick="openTool('compress')">استخدام الأداة ←</button>
+        </article>
 
-    /* =========================
-       CONFIG
-    ========================= */
+        <article class="tool-card" data-category="image" data-name="تغيير حجم الصورة resize image">
+          <div class="tool-icon">📐</div>
+          <h3>تغيير حجم الصورة</h3>
+          <p>تغيير أبعاد الصور حسب احتياجك.</p>
+          <button class="tool-use" onclick="openTool('resize')">استخدام الأداة ←</button>
+        </article>
 
-    const WHATSAPP_NUMBER = "96890682630";
+        <article class="tool-card" data-category="image" data-name="تحويل الصور jpg png webp">
+          <div class="tool-icon">🔄</div>
+          <h3>تحويل الصور</h3>
+          <p>تحويل الصور بين JPG وPNG وWEBP.</p>
+          <button class="tool-use" onclick="openTool('convertImage')">استخدام الأداة ←</button>
+        </article>
 
+        <article class="tool-card" data-category="image" data-name="صورة إلى pdf image pdf">
+          <div class="tool-icon">🖼️</div>
+          <h3>صورة إلى PDF</h3>
+          <p>تحويل الصور إلى ملف PDF بسهولة.</p>
+          <button class="tool-use" onclick="openTool('imagePdf')">استخدام الأداة ←</button>
+        </article>
 
-    /* =========================
-       ANALYTICS
-    ========================= */
+        <article class="tool-card" data-category="pdf" data-name="دمج pdf merge pdf">
+          <div class="tool-icon">📚</div>
+          <h3>دمج PDF</h3>
+          <p>جمع عدة ملفات PDF في ملف واحد.</p>
+          <button class="tool-use" onclick="openTool('mergePdf')">استخدام الأداة ←</button>
+        </article>
 
-    function trackEvent(name, params = {}) {
+        <article class="tool-card" data-category="pdf" data-name="تقسيم pdf split pdf">
+          <div class="tool-icon">✂️</div>
+          <h3>تقسيم PDF</h3>
+          <p>استخراج صفحات محددة من ملف PDF.</p>
+          <button class="tool-use" onclick="openTool('splitPdf')">استخدام الأداة ←</button>
+        </article>
 
-      if (typeof gtag === "function") {
+        <article class="tool-card" data-category="pdf" data-name="ضغط pdf compress pdf">
+          <div class="tool-icon">📉</div>
+          <h3>ضغط PDF</h3>
+          <p>محاولة تقليل حجم ملفات PDF.</p>
+          <button class="tool-use" onclick="openTool('compressPdf')">استخدام الأداة ←</button>
+        </article>
 
-        gtag("event", name, params);
+        <article class="tool-card" data-category="pdf" data-name="pdf إلى jpg pdf jpg">
+          <div class="tool-icon">📄</div>
+          <h3>PDF إلى JPG</h3>
+          <p>تحويل صفحات PDF إلى صور JPG.</p>
+          <button class="tool-use" onclick="openTool('pdfJpg')">استخدام الأداة ←</button>
+        </article>
 
-      }
+        <article class="tool-card" data-category="pdf" data-name="pdf إلى word pdf word">
+          <div class="tool-icon">📝</div>
+          <h3>PDF إلى Word</h3>
+          <p>استخراج النص من PDF وإنشاء ملف Word.</p>
+          <button class="tool-use" onclick="openTool('pdfWord')">استخدام الأداة ←</button>
+        </article>
 
+        <article class="tool-card" data-category="pdf" data-name="pdf إلى excel pdf excel">
+          <div class="tool-icon">📊</div>
+          <h3>PDF إلى Excel</h3>
+          <p>استخراج البيانات النصية من PDF إلى Excel.</p>
+          <button class="tool-use" onclick="openTool('pdfExcel')">استخدام الأداة ←</button>
+        </article>
+
+        <article class="tool-card" data-category="text" data-name="عداد الكلمات والحروف word character counter">
+          <div class="tool-icon">🔢</div>
+          <h3>عداد الكلمات والحروف</h3>
+          <p>احسب الكلمات والحروف في النص.</p>
+          <button class="tool-use" onclick="openTool('counter')">استخدام الأداة ←</button>
+        </article>
+
+        <article class="tool-card" data-category="text" data-name="تنظيف النص clean text">
+          <div class="tool-icon">🧹</div>
+          <h3>تنظيف النص</h3>
+          <p>تنظيف المسافات والأسطر الزائدة.</p>
+          <button class="tool-use" onclick="openTool('cleanText')">استخدام الأداة ←</button>
+        </article>
+
+        <article class="tool-card" data-category="text" data-name="تحويل حالة النص uppercase lowercase">
+          <div class="tool-icon">🔠</div>
+          <h3>تحويل حالة النص</h3>
+          <p>تحويل النص إلى أحرف كبيرة أو صغيرة.</p>
+          <button class="tool-use" onclick="openTool('case')">استخدام الأداة ←</button>
+        </article>
+
+        <article class="tool-card" data-category="calc" data-name="حاسبة النسبة المئوية percentage">
+          <div class="tool-icon">%</div>
+          <h3>حاسبة النسبة المئوية</h3>
+          <p>احسب النسب المئوية بسهولة.</p>
+          <button class="tool-use" onclick="openTool('percentage')">استخدام الأداة ←</button>
+        </article>
+
+        <article class="tool-card" data-category="calc" data-name="حاسبة الخصم discount">
+          <div class="tool-icon">🏷️</div>
+          <h3>حاسبة الخصم</h3>
+          <p>احسب السعر النهائي بعد الخصم.</p>
+          <button class="tool-use" onclick="openTool('discount')">استخدام الأداة ←</button>
+        </article>
+
+        <article class="tool-card" data-category="calc" data-name="حاسبة العمر age">
+          <div class="tool-icon">🎂</div>
+          <h3>حاسبة العمر</h3>
+          <p>احسب عمرك بسهولة.</p>
+          <button class="tool-use" onclick="openTool('age')">استخدام الأداة ←</button>
+        </article>
+
+        <article class="tool-card" data-category="other" data-name="مولد كلمات المرور password generator">
+          <div class="tool-icon">🔐</div>
+          <h3>مولد كلمات المرور</h3>
+          <p>إنشاء كلمات مرور قوية وعشوائية.</p>
+          <button class="tool-use" onclick="openTool('password')">استخدام الأداة ←</button>
+        </article>
+
+        <article class="tool-card" data-category="other" data-name="محول الوحدات unit converter">
+          <div class="tool-icon">📏</div>
+          <h3>محول الوحدات</h3>
+          <p>تحويل الطول والوزن ودرجات الحرارة.</p>
+          <button class="tool-use" onclick="openTool('units')">استخدام الأداة ←</button>
+        </article>
+
+        <article class="tool-card" data-category="calc" data-name="الآلة الحاسبة calculator">
+          <div class="tool-icon">🧮</div>
+          <h3>الآلة الحاسبة</h3>
+          <p>حاسبة بسيطة وسريعة للاستخدام اليومي.</p>
+          <button class="tool-use" onclick="openTool('calculator')">استخدام الأداة ←</button>
+        </article>
+
+        <article class="tool-card" data-category="finance" data-name="محول العملات exchange currency converter">
+          <div class="tool-icon">💱</div>
+          <h3>محول العملات</h3>
+          <p>تحويل العملات باستخدام أسعار الصرف الحالية.</p>
+          <button class="tool-use" onclick="openTool('currency')">استخدام الأداة ←</button>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AI SERVICES -->
+  <section id="ai-services" class="ai-section">
+    <div class="container">
+
+      <div class="section-head">
+        <h2>🤖 خدمات الذكاء الاصطناعي</h2>
+        <p>نحوّل أفكارك إلى حلول رقمية ومحتوى احترافي</p>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">🌐</div>
+          <h3>مواقع AI</h3>
+          <p>تصميم وتطوير مواقع تعتمد على الذكاء الاصطناعي.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🤖</div>
+          <h3>AI Agents</h3>
+          <p>وكلاء ذكاء اصطناعي لتنفيذ المهام والخدمات.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">⚡</div>
+          <h3>AI Automation</h3>
+          <p>أتمتة الأعمال والمهام باستخدام الذكاء الاصطناعي.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🎨</div>
+          <h3>توليد الصور</h3>
+          <p>صور واقعية وإبداعية باستخدام الذكاء الاصطناعي.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🎬</div>
+          <h3>توليد الفيديو</h3>
+          <p>فيديوهات إعلانية وسينمائية بالذكاء الاصطناعي.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📢</div>
+          <h3>الإعلانات والتصاميم</h3>
+          <p>إعلانات وتصاميم احترافية للسوشيال ميديا.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📱</div>
+          <h3>محتوى السوشيال ميديا</h3>
+          <p>أفكار ومحتوى احترافي للمنصات الاجتماعية.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">💡</div>
+          <h3>حلول AI مخصصة</h3>
+          <p>حلول ذكية حسب احتياج مشروعك وفكرتك.</p>
+        </div>
+
+      </div>
+
+      <div style="text-align:center;margin-top:25px;">
+        <button class="btn btn-green" onclick="openWhatsApp('ai_services')">
+          💬 اطلب خدمة AI
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+
+      <div class="contact-box">
+
+        <div class="contact-info">
+          <div class="badge">🚀 لديك فكرة؟</div>
+
+          <h2>حوّل فكرتك إلى مشروع احترافي</h2>
+
+          <p>
+            أخبرنا بفكرتك وسنساعدك على تحويلها إلى
+            مشروع أو محتوى احترافي باستخدام الذكاء الاصطناعي.
+          </p>
+
+          <button class="btn btn-green" onclick="openWhatsApp('contact')">
+            💬 تواصل معنا عبر واتساب
+          </button>
+        </div>
+
+        <form class="contact-form" onsubmit="sendRequest(event)">
+
+          <input id="clientName" type="text" placeholder="الاسم" required>
+
+          <select id="serviceType" required>
+            <option value="">اختر الخدمة</option>
+            <option>مواقع AI</option>
+            <option>AI Agents</option>
+            <option>AI Automation</option>
+            <option>توليد الصور</option>
+            <option>توليد الفيديو</option>
+            <option>الإعلانات والتصاميم</option>
+            <option>محتوى السوشيال ميديا</option>
+            <option>حلول AI مخصصة</option>
+          </select>
+
+          <textarea
+            id="clientMessage"
+            placeholder="اكتب فكرتك أو تفاصيل طلبك..."
+            required
+          ></textarea>
+
+          <button type="submit" class="btn btn-primary">
+            إرسال الطلب عبر واتساب
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-brand">أداتي AI</div>
+    <p>كل أدواتك اليومية في مكان واحد</p>
+
+    <div class="footer-links">
+      <a href="#tools">الأدوات</a>
+      <a href="#ai-services">خدمات AI</a>
+      <a href="#contact">تواصل معنا</a>
+      <a href="#" onclick="openWhatsApp('footer')">واتساب</a>
+    </div>
+
+    <p>© 2026 أداتي AI — جميع الحقوق محفوظة</p>
+  </div>
+</footer>
+
+<!-- TOOL MODAL -->
+<div id="toolModal" class="modal" onclick="closeModalOutside(event)">
+  <div class="modal-content">
+
+    <button class="modal-close" onclick="closeTool()">×</button>
+
+    <div class="modal-title">
+      <h2 id="modalTitle">الأداة</h2>
+      <p id="modalDescription"></p>
+    </div>
+
+    <div id="toolBody"></div>
+
+  </div>
+</div>
+
+<script>
+  /* =========================================================
+     CONFIG
+  ========================================================= */
+
+  const WHATSAPP_NUMBER = "96890682630";
+
+  const WHATSAPP_BASE =
+    "https://api.whatsapp.com/send?phone=" + WHATSAPP_NUMBER;
+
+  let currentCategory = "all";
+
+  /* =========================================================
+     ANALYTICS
+  ========================================================= */
+
+  function trackEvent(name, params = {}) {
+    if (typeof gtag === "function") {
+      gtag("event", name, params);
+    }
+  }
+
+  /* =========================================================
+     WHATSAPP
+  ========================================================= */
+
+  function openWhatsApp(type = "general") {
+    trackEvent("whatsapp_click", {
+      click_type: type
+    });
+
+    const message =
+      "السلام عليكم، أريد الاستفسار عن خدمات وأدوات أداتي AI.";
+
+    window.open(
+      WHATSAPP_BASE + "&text=" + encodeURIComponent(message),
+      "_blank"
+    );
+  }
+
+  function sendRequest(event) {
+    event.preventDefault();
+
+    const name =
+      document.getElementById("clientName").value.trim();
+
+    const service =
+      document.getElementById("serviceType").value;
+
+    const message =
+      document.getElementById("clientMessage").value.trim();
+
+    if (!name || !service || !message) {
+      alert("يرجى تعبئة جميع البيانات.");
+      return;
     }
 
+    trackEvent("contact_request", {
+      service_type: service
+    });
 
-    /* =========================
-       WHATSAPP
-    ========================= */
+    const text =
+`السلام عليكم، أريد طلب خدمة من أداتي AI.
 
-    function openWhatsApp(type = "general") {
+الاسم: ${name}
+الخدمة: ${service}
 
-      trackEvent(
-        "whatsapp_click",
-        {
-          click_type: type
-        }
-      );
+التفاصيل:
+${message}`;
 
-      const url =
-        "https://api.whatsapp.com/send?phone=" +
-        WHATSAPP_NUMBER;
+    window.open(
+      WHATSAPP_BASE + "&text=" + encodeURIComponent(text),
+      "_blank"
+    );
+  }
 
-      window.open(url, "_blank");
+  /* =========================================================
+     SEARCH + FILTER
+  ========================================================= */
 
+  function filterTools(category, button) {
+    currentCategory = category;
+
+    document.querySelectorAll(".category-btn").forEach(btn => {
+      btn.classList.remove("active");
+    });
+
+    if (button) {
+      button.classList.add("active");
     }
 
+    applyToolFilters();
+  }
 
-    function sendRequest(event) {
+  function searchTools() {
+    applyToolFilters();
+  }
 
-      event.preventDefault();
+  function applyToolFilters() {
+    const query =
+      document.getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
 
-      const name =
-        document.getElementById("clientName").value.trim();
+    document.querySelectorAll(".tool-card").forEach(card => {
 
-      const service =
-        document.getElementById("serviceType").value;
+      const category = card.dataset.category;
+      const name = (card.dataset.name || "").toLowerCase();
 
-      const message =
-        document.getElementById("clientMessage").value.trim();
+      const categoryMatch =
+        currentCategory === "all" ||
+        category === currentCategory;
 
+      const searchMatch =
+        !query || name.includes(query);
 
-      if (!name || !service || !message) {
+      card.style.display =
+        categoryMatch && searchMatch
+          ? ""
+          : "none";
+    });
+  }
 
-        showToast("يرجى تعبئة جميع البيانات.");
+  /* =========================================================
+     MODAL
+  ========================================================= */
 
-        return;
+  function openTool(tool) {
 
-      }
+    trackEvent("tool_open", {
+      tool_name: tool
+    });
 
+    const modal =
+      document.getElementById("toolModal");
 
-      trackEvent(
-        "contact_request",
-        {
-          service_type: service
-        }
-      );
+    const title =
+      document.getElementById("modalTitle");
 
+    const description =
+      document.getElementById("modalDescription");
 
-      const text =
-        "السلام عليكم،%0A%0A" +
-        "الاسم: " + encodeURIComponent(name) +
-        "%0A" +
-        "الخدمة: " + encodeURIComponent(service) +
-        "%0A%0A" +
-        "التفاصيل:%0A" +
-        encodeURIComponent(message);
+    const body =
+      document.getElementById("toolBody");
 
+    body.innerHTML = "";
 
-      const url =
-        "https://api.whatsapp.com/send?phone=" +
-        WHATSAPP_NUMBER +
-        "&text=" +
-        text;
+    const configs = {
 
+      compress: [
+        "🗜️ ضغط الصور",
+        "تقليل حجم الصورة مع الحفاظ على جودة مناسبة.",
+        imageCompressionHTML()
+      ],
 
-      window.open(url, "_blank");
+      resize: [
+        "📐 تغيير حجم الصورة",
+        "غيّر أبعاد الصورة بسهولة.",
+        resizeImageHTML()
+      ],
 
+      convertImage: [
+        "🔄 تحويل الصور",
+        "تحويل الصورة إلى JPG أو PNG أو WEBP.",
+        imageConvertHTML()
+      ],
+
+      imagePdf: [
+        "🖼️ صورة إلى PDF",
+        "تحويل صورة إلى ملف PDF.",
+        imagePdfHTML()
+      ],
+
+      mergePdf: [
+        "📚 دمج PDF",
+        "دمج عدة ملفات PDF في ملف واحد.",
+        mergePdfHTML()
+      ],
+
+      splitPdf: [
+        "✂️ تقسيم PDF",
+        "استخراج صفحة أو صفحات من PDF.",
+        splitPdfHTML()
+      ],
+
+      compressPdf: [
+        "📉 ضغط PDF",
+        "إعادة إنشاء PDF لمحاولة تقليل حجمه.",
+        compressPdfHTML()
+      ],
+
+      pdfJpg: [
+        "📄 PDF إلى JPG",
+        "تحويل صفحات PDF إلى صور JPG.",
+        pdfJpgHTML()
+      ],
+
+      pdfWord: [
+        "📝 PDF إلى Word",
+        "استخراج النص من PDF وإنشاء ملف Word قابل للتعديل.",
+        pdfWordHTML()
+      ],
+
+      pdfExcel: [
+        "📊 PDF إلى Excel",
+        "استخراج النصوص وترتيبها في ملف Excel.",
+        pdfExcelHTML()
+      ],
+
+      counter: [
+        "🔢 عداد الكلمات والحروف",
+        "احسب الكلمات والحروف والجمل.",
+        counterHTML()
+      ],
+
+      cleanText: [
+        "🧹 تنظيف النص",
+        "تنظيف المسافات والأسطر الزائدة.",
+        cleanTextHTML()
+      ],
+
+      case: [
+        "🔠 تحويل حالة النص",
+        "تحويل النص إلى أحرف كبيرة أو صغيرة.",
+        caseHTML()
+      ],
+
+      percentage: [
+        "💯 حاسبة النسبة المئوية",
+        "احسب النسبة بسهولة.",
+        percentageHTML()
+      ],
+
+      discount: [
+        "🏷️ حاسبة الخصم",
+        "احسب السعر بعد الخصم.",
+        discountHTML()
+      ],
+
+      age: [
+        "🎂 حاسبة العمر",
+        "احسب العمر بالسنوات والأشهر والأيام.",
+        ageHTML()
+      ],
+
+      password: [
+        "🔐 مولد كلمات المرور",
+        "أنشئ كلمة مرور قوية وعشوائية.",
+        passwordHTML()
+      ],
+
+      units: [
+        "📏 محول الوحدات",
+        "تحويل الطول والوزن ودرجة الحرارة.",
+        unitsHTML()
+      ],
+
+      calculator: [
+        "🧮 الآلة الحاسبة",
+        "حاسبة بسيطة للاستخدام اليومي.",
+        calculatorHTML()
+      ],
+
+      currency: [
+        "💱 محول العملات",
+        "تحويل العملات باستخدام أسعار الصرف الحالية.",
+        currencyHTML()
+      ]
+    };
+
+    const config = configs[tool];
+
+    if (!config) {
+      return;
     }
 
+    title.textContent = config[0];
+    description.textContent = config[1];
+    body.innerHTML = config[2];
 
-    function requestAI(service) {
+    modal.classList.add("show");
 
-      trackEvent(
-        "ai_service_click",
-        {
-          service_name: service
-        }
-      );
+    if (tool === "currency") {
+      loadCurrencies();
+    }
+  }
 
+  function closeTool() {
+    document.getElementById("toolModal")
+      .classList.remove("show");
+  }
 
-      const text =
-        "السلام عليكم،%0A%0A" +
-        "أرغب في الاستفسار عن خدمة: " +
-        encodeURIComponent(service);
+  function closeModalOutside(event) {
+    if (event.target.id === "toolModal") {
+      closeTool();
+    }
+  }
 
+  /* =========================================================
+     HTML HELPERS
+  ========================================================= */
 
-      const url =
-        "https://api.whatsapp.com/send?phone=" +
-        WHATSAPP_NUMBER +
-        "&text=" +
-        text;
+  function fileInput(id, accept = "") {
+    return `
+      <div class="file-area">
+        <div class="big">📁</div>
+        <p>اختر الملف من جهازك</p>
+        <input id="${id}" type="file" accept="${accept}">
+      </div>
+    `;
+  }
 
+  function imageCompressionHTML() {
+    return `
+      ${fileInput("compressFile","image/*")}
 
-      window.open(url, "_blank");
+      <div class="field">
+        <label>جودة الصورة</label>
+        <input id="compressQuality" type="range" min="10" max="100" value="75">
+      </div>
 
+      <button class="btn btn-primary" onclick="compressImage()">
+        🗜️ ضغط وتحميل
+      </button>
+
+      <div id="compressResult"></div>
+    `;
+  }
+
+  function resizeImageHTML() {
+    return `
+      ${fileInput("resizeFile","image/*")}
+
+      <div class="form-grid">
+        <div class="field">
+          <label>العرض</label>
+          <input id="resizeWidth" type="number" placeholder="مثال: 1080">
+        </div>
+
+        <div class="field">
+          <label>الارتفاع</label>
+          <input id="resizeHeight" type="number" placeholder="مثال: 1080">
+        </div>
+      </div>
+
+      <button class="btn btn-primary" onclick="resizeImage()">
+        📐 تغيير وتحميل
+      </button>
+
+      <div id="resizeResult"></div>
+    `;
+  }
+
+  function imageConvertHTML() {
+    return `
+      ${fileInput("convertFile","image/*")}
+
+      <div class="field">
+        <label>الصيغة</label>
+        <select id="convertFormat">
+          <option value="image/jpeg">JPG</option>
+          <option value="image/png">PNG</option>
+          <option value="image/webp">WEBP</option>
+        </select>
+      </div>
+
+      <button class="btn btn-primary" onclick="convertImage()">
+        🔄 تحويل وتحميل
+      </button>
+
+      <div id="convertResult"></div>
+    `;
+  }
+
+  function imagePdfHTML() {
+    return `
+      ${fileInput("imagePdfFile","image/*")}
+
+      <button class="btn btn-primary" onclick="imageToPdf()">
+        🖼️ إنشاء PDF
+      </button>
+
+      <div id="imagePdfResult"></div>
+    `;
+  }
+
+  function mergePdfHTML() {
+    return `
+      ${fileInput("mergeFiles",".pdf")}
+
+      <p style="color:var(--muted);font-size:12px;margin-bottom:15px;">
+        يمكنك اختيار عدة ملفات PDF في نفس الوقت.
+      </p>
+
+      <button class="btn btn-primary" onclick="mergePDFs()">
+        📚 دمج وتحميل PDF
+      </button>
+
+      <div id="mergeResult"></div>
+    `;
+  }
+
+  function splitPdfHTML() {
+    return `
+      ${fileInput("splitFile",".pdf")}
+
+      <div class="field">
+        <label>رقم الصفحة</label>
+        <input id="splitPage" type="number" min="1" value="1">
+      </div>
+
+      <button class="btn btn-primary" onclick="splitPDF()">
+        ✂️ استخراج الصفحة
+      </button>
+
+      <div id="splitResult"></div>
+    `;
+  }
+
+  function compressPdfHTML() {
+    return `
+      ${fileInput("compressPdfFile",".pdf")}
+
+      <p style="color:var(--muted);font-size:12px;margin-bottom:15px;">
+        سيتم إعادة إنشاء الملف بطريقة تساعد على تقليل الحجم في بعض الحالات.
+      </p>
+
+      <button class="btn btn-primary" onclick="compressPDF()">
+        📉 معالجة وتحميل PDF
+      </button>
+
+      <div id="compressPdfResult"></div>
+    `;
+  }
+
+  function pdfJpgHTML() {
+    return `
+      ${fileInput("pdfJpgFile",".pdf")}
+
+      <div class="field">
+        <label>رقم الصفحة</label>
+        <input id="pdfJpgPage" type="number" min="1" value="1">
+      </div>
+
+      <button class="btn btn-primary" onclick="pdfToJpg()">
+        📄 تحويل وتحميل JPG
+      </button>
+
+      <div id="pdfJpgResult"></div>
+    `;
+  }
+
+  function pdfWordHTML() {
+    return `
+      ${fileInput("pdfWordFile",".pdf")}
+
+      <p style="color:var(--muted);font-size:12px;margin-bottom:15px;">
+        مناسب بشكل أفضل لملفات PDF التي تحتوي على نص قابل للتحديد.
+        ملفات PDF الممسوحة ضوئياً قد تحتاج إلى OCR.
+      </p>
+
+      <button class="btn btn-primary" onclick="pdfToWord()">
+        📝 تحويل إلى Word
+      </button>
+
+      <div id="pdfWordResult"></div>
+    `;
+  }
+
+  function pdfExcelHTML() {
+    return `
+      ${fileInput("pdfExcelFile",".pdf")}
+
+      <p style="color:var(--muted);font-size:12px;margin-bottom:15px;">
+        الأداة تستخرج النص من PDF وتحاول ترتيب البيانات
+        في صفوف وأعمدة داخل Excel.
+      </p>
+
+      <button class="btn btn-primary" onclick="pdfToExcel()">
+        📊 تحويل إلى Excel
+      </button>
+
+      <div id="pdfExcelResult"></div>
+    `;
+  }
+
+  function counterHTML() {
+    return `
+      <div class="field">
+        <textarea id="counterText" placeholder="اكتب النص هنا..." oninput="updateCounter()"></textarea>
+      </div>
+
+      <div id="counterResult" class="result">
+        الكلمات: 0
+        الحروف: 0
+        الحروف بدون مسافات: 0
+      </div>
+    `;
+  }
+
+  function cleanTextHTML() {
+    return `
+      <div class="field">
+        <textarea id="cleanInput" placeholder="ضع النص هنا..."></textarea>
+      </div>
+
+      <button class="btn btn-primary" onclick="cleanText()">
+        🧹 تنظيف النص
+      </button>
+
+      <div id="cleanResult"></div>
+    `;
+  }
+
+  function caseHTML() {
+    return `
+      <div class="field">
+        <textarea id="caseInput" placeholder="اكتب النص هنا..."></textarea>
+      </div>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button class="btn btn-primary" onclick="changeCase('upper')">
+          🔠 أحرف كبيرة
+        </button>
+
+        <button class="btn btn-dark" onclick="changeCase('lower')">
+          🔡 أحرف صغيرة
+        </button>
+      </div>
+
+      <div id="caseResult"></div>
+    `;
+  }
+
+  function percentageHTML() {
+    return `
+      <div class="form-grid">
+
+        <div class="field">
+          <label>الرقم</label>
+          <input id="percentNumber" type="number" placeholder="100">
+        </div>
+
+        <div class="field">
+          <label>النسبة %</label>
+          <input id="percentValue" type="number" placeholder="15">
+        </div>
+
+      </div>
+
+      <button class="btn btn-primary" onclick="calculatePercentage()">
+        احسب
+      </button>
+
+      <div id="percentageResult"></div>
+    `;
+  }
+
+  function discountHTML() {
+    return `
+      <div class="form-grid">
+
+        <div class="field">
+          <label>السعر الأصلي</label>
+          <input id="originalPrice" type="number" placeholder="100">
+        </div>
+
+        <div class="field">
+          <label>نسبة الخصم %</label>
+          <input id="discountValue" type="number" placeholder="20">
+        </div>
+
+      </div>
+
+      <button class="btn btn-primary" onclick="calculateDiscount()">
+        احسب السعر
+      </button>
+
+      <div id="discountResult"></div>
+    `;
+  }
+
+  function ageHTML() {
+    return `
+      <div class="field">
+        <label>تاريخ الميلاد</label>
+        <input id="birthDate" type="date">
+      </div>
+
+      <button class="btn btn-primary" onclick="calculateAge()">
+        🎂 احسب العمر
+      </button>
+
+      <div id="ageResult"></div>
+    `;
+  }
+
+  function passwordHTML() {
+    return `
+      <div class="field">
+        <label>طول كلمة المرور</label>
+        <input id="passwordLength" type="number" min="6" max="64" value="16">
+      </div>
+
+      <button class="btn btn-primary" onclick="generatePassword()">
+        🔐 إنشاء كلمة مرور
+      </button>
+
+      <div id="passwordResult"></div>
+    `;
+  }
+
+  function unitsHTML() {
+    return `
+      <div class="field">
+        <label>نوع التحويل</label>
+        <select id="unitType" onchange="updateUnitFields()">
+          <option value="length">الطول</option>
+          <option value="weight">الوزن</option>
+          <option value="temperature">الحرارة</option>
+        </select>
+      </div>
+
+      <div class="form-grid">
+
+        <div class="field">
+          <label>القيمة</label>
+          <input id="unitValue" type="number" value="1">
+        </div>
+
+        <div class="field">
+          <label>من</label>
+          <select id="unitFrom"></select>
+        </div>
+
+        <div class="field">
+          <label>إلى</label>
+          <select id="unitTo"></select>
+        </div>
+
+      </div>
+
+      <button class="btn btn-primary" onclick="convertUnits()">
+        📏 تحويل
+      </button>
+
+      <div id="unitResult"></div>
+    `;
+  }
+
+  function calculatorHTML() {
+    return `
+      <div class="field">
+        <label>العملية الحسابية</label>
+        <input id="calcInput" type="text" placeholder="100 + 25 * 2">
+      </div>
+
+      <button class="btn btn-primary" onclick="calculateExpression()">
+        🧮 احسب
+      </button>
+
+      <div id="calcResult"></div>
+    `;
+  }
+
+  function currencyHTML() {
+    return `
+      <div class="form-grid">
+
+        <div class="field">
+          <label>المبلغ</label>
+          <input id="currencyAmount" type="number" min="0" value="1">
+        </div>
+
+        <div class="field">
+          <label>من العملة</label>
+          <select id="currencyFrom"></select>
+        </div>
+
+        <div class="field">
+          <label>إلى العملة</label>
+          <select id="currencyTo"></select>
+        </div>
+
+      </div>
+
+      <button class="btn btn-primary" onclick="convertCurrency()">
+        💱 تحويل
+      </button>
+
+      <div id="currencyResult"></div>
+
+      <p style="color:var(--muted);font-size:11px;margin-top:12px;">
+        يتم جلب أسعار الصرف من مصدر خارجي عند الاستخدام.
+      </p>
+    `;
+  }
+
+  /* =========================================================
+     IMAGE TOOLS
+  ========================================================= */
+
+  function readFileAsDataURL(file) {
+    return new Promise((resolve,reject) => {
+      const reader = new FileReader();
+
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function loadImage(src) {
+    return new Promise((resolve,reject) => {
+      const img = new Image();
+
+      img.onload = () => resolve(img);
+      img.onerror = reject;
+
+      img.src = src;
+    });
+  }
+
+  function canvasDownload(canvas, type, filename, quality = .9) {
+    const link = document.createElement("a");
+
+    link.download = filename;
+    link.href = canvas.toDataURL(type, quality);
+
+    link.click();
+  }
+
+  async function compressImage() {
+
+    const file =
+      document.getElementById("compressFile").files[0];
+
+    const result =
+      document.getElementById("compressResult");
+
+    if (!file) {
+      result.innerHTML = errorBox("اختر صورة أولاً.");
+      return;
     }
 
+    try {
 
-    /* =========================
-       TOOLS
-    ========================= */
+      const src = await readFileAsDataURL(file);
+      const img = await loadImage(src);
 
-    function openTool(tool) {
+      const canvas = document.createElement("canvas");
 
-      const workspace =
-        document.getElementById("workspace");
+      canvas.width = img.width;
+      canvas.height = img.height;
 
-      const panels =
-        document.querySelectorAll(".tool-panel");
+      const ctx = canvas.getContext("2d");
 
+      ctx.drawImage(img,0,0);
 
-      panels.forEach(
-        panel => panel.classList.remove("active")
+      const quality =
+        Number(document.getElementById("compressQuality").value) / 100;
+
+      canvasDownload(
+        canvas,
+        "image/jpeg",
+        "adati-compressed.jpg",
+        quality
       );
 
-
-      const selected =
-        document.getElementById(
-          "panel-" + tool
-        );
-
-
-      if (selected) {
-
-        selected.classList.add("active");
-
-      }
-
-
-      const card =
-        [...document.querySelectorAll(".tool-card")]
-        .find(
-          item =>
-            item.getAttribute("onclick") &&
-            item.getAttribute("onclick").includes(tool)
-        );
-
-
-      if (card) {
-
-        document.getElementById(
-          "workspaceTitle"
-        ).textContent =
-          card.querySelector("h3").textContent;
-
-      }
-
-
-      workspace.classList.add("active");
-
-
-      trackEvent(
-        "tool_open",
-        {
-          tool_name: tool
-        }
-      );
-
-
-      setTimeout(
-        () => {
-          workspace.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-        },
-        50
-      );
-
-    }
-
-
-    function closeWorkspace() {
-
-      document
-        .getElementById("workspace")
-        .classList.remove("active");
-
-    }
-
-
-    /* =========================
-       SEARCH
-    ========================= */
-
-    function searchTools() {
-
-      const query =
-        document
-          .getElementById("searchInput")
-          .value
-          .toLowerCase()
-          .trim();
-
-
-      const cards =
-        document.querySelectorAll(".tool-card");
-
-
-      cards.forEach(card => {
-
-        const name =
-          card
-            .getAttribute("data-name")
-            .toLowerCase();
-
-
-        if (!query || name.includes(query)) {
-
-          card.style.display = "";
-
-        } else {
-
-          card.style.display = "none";
-
-        }
-
+      trackEvent("tool_use", {
+        tool_name: "compress_image"
       });
 
+      result.innerHTML =
+        successBox("تم ضغط الصورة وتجهيز التحميل.");
+
+    } catch(error) {
+      result.innerHTML =
+        errorBox("حدث خطأ أثناء ضغط الصورة.");
+    }
+  }
+
+  async function resizeImage() {
+
+    const file =
+      document.getElementById("resizeFile").files[0];
+
+    const result =
+      document.getElementById("resizeResult");
+
+    if (!file) {
+      result.innerHTML = errorBox("اختر صورة أولاً.");
+      return;
     }
 
+    const width =
+      Number(document.getElementById("resizeWidth").value);
 
-    /* =========================
-       FILTER
-    ========================= */
+    const height =
+      Number(document.getElementById("resizeHeight").value);
 
-    function filterTools(category, button) {
+    if (!width || !height || width < 1 || height < 1) {
+      result.innerHTML =
+        errorBox("أدخل العرض والارتفاع بشكل صحيح.");
+      return;
+    }
 
-      document
-        .querySelectorAll(".category-btn")
-        .forEach(
-          btn => btn.classList.remove("active")
-        );
+    try {
 
+      const src = await readFileAsDataURL(file);
+      const img = await loadImage(src);
 
-      button.classList.add("active");
+      const canvas =
+        document.createElement("canvas");
 
+      canvas.width = width;
+      canvas.height = height;
 
-      document
-        .getElementById("searchInput")
-        .value = "";
+      canvas.getContext("2d")
+        .drawImage(img,0,0,width,height);
 
+      canvasDownload(
+        canvas,
+        "image/png",
+        "adati-resized.png"
+      );
 
-      document
-        .querySelectorAll(".tool-card")
-        .forEach(card => {
+      trackEvent("tool_use", {
+        tool_name: "resize_image"
+      });
 
-          if (
-            category === "all" ||
-            card.getAttribute("data-category") === category
-          ) {
+      result.innerHTML =
+        successBox("تم تغيير الحجم وتجهيز الملف.");
 
-            card.style.display = "";
+    } catch(error) {
+      result.innerHTML =
+        errorBox("حدث خطأ أثناء تغيير حجم الصورة.");
+    }
+  }
 
-          } else {
+  async function convertImage() {
 
-            card.style.display = "none";
+    const file =
+      document.getElementById("convertFile").files[0];
 
-          }
+    const result =
+      document.getElementById("convertResult");
 
+    if (!file) {
+      result.innerHTML = errorBox("اختر صورة أولاً.");
+      return;
+    }
+
+    try {
+
+      const format =
+        document.getElementById("convertFormat").value;
+
+      const src = await readFileAsDataURL(file);
+      const img = await loadImage(src);
+
+      const canvas =
+        document.createElement("canvas");
+
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      canvas.getContext("2d")
+        .drawImage(img,0,0);
+
+      const extension =
+        format === "image/jpeg"
+          ? "jpg"
+          : format.split("/")[1];
+
+      canvasDownload(
+        canvas,
+        format,
+        "adati-converted." + extension
+      );
+
+      trackEvent("tool_use", {
+        tool_name: "convert_image"
+      });
+
+      result.innerHTML =
+        successBox("تم تحويل الصورة.");
+
+    } catch(error) {
+      result.innerHTML =
+        errorBox("حدث خطأ أثناء تحويل الصورة.");
+    }
+  }
+
+  async function imageToPdf() {
+
+    const file =
+      document.getElementById("imagePdfFile").files[0];
+
+    const result =
+      document.getElementById("imagePdfResult");
+
+    if (!file) {
+      result.innerHTML =
+        errorBox("اختر صورة أولاً.");
+      return;
+    }
+
+    try {
+
+      const src =
+        await readFileAsDataURL(file);
+
+      const img =
+        await loadImage(src);
+
+      const { jsPDF } =
+        window.jspdf;
+
+      const pdf =
+        new jsPDF({
+          orientation:
+            img.width > img.height
+              ? "landscape"
+              : "portrait",
+          unit: "px",
+          format: [img.width,img.height]
         });
 
+      pdf.addImage(
+        src,
+        "JPEG",
+        0,
+        0,
+        img.width,
+        img.height
+      );
+
+      pdf.save("adati-image.pdf");
+
+      trackEvent("tool_use", {
+        tool_name: "image_to_pdf"
+      });
+
+      result.innerHTML =
+        successBox("تم إنشاء ملف PDF.");
+
+    } catch(error) {
+
+      result.innerHTML =
+        errorBox("حدث خطأ أثناء إنشاء PDF.");
     }
+  }
 
+  /* =========================================================
+     PDF HELPERS
+  ========================================================= */
 
-    /* =========================
-       WORD COUNTER
-    ========================= */
+  function getPDFDocument(arrayBuffer) {
+    return pdfjsLib.getDocument({
+      data: new Uint8Array(arrayBuffer)
+    }).promise;
+  }
 
-    function countText() {
+  async function getPdfPageText(page) {
+
+    const content =
+      await page.getTextContent();
+
+    return content.items
+      .map(item => item.str)
+      .join(" ");
+  }
+
+  async function extractPdfText(file) {
+
+    const buffer =
+      await file.arrayBuffer();
+
+    const pdf =
+      await getPDFDocument(buffer);
+
+    const pages = [];
+
+    for (let i=1; i<=pdf.numPages; i++) {
+
+      const page =
+        await pdf.getPage(i);
 
       const text =
-        document
-          .getElementById("counterText")
-          .value;
+        await getPdfPageText(page);
 
-
-      const trimmed =
-        text.trim();
-
-
-      const words =
-        trimmed
-          ? trimmed.split(/\s+/).length
-          : 0;
-
-
-      const chars =
-        text.length;
-
-
-      document
-        .getElementById("counterResult")
-        .innerHTML =
-          "الكلمات: <strong>" +
-          words +
-          "</strong><br>" +
-          "الحروف: <strong>" +
-          chars +
-          "</strong>";
-
-
-      trackEvent(
-        "tool_use",
-        {
-          tool_name: "word_counter"
-        }
-      );
-
+      pages.push(text);
     }
 
+    return pages;
+  }
 
-    /* =========================
-       CLEAN TEXT
-    ========================= */
+  /* =========================================================
+     PDF MERGE
+  ========================================================= */
 
-    function cleanText() {
+  async function mergePDFs() {
 
-      const input =
-        document
-          .getElementById("cleanTextInput")
-          .value;
-
-
-      const result =
-        input
-          .replace(/[ \t]+/g, " ")
-          .replace(/\n\s*\n+/g, "\n")
-          .trim();
-
-
-      document
-        .getElementById("cleanResult")
-        .textContent = result;
-
-
-      trackEvent(
-        "tool_use",
-        {
-          tool_name: "clean_text"
-        }
+    const files =
+      Array.from(
+        document.getElementById("mergeFiles").files
       );
 
+    const result =
+      document.getElementById("mergeResult");
+
+    if (files.length < 2) {
+      result.innerHTML =
+        errorBox("اختر ملفي PDF على الأقل.");
+      return;
     }
 
+    try {
 
-    /* =========================
-       TEXT CASE
-    ========================= */
+      const mergedPdf =
+        await PDFLib.PDFDocument.create();
 
-    function upperCaseText() {
+      for (const file of files) {
 
-      const text =
-        document
-          .getElementById("caseTextInput")
-          .value;
+        const bytes =
+          await file.arrayBuffer();
 
+        const pdf =
+          await PDFLib.PDFDocument.load(bytes);
 
-      document
-        .getElementById("caseResult")
-        .textContent =
-          text.toUpperCase();
-
-
-      trackEvent(
-        "tool_use",
-        {
-          tool_name: "uppercase"
-        }
-      );
-
-    }
-
-
-    function lowerCaseText() {
-
-      const text =
-        document
-          .getElementById("caseTextInput")
-          .value;
-
-
-      document
-        .getElementById("caseResult")
-        .textContent =
-          text.toLowerCase();
-
-
-      trackEvent(
-        "tool_use",
-        {
-          tool_name: "lowercase"
-        }
-      );
-
-    }
-
-
-    /* =========================
-       PERCENTAGE
-    ========================= */
-
-    function calculatePercentage() {
-
-      const number =
-        parseFloat(
-          document
-            .getElementById("percentageNumber")
-            .value
-        );
-
-
-      const percent =
-        parseFloat(
-          document
-            .getElementById("percentageValue")
-            .value
-        );
-
-
-      if (
-        isNaN(number) ||
-        isNaN(percent)
-      ) {
-
-        showToast("أدخل الأرقام المطلوبة.");
-
-        return;
-
-      }
-
-
-      const result =
-        number * percent / 100;
-
-
-      document
-        .getElementById("percentageResult")
-        .textContent =
-          result;
-
-
-      trackEvent(
-        "tool_use",
-        {
-          tool_name: "percentage"
-        }
-      );
-
-    }
-
-
-    /* =========================
-       DISCOUNT
-    ========================= */
-
-    function calculateDiscount() {
-
-      const price =
-        parseFloat(
-          document
-            .getElementById("discountPrice")
-            .value
-        );
-
-
-      const discount =
-        parseFloat(
-          document
-            .getElementById("discountPercent")
-            .value
-        );
-
-
-      if (
-        isNaN(price) ||
-        isNaN(discount)
-      ) {
-
-        showToast("أدخل السعر ونسبة الخصم.");
-
-        return;
-
-      }
-
-
-      const saved =
-        price * discount / 100;
-
-
-      const finalPrice =
-        price - saved;
-
-
-      document
-        .getElementById("discountResult")
-        .innerHTML =
-          "قيمة الخصم: <strong>" +
-          saved.toFixed(2) +
-          "</strong><br>" +
-          "السعر بعد الخصم: <strong>" +
-          finalPrice.toFixed(2) +
-          "</strong>";
-
-
-      trackEvent(
-        "tool_use",
-        {
-          tool_name: "discount"
-        }
-      );
-
-    }
-
-
-    /* =========================
-       AGE
-    ========================= */
-
-    function calculateAge() {
-
-      const birth =
-        new Date(
-          document
-            .getElementById("birthDate")
-            .value
-        );
-
-
-      if (isNaN(birth.getTime())) {
-
-        showToast("اختر تاريخ الميلاد.");
-
-        return;
-
-      }
-
-
-      const today =
-        new Date();
-
-
-      let years =
-        today.getFullYear() -
-        birth.getFullYear();
-
-
-      let months =
-        today.getMonth() -
-        birth.getMonth();
-
-
-      let days =
-        today.getDate() -
-        birth.getDate();
-
-
-      if (days < 0) {
-
-        months--;
-
-      }
-
-
-      if (months < 0) {
-
-        years--;
-        months += 12;
-
-      }
-
-
-      document
-        .getElementById("ageResult")
-        .innerHTML =
-          "العمر التقريبي:<br><strong>" +
-          years +
-          "</strong> سنة، <strong>" +
-          months +
-          "</strong> شهر";
-
-
-      trackEvent(
-        "tool_use",
-        {
-          tool_name: "age"
-        }
-      );
-
-    }
-
-
-    /* =========================
-       PASSWORD
-    ========================= */
-
-    function generatePassword() {
-
-      let length =
-        parseInt(
-          document
-            .getElementById("passwordLength")
-            .value
-        );
-
-
-      if (
-        isNaN(length) ||
-        length < 6
-      ) {
-
-        length = 16;
-
-      }
-
-
-      if (length > 64) {
-
-        length = 64;
-
-      }
-
-
-      const chars =
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
-        "abcdefghijklmnopqrstuvwxyz" +
-        "0123456789" +
-        "!@#$%^&*()_+-=";
-
-
-      let password = "";
-
-
-      for (
-        let i = 0;
-        i < length;
-        i++
-      ) {
-
-        password +=
-          chars.charAt(
-            Math.floor(
-              Math.random() *
-              chars.length
-            )
+        const pages =
+          await mergedPdf.copyPages(
+            pdf,
+            pdf.getPageIndices()
           );
 
-      }
-
-
-      document
-        .getElementById("passwordResult")
-        .textContent = password;
-
-
-      trackEvent(
-        "tool_use",
-        {
-          tool_name: "password_generator"
-        }
-      );
-
-    }
-
-
-    /* =========================
-       UNIT CONVERTER
-    ========================= */
-
-    function convertUnits() {
-
-      const value =
-        parseFloat(
-          document
-            .getElementById("unitValue")
-            .value
+        pages.forEach(page =>
+          mergedPdf.addPage(page)
         );
-
-
-      const type =
-        document
-          .getElementById("unitType")
-          .value;
-
-
-      if (isNaN(value)) {
-
-        showToast("أدخل القيمة.");
-
-        return;
-
       }
 
+      const bytes =
+        await mergedPdf.save();
 
-      let result;
-
-
-      switch(type) {
-
-        case "km-mi":
-          result = value * 0.621371;
-          break;
-
-        case "mi-km":
-          result = value * 1.609344;
-          break;
-
-        case "kg-lb":
-          result = value * 2.2046226218;
-          break;
-
-        case "lb-kg":
-          result = value * 0.45359237;
-          break;
-
-        case "c-f":
-          result = (value * 9/5) + 32;
-          break;
-
-        case "f-c":
-          result = (value - 32) * 5/9;
-          break;
-
-        default:
-          result = value;
-
-      }
-
-
-      document
-        .getElementById("unitResult")
-        .textContent =
-          Number(result.toFixed(4));
-
-
-      trackEvent(
-        "tool_use",
-        {
-          tool_name: "unit_converter"
-        }
+      downloadBlob(
+        new Blob([bytes], {
+          type: "application/pdf"
+        }),
+        "adati-merged.pdf"
       );
 
+      trackEvent("tool_use", {
+        tool_name: "merge_pdf"
+      });
+
+      result.innerHTML =
+        successBox("تم دمج ملفات PDF.");
+
+    } catch(error) {
+
+      result.innerHTML =
+        errorBox("تعذر دمج الملفات. تأكد أن ملفات PDF سليمة.");
+    }
+  }
+
+  /* =========================================================
+     PDF SPLIT
+  ========================================================= */
+
+  async function splitPDF() {
+
+    const file =
+      document.getElementById("splitFile").files[0];
+
+    const pageNumber =
+      Number(
+        document.getElementById("splitPage").value
+      );
+
+    const result =
+      document.getElementById("splitResult");
+
+    if (!file) {
+      result.innerHTML =
+        errorBox("اختر ملف PDF.");
+      return;
     }
 
+    try {
 
-    /* =========================
-       CALCULATOR
-    ========================= */
+      const bytes =
+        await file.arrayBuffer();
 
-    function calculateExpression() {
-
-      const expression =
-        document
-          .getElementById("calcInput")
-          .value
-          .trim();
-
-
-      if (!expression) {
-
-        showToast("أدخل عملية حسابية.");
-
-        return;
-
-      }
-
+      const source =
+        await PDFLib.PDFDocument.load(bytes);
 
       if (
-        !/^[0-9+\-*/().%\s]+$/.test(expression)
+        pageNumber < 1 ||
+        pageNumber > source.getPageCount()
       ) {
-
-        showToast("العملية تحتوي على رموز غير مسموحة.");
-
+        result.innerHTML =
+          errorBox("رقم الصفحة غير صحيح.");
         return;
-
       }
 
+      const output =
+        await PDFLib.PDFDocument.create();
 
-      try {
-
-        const result =
-          Function(
-            '"use strict"; return (' +
-            expression +
-            ')'
-          )();
-
-
-        document
-          .getElementById("calcResult")
-          .textContent =
-            result;
-
-
-        trackEvent(
-          "tool_use",
-          {
-            tool_name: "calculator"
-          }
+      const pages =
+        await output.copyPages(
+          source,
+          [pageNumber - 1]
         );
 
-      } catch {
+      output.addPage(pages[0]);
 
-        showToast("تعذر حساب العملية.");
+      const outputBytes =
+        await output.save();
 
-      }
+      downloadBlob(
+        new Blob([outputBytes], {
+          type:"application/pdf"
+        }),
+        `adati-page-${pageNumber}.pdf`
+      );
 
+      trackEvent("tool_use", {
+        tool_name: "split_pdf"
+      });
+
+      result.innerHTML =
+        successBox("تم استخراج الصفحة.");
+
+    } catch(error) {
+
+      result.innerHTML =
+        errorBox("تعذر تقسيم PDF.");
+    }
+  }
+
+  /* =========================================================
+     PDF COMPRESS
+  ========================================================= */
+
+  async function compressPDF() {
+
+    const file =
+      document.getElementById("compressPdfFile").files[0];
+
+    const result =
+      document.getElementById("compressPdfResult");
+
+    if (!file) {
+      result.innerHTML =
+        errorBox("اختر ملف PDF.");
+      return;
     }
 
+    try {
 
-    /* =========================
-       IMAGE PLACEHOLDER
-    ========================= */
+      const bytes =
+        await file.arrayBuffer();
 
-    function imagePlaceholder(toolName) {
+      const pdf =
+        await PDFLib.PDFDocument.load(bytes);
 
-      trackEvent(
-        "tool_use",
-        {
-          tool_name: toolName
+      const outputBytes =
+        await pdf.save({
+          useObjectStreams: true
+        });
+
+      downloadBlob(
+        new Blob([outputBytes], {
+          type:"application/pdf"
+        }),
+        "adati-compressed.pdf"
+      );
+
+      result.innerHTML =
+        successBox("تمت معالجة ملف PDF وتحميل النسخة الجديدة.");
+
+      trackEvent("tool_use", {
+        tool_name: "compress_pdf"
+      });
+
+    } catch(error) {
+
+      result.innerHTML =
+        errorBox("تعذر معالجة ملف PDF.");
+    }
+  }
+
+  /* =========================================================
+     PDF TO JPG
+  ========================================================= */
+
+  async function pdfToJpg() {
+
+    const file =
+      document.getElementById("pdfJpgFile").files[0];
+
+    const pageNumber =
+      Number(
+        document.getElementById("pdfJpgPage").value
+      );
+
+    const result =
+      document.getElementById("pdfJpgResult");
+
+    if (!file) {
+      result.innerHTML =
+        errorBox("اختر ملف PDF.");
+      return;
+    }
+
+    try {
+
+      const buffer =
+        await file.arrayBuffer();
+
+      const pdf =
+        await getPDFDocument(buffer);
+
+      if (
+        pageNumber < 1 ||
+        pageNumber > pdf.numPages
+      ) {
+        result.innerHTML =
+          errorBox("رقم الصفحة غير صحيح.");
+        return;
+      }
+
+      const page =
+        await pdf.getPage(pageNumber);
+
+      const viewport =
+        page.getViewport({
+          scale: 2
+        });
+
+      const canvas =
+        document.createElement("canvas");
+
+      canvas.width =
+        viewport.width;
+
+      canvas.height =
+        viewport.height;
+
+      await page.render({
+        canvasContext:
+          canvas.getContext("2d"),
+        viewport
+      }).promise;
+
+      canvasDownload(
+        canvas,
+        "image/jpeg",
+        `adati-page-${pageNumber}.jpg`,
+        .9
+      );
+
+      result.innerHTML =
+        successBox("تم تحويل الصفحة إلى JPG.");
+
+      trackEvent("tool_use", {
+        tool_name: "pdf_to_jpg"
+      });
+
+    } catch(error) {
+
+      result.innerHTML =
+        errorBox("تعذر تحويل PDF إلى JPG.");
+    }
+  }
+
+  /* =========================================================
+     PDF TO WORD
+  ========================================================= */
+
+  async function pdfToWord() {
+
+    const file =
+      document.getElementById("pdfWordFile").files[0];
+
+    const result =
+      document.getElementById("pdfWordResult");
+
+    if (!file) {
+      result.innerHTML =
+        errorBox("اختر ملف PDF.");
+      return;
+    }
+
+    try {
+
+      const pages =
+        await extractPdfText(file);
+
+      const paragraphs =
+        pages.flatMap((text,index) => {
+
+          const items = [];
+
+          if (text.trim()) {
+            items.push(
+              new docx.Paragraph({
+                children: [
+                  new docx.TextRun({
+                    text: text,
+                    size: 22
+                  })
+                ]
+              })
+            );
+          }
+
+          if (index < pages.length - 1) {
+            items.push(
+              new docx.Paragraph({
+                children: [
+                  new docx.TextRun({
+                    text: " "
+                  })
+                ],
+                pageBreakBefore: true
+              })
+            );
+          }
+
+          return items;
+        });
+
+      if (!paragraphs.length) {
+        result.innerHTML =
+          errorBox(
+            "لم يتم العثور على نص قابل للاستخراج. قد يكون الملف صورة ممسوحة ضوئياً."
+          );
+        return;
+      }
+
+      const documentFile =
+        new docx.Document({
+          sections: [
+            {
+              properties: {},
+              children: paragraphs
+            }
+          ]
+        });
+
+      const blob =
+        await docx.Packer.toBlob(documentFile);
+
+      downloadBlob(
+        blob,
+        "adati-pdf-to-word.docx"
+      );
+
+      trackEvent("tool_use", {
+        tool_name: "pdf_to_word"
+      });
+
+      result.innerHTML =
+        successBox("تم إنشاء ملف Word.");
+
+    } catch(error) {
+
+      console.error(error);
+
+      result.innerHTML =
+        errorBox("تعذر تحويل PDF إلى Word.");
+    }
+  }
+
+  /* =========================================================
+     PDF TO EXCEL
+  ========================================================= */
+
+  async function pdfToExcel() {
+
+    const file =
+      document.getElementById("pdfExcelFile").files[0];
+
+    const result =
+      document.getElementById("pdfExcelResult");
+
+    if (!file) {
+      result.innerHTML =
+        errorBox("اختر ملف PDF.");
+      return;
+    }
+
+    try {
+
+      const buffer =
+        await file.arrayBuffer();
+
+      const pdf =
+        await getPDFDocument(buffer);
+
+      const rows = [];
+
+      for (let i=1; i<=pdf.numPages; i++) {
+
+        const page =
+          await pdf.getPage(i);
+
+        const content =
+          await page.getTextContent();
+
+        const items =
+          content.items
+            .map(item => ({
+              text: item.str.trim(),
+              x: item.transform[4],
+              y: item.transform[5]
+            }))
+            .filter(item => item.text);
+
+        const grouped = {};
+
+        items.forEach(item => {
+
+          const key =
+            Math.round(item.y / 5) * 5;
+
+          if (!grouped[key]) {
+            grouped[key] = [];
+          }
+
+          grouped[key].push(item);
+        });
+
+        const sortedKeys =
+          Object.keys(grouped)
+            .sort((a,b) => Number(b)-Number(a));
+
+        sortedKeys.forEach(key => {
+
+          const line =
+            grouped[key]
+              .sort((a,b) => a.x-b.x)
+              .map(item => item.text);
+
+          rows.push(line);
+        });
+
+        rows.push([]);
+      }
+
+      if (!rows.length) {
+        result.innerHTML =
+          errorBox("لم يتم العثور على بيانات قابلة للاستخراج.");
+        return;
+      }
+
+      const worksheet =
+        XLSX.utils.aoa_to_sheet(rows);
+
+      const workbook =
+        XLSX.utils.book_new();
+
+      XLSX.utils.book_append_sheet(
+        workbook,
+        worksheet,
+        "PDF Data"
+      );
+
+      XLSX.writeFile(
+        workbook,
+        "adati-pdf-to-excel.xlsx"
+      );
+
+      trackEvent("tool_use", {
+        tool_name: "pdf_to_excel"
+      });
+
+      result.innerHTML =
+        successBox("تم إنشاء ملف Excel.");
+
+    } catch(error) {
+
+      console.error(error);
+
+      result.innerHTML =
+        errorBox("تعذر تحويل PDF إلى Excel.");
+    }
+  }
+
+  /* =========================================================
+     TEXT TOOLS
+  ========================================================= */
+
+  function updateCounter() {
+
+    const text =
+      document.getElementById("counterText").value;
+
+    const words =
+      text.trim()
+        ? text.trim().split(/\s+/).length
+        : 0;
+
+    const chars =
+      text.length;
+
+    const noSpaces =
+      text.replace(/\s/g,"").length;
+
+    document.getElementById("counterResult")
+      .textContent =
+`الكلمات: ${words}
+الحروف: ${chars}
+الحروف بدون مسافات: ${noSpaces}`;
+  }
+
+  function cleanText() {
+
+    const text =
+      document.getElementById("cleanInput").value;
+
+    const cleaned =
+      text
+        .replace(/[ \t]+/g," ")
+        .replace(/\n\s*\n+/g,"\n")
+        .trim();
+
+    document.getElementById("cleanResult")
+      .innerHTML =
+      successBox(cleaned || "لا يوجد نص.");
+  }
+
+  function changeCase(type) {
+
+    const text =
+      document.getElementById("caseInput").value;
+
+    const output =
+      type === "upper"
+        ? text.toUpperCase()
+        : text.toLowerCase();
+
+    document.getElementById("caseResult")
+      .innerHTML =
+      successBox(output || "لا يوجد نص.");
+  }
+
+  /* =========================================================
+     CALCULATORS
+  ========================================================= */
+
+  function calculatePercentage() {
+
+    const number =
+      Number(
+        document.getElementById("percentNumber").value
+      );
+
+    const percentage =
+      Number(
+        document.getElementById("percentValue").value
+      );
+
+    if (!Number.isFinite(number) ||
+        !Number.isFinite(percentage)) {
+
+      document.getElementById("percentageResult")
+        .innerHTML =
+        errorBox("أدخل أرقاماً صحيحة.");
+
+      return;
+    }
+
+    const result =
+      number * percentage / 100;
+
+    document.getElementById("percentageResult")
+      .innerHTML =
+      successBox(`${percentage}% من ${number} = ${result}`);
+  }
+
+  function calculateDiscount() {
+
+    const price =
+      Number(
+        document.getElementById("originalPrice").value
+      );
+
+    const discount =
+      Number(
+        document.getElementById("discountValue").value
+      );
+
+    if (!Number.isFinite(price) ||
+        !Number.isFinite(discount)) {
+
+      document.getElementById("discountResult")
+        .innerHTML =
+        errorBox("أدخل السعر ونسبة الخصم.");
+
+      return;
+    }
+
+    const saved =
+      price * discount / 100;
+
+    const finalPrice =
+      price - saved;
+
+    document.getElementById("discountResult")
+      .innerHTML =
+      successBox(
+`قيمة الخصم: ${saved}
+السعر بعد الخصم: ${finalPrice}`
+      );
+  }
+
+  function calculateAge() {
+
+    const value =
+      document.getElementById("birthDate").value;
+
+    const result =
+      document.getElementById("ageResult");
+
+    if (!value) {
+      result.innerHTML =
+        errorBox("اختر تاريخ الميلاد.");
+      return;
+    }
+
+    const birth =
+      new Date(value + "T00:00:00");
+
+    const today =
+      new Date();
+
+    let years =
+      today.getFullYear() -
+      birth.getFullYear();
+
+    let months =
+      today.getMonth() -
+      birth.getMonth();
+
+    let days =
+      today.getDate() -
+      birth.getDate();
+
+    if (days < 0) {
+      months--;
+      days += new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        0
+      ).getDate();
+    }
+
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+
+    result.innerHTML =
+      successBox(
+        `العمر: ${years} سنة، ${months} شهر، ${days} يوم`
+      );
+  }
+
+  function calculateExpression() {
+
+    const input =
+      document.getElementById("calcInput").value.trim();
+
+    const result =
+      document.getElementById("calcResult");
+
+    if (!input) {
+      result.innerHTML =
+        errorBox("أدخل عملية حسابية.");
+      return;
+    }
+
+    if (!/^[0-9+\-*/().%\s]+$/.test(input)) {
+      result.innerHTML =
+        errorBox("استخدم الأرقام والعمليات الحسابية فقط.");
+      return;
+    }
+
+    try {
+
+      const value =
+        Function(
+          '"use strict"; return (' +
+          input +
+          ')'
+        )();
+
+      if (!Number.isFinite(value)) {
+        throw new Error();
+      }
+
+      result.innerHTML =
+        successBox(`النتيجة: ${value}`);
+
+    } catch(error) {
+
+      result.innerHTML =
+        errorBox("عملية حسابية غير صحيحة.");
+    }
+  }
+
+  /* =========================================================
+     PASSWORD
+  ========================================================= */
+
+  function generatePassword() {
+
+    let length =
+      Number(
+        document.getElementById("passwordLength").value
+      );
+
+    if (!length || length < 6) {
+      length = 16;
+    }
+
+    if (length > 64) {
+      length = 64;
+    }
+
+    const chars =
+      "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%^&*";
+
+    let password = "";
+
+    for (let i=0; i<length; i++) {
+
+      const index =
+        Math.floor(
+          Math.random() * chars.length
+        );
+
+      password += chars[index];
+    }
+
+    document.getElementById("passwordResult")
+      .innerHTML =
+      successBox(password);
+  }
+
+  /* =========================================================
+     UNITS
+  ========================================================= */
+
+  const UNIT_DATA = {
+
+    length: {
+      meter: "متر",
+      kilometer: "كيلومتر",
+      centimeter: "سنتيمتر",
+      millimeter: "ملليمتر",
+      foot: "قدم",
+      inch: "بوصة"
+    },
+
+    weight: {
+      kilogram: "كيلوغرام",
+      gram: "غرام",
+      pound: "رطل",
+      ounce: "أونصة"
+    },
+
+    temperature: {
+      celsius: "مئوية",
+      fahrenheit: "فهرنهايت",
+      kelvin: "كلفن"
+    }
+  };
+
+  function updateUnitFields() {
+
+    const type =
+      document.getElementById("unitType").value;
+
+    const from =
+      document.getElementById("unitFrom");
+
+    const to =
+      document.getElementById("unitTo");
+
+    from.innerHTML = "";
+    to.innerHTML = "";
+
+    Object.entries(
+      UNIT_DATA[type]
+    ).forEach(([key,label]) => {
+
+      from.innerHTML +=
+        `<option value="${key}">${label}</option>`;
+
+      to.innerHTML +=
+        `<option value="${key}">${label}</option>`;
+    });
+
+    if (to.options.length > 1) {
+      to.selectedIndex = 1;
+    }
+  }
+
+  function convertUnits() {
+
+    const type =
+      document.getElementById("unitType").value;
+
+    const value =
+      Number(
+        document.getElementById("unitValue").value
+      );
+
+    const from =
+      document.getElementById("unitFrom").value;
+
+    const to =
+      document.getElementById("unitTo").value;
+
+    let result;
+
+    try {
+
+      if (type === "temperature") {
+
+        let celsius;
+
+        if (from === "celsius") {
+          celsius = value;
+        } else if (from === "fahrenheit") {
+          celsius = (value - 32) * 5/9;
+        } else {
+          celsius = value - 273.15;
         }
+
+        if (to === "celsius") {
+          result = celsius;
+        } else if (to === "fahrenheit") {
+          result = celsius * 9/5 + 32;
+        } else {
+          result = celsius + 273.15;
+        }
+
+      } else {
+
+        const factors = {
+
+          meter: 1,
+          kilometer: 1000,
+          centimeter: .01,
+          millimeter: .001,
+          foot: .3048,
+          inch: .0254,
+
+          kilogram: 1,
+          gram: .001,
+          pound: .45359237,
+          ounce: .0283495231
+        };
+
+        result =
+          value *
+          factors[from] /
+          factors[to];
+      }
+
+      document.getElementById("unitResult")
+        .innerHTML =
+        successBox(`النتيجة: ${Number(result.toFixed(8))}`);
+
+    } catch(error) {
+
+      document.getElementById("unitResult")
+        .innerHTML =
+        errorBox("تعذر إجراء التحويل.");
+    }
+  }
+
+  /* =========================================================
+     CURRENCY CONVERTER
+  ========================================================= */
+
+  const popularCurrencies = [
+    "OMR",
+    "USD",
+    "AED",
+    "SAR",
+    "QAR",
+    "KWD",
+    "BHD",
+    "EUR",
+    "GBP",
+    "INR",
+    "PKR",
+    "EGP",
+    "TRY",
+    "CNY",
+    "JPY"
+  ];
+
+  async function loadCurrencies() {
+
+    const from =
+      document.getElementById("currencyFrom");
+
+    const to =
+      document.getElementById("currencyTo");
+
+    if (!from || !to) return;
+
+    from.innerHTML = "";
+    to.innerHTML = "";
+
+    popularCurrencies.forEach(currency => {
+
+      from.innerHTML +=
+        `<option value="${currency}">${currency}</option>`;
+
+      to.innerHTML +=
+        `<option value="${currency}">${currency}</option>`;
+    });
+
+    from.value = "OMR";
+    to.value = "USD";
+  }
+
+  async function convertCurrency() {
+
+    const amount =
+      Number(
+        document.getElementById("currencyAmount").value
       );
 
+    const from =
+      document.getElementById("currencyFrom").value;
 
-      showToast(
-        "تم اختيار الصورة. سيتم تفعيل المعالجة الكاملة لهذه الأداة في التحديث القادم."
-      );
+    const to =
+      document.getElementById("currencyTo").value;
 
+    const result =
+      document.getElementById("currencyResult");
+
+    if (!Number.isFinite(amount) || amount < 0) {
+      result.innerHTML =
+        errorBox("أدخل مبلغاً صحيحاً.");
+      return;
     }
 
-
-    /* =========================
-       NAVIGATION
-    ========================= */
-
-    function scrollToTools() {
-
-      document
-        .getElementById("tools")
-        .scrollIntoView({
-          behavior: "smooth"
-        });
-
+    if (from === to) {
+      result.innerHTML =
+        successBox(
+          `${amount} ${from} = ${amount} ${to}`
+        );
+      return;
     }
 
+    result.innerHTML =
+      `<div class="result">⏳ جاري جلب سعر الصرف...</div>`;
 
-    function scrollToAI() {
+    try {
 
-      document
-        .getElementById("ai-services")
-        .scrollIntoView({
-          behavior: "smooth"
-        });
-
-    }
-
-
-    /* =========================
-       TOAST
-    ========================= */
-
-    function showToast(message) {
-
-      const toast =
-        document.getElementById("toast");
-
-
-      toast.textContent = message;
-
-      toast.classList.add("show");
-
-
-      setTimeout(
-        () => {
-          toast.classList.remove("show");
-        },
-        3500
-      );
-
-    }
-
-
-    /* =========================
-       PAGE READY
-    ========================= */
-
-    window.addEventListener(
-      "load",
-      () => {
-
-        trackEvent(
-          "page_ready",
+      const response =
+        await fetch(
+          `https://open.er-api.com/v6/latest/${encodeURIComponent(from)}`,
           {
-            page_name: "Adati AI Home"
+            cache: "no-store"
           }
         );
 
+      if (!response.ok) {
+        throw new Error("Currency API error");
       }
-    );
 
-  </script>
+      const data =
+        await response.json();
+
+      if (
+        data.result !== "success" ||
+        !data.rates ||
+        !data.rates[to]
+      ) {
+        throw new Error("Rate unavailable");
+      }
+
+      const rate =
+        Number(data.rates[to]);
+
+      const converted =
+        amount * rate;
+
+      result.innerHTML =
+        successBox(
+`${amount} ${from} = ${converted.toFixed(4)} ${to}
+
+سعر الصرف:
+1 ${from} = ${rate} ${to}`
+        );
+
+      trackEvent("tool_use", {
+        tool_name: "currency_converter"
+      });
+
+    } catch(error) {
+
+      console.error(error);
+
+      result.innerHTML =
+        errorBox(
+          "تعذر جلب سعر الصرف حالياً. حاول مرة أخرى."
+        );
+    }
+  }
+
+  /* =========================================================
+     DOWNLOAD + RESULT
+  ========================================================= */
+
+  function downloadBlob(blob, filename) {
+
+    const url =
+      URL.createObjectURL(blob);
+
+    const link =
+      document.createElement("a");
+
+    link.href = url;
+    link.download = filename;
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    link.remove();
+
+    setTimeout(() => {
+      URL.revokeObjectURL(url);
+    }, 1000);
+  }
+
+  function successBox(message) {
+    return `
+      <div class="result">
+        ✅ ${escapeHTML(String(message))}
+      </div>
+    `;
+  }
+
+  function errorBox(message) {
+    return `
+      <div class="result error">
+        ⚠️ ${escapeHTML(String(message))}
+      </div>
+    `;
+  }
+
+  function escapeHTML(value) {
+
+    return value
+      .replace(/&/g,"&amp;")
+      .replace(/</g,"&lt;")
+      .replace(/>/g,"&gt;")
+      .replace(/"/g,"&quot;")
+      .replace(/'/g,"&#039;");
+  }
+
+  /* =========================================================
+     STARTUP
+  ========================================================= */
+
+  document.addEventListener("DOMContentLoaded", () => {
+
+    trackEvent("page_ready", {
+      page_name: "Adati AI Home"
+    });
+
+    /* Unit converter default values */
+    const unitType =
+      document.getElementById("unitType");
+
+    if (unitType) {
+      updateUnitFields();
+    }
+
+  });
+</script>
 
 </body>
 </html>
